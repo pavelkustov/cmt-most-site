@@ -61,3 +61,5 @@ design/                  рендеры макета, манифест ассе�
 docs/PROJECT.md          информация по проекту и список открытых вопросов
 tools/                   смоук-тест и вспомогательные скрипты
 ```
+
+Проверка опубликованного сайта: `python tools/smoke.py --base https://pavelkustov.github.io/cmt-most-site/`

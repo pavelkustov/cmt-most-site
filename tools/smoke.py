@@ -28,6 +28,9 @@ httpd = socketserver.TCPServer(("127.0.0.1", 0), handler)
 port = httpd.server_address[1]
 threading.Thread(target=httpd.serve_forever, daemon=True).start()
 base = f"http://127.0.0.1:{port}/"
+# --base https://pavelkustov.github.io/cmt-most-site/ проверяет опубликованный сайт
+if "--base" in sys.argv:
+    base = sys.argv[sys.argv.index("--base") + 1].rstrip("/") + "/"
 
 problems = []
 checks = 0
