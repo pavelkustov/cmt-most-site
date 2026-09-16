@@ -127,6 +127,15 @@ with sync_playwright() as p:
         check(box["heroBottom"] <= h + 1, f"[{w}x{h}] {u}: первый экран не помещается: {box}")
         check(box["btnBottom"] <= h, f"[{w}x{h}] {u}: низ первого экрана за краем окна: {box}")
         check(box["titleTop"] >= box["headerBottom"] + 20, f"[{w}x{h}] {u}: заголовок налезает на шапку: {box}")
+        gaps = pg.evaluate("""(() => {
+            const hero = document.querySelector('.hero').getBoundingClientRect();
+            const header = document.querySelector('.site-header').getBoundingClientRect();
+            const content = [...document.querySelector('.hero__content').querySelectorAll('.hero__back, .hero__title, .hero__subtitle, .hero .btn')]
+                .map(e => e.getBoundingClientRect());
+            const top = Math.min(...content.map(r => r.top)), bottom = Math.max(...content.map(r => r.bottom));
+            return {top: top - header.bottom, bottom: hero.bottom - bottom};
+        })()""")
+        check(abs(gaps["top"] - gaps["bottom"]) <= 3, f"[{w}x{h}] {u}: отступы сверху и снизу разные: {gaps}")
         if SHOTS:
             pg.screenshot(path=str(ROOT / "tools" / "shots" / f"fit-{w}x{h}-{u.split('.')[0]}.png"))
         pg.close()
