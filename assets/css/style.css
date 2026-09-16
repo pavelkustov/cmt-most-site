@@ -1,6 +1,7 @@
 /* ЦМТ «Мост» — стили сайта.
-   Макет нарисован на ширине 1920px. 1rem = 10px на 1920, дальше масштабируется
-   вместе с окном: размер из макета N px пишем как N/10 rem. */
+   Макет нарисован на 1920×1090 (первый экран). 1rem = 10px в макете: размер N px пишем как N/10 rem.
+   Масштаб берется по меньшей стороне окна, чтобы первый экран целиком помещался и в широкое,
+   но невысокое окно. Лишняя ширина уходит в поля: контент центрируется в колонке 1690px макета. */
 
 :root {
   --ink: #2c2f36;
@@ -13,7 +14,8 @@
   --stroke: #e2ebe4;
   --white: #fff;
 
-  --gutter: 11.5rem;
+  /* 100% здесь считается от ширины блока, где переменная используется (все такие блоки во всю ширину) */
+  --gutter: max(11.5rem, calc((100% - 169rem) / 2));
   --section-gap: 16rem;
   --radius-l: 2.4rem;
   --radius-m: 1.6rem;
@@ -23,7 +25,7 @@
 }
 
 html {
-  font-size: clamp(6.4px, calc(100vw / 192), 10px);
+  font-size: clamp(6.4px, min(100vw / 192, 100vh / 109), 10px);
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
@@ -55,7 +57,7 @@ svg { display: block; flex-shrink: 0; }
   clip: rect(0 0 0 0); white-space: nowrap;
 }
 
-.page { max-width: 1920px; margin: 0 auto; overflow-x: clip; background: var(--white); }
+.page { overflow-x: clip; background: var(--white); }
 .container { padding-inline: var(--gutter); }
 
 /* ---------- типографика ---------- */

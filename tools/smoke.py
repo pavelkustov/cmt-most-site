@@ -107,6 +107,23 @@ with sync_playwright() as p:
     page.goto(base + "news.html?open=news-2", wait_until="networkidle")
     check(page.locator(".modal").is_visible(), "новости: попап по ссылке ?open= не открылся")
 
+    # первый экран целиком помещается в широкие невысокие окна (Chrome с панелями, масштаб Windows 125%)
+    for w, h in [(2000, 930), (1536, 730), (1920, 960), (2560, 1300)]:
+        pg = browser.new_context(viewport={"width": w, "height": h}).new_page()
+        pg.goto(base + "index.html", wait_until="networkidle")
+        box = pg.evaluate("""(() => {
+            const hero = document.querySelector('.hero').getBoundingClientRect();
+            const btn = document.querySelector('.hero .btn').getBoundingClientRect();
+            const title = document.querySelector('.hero__title').getBoundingClientRect();
+            const nav = document.querySelector('.nav__bar').getBoundingClientRect();
+            return {heroBottom: hero.bottom, btnBottom: btn.bottom, titleLeft: title.left, navRight: nav.right};
+        })()""")
+        check(box["heroBottom"] <= h + 1, f"[{w}x{h}] первый экран не помещается: {box}")
+        check(box["btnBottom"] <= h, f"[{w}x{h}] кнопка «Написать» ниже края окна: {box}")
+        if SHOTS:
+            pg.screenshot(path=str(ROOT / "tools" / "shots" / f"fit-{w}x{h}.png"))
+        pg.close()
+
     mob = browser.new_context(viewport={"width": 390, "height": 844}).new_page()
     mob.goto(base + "index.html", wait_until="networkidle")
     check(not mob.locator(".nav").is_visible(), "мобилка: меню видно до нажатия бургера")
