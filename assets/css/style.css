@@ -497,28 +497,44 @@ select.field {
 .news-all { padding-top: 12rem; }
 .news-all .news__grid { margin-top: 6rem; gap: 6rem 5rem; }
 
-/* попап */
-.modal { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 4rem var(--gutter); }
+/* попап. Размеры из макета (1690×990), в единицах --u: 1 --u = 10px макета.
+   --u не больше 1rem и такое, чтобы попап высотой 99 --u влез в окно с полями 3rem сверху и снизу. */
+.modal {
+  --u: min(1rem, calc((100vh - 6rem) / 99));
+  position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 3rem var(--gutter);
+}
 .modal[hidden] { display: none; }
 .modal__backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, .35); animation: fade .2s; }
 .modal__dialog {
-  position: relative; width: 100%; max-width: 169rem; max-height: calc(100vh - 8rem);
-  display: grid; grid-template-columns: 90rem 1fr; background: var(--bg-soft); border-radius: var(--radius-l); overflow: hidden;
+  position: relative; width: 100%; max-width: calc(169 * var(--u)); max-height: calc(100vh - 6rem);
+  display: grid; grid-template-columns: calc(90 * var(--u)) 1fr; background: var(--bg-soft); border-radius: var(--radius-l); overflow: hidden;
   animation: pop .25s cubic-bezier(.2, .8, .2, 1);
 }
-.modal__img { background: #d9e4dc; min-height: 40rem; }
-.modal__img { position: relative; }
+.modal__img { position: relative; background: #d9e4dc; min-height: calc(40 * var(--u)); }
 .modal__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
-.modal__body { overflow-y: auto; padding: 4.8rem 5.6rem 5.6rem; display: flex; flex-direction: column; gap: 3.2rem; }
-.modal__close {
-  position: absolute; top: 2.4rem; right: 2.4rem; width: 4.8rem; height: 4.8rem; border-radius: 1rem;
-  background: var(--stroke); display: grid; place-items: center; transition: background-color .2s;
+.modal__body {
+  position: relative; overflow-y: auto; padding: calc(4 * var(--u)) calc(8 * var(--u)) calc(6 * var(--u));
+  display: flex; flex-direction: column; gap: calc(2.4 * var(--u));
 }
-.modal__close:hover { background: var(--tag); }
-.modal__close svg { width: 2rem; height: 2rem; }
-.modal__title { font-size: 4.8rem; font-weight: 500; line-height: 1.2; letter-spacing: -0.05rem; padding-right: 6rem; }
-.modal__text { font-size: 2.2rem; line-height: 1.45; display: flex; flex-direction: column; gap: 2.4rem; }
-.modal__text blockquote { margin: 0; padding-left: 2.4rem; border-left: 2px solid var(--green); display: flex; flex-direction: column; gap: 2rem; }
+.modal__meta { min-height: calc(4.1 * var(--u)); }
+.modal__close {
+  position: absolute; top: calc(4 * var(--u)); right: calc(8 * var(--u));
+  width: calc(4.1 * var(--u)); height: calc(4.1 * var(--u)); border-radius: calc(.8 * var(--u));
+  background: var(--ink); color: var(--mint); display: grid; place-items: center; transition: background-color .2s;
+}
+.modal__close:hover { background: var(--green); }
+.modal__close svg { width: calc(2 * var(--u)); height: calc(2 * var(--u)); }
+.modal .tag { font-size: calc(1.8 * var(--u)); padding: calc(.8 * var(--u)) calc(1.6 * var(--u)); }
+.modal .news-meta__date { font-size: calc(2 * var(--u)); }
+.modal__title { font-size: calc(4.8 * var(--u)); font-weight: 500; line-height: 1.2; letter-spacing: -0.05rem; padding-right: calc(4 * var(--u)); }
+.modal__text {
+  font-family: var(--font-alt); font-size: calc(2.4 * var(--u)); font-weight: 300; line-height: 1.2;
+  display: flex; flex-direction: column; gap: calc(1.5 * var(--u));
+}
+.modal__text blockquote {
+  margin: 0; padding-left: calc(2 * var(--u)); border-left: 3px solid var(--green);
+  display: flex; flex-direction: column; gap: calc(2 * var(--u));
+}
 .modal__text .note { font-style: italic; }
 @keyframes fade { from { opacity: 0; } }
 @keyframes pop { from { opacity: 0; transform: translateY(2rem) scale(.98); } }
@@ -672,7 +688,9 @@ select.field {
   .modal { padding: 0; align-items: end; }
   .modal__dialog { max-height: 92svh; border-radius: var(--radius-l) var(--radius-l) 0 0; }
   .modal__img { height: 30svh; }
+  .modal { --u: .8rem; }
   .modal__body { padding: 4rem 3.2rem 5rem; }
+  .modal__close { top: 4rem; right: 3.2rem; }
   .modal__title { font-size: 3.6rem; }
   .modal__text { font-size: 2.56rem; }
 }

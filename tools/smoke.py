@@ -140,6 +140,22 @@ with sync_playwright() as p:
             pg.screenshot(path=str(ROOT / "tools" / "shots" / f"fit-{w}x{h}-{u.split('.')[0]}.png"))
         pg.close()
 
+    # попап новости месяца целиком виден и текст влезает без прокрутки
+    for w, h in [(2000, 930), (1536, 730), (1920, 1080), (1440, 900)]:
+        pg = browser.new_context(viewport={"width": w, "height": h}).new_page()
+        pg.goto(base + "news.html?open=kustov-phd", wait_until=WAIT, timeout=TIMEOUT)
+        pg.wait_for_timeout(400)
+        m = pg.evaluate("""(() => {
+            const d = document.querySelector('.modal__dialog').getBoundingClientRect();
+            const b = document.querySelector('.modal__body');
+            return {top: d.top, bottom: d.bottom, overflow: b.scrollHeight - b.clientHeight};
+        })()""")
+        check(m["top"] >= 0 and m["bottom"] <= h, f"[{w}x{h}] попап выходит за окно: {m}")
+        check(m["overflow"] <= 2, f"[{w}x{h}] текст попапа не влезает, нужна прокрутка: {m}")
+        if SHOTS:
+            pg.screenshot(path=str(ROOT / "tools" / "shots" / f"popup-{w}x{h}.png"))
+        pg.close()
+
     mob = browser.new_context(viewport={"width": 390, "height": 844}).new_page()
     mob.goto(base + "index.html", wait_until=WAIT, timeout=TIMEOUT)
     check(not mob.locator(".nav").is_visible(), "мобилка: меню видно до нажатия бургера")
