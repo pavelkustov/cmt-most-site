@@ -169,7 +169,7 @@ const PLACEHOLDER_NEWS = {
 
 window.NEWS = [
   {
-    id: "kustov-phd", featured: true, tag: "Достижение", date: "2026-05-14", image: "news-featured.webp",
+    id: "kustov-phd", featured: true, tag: "Достижение", date: "2026-05-14", image: "news-featured-card.webp", popupImage: "news-featured-popup.webp",
     title: "Новоиспеченный кандидат физико-математических наук Павел Кустов",
     text: "Его исследования посвящены разработке и изучению оптических свойств кремниевых микро- и наносистем, которые могут стать основой для передовых масштабируемых нанофотонных защитных меток.",
     body: {

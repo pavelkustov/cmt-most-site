@@ -254,8 +254,10 @@ function initNews() {
         ${featured.image ? `<span class="featured__img">${photo(featured)}</span>` : ""}
         <span class="featured__body">
           <span class="news-meta"><span class="tag">${esc(featured.tag)}</span><time class="news-meta__date" datetime="${featured.date}">${formatDate(featured.date)}</time></span>
-          <span class="featured__title">${esc(featured.title)}</span>
-          <span class="featured__text">${esc(featured.text)}</span>
+          <span class="featured__main">
+            <span class="featured__title">${esc(featured.title)}</span>
+            <span class="featured__text">${esc(featured.text)}</span>
+          </span>
           <span class="link-arrow">Читать ${ICONS.arrowRight}</span>
         </span>
       </button>`;
@@ -282,7 +284,7 @@ function initNews() {
     const n = NEWS.find((x) => x.id === id);
     if (!n) return;
     const b = n.body;
-    modal.querySelector(".modal__img").innerHTML = photo(n);
+    modal.querySelector(".modal__img").innerHTML = photo({ image: n.popupImage || n.image });
     modal.querySelector(".modal__dialog").classList.toggle("no-image", !n.image);
     modal.querySelector(".modal__meta").innerHTML = `<span class="tag">${esc(n.tag)}</span><time class="news-meta__date" datetime="${n.date}">${formatDate(n.date)}</time>`;
     modal.querySelector(".modal__title").textContent = n.title;
