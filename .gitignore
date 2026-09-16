@@ -1,0 +1,8 @@
+tools/shots/
+design/source-img/
+__pycache__/
+.DS_Store
+Thumbs.db
+desktop.ini
+.impeccable/
+design/assets_manifest.txt
