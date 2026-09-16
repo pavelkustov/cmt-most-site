@@ -17,6 +17,7 @@
      100% считается от ширины блока, где переменная используется (все такие блоки во всю ширину) */
   --gutter: max(11.5rem, calc((100% - 169rem) / 2));
   --section-gap: 16rem;
+  --hero-edge: 6rem; /* поле первого экрана: сверху до шапки и снизу под кнопкой */
   --radius-l: 2.4rem;
   --radius-m: 1.6rem;
 
@@ -117,7 +118,7 @@ svg { display: block; flex-shrink: 0; }
 
 /* ---------- шапка ---------- */
 .site-header {
-  position: absolute; inset: 6rem var(--gutter) auto; z-index: 20;
+  position: absolute; inset: var(--hero-edge) var(--gutter) auto; z-index: 20;
   display: flex; align-items: flex-start; justify-content: space-between; gap: 3rem;
 }
 .site-header__logo img { width: 36.4rem; height: auto; }
@@ -172,8 +173,8 @@ svg { display: block; flex-shrink: 0; }
 
 /* ---------- первый экран ---------- */
 /* Первый экран не выше окна: в невысоком окне сжимаются отступы, а не шрифты.
-   Контент стоит по центру между низом шапки (6rem + 8.2rem) и низом блока,
-   поэтому отступ над заголовком равен отступу под кнопкой. */
+   Контент прижат к низу на --hero-edge, тем же отступом, что шапка сверху,
+   поэтому поля сверху (до логотипа и меню) и снизу (под кнопкой) одинаковые. */
 .hero { position: relative; height: min(109rem, 100vh); min-height: 64rem; color: var(--mint); overflow: hidden; background: #0d1a14; }
 .hero--short { height: min(91.1rem, 100vh); }
 .hero__bg { position: absolute; inset: -2%; }
@@ -186,8 +187,8 @@ svg { display: block; flex-shrink: 0; }
 .hero--direction .hero__bg::after { background: linear-gradient(60.8deg, rgba(9, 9, 11, .55) 30%, rgba(9, 9, 11, .15) 100%); }
 .hero__content {
   position: absolute; left: var(--gutter); right: var(--gutter);
-  top: 14.2rem; bottom: 0;
-  display: flex; flex-direction: column; justify-content: center;
+  top: calc(var(--hero-edge) + 12rem); bottom: var(--hero-edge);
+  display: flex; flex-direction: column; justify-content: flex-end;
 }
 .hero__back {
   align-self: flex-start; display: inline-flex; align-items: center; gap: .8rem; margin-bottom: 6.8rem;
@@ -546,13 +547,13 @@ select.field {
 
 @media (max-width: 760px) {
   html { font-size: 6.25px; }
-  :root { --gutter: 2.6rem; --section-gap: 9.6rem; }
+  :root { --gutter: 2.6rem; --section-gap: 9.6rem; --hero-edge: 4rem; }
   body { font-size: 2.56rem; }
   .h2 { font-size: 5.6rem; }
   .lead { font-size: 2.72rem; }
   .section-head--row { flex-direction: column; align-items: flex-start; gap: 2.4rem; }
 
-  .site-header { top: 2.6rem; align-items: center; }
+  .site-header { align-items: center; }
   .site-header__logo img { width: 26rem; }
   .burger {
     display: grid; place-items: center; width: 6.4rem; height: 6.4rem; border-radius: 1.2rem;
@@ -572,7 +573,7 @@ select.field {
   .lang { align-self: flex-start; background: rgba(242, 253, 251, .15); }
 
   .hero, .hero--short { height: auto; min-height: 100svh; }
-  .hero__content, .hero--home .hero__content, .hero--short .hero__content { position: relative; left: auto; right: auto; top: auto; bottom: auto; padding: 24rem var(--gutter) 6rem; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; }
+  .hero__content, .hero--home .hero__content, .hero--short .hero__content { position: relative; left: auto; right: auto; top: auto; bottom: auto; padding: 24rem var(--gutter) var(--hero-edge); min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; }
   .hero--home .hero__content { top: auto; }
   .hero__back { margin-bottom: 4rem; }
   .hero__title { font-size: 7.2rem; line-height: 1.02; }

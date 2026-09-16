@@ -133,9 +133,9 @@ with sync_playwright() as p:
             const content = [...document.querySelector('.hero__content').querySelectorAll('.hero__back, .hero__title, .hero__subtitle, .hero .btn')]
                 .map(e => e.getBoundingClientRect());
             const top = Math.min(...content.map(r => r.top)), bottom = Math.max(...content.map(r => r.bottom));
-            return {top: top - header.bottom, bottom: hero.bottom - bottom};
+            return {top: header.top - hero.top, bottom: hero.bottom - bottom};
         })()""")
-        check(abs(gaps["top"] - gaps["bottom"]) <= 3, f"[{w}x{h}] {u}: отступы сверху и снизу разные: {gaps}")
+        check(abs(gaps["top"] - gaps["bottom"]) <= 3, f"[{w}x{h}] {u}: поле над шапкой и под кнопкой разное: {gaps}")
         if SHOTS:
             pg.screenshot(path=str(ROOT / "tools" / "shots" / f"fit-{w}x{h}-{u.split('.')[0]}.png"))
         pg.close()
