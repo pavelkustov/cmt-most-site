@@ -31,6 +31,9 @@ base = f"http://127.0.0.1:{port}/"
 # --base https://pavelkustov.github.io/cmt-most-site/ проверяет опубликованный сайт
 if "--base" in sys.argv:
     base = sys.argv[sys.argv.index("--base") + 1].rstrip("/") + "/"
+# живой сайт бывает медленным (GitHub Pages из РФ), там ждем событие load с большим таймаутом
+WAIT = "load" if "--base" in sys.argv else "networkidle"
+TIMEOUT = 120_000 if "--base" in sys.argv else 30_000
 
 problems = []
 checks = 0
@@ -55,7 +58,7 @@ with sync_playwright() as p:
             page.on("console", lambda m: m.type == "error" and "ERR_NAME_NOT_RESOLVED" not in m.text and errors.append(m.text))
             bad = []
             page.on("response", lambda r: r.status >= 400 and "fonts." not in r.url and bad.append(f"{r.status} {r.url}"))
-            page.goto(base + url, wait_until="networkidle")
+            page.goto(base + url, wait_until=WAIT, timeout=TIMEOUT)
             tag = f"[{width}] {url}"
             check(not errors, f"{tag}: ошибки JS {errors}")
             check(not bad, f"{tag}: битые ресурсы {bad}")
@@ -75,7 +78,7 @@ with sync_playwright() as p:
     # сценарии на десктопе
     ctx = browser.new_context(viewport={"width": 1440, "height": 900})
     page = ctx.new_page()
-    page.goto(base + "index.html", wait_until="networkidle")
+    page.goto(base + "index.html", wait_until=WAIT, timeout=TIMEOUT)
     check(page.locator(".dir-card").count() == 10, "главная: должно быть 10 карточек направлений")
     check(page.locator(".news__grid .news-card").count() == 3, "главная: должно быть 3 новости")
     page.click(".nav__item[aria-controls='nav-science']")
@@ -86,7 +89,7 @@ with sync_playwright() as p:
     page.wait_for_timeout(700)
     check(not prev.is_disabled(), "карусель не прокрутилась")
 
-    page.goto(base + "publications.html", wait_until="networkidle")
+    page.goto(base + "publications.html", wait_until=WAIT, timeout=TIMEOUT)
     check(page.locator(".pub").count() == 6, "публикации: на первой странице должно быть 6")
     page.click(".more .btn")
     check(page.locator(".pub").count() == 12, "публикации: «показать еще» не догрузил")
@@ -99,18 +102,18 @@ with sync_playwright() as p:
     check(page.locator(".pub-list.is-list").count() == 1, "публикации: не переключился вид «список»")
     check(not page.locator(".pub__img").first.is_visible(), "публикации: в виде «список» видны картинки")
 
-    page.goto(base + "news.html", wait_until="networkidle")
+    page.goto(base + "news.html", wait_until=WAIT, timeout=TIMEOUT)
     page.click(".featured__card")
     check(page.locator(".modal").is_visible(), "новости: попап не открылся")
     page.keyboard.press("Escape")
     check(not page.locator(".modal").is_visible(), "новости: попап не закрылся по Esc")
-    page.goto(base + "news.html?open=news-2", wait_until="networkidle")
+    page.goto(base + "news.html?open=news-2", wait_until=WAIT, timeout=TIMEOUT)
     check(page.locator(".modal").is_visible(), "новости: попап по ссылке ?open= не открылся")
 
     # первый экран целиком помещается в широкие невысокие окна (Chrome с панелями, масштаб Windows 125%)
     for w, h in [(2000, 930), (1536, 730), (1920, 960), (2560, 1300)]:
         pg = browser.new_context(viewport={"width": w, "height": h}).new_page()
-        pg.goto(base + "index.html", wait_until="networkidle")
+        pg.goto(base + "index.html", wait_until=WAIT, timeout=TIMEOUT)
         box = pg.evaluate("""(() => {
             const hero = document.querySelector('.hero').getBoundingClientRect();
             const btn = document.querySelector('.hero .btn').getBoundingClientRect();
@@ -125,7 +128,7 @@ with sync_playwright() as p:
         pg.close()
 
     mob = browser.new_context(viewport={"width": 390, "height": 844}).new_page()
-    mob.goto(base + "index.html", wait_until="networkidle")
+    mob.goto(base + "index.html", wait_until=WAIT, timeout=TIMEOUT)
     check(not mob.locator(".nav").is_visible(), "мобилка: меню видно до нажатия бургера")
     mob.click(".burger")
     check(mob.locator(".nav").is_visible(), "мобилка: бургер не открыл меню")
