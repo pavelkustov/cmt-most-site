@@ -1,7 +1,6 @@
 /* ЦМТ «Мост» — стили сайта.
-   Макет нарисован на 1920×1090 (первый экран). 1rem = 10px в макете: размер N px пишем как N/10 rem.
-   Масштаб берется по меньшей стороне окна, чтобы первый экран целиком помещался и в широкое,
-   но невысокое окно. Лишняя ширина уходит в поля: контент центрируется в колонке 1690px макета. */
+   Макет нарисован на ширине 1920px. 1rem = 10px на 1920, дальше масштабируется
+   вместе с окном: размер из макета N px пишем как N/10 rem. */
 
 :root {
   --ink: #2c2f36;
@@ -14,7 +13,8 @@
   --stroke: #e2ebe4;
   --white: #fff;
 
-  /* 100% здесь считается от ширины блока, где переменная используется (все такие блоки во всю ширину) */
+  /* до 1920px поле 115px как в макете, шире — контент стоит по центру, фон тянется на всю ширину.
+     100% считается от ширины блока, где переменная используется (все такие блоки во всю ширину) */
   --gutter: max(11.5rem, calc((100% - 169rem) / 2));
   --section-gap: 16rem;
   --radius-l: 2.4rem;
@@ -25,7 +25,7 @@
 }
 
 html {
-  font-size: clamp(6.4px, min(100vw / 192, 100vh / 109), 10px);
+  font-size: clamp(6.4px, calc(100vw / 192), 10px);
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
@@ -171,8 +171,11 @@ svg { display: block; flex-shrink: 0; }
 .burger { display: none; }
 
 /* ---------- первый экран ---------- */
-.hero { position: relative; height: 109rem; color: var(--mint); overflow: hidden; background: #0d1a14; }
-.hero--short { height: 91.1rem; }
+/* Первый экран не выше окна: в невысоком окне сжимаются отступы, а не шрифты.
+   Верх контента ставится как в макете (отсчет от низа блока), но не выше шапки;
+   подзаголовок с кнопкой прижаты к низу на 16rem, как в макете. */
+.hero { position: relative; height: min(109rem, 100vh); min-height: 64rem; color: var(--mint); overflow: hidden; background: #0d1a14; }
+.hero--short { height: min(91.1rem, 100vh); }
 .hero__bg { position: absolute; inset: -2%; }
 .hero__bg img { width: 100%; height: 100%; object-fit: cover; filter: blur(7.5px); transform: scale(1.02); }
 .hero--direction .hero__bg img { filter: blur(16px); }
@@ -181,10 +184,15 @@ svg { display: block; flex-shrink: 0; }
   background: linear-gradient(60.8deg, rgba(9, 9, 11, .5) 35.45%, rgba(9, 9, 11, 0) 100%);
 }
 .hero--direction .hero__bg::after { background: linear-gradient(60.8deg, rgba(9, 9, 11, .55) 30%, rgba(9, 9, 11, .15) 100%); }
-.hero__content { position: absolute; left: var(--gutter); right: var(--gutter); top: 34.9rem; bottom: 0; }
-.hero--home .hero__content { top: 44.8rem; }
+.hero__content {
+  position: absolute; left: var(--gutter); right: var(--gutter);
+  top: max(18rem, calc(100% - 74.1rem)); bottom: 16rem;
+  display: flex; flex-direction: column;
+}
+.hero--home .hero__content { top: max(18rem, calc(100% - 64.2rem)); }
+.hero--short .hero__content { top: max(18rem, calc(100% - 56.2rem)); bottom: 12rem; }
 .hero__back {
-  display: inline-flex; align-items: center; gap: .8rem; margin-bottom: 6.8rem;
+  align-self: flex-start; display: inline-flex; align-items: center; gap: .8rem; margin-bottom: 6.8rem;
   font-size: 1.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: -0.05rem; color: var(--white);
 }
 .hero__back svg { width: 2.1rem; height: 2.1rem; transform: rotate(180deg); transition: transform .2s; }
@@ -193,11 +201,9 @@ svg { display: block; flex-shrink: 0; }
 .hero--home .hero__title { line-height: .97; }
 .hero__title em { font-style: italic; font-weight: 300; }
 .hero__bottom {
-  margin-top: 9.5rem;
+  margin-top: auto; padding-top: 4rem;
   display: flex; justify-content: space-between; align-items: flex-end; gap: 4rem;
 }
-.hero--home .hero__bottom { margin-top: 6.2rem; }
-.hero--short .hero__bottom { margin-top: 6rem; }
 .hero__subtitle { font-size: 3.2rem; font-weight: 300; line-height: 1.45; letter-spacing: -0.016rem; max-width: 91.4rem; }
 
 /* ---------- главная: о центре ---------- */
@@ -565,7 +571,8 @@ select.field {
   .lang { align-self: flex-start; background: rgba(242, 253, 251, .15); }
 
   .hero, .hero--short { height: auto; min-height: 100svh; }
-  .hero__content { position: relative; left: auto; right: auto; top: auto; padding: 24rem var(--gutter) 6rem; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; }
+  .hero__bottom { padding-top: 0; }
+  .hero__content, .hero--home .hero__content, .hero--short .hero__content { position: relative; left: auto; right: auto; top: auto; bottom: auto; padding: 24rem var(--gutter) 6rem; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; }
   .hero--home .hero__content { top: auto; }
   .hero__back { margin-bottom: 4rem; }
   .hero__title { font-size: 7.2rem; line-height: 1.02; }
