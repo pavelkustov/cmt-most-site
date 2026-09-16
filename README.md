@@ -34,6 +34,7 @@ python -m http.server 8000
 ## Проверка перед публикацией
 
 ```powershell
+python tools/bump_assets.py    # метки версий ?v= у CSS/JS, чтобы браузеры не показывали старый кэш
 python tools/smoke.py          # ошибки JS, битые картинки, горизонтальный скролл, фильтры, попап
 python tools/smoke.py --shots  # то же и скриншоты в tools/shots/
 ```

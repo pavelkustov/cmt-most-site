@@ -38,12 +38,25 @@ TIMEOUT = 120_000 if "--base" in sys.argv else 30_000
 problems = []
 checks = 0
 
+# метки версий CSS/JS в HTML должны совпадать с содержимым файлов, иначе браузеры покажут старый кэш
+import hashlib
+import re
+
+stale = []
+for html in ROOT.glob("*.html"):
+    for path, ver in re.findall(r'(?:href|src)="(assets/(?:css|js)/[^"?]+)(?:\?v=([0-9a-f]+))?"', html.read_text(encoding="utf-8")):
+        if ver != hashlib.sha1((ROOT / path).read_bytes()).hexdigest()[:8]:
+            stale.append(f"{html.name}: {path}")
+
 
 def check(cond, msg):
     global checks
     checks += 1
     if not cond:
         problems.append(msg)
+
+
+check(not stale, f"устаревшие метки версий, запустите python tools/bump_assets.py: {stale}")
 
 
 with sync_playwright() as p:
