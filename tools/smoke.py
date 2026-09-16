@@ -32,7 +32,7 @@ base = f"http://127.0.0.1:{port}/"
 if "--base" in sys.argv:
     base = sys.argv[sys.argv.index("--base") + 1].rstrip("/") + "/"
 # живой сайт бывает медленным (GitHub Pages из РФ), там ждем событие load с большим таймаутом
-WAIT = "load" if "--base" in sys.argv else "networkidle"
+WAIT = "load"  # networkidle зависает, когда тормозят внешние шрифты
 TIMEOUT = 120_000 if "--base" in sys.argv else 30_000
 
 problems = []

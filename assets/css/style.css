@@ -180,6 +180,9 @@ svg { display: block; flex-shrink: 0; }
 .hero__bg { position: absolute; inset: -2%; }
 .hero__bg img { width: 100%; height: 100%; object-fit: cover; filter: blur(7.5px); transform: scale(1.02); }
 .hero--direction .hero__bg img { filter: blur(16px); }
+/* фото команды в «Новостях»: в макете без размытия, только затемнение (exposure -0.54) */
+.hero--photo .hero__bg img { filter: brightness(.62); transform: none; }
+.hero--photo .hero__bg::after { background: linear-gradient(60.8deg, rgba(9, 9, 11, .35) 25%, rgba(9, 9, 11, 0) 70%); }
 .hero__bg::after {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(60.8deg, rgba(9, 9, 11, .5) 35.45%, rgba(9, 9, 11, 0) 100%);
@@ -385,7 +388,7 @@ svg { display: block; flex-shrink: 0; }
 .person::after { content: ""; position: absolute; inset: 0; background: linear-gradient(179.85deg, rgba(255,255,255,0) 33.9%, var(--ink) 99%); }
 .person__text { position: absolute; left: 3.9rem; right: 3.9rem; bottom: 4.2rem; z-index: 1; }
 .person__name { font-size: 3rem; font-weight: 500; line-height: 1; }
-.person__role { margin-top: 2.8rem; font-size: 2rem; font-weight: 300; line-height: 1.4; text-transform: lowercase; }
+.person__role { margin-top: 2.8rem; font-size: 2rem; font-weight: 300; line-height: 1.4; }
 
 /* ---------- публикации ---------- */
 .pubs { padding-top: var(--section-gap); }
@@ -484,8 +487,9 @@ select.field {
 .featured__card.no-image { grid-template-columns: 1fr; min-height: 0; }
 .modal__dialog.no-image { grid-template-columns: 1fr; max-width: 100rem; }
 .modal__dialog.no-image .modal__img { display: none; }
-.featured__img { border-radius: var(--radius-l); overflow: hidden; background: #d9e4dc; }
-.featured__img img { width: 100%; height: 100%; object-fit: cover; }
+/* фото кадрируется, как в макете (imageTransform: верхняя часть кадра), высоту карточки задает текст */
+.featured__img { position: relative; border-radius: var(--radius-l); overflow: hidden; background: #d9e4dc; }
+.featured__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
 .featured__body { padding: 5.6rem 9.6rem 5.6rem 7.2rem; display: flex; flex-direction: column; gap: 4rem; }
 .featured__title { font-size: 4.8rem; font-weight: 500; line-height: 1.2; letter-spacing: -0.05rem; }
 .featured__text { font-family: var(--font-alt); font-size: 2rem; font-weight: 300; line-height: 1.35; max-width: 60rem; }
@@ -496,14 +500,15 @@ select.field {
 /* попап */
 .modal { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 4rem var(--gutter); }
 .modal[hidden] { display: none; }
-.modal__backdrop { position: absolute; inset: 0; background: rgba(44, 47, 54, .55); backdrop-filter: blur(4px); animation: fade .2s; }
+.modal__backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, .35); animation: fade .2s; }
 .modal__dialog {
   position: relative; width: 100%; max-width: 169rem; max-height: calc(100vh - 8rem);
-  display: grid; grid-template-columns: 89.1rem 1fr; background: var(--white); border-radius: var(--radius-l); overflow: hidden;
+  display: grid; grid-template-columns: 90rem 1fr; background: var(--bg-soft); border-radius: var(--radius-l); overflow: hidden;
   animation: pop .25s cubic-bezier(.2, .8, .2, 1);
 }
 .modal__img { background: #d9e4dc; min-height: 40rem; }
-.modal__img img { width: 100%; height: 100%; object-fit: cover; }
+.modal__img { position: relative; }
+.modal__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
 .modal__body { overflow-y: auto; padding: 4.8rem 5.6rem 5.6rem; display: flex; flex-direction: column; gap: 3.2rem; }
 .modal__close {
   position: absolute; top: 2.4rem; right: 2.4rem; width: 4.8rem; height: 4.8rem; border-radius: 1rem;
@@ -542,7 +547,7 @@ select.field {
   .site-footer__cols { grid-template-columns: 1fr 1fr; row-gap: 6rem; }
   .pub__img { flex-basis: 44rem; height: 34rem; }
   .modal__dialog { grid-template-columns: 1fr; }
-  .modal__img { max-height: 40vh; }
+  .modal__img { height: 40vh; min-height: 0; }
 }
 
 @media (max-width: 760px) {
@@ -666,7 +671,7 @@ select.field {
 
   .modal { padding: 0; align-items: end; }
   .modal__dialog { max-height: 92svh; border-radius: var(--radius-l) var(--radius-l) 0 0; }
-  .modal__img { max-height: 30svh; }
+  .modal__img { height: 30svh; }
   .modal__body { padding: 4rem 3.2rem 5rem; }
   .modal__title { font-size: 3.6rem; }
   .modal__text { font-size: 2.56rem; }

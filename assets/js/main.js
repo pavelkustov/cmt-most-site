@@ -164,6 +164,7 @@ function initDirection() {
   const d = DIRECTIONS.find((x) => x.id === id) || DIRECTIONS.find((x) => x.id === "puf");
   document.title = `${d.title} · ЦМТ «Мост»`;
 
+  if (d.hero) document.querySelector(".hero__bg img").src = img(d.hero);
   document.querySelector(".hero__title").innerHTML = d.heroTitle || esc(d.title);
   document.querySelector(".hero__subtitle").textContent = d.subtitle || "Научное направление ЦМТ «Мост»";
 

@@ -13,7 +13,23 @@ window.SITE = {
 
 /* Научные направления. Карточки на главной и страницы direction.html?id=... */
 window.DIRECTIONS = [
-  { id: "eco-nano", title: "Экологически чистая нано- и микротехнология", team: 12, pubs: 7, image: "sci-1.webp", imagePos: "center bottom" },
+  {
+    /* из шаблона «Направление» в макете; повтор последнего предложения в макете убран */
+    id: "eco-nano",
+    title: "Экологически чистая нано- и микротехнология",
+    heroTitle: "<em>Экологически чистая</em> нано- и микротехнология",
+    subtitle: "Разработка и создание устройств для микроэлектроники и нанофотоники различного назначения",
+    team: 12, pubs: 7, awards: "6", conferences: "10+", hero: "sci-1.webp",
+    image: "sci-1.webp", imagePos: "center bottom",
+    about: [
+      "Широкомасштабное коммерческое применение методов нанофабрикации открывает захватывающие возможности для беспрецедентного развития отрасли информационных технологий, создания сложных микро- и наноэлектронных устройств, нанофотонных и плазмонных устройств различного назначения.",
+      "Наша исследовательская группа под руководством Yali Sun специализируется на получении наночастиц на тонких металлических, диэлектрических и гибридных пленках.",
+    ],
+    tags: ["лазерная фабрикация", "Поляризация", "вода", "Рассеяние", "Наноструктура", "кремний", "TiN", "золото"],
+    people: [
+      { name: "Yali Sun", role: "Professor, Huazhong University of Science and Technology", photo: "person-yali-sun.webp", pos: "50% center" },
+    ],
+  },
   {
     id: "puf",
     title: "Неклонируемые защитные метки",
@@ -60,7 +76,7 @@ window.PUBLICATIONS = [
     authors: "Martin Sandomirskii, Elena Petrova, Pavel Kustov, Lev Chizhov, Artem Larin, Stéphanie Bruyère, Vitaly Yaroshenko, Eduard Ageev, Pavel Belov, Dmitry Zuev",
     desc: "В данной работе случайность, которой характеризуется PUF метки, перенесена с микроуровня на наноуровень. Гибридные золото-кремниевые частицы обладают несколькими резонансами и неизбежно отличаются разбросом наноразмеров.",
     tags: ["Хранение информации", "Кремний-золото", "Фотолюминесценция", "криптография"],
-    doi: "https://doi.org/10.1038/s41467-025-60121-9",
+    doi: "https://doi.org/10.1038/s41467-025-60121-9", image: "pub-2.webp",
   },
   {
     date: "2025-06-12", journal: "ACS Applied Optical Materials", quartile: "Q2", direction: "puf",
@@ -68,7 +84,7 @@ window.PUBLICATIONS = [
     authors: "Kustov P., Yaroshenko V., Sandomirskii M., Petrova E., Fedorova M., Ageev E., Mukhin I., Zuev D.A.",
     desc: "Поляризация света дает дополнительную степень свободы при считывании метки. Несимметричные гибридные золото-кремниевые наноантенны перестраивают фемтосекундным лазером, после чего их рассеяние по-разному меняется для разных поляризаций.",
     tags: ["Наноантенны", "Кремний-золото", "Рассеяние", "Поляризационно-зависимое"],
-    doi: "https://doi.org/10.1021/acsaom.5c00156",
+    doi: "https://doi.org/10.1021/acsaom.5c00156", image: "pub-3.webp",
   },
   {
     date: "2024-09-16", journal: "The Journal of Physical Chemistry Letters", quartile: "Q1", direction: "puf",
@@ -76,7 +92,7 @@ window.PUBLICATIONS = [
     authors: "Vitaly Yaroshenko, Artem Larin, Sergey Syubaev, Ivan Vazhenin, Pavel Kustov, Dmitry Dolgintsev, Eduard Ageev, Stanislav Gurbatov, Alina Maksimova, Kristina Novikova, Sergey Babin, Aleksey Kozlov, Alexandr Dostovalov, Aleksandr Kuchmizhak, Dmitry Zuev",
     desc: "Скрытая метка, которую видно только в инфракрасном свете. Тонкую пленку кремний-эрбий-кремний обрабатывают фемтосекундным лазером, получая случайные или квазирегулярные нанотекстуры. Попутное окисление меняет оптику.",
     tags: ["эрбий", "Тонкие пленки", "Фемтосекундный лазер", "ИК-люминесценция"],
-    doi: "https://doi.org/10.1021/acs.jpclett.4c02051",
+    doi: "https://doi.org/10.1021/acs.jpclett.4c02051", image: "pub-4.webp",
   },
   {
     date: "2023-07-02", journal: "IEEE NANO 2023", direction: "puf",
@@ -84,7 +100,7 @@ window.PUBLICATIONS = [
     authors: "Martin Sandomirskii, Ekaterina Ponkratova, Elena Petrova, Pavel Kustov, Artem Larin, Eduard Ageev, Dmitry Zuev",
     desc: "Данные пишут фемтосекундным лазером по двухслойной пленке золото-кремний при малой плотности энергии. В оптическом микроскопе запись не видна совсем, а считывается она по карте фотолюминесценции. Метод простой и стабильный, усложнять технику записи не требуется.",
     tags: ["Лазерная запись", "Кремний-золото", "Фотолюминесценция", "Случайные ключи"],
-    doi: "https://doi.org/10.1109/NANO58406.2023.10231269",
+    doi: "https://doi.org/10.1109/NANO58406.2023.10231269", image: "pub-5.webp",
   },
   {
     date: "2023-07-02", journal: "IEEE NANO 2023", direction: "puf",
@@ -92,7 +108,7 @@ window.PUBLICATIONS = [
     authors: "Elena Petrova, Pavel Kustov, Martin Sandomirskii, Yali Sun, Dmitry Zuev",
     desc: "Метка из резонансных кремниевых наночастиц, напечатанных лазерным переносом, уже дает несколько уровней защиты, это координаты частиц, их цвет и разброс радиусов. Здесь добавлен еще один уровень, многофотонная фотолюминесценция кремния. Она зависит от индивидуальных свойств каждой частицы, поэтому усложняет копирование метки и повышает емкость кодирования.",
     tags: ["Резонансы Ми", "Кремний", "наночастицы", "Многофотонная люминесценция"],
-    doi: "https://doi.org/10.1109/NANO58406.2023.10231179",
+    doi: "https://doi.org/10.1109/NANO58406.2023.10231179", image: "pub-6.webp",
   },
   {
     date: "2022-08-04", journal: "Advanced Functional Materials", quartile: "Q1", direction: "puf",
@@ -100,7 +116,7 @@ window.PUBLICATIONS = [
     authors: "Ekaterina Ponkratova, Eduard Ageev, Peter Trifonov, Pavel Kustov, Martin Sandomirskii, Mikhail Zhukov, Artem Larin, Ivan Mukhin, Thierry Belmonte, Alexandre Nomine, Stéphanie Bruyère, Dmitry Zuev",
     desc: "Гибридные металл-полупроводниковые структуры пишут фемтосекундным лазером, они дают нелинейное белое свечение. Спектр свечения связан с внутренним составом структуры, поэтому спектры соседних элементов отличаются.",
     tags: ["Нелинейная люминесценция", "Кремний-золото", "Полярные коды", "Кодирование"],
-    doi: "https://doi.org/10.1002/adfm.202205859",
+    doi: "https://doi.org/10.1002/adfm.202205859", image: "pub-7.webp",
   },
   {
     date: "2022-08-02", journal: "ACS Applied Nano Materials", quartile: "Q1", direction: "puf",
@@ -108,7 +124,7 @@ window.PUBLICATIONS = [
     authors: "Pavel Kustov, Elena Petrova, Mikhail Nazarov, Almaz Gilmullin, Martin Sandomirskii, Ekaterina Ponkratova, Vitaly Yaroshenko, Eduard Ageev, Dmitry Zuev",
     desc: "Метка собрана из кластеров кремниевых наночастиц с резонансами Ми, напечатанных лазерным переносом. Первый уровень защиты дают число кластеров и их взаимное расположение, это видно в обычной оптике.",
     tags: ["Резонансы Ми", "Кремний", "наночастицы", "Лазерный перенос", "Кластеризация"],
-    doi: "https://doi.org/10.1021/acsanm.2c01878",
+    doi: "https://doi.org/10.1021/acsanm.2c01878", image: "pub-8.webp",
   },
   {
     date: "2022-09-12", journal: "Metamaterials 2022", direction: "puf",
@@ -116,7 +132,7 @@ window.PUBLICATIONS = [
     authors: "Pavel Kustov, Elena Petrova, Martin Sandomirskii, Dmitry Zuev",
     desc: "Кремниевые наночастицы печатают фемтосекундным лазером прямо на полипропиленовую пленку, то есть на гибкую и дешевую подложку. Частицы резонансные, их оптический отклик вместе со случайным расположением по площади годится как криминалистический уровень защиты.",
     tags: ["Гибкая подложка", "Кремний", "Рассеяние", "наночастицы", "полипропилен"],
-    doi: "https://doi.org/10.1109/Metamaterials54993.2022.9920716",
+    doi: "https://doi.org/10.1109/Metamaterials54993.2022.9920716", image: "pub-9.webp",
   },
   {
     date: "2022-02-01", journal: "JETP Letters", quartile: "Q2", direction: "puf",
@@ -124,7 +140,7 @@ window.PUBLICATIONS = [
     authors: "E. I. Ageev, V. A. Iudin, Y. Sun, E. A. Petrova, P. N. Kustov, V. V. Yaroshenko, J. V. Mikhailova, A. S. Gudovskikh, I. S. Mukhin, D. A. Zuev",
     desc: "Локальный цвет наноструктуры меняют лазером. Несимметричные золото-кремниевые наноструктуры переплавляют фемтосекундным импульсом, резонанс сдвигается в диапазоне от 500 до 800 нанометров.",
     tags: ["Генерация цвета", "Кремний-золото", "деветтинг", "Рассеяние"],
-    doi: "https://doi.org/10.1134/S0021364022040014",
+    doi: "https://doi.org/10.1134/S0021364022040014", image: "pub-10.webp",
   },
   {
     date: "2021-03-11", journal: "Advanced Materials", quartile: "Q2", direction: "puf",
@@ -132,7 +148,7 @@ window.PUBLICATIONS = [
     authors: "Artem Larin, Liliia N. Dvoretckaia, Alexey Mozharov, Ivan Mukhin, Artem Cherepakhin, Ivan Shishkin, Eduard Ageev, Dmitry Zuev",
     desc: "Метка светится в инфракрасном на длине волны 1530 нанометров. Двухслойную пленку эрбий на кремнии облучают фемтосекундным лазером, эрбий входит в кремниевую матрицу, кремний кристаллизуется, и возникают оптически активные центры.",
     tags: ["Эрбий", "Кремниевые пленки", "Фотолюминесценция", "Прямая лазерная запись"],
-    doi: "https://doi.org/10.1002/adma.202005886",
+    doi: "https://doi.org/10.1002/adma.202005886", image: "pub-11.webp",
   },
   {
     date: "2016-01-06", journal: "Advanced Materials", quartile: "Q1", direction: "puf",
@@ -140,7 +156,7 @@ window.PUBLICATIONS = [
     authors: "Dmitry Zuev, Sergey Makarov, Valentin Milichko, S. V. Starikov, Ivan Mukhin, I. A. Morozov, Ivan Shishkin, Alexander Krasnok, Pavel Belov",
     desc: "Базовая работа группы по лазерной переплавке. Асимметричные металл-диэлектрические наночастицы золото-кремний делают литографией, а затем плавят фемтосекундным лазером. Плавится только металлическая часть, кремниевая остается целой.",
     tags: ["Хранение информации", "Кремний-золото", "Управление светом", "деветтинг"],
-    doi: "https://doi.org/10.1002/adma.201505346",
+    doi: "https://doi.org/10.1002/adma.201505346", image: "pub-12.webp",
   },
 ];
 
@@ -153,7 +169,7 @@ const PLACEHOLDER_NEWS = {
 
 window.NEWS = [
   {
-    id: "kustov-phd", featured: true, tag: "Достижение", date: "2026-05-14", image: null,
+    id: "kustov-phd", featured: true, tag: "Достижение", date: "2026-05-14", image: "news-featured.webp",
     title: "Новоиспеченный кандидат физико-математических наук Павел Кустов",
     text: "Его исследования посвящены разработке и изучению оптических свойств кремниевых микро- и наносистем, которые могут стать основой для передовых масштабируемых нанофотонных защитных меток.",
     body: {
