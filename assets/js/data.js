@@ -7,7 +7,7 @@ window.SITE = {
   links: {
     physics: "https://physics.itmo.ru/",
     itmo: "https://itmo.ru/",
-    track: "https://abit.itmo.ru/",
+    track: "https://abit.itmo.ru/program/master/nanophotonic",
   },
 };
 
