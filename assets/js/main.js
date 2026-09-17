@@ -24,9 +24,125 @@ function newsCardHTML(n) {
 
 /* ---------- публикации ---------- */
 
-function citation(p) {
-  const year = p.date.slice(0, 4);
-  return `${p.authors}. ${p.title}. ${p.journal}, ${year}. ${p.doi}`;
+/* Библиографические данные: из citations.js (Crossref), а если публикации там нет, из data.js */
+function refOf(p) {
+  const doi = p.doi.replace(/^https?:\/\/doi\.org\//, "");
+  const c = window.CITATIONS?.[doi];
+  if (c) return { ...c, doi };
+  return {
+    type: "journal-article", doi, title: p.title, container: p.journal, year: Number(p.date.slice(0, 4)),
+    authors: p.authors.split(/,\s*/).map((name) => {
+      const parts = name.trim().split(/\s+/);
+      // «Kustov P.» — фамилия первой, «Pavel Kustov» — последней
+      return /\.$/.test(parts[parts.length - 1]) ? [parts[0], parts.slice(1).join(" ")] : [parts.pop(), parts.join(" ")];
+    }),
+  };
+}
+
+const initials = (given, sep = " ") => given.split(/[\s.]+/).filter(Boolean)
+  .map((g) => g.split("-").map((x) => `${x[0]}.`).join("-")).join(sep);
+const isConf = (r) => r.type === "proceedings-article";
+
+/* Форматы как в Google Scholar. Возвращают HTML, поэтому получают данные с уже экранированными строками */
+const CITE_STYLES = {
+  "ГОСТ": (r) => {
+    const a = r.authors;
+    const who = a.length > 3
+      ? `${a[0][0]} ${initials(a[0][1])} et al.`
+      : a.map(([f, g]) => `${f} ${initials(g)}`).join(", ");
+    const pages = r.page ? ` – С. ${r.page}.` : "";
+    return isConf(r)
+      ? `${who} ${r.title} //${r.container}. – ${r.publisher ? `${r.publisher}, ` : ""}${r.year}.${pages}`
+      : `${who} ${r.title} //${r.container}. – ${r.year}.${r.volume ? ` – Т. ${r.volume}.` : ""}${r.issue ? ` – №. ${r.issue}.` : ""}${pages}`;
+  },
+  MLA: (r) => {
+    const a = r.authors;
+    const first = `${a[0][0]}, ${a[0][1]}`;
+    const who = a.length === 1 ? first : a.length === 2 ? `${first}, and ${a[1][1]} ${a[1][0]}` : `${first}, et al`;
+    const ends = (s) => (/[.?!]$/.test(s) ? s : `${s}.`);
+    return isConf(r)
+      ? `${ends(who)} "${ends(r.title)}" <i>${r.container}</i>. ${r.publisher ? `${r.publisher}, ` : ""}${r.year}.`
+      : `${ends(who)} "${ends(r.title)}" <i>${r.container}</i>${r.volume ? ` ${r.volume}${r.issue ? `.${r.issue}` : ""}` : ""} (${r.year})${r.page ? `: ${r.page}` : ""}.`;
+  },
+  APA: (r) => {
+    const names = r.authors.map(([f, g]) => `${f}, ${initials(g)}`);
+    const who = names.length === 1 ? names[0]
+      : names.length <= 7 ? `${names.slice(0, -1).join(", ")}, & ${names[names.length - 1]}`
+      : `${names.slice(0, 6).join(", ")}, ... & ${names[names.length - 1]}`;
+    return isConf(r)
+      ? `${who} (${r.year}). ${r.title}. In <i>${r.container}</i>${r.page ? ` (pp. ${r.page})` : ""}.${r.publisher ? ` ${r.publisher}.` : ""}`
+      : `${who} (${r.year}). ${r.title}. <i>${r.container}</i>${r.volume ? `, <i>${r.volume}</i>${r.issue ? `(${r.issue})` : ""}` : ""}${r.page ? `, ${r.page}` : ""}.`;
+  },
+};
+
+/* Файлы для менеджеров библиографии */
+const pageSplit = (page = "") => page.split("-");
+const citeKey = (r) => `${(r.authors[0]?.[0] || "ref").replace(/[^A-Za-z]/g, "")}${r.year}${(r.title.match(/[A-Za-z]{4,}/) || ["paper"])[0].toLowerCase()}`;
+const CITE_EXPORTS = {
+  BibTeX: { ext: "bib", type: "application/x-bibtex", build: (r) => {
+    const f = [
+      ["title", r.title], ["author", r.authors.map(([f, g]) => `${f}, ${g}`).join(" and ")],
+      [isConf(r) ? "booktitle" : "journal", r.container], ["volume", r.volume], ["number", r.issue],
+      ["pages", r.page && r.page.replace("-", "--")], ["year", r.year], ["publisher", r.publisher], ["doi", r.doi],
+    ].filter(([, v]) => v);
+    return `@${isConf(r) ? "inproceedings" : "article"}{${citeKey(r)},\n${f.map(([k, v]) => `  ${k}={${v}}`).join(",\n")}\n}\n`;
+  } },
+  EndNote: { ext: "enw", type: "application/x-endnote-refer", build: (r) => [
+    `%0 ${isConf(r) ? "Conference Proceedings" : "Journal Article"}`, `%T ${r.title}`,
+    ...r.authors.map(([f, g]) => `%A ${f}, ${g}`), `%${isConf(r) ? "B" : "J"} ${r.container}`,
+    r.volume && `%V ${r.volume}`, r.issue && `%N ${r.issue}`, r.page && `%P ${r.page}`,
+    `%D ${r.year}`, r.publisher && `%I ${r.publisher}`, `%R ${r.doi}`,
+  ].filter(Boolean).join("\n") + "\n" },
+  RefMan: { ext: "ris", type: "application/x-research-info-systems", build: (r) => {
+    const [sp, ep] = pageSplit(r.page);
+    return [
+      `TY  - ${isConf(r) ? "CONF" : "JOUR"}`, `TI  - ${r.title}`, ...r.authors.map(([f, g]) => `AU  - ${f}, ${g}`),
+      `T2  - ${r.container}`, r.volume && `VL  - ${r.volume}`, r.issue && `IS  - ${r.issue}`,
+      sp && `SP  - ${sp}`, ep && `EP  - ${ep}`, `PY  - ${r.year}`, r.publisher && `PB  - ${r.publisher}`,
+      `DO  - ${r.doi}`, "ER  - ",
+    ].filter(Boolean).join("\r\n") + "\r\n";
+  } },
+  RefWorks: { ext: "txt", type: "text/plain", build: (r) => {
+    const [sp, ep] = pageSplit(r.page);
+    return [
+      `RT ${isConf(r) ? "Conference Proceedings" : "Journal Article"}`, ...r.authors.map(([f, g]) => `A1 ${f}, ${g}`),
+      `T1 ${r.title}`, `${isConf(r) ? "T2" : "JF"} ${r.container}`, r.volume && `VO ${r.volume}`, r.issue && `IS ${r.issue}`,
+      sp && `SP ${sp}`, ep && `OP ${ep}`, `YR ${r.year}`, r.publisher && `PB ${r.publisher}`, `DO ${r.doi}`,
+    ].filter(Boolean).join("\n") + "\n";
+  } },
+};
+
+function downloadFile(name, type, text) {
+  const url = URL.createObjectURL(new Blob([text], { type: `${type};charset=utf-8` }));
+  const a = Object.assign(document.createElement("a"), { href: url, download: name });
+  document.body.append(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function openCiteSheet(p) {
+  const r = refOf(p);
+  const safe = { ...r, title: esc(r.title), container: esc(r.container), publisher: esc(r.publisher),
+    authors: r.authors.map(([f, g]) => [esc(f), esc(g)]) };
+  const rows = Object.entries(CITE_STYLES).map(([name, fmt]) => `
+    <div class="cite__row">
+      <p class="cite__style">${name}</p>
+      <p class="cite__text">${fmt(safe)}</p>
+      <button class="cite__copy" type="button" data-copy-style="${name}" aria-label="Скопировать ${name}"><span class="copy-label">копировать</span></button>
+    </div>`).join("");
+  const exports = Object.keys(CITE_EXPORTS).map((k) => `<button class="cite__export" type="button" data-export="${k}">${k}</button>`).join("");
+  const dlg = openSheet("Цитировать", `<div class="cite__rows">${rows}</div><div class="cite__exports">${exports}</div>`, "sheet--cite");
+  dlg.querySelector(".sheet__body").onclick = (e) => {
+    const copy = e.target.closest("[data-copy-style]");
+    // неразрывные пробелы от типографики сайта в скопированную цитату не нужны
+    if (copy) copyText(copy.closest(".cite__row").querySelector(".cite__text").textContent.replace(/ /g, " "), copy);
+    const exp = e.target.closest("[data-export]");
+    if (exp) {
+      const x = CITE_EXPORTS[exp.dataset.export];
+      downloadFile(`${citeKey(r)}.${x.ext}`, x.type, x.build(r));
+    }
+  };
 }
 
 function pubHTML(p, index) {
@@ -43,7 +159,7 @@ function pubHTML(p, index) {
         ${p.quartile ? `<span class="tag tag--outline">${esc(p.quartile)}</span>` : ""}
         ${dir ? `<a href="direction.html?id=${dir.id}">${esc(dir.title)}</a>` : ""}
       </div>
-      <button class="pub__cite" type="button" data-cite="${index}">Цитировать ${ICONS.download}</button>
+      <button class="pub__cite" type="button" data-cite="${index}" aria-haspopup="dialog"><span>Цитировать</span>${ICONS.download}</button>
     </div>
     <div class="pub__main">
       <div class="pub__body">
@@ -86,16 +202,9 @@ function mountPubList(root, getItems, { pageSize = Infinity } = {}) {
   }));
   applyView();
 
-  list.addEventListener("click", async (e) => {
+  list.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-cite]");
-    if (!btn) return;
-    const text = citation(items[Number(btn.dataset.cite)]);
-    try {
-      await navigator.clipboard.writeText(text);
-      toast("Ссылка на статью скопирована");
-    } catch (err) {
-      window.prompt("Скопируйте ссылку на статью", text);
-    }
+    if (btn) openCiteSheet(items[Number(btn.dataset.cite)]);
   });
 
   const render = () => {

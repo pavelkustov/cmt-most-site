@@ -29,7 +29,8 @@ const plural = (n, one, few, many) => {
 };
 
 function writeButton(extraClass = "") {
-  return `<a class="btn btn--light ${extraClass}" href="mailto:${SITE.email}">написать<span class="btn__icon">${ICONS.chat}</span></a>`;
+  // без JS ссылка откроет почту, со скриптом покажет окно с адресом (см. mountLayout)
+  return `<a class="btn btn--light ${extraClass}" href="mailto:${SITE.email}" data-write>написать<span class="btn__icon">${ICONS.chat}</span></a>`;
 }
 
 function renderHeader(active) {
@@ -128,6 +129,61 @@ function toast(message) {
   el._t = setTimeout(() => el.classList.remove("is-shown"), 2400);
 }
 
+/* ---------- всплывающее окно (написать нам, цитирование) ----------
+   Нативный <dialog>: фокус, Esc и затемнение фона браузер делает сам. Клик по фону закрывает. */
+function openSheet(title, bodyHTML, extraClass = "") {
+  let dlg = document.querySelector(".sheet");
+  if (!dlg) {
+    dlg = document.createElement("dialog");
+    dlg.className = "sheet";
+    dlg.setAttribute("aria-labelledby", "sheet-title");
+    dlg.innerHTML = `
+      <div class="sheet__head">
+        <h2 class="sheet__title" id="sheet-title"></h2>
+        <button class="sheet__close" type="button" aria-label="Закрыть">${ICONS.close}</button>
+      </div>
+      <div class="sheet__body"></div>`;
+    document.body.append(dlg);
+    dlg.querySelector(".sheet__close").addEventListener("click", () => dlg.close());
+    dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener("close", () => { document.body.style.overflow = ""; });
+  }
+  dlg.className = `sheet ${extraClass}`.trim();
+  dlg.querySelector(".sheet__title").textContent = title;
+  dlg.querySelector(".sheet__body").innerHTML = bodyHTML;
+  document.body.style.overflow = "hidden";
+  dlg.showModal();
+  return dlg;
+}
+
+/* Копирует текст; подпись кнопки на пару секунд меняется на «Скопировано» (тост под окном не виден) */
+async function copyText(text, button) {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch (err) {
+    window.prompt("Скопируйте вручную", text);
+    return;
+  }
+  if (!button) return;
+  const label = button.querySelector(".copy-label") || button;
+  clearTimeout(button._t);
+  button._label ??= label.textContent;
+  label.textContent = "Скопировано";
+  button.classList.add("is-done");
+  button._t = setTimeout(() => { label.textContent = button._label; button.classList.remove("is-done"); }, 1800);
+}
+
+function openWriteSheet() {
+  const dlg = openSheet("Написать нам", `
+    <p class="write__lead">Мы открыты к сотрудничеству и рады любым вопросам. Расскажите о своей задаче или идее, и мы подскажем, чем можем помочь.</p>
+    <p class="write__mail"><a href="mailto:${SITE.email}">${SITE.email}</a></p>
+    <div class="write__actions">
+      <a class="btn btn--dark" href="mailto:${SITE.email}">открыть почту<span class="btn__icon">${ICONS.chat}</span></a>
+      <button class="btn btn--ghost" type="button" data-copy-mail><span class="copy-label">скопировать адрес</span></button>
+    </div>`, "sheet--write");
+  dlg.querySelector("[data-copy-mail]").addEventListener("click", (e) => copyText(SITE.email, e.currentTarget));
+}
+
 /* ---------- типографика: предлоги и короткие союзы не висят в конце строки ----------
    Пробел после них заменяем неразрывным, слово уходит на следующую строку вместе с предлогом.
    Работает по всем текстовым узлам страницы, включая то, что дорисовывается скриптами позже. */
@@ -183,6 +239,12 @@ function mountLayout() {
     a.addEventListener("click", () => { header.classList.remove("is-open"); setDropdown(false); }));
 
   page.querySelector(".back-top").addEventListener("click", () => window.scrollTo({ top: 0 }));
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest("[data-write]")) return;
+    e.preventDefault();
+    openWriteSheet();
+  });
 }
 
 document.addEventListener("DOMContentLoaded", mountLayout);
