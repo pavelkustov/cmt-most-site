@@ -491,9 +491,8 @@ svg { display: block; flex-shrink: 0; }
 .dir-stats .stat__label { opacity: .4; }
 .dir-about__side .tags { gap: 1.3rem .8rem; }
 
-/* стрелки листания команды справа над лентой (без своего заголовка, это часть «О направлении»);
-   скрыты, если все карточки помещаются */
-.people-head { margin-top: 8rem; display: flex; justify-content: flex-end; }
+/* заголовок «Команда» со стрелками, как у «Науки» на главной; стрелки скрыты, если все карточки помещаются */
+.people-head { margin-top: 14rem; display: flex; justify-content: space-between; align-items: flex-end; gap: 4rem; }
 .people.is-dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
 @media (hover: hover) and (pointer: fine) { .people { cursor: grab; } }
 .people {
@@ -861,8 +860,8 @@ select.field {
   .dir-cta { flex-direction: column; align-items: flex-start; gap: 2.8rem; padding: 3.2rem 2.8rem; }
   .dir-cta__title { font-size: 3rem; }
   .dir-cta__text { font-size: 2.4rem; }
-  .people-head { display: none; }
-  .people { margin-top: 8rem; gap: 1.6rem; -webkit-mask-image: none; mask-image: none; }
+  .people-head { margin-top: 8rem; }
+  .people { margin-top: 3.2rem; gap: 1.6rem; -webkit-mask-image: none; mask-image: none; }
   .person { flex-basis: 72vw; height: 52rem; }
 
   .view-toggle { gap: 1.2rem; margin-top: 4rem; }
