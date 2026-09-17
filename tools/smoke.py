@@ -148,7 +148,8 @@ with sync_playwright() as p:
             const top = Math.min(...content.map(r => r.top)), bottom = Math.max(...content.map(r => r.bottom));
             return {top: header.top - hero.top, bottom: hero.bottom - bottom};
         })()""")
-        check(abs(gaps["top"] - gaps["bottom"]) <= 3, f"[{w}x{h}] {u}: поле над шапкой и под кнопкой разное: {gaps}")
+        # с 2026-09-17: над шапкой 4rem (как sohub.digital), под кнопкой 8rem — нижнее поле вдвое больше верхнего
+        check(abs(gaps["bottom"] - 2 * gaps["top"]) <= 3, f"[{w}x{h}] {u}: поле под кнопкой не вдвое больше поля над шапкой: {gaps}")
         if SHOTS:
             pg.screenshot(path=str(ROOT / "tools" / "shots" / f"fit-{w}x{h}-{u.split('.')[0]}.png"))
         pg.close()

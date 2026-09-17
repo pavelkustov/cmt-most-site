@@ -17,7 +17,7 @@ window.DIRECTIONS = [
     /* из шаблона «Направление» в макете; повтор последнего предложения в макете убран */
     id: "eco-nano",
     title: "Экологически чистая нано- и микротехнология",
-    heroTitle: "<em>Экологически чистая</em> нано- и микротехнология",
+    heroTitle: "<em>Экологически чистая</em><br><span class=\"line\">нано- и микротехнология</span>",
     subtitle: "Разработка и создание устройств для микроэлектроники и нанофотоники различного назначения",
     team: 12, pubs: 7, awards: "6", conferences: "10+", hero: "sci-1.webp",
     image: "sci-1.webp", imagePos: "center bottom",
@@ -35,7 +35,7 @@ window.DIRECTIONS = [
     title: "Неклонируемые защитные метки",
     heroTitle: "<em>Неклонируемые</em> защитные метки",
     subtitle: "Уникальные физические защитные метки, которые невозможно воспроизвести или скопировать",
-    team: 5, pubs: 12, awards: "10+", conferences: "10+",
+    team: 5, pubs: 12, awards: "10+", conferences: "10+", hero: "hero-direction.webp",
     image: "sci-2.webp", imagePos: "40% 45%",
     about: [
       "Команда данного направления исследует и создает физически неклонируемые метки для защиты товаров и документов от подделки. Уникальность меток возникает из случайностей при лазерной обработке материала, поэтому повторить метку не может даже ее изготовитель.",
@@ -50,14 +50,14 @@ window.DIRECTIONS = [
       { name: "Мария Федорова", role: "бакалавр 3-го года, лаборант", photo: "person-5.webp" },
     ],
   },
-  { id: "hybrid-nanophotonics", title: "Гибридная металло-диэлектрическая нанофотоника", team: 18, pubs: 10, image: "sci-3.webp", imagePos: "center 30%" },
-  { id: "ai-nanophotonics", title: "ИИ в нанофотонике", team: 18, pubs: 10, image: "sci-4.webp", imagePos: "center 40%" },
-  { id: "integrated-nanophotonics", title: "Интегральная нанофотоника", team: 18, pubs: 10, image: "sci-5.webp", imagePos: "center 40%" },
-  { id: "photothermal", title: "Фототермическая и регенеративная терапия", team: 18, pubs: 10, image: "sci-6.webp", imagePos: "center 55%" },
-  { id: "drug-delivery", title: "Системы доставки лекарств и биоактивных веществ", team: 18, pubs: 10, image: "sci-7.webp", imagePos: "center 45%" },
-  { id: "biosensing", title: "Биосенсорика", team: 18, pubs: 10, image: "sci-8.webp", imagePos: "center 50%" },
-  { id: "microfluidics", title: "Микрофлюидные технологии", team: 18, pubs: 10, image: "sci-9.webp", imagePos: "center 40%" },
-  { id: "bio-thermometry", title: "Измерение температуры в биологических объектах", team: 18, pubs: 10, image: "sci-10.webp", imagePos: "center 45%" },
+  { id: "hybrid-nanophotonics", title: "Гибридная металло-диэлектрическая нанофотоника", heroTitle: "<em>Гибридная</em> металло-диэлектрическая нанофотоника", team: 18, pubs: 10, image: "sci-3.webp", imagePos: "center 30%" },
+  { id: "ai-nanophotonics", title: "ИИ в нанофотонике", heroTitle: "<em>ИИ</em> в нанофотонике", team: 18, pubs: 10, image: "sci-4.webp", imagePos: "center 40%" },
+  { id: "integrated-nanophotonics", title: "Интегральная нанофотоника", heroTitle: "<em>Интегральная</em><br>нанофотоника", team: 18, pubs: 10, image: "sci-5.webp", imagePos: "center 40%" },
+  { id: "photothermal", title: "Фототермическая и регенеративная терапия", heroTitle: "<em>Фототермическая</em><br><span class=\"line\">и регенеративная терапия</span>", team: 18, pubs: 10, image: "sci-6.webp", imagePos: "center 55%" },
+  { id: "drug-delivery", title: "Системы доставки лекарств и биоактивных веществ", heroTitle: "<span class=\"line\"><em>Системы доставки</em> лекарств</span><br>и биоактивных веществ", team: 18, pubs: 10, image: "sci-7.webp", imagePos: "center 45%" },
+  { id: "biosensing", title: "Биосенсорика", heroTitle: "<em>Биосенсорика</em>", team: 18, pubs: 10, image: "sci-8.webp", imagePos: "center 50%" },
+  { id: "microfluidics", title: "Микрофлюидные технологии", heroTitle: "<em>Микрофлюидные</em><br>технологии", team: 18, pubs: 10, image: "sci-9.webp", imagePos: "center 40%" },
+  { id: "bio-thermometry", title: "Термометрия в биологических объектах", heroTitle: "<em>Термометрия</em><br><span class=\"line\">в биологических объектах</span>", team: 18, pubs: 10, image: "sci-10.webp", imagePos: "center 50%" },
 ];
 
 /* Публикации. image можно не указывать, тогда будет зеленая заглушка. */

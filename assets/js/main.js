@@ -164,7 +164,8 @@ function initDirection() {
   const d = DIRECTIONS.find((x) => x.id === id) || DIRECTIONS.find((x) => x.id === "puf");
   document.title = `${d.title} · ЦМТ «Мост»`;
 
-  if (d.hero) document.querySelector(".hero__bg img").src = img(d.hero);
+  // фон первого экрана: своя обложка из макета, иначе фото с карточки направления
+  document.querySelector(".hero__bg img").src = img(d.hero || d.image);
   document.querySelector(".hero__title").innerHTML = d.heroTitle || esc(d.title);
   document.querySelector(".hero__subtitle").textContent = d.subtitle || "Научное направление ЦМТ «Мост»";
 

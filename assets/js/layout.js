@@ -128,7 +128,35 @@ function toast(message) {
   el._t = setTimeout(() => el.classList.remove("is-shown"), 2400);
 }
 
+/* ---------- типографика: предлоги и короткие союзы не висят в конце строки ----------
+   Пробел после них заменяем неразрывным, слово уходит на следующую строку вместе с предлогом.
+   Работает по всем текстовым узлам страницы, включая то, что дорисовывается скриптами позже. */
+const HANGING = "в|во|без|до|из|изо|к|ко|на|над|надо|о|об|обо|от|ото|по|под|подо|при|про|с|со|у|через|для|за|перед|между|и|а|но|да|или|ни|не";
+const HANGING_RE = new RegExp(`(?<![\\p{L}\\p{N}])(${HANGING}) (?=\\S)`, "giu");
+const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "TEXTAREA", "INPUT", "CODE", "PRE"]);
+
+function fixHanging(root) {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode: (n) => (n.parentElement && SKIP_TAGS.has(n.parentElement.tagName) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT),
+  });
+  for (let n = root.nodeType === Node.TEXT_NODE ? root : walker.nextNode(); n; n = walker.nextNode()) {
+    const fixed = n.data.replace(HANGING_RE, "$1 ");
+    if (fixed !== n.data) n.data = fixed;
+    if (root.nodeType === Node.TEXT_NODE) break;
+  }
+}
+
+function watchTypography() {
+  fixHanging(document.body);
+  new MutationObserver((records) => {
+    for (const r of records) r.addedNodes.forEach((n) => {
+      if (n.nodeType === Node.TEXT_NODE ? !SKIP_TAGS.has(n.parentElement?.tagName) : n.nodeType === Node.ELEMENT_NODE) fixHanging(n);
+    });
+  }).observe(document.body, { childList: true, subtree: true });
+}
+
 function mountLayout() {
+  watchTypography();
   const page = document.querySelector(".page");
   const active = document.body.dataset.nav;
   page.insertAdjacentHTML("afterbegin", renderHeader(active));
