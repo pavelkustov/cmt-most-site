@@ -61,6 +61,8 @@ check(not stale, f"устаревшие метки версий, запусти�
 
 with sync_playwright() as p:
     browser = p.chromium.launch()
+    # раскладку проверяем без анимации появления первого экрана, иначе замеры попадают на середину движения
+    browser.new_context = (lambda orig: lambda **kw: orig(**{"reduced_motion": "reduce", **kw}))(browser.new_context)
     for width in WIDTHS:
         ctx = browser.new_context(viewport={"width": width, "height": 900})
         for url in PAGES:

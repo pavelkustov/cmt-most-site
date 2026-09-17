@@ -211,8 +211,94 @@ function watchTypography() {
   }).observe(document.body, { childList: true, subtree: true });
 }
 
+/* ---------- анимации при прокрутке ----------
+   Блоки ниже первого экрана мягко появляются один раз, когда до них докрутили.
+   Прячем только то, что на момент загрузки ниже экрана (переход по якорю не мигает).
+   После появления служебные классы снимаются, у элементов снова обычные стили и эффекты наведения.
+   При системной настройке «уменьшить движение» ничего не делаем. */
+const MOTION_GROUPS = [          // контейнер, его элементы, шаг задержки между ними
+  [".metrics", ".metric", 120],
+  [".carousel", ".dir-card", 90],
+  [".ind-grid", ":scope > *", 90],
+  [".facts", ".fact", 110],
+  [".news__grid", ".news-card", 90],
+  [".people", ".person", 80],
+  [".dir-stats", ".stat", 80],
+];
+const MOTION_SINGLES = [
+  "main .section-head", "main .section-head--row", ".featured .h2", ".featured__card", ".news-all > .h2",
+  ".dir-about .h2", ".dir-about__text", ".dir-about__tags", ".education__photo", ".education__text", ".education .btn",
+];
+
+function countUp(title) {
+  // «41 человек», «>200 публикаций», «10 лет»: досчитываем число от нуля, ширина под число зарезервирована
+  const node = [...title.childNodes].find((n) => n.nodeType === Node.TEXT_NODE && /\d/.test(n.data));
+  const m = node && node.data.match(/\d+/);
+  if (!m) return;
+  const target = Number(m[0]);
+  const span = document.createElement("span");
+  span.className = "count";
+  span.textContent = m[0];
+  const after = node.splitText(m.index);
+  after.data = after.data.slice(m[0].length);
+  title.insertBefore(span, after);
+  title.setAttribute("aria-label", title.textContent);
+  span.style.minWidth = `${span.getBoundingClientRect().width}px`;
+  span.textContent = "0";
+  const start = performance.now(), duration = 1200;
+  const tick = (now) => {
+    const t = Math.min(1, (now - start) / duration);
+    span.textContent = String(Math.round(target * (1 - Math.pow(1 - t, 3))));
+    if (t < 1) requestAnimationFrame(tick);
+    else { span.style.minWidth = ""; }
+  };
+  requestAnimationFrame(tick);
+}
+
+function initMotion() {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+  const below = (el) => el.getBoundingClientRect().top > innerHeight;
+  const show = (el) => {
+    el.classList.add("is-in");
+    const delay = parseFloat(el.style.getPropertyValue("--d")) || 0;
+    setTimeout(() => { el.classList.remove("reveal", "is-in"); el.style.removeProperty("--d"); }, delay + 900);
+  };
+  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+    if (!e.isIntersecting) return;
+    io.unobserve(e.target);
+    const t = e.target;
+    if (t._items) {
+      t._items.forEach(show);
+      if (t.matches(".metrics")) t._items.forEach((m) => { const title = m.querySelector(".metric__title"); if (title) countUp(title); });
+    } else if (t.matches(".timeline")) {
+      t.classList.replace("is-pending", "is-drawn");
+    } else {
+      show(t);
+    }
+  }), { rootMargin: "0px 0px -12% 0px" });
+
+  MOTION_GROUPS.forEach(([groupSel, itemSel, step]) => document.querySelectorAll(groupSel).forEach((group) => {
+    if (!below(group)) return;
+    group._items = [...group.querySelectorAll(itemSel)];
+    group._items.forEach((el, i) => { el.classList.add("reveal"); el.style.setProperty("--d", `${Math.min(i, 4) * step}ms`); });
+    io.observe(group);
+  }));
+  document.querySelectorAll(MOTION_SINGLES.join(",")).forEach((el) => {
+    if (!below(el) || el.classList.contains("reveal")) return;
+    el.classList.add("reveal");
+    io.observe(el);
+  });
+  document.querySelectorAll(".timeline").forEach((el) => {
+    if (!below(el)) return;
+    el.classList.add("is-pending");
+    io.observe(el);
+  });
+}
+
 function mountLayout() {
   watchTypography();
+  // карточки и списки дорисовывает main.js в своем обработчике DOMContentLoaded, анимации настраиваем после него
+  setTimeout(initMotion);
   const page = document.querySelector(".page");
   const active = document.body.dataset.nav;
   page.insertAdjacentHTML("afterbegin", renderHeader(active));
