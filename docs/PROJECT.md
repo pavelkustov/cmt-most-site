@@ -5,7 +5,7 @@
 - Макет: https://www.figma.com/design/cTykc0aa3pAAjbvKz7ngiY/Untitled
 - Секции макета: Компоненты, Главная, Направление (пустое и два заполненных, со списком и с карточками),
   Публикации, Новости, наведение на «Наука», попап новости.
-- Рендеры всех страниц лежат в `design/render-*.png`, исходные PNG из Figma в `design/source-img/` (в git не идут).
+- Рендеры всех страниц лежат в `design/render-*.png`, исходные PNG из Figma в `design/source-img/` (и то и другое только локально, в git не идут).
 - Ссылки на ассеты Figma в `design/assets_manifest.txt` живут около 7 дней (с 16.09.2026).
   Файл только локальный, в git не идет (временные ссылки Figma просит не публиковать).
   Повторная выгрузка: `python design/download_assets.py`, затем `python design/optimize_images.py`.
