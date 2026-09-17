@@ -475,21 +475,36 @@ svg { display: block; flex-shrink: 0; }
 /* ---------- страница направления ---------- */
 .dir-about { padding-top: var(--section-gap); }
 .dir-about__grid { margin-top: 6.2rem; display: flex; justify-content: space-between; gap: 6rem; }
-.dir-about__text { max-width: 108.2rem; font-size: 2.4rem; font-weight: 300; line-height: 1.4; }
+.dir-about__main { max-width: 108.2rem; display: flex; flex-direction: column; gap: 6rem; }
+.dir-about__text { font-size: 2.4rem; font-weight: 300; line-height: 1.4; }
+/* карточка-приглашение под описанием: занимает место, где было пусто, и ведет к «Написать» */
+.dir-cta {
+  display: flex; align-items: center; justify-content: space-between; gap: 4rem;
+  padding: 4rem 4rem 4rem 4.6rem; border-radius: var(--radius-l); background: var(--bg-soft);
+}
+.dir-cta__title { font-size: 3.2rem; font-weight: 500; line-height: 1.2; letter-spacing: -0.05rem; color: var(--green-deep); }
+.dir-cta__text { margin-top: 1.2rem; max-width: 62rem; font-size: 2rem; font-weight: 300; line-height: 1.4; color: var(--ink); }
+.dir-cta__btn { flex-shrink: 0; }
 .dir-about__text p + p { margin-top: 1.6rem; }
 .dir-about__side { flex: 0 0 52.7rem; display: flex; flex-direction: column; gap: 6.8rem; }
 .dir-stats { display: grid; grid-template-columns: 19.1rem 19.1rem; column-gap: 9.2rem; row-gap: 4rem; }
 .dir-stats .stat__label { opacity: .4; }
 .dir-about__side .tags { gap: 1.3rem .8rem; }
 
+/* стрелки листания команды справа над лентой (без своего заголовка, это часть «О направлении»);
+   скрыты, если все карточки помещаются */
+.people-head { margin-top: 8rem; display: flex; justify-content: flex-end; }
+.people.is-dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+@media (hover: hover) and (pointer: fine) { .people { cursor: grab; } }
 .people {
-  margin-top: 14rem; display: flex; gap: 7.8rem; overflow-x: auto; scroll-snap-type: x mandatory;
+  margin-top: 5rem; display: flex; gap: 7.8rem; overflow-x: auto; scroll-snap-type: x mandatory;
   padding-inline: var(--gutter); scroll-padding-inline: var(--gutter); scrollbar-width: none;
   -webkit-mask-image: linear-gradient(90deg, #000 70%, rgba(0,0,0,.55));
   mask-image: linear-gradient(90deg, #000 70%, rgba(0,0,0,.55));
 }
 .people::-webkit-scrollbar { display: none; }
-.person { position: relative; flex: 0 0 42.8rem; height: 52.7rem; border-radius: var(--radius-m); overflow: hidden; scroll-snap-align: start; color: var(--white); }
+/* margin: 0 — у figure браузерные поля по 40px, из-за них промежуток был 158px вместо 78px из макета */
+.person { margin: 0; position: relative; flex: 0 0 42.8rem; height: 52.7rem; border-radius: var(--radius-m); overflow: hidden; scroll-snap-align: start; color: var(--white); }
 .person img { width: 100%; height: 100%; object-fit: cover; }
 .person::after { content: ""; position: absolute; inset: 0; background: linear-gradient(179.85deg, rgba(255,255,255,0) 33.9%, var(--ink) 99%); }
 .person__text { position: absolute; left: 3.9rem; right: 3.9rem; bottom: 4.2rem; z-index: 1; }
@@ -842,6 +857,11 @@ select.field {
   .dir-about__grid { flex-direction: column; margin-top: 4rem; }
   .dir-about__side { flex: none; }
   .dir-about__text { font-size: 2.56rem; }
+  .dir-about__main { gap: 4rem; }
+  .dir-cta { flex-direction: column; align-items: flex-start; gap: 2.8rem; padding: 3.2rem 2.8rem; }
+  .dir-cta__title { font-size: 3rem; }
+  .dir-cta__text { font-size: 2.4rem; }
+  .people-head { display: none; }
   .people { margin-top: 8rem; gap: 1.6rem; -webkit-mask-image: none; mask-image: none; }
   .person { flex-basis: 72vw; height: 52rem; }
 

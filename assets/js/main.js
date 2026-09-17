@@ -235,6 +235,54 @@ function viewToggleHTML() {
   </div>`;
 }
 
+/* ---------- горизонтальные ленты (направления на главной, команда направления) ---------- */
+
+/* Стрелки листают ленту на одну карточку, гаснут на краях и прячутся, если всё помещается в экран */
+function mountSlider(track, arrows, itemSel) {
+  const [prev, next] = arrows.querySelectorAll(".square-btn");
+  const step = () => {
+    const [a, b] = track.querySelectorAll(itemSel);
+    return b ? b.getBoundingClientRect().left - a.getBoundingClientRect().left : track.clientWidth;
+  };
+  const update = () => {
+    arrows.hidden = track.scrollWidth <= track.clientWidth + 4;
+    prev.disabled = track.scrollLeft < 4;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+  };
+  prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
+  next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
+  track.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
+}
+
+/* Перетаскивание ленты мышью (на телефоне и тачпаде прокрутка и так работает) */
+function enableDragScroll(track) {
+  let startX = 0, startLeft = 0, dragging = false, moved = false;
+  track.addEventListener("pointerdown", (e) => {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    dragging = true; moved = false; startX = e.clientX; startLeft = track.scrollLeft;
+    track.classList.add("is-dragging");
+    track.setPointerCapture(e.pointerId);
+  });
+  track.addEventListener("pointermove", (e) => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 4) moved = true;
+    track.scrollLeft = startLeft - dx;
+  });
+  const stop = () => {
+    if (!dragging) return;
+    dragging = false;
+    track.classList.remove("is-dragging");
+  };
+  track.addEventListener("pointerup", stop);
+  track.addEventListener("pointercancel", stop);
+  // после перетаскивания не срабатывает клик по карточке
+  track.addEventListener("click", (e) => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+  track.addEventListener("dragstart", (e) => e.preventDefault());
+}
+
 /* ---------- главная ---------- */
 
 function initHome() {
@@ -251,17 +299,7 @@ function initHome() {
       <div class="dir-card__img"><img src="${img(d.image)}" alt="" loading="lazy" style="object-position:${d.imagePos || "center"}"></div>
     </a>`).join("");
 
-  const [prev, next] = document.querySelectorAll(".slider-arrows .square-btn");
-  const step = () => carousel.querySelector(".dir-card").getBoundingClientRect().width + 14;
-  const update = () => {
-    prev.disabled = carousel.scrollLeft < 4;
-    next.disabled = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 4;
-  };
-  prev.addEventListener("click", () => carousel.scrollBy({ left: -step(), behavior: "smooth" }));
-  next.addEventListener("click", () => carousel.scrollBy({ left: step(), behavior: "smooth" }));
-  carousel.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("resize", update);
-  update();
+  mountSlider(carousel, document.querySelector(".science .slider-arrows"), ".dir-card");
 
   document.querySelector(".news__grid").innerHTML = NEWS.filter((n) => !n.featured).slice(0, 3).map(newsCardHTML).join("");
 }
@@ -286,6 +324,8 @@ function initDirection() {
   if (d.awards) stats.push([d.awards, "наград"]);
   if (d.conferences) stats.push([d.conferences, "конференций"]);
   about.querySelector(".dir-about__text").innerHTML = text;
+  // тема письма из карточки-приглашения: сразу видно, по какому направлению запрос
+  about.querySelector(".dir-cta__btn").dataset.writeSubject = `Совместная работа: ${d.title}`;
   about.querySelector(".dir-stats").innerHTML = statsHTML(stats);
   about.querySelector(".dir-about__tags").innerHTML = d.tags ? tagsHTML(d.tags) : "";
 
@@ -296,8 +336,11 @@ function initDirection() {
         <img src="${img(p.photo)}" alt="${esc(p.name)}" loading="lazy" style="object-position:${p.pos || "center"}">
         <figcaption class="person__text"><p class="person__name">${esc(p.name)}</p><p class="person__role">${esc(p.role)}</p></figcaption>
       </figure>`).join("");
+    mountSlider(people, document.querySelector(".people-head .slider-arrows"), ".person");
+    enableDragScroll(people);
   } else {
     people.remove();
+    document.querySelector(".people-head").remove();
   }
 
   const pubsSection = document.querySelector(".pubs");

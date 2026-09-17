@@ -173,12 +173,14 @@ async function copyText(text, button) {
   button._t = setTimeout(() => { label.textContent = button._label; button.classList.remove("is-done"); }, 1800);
 }
 
-function openWriteSheet() {
+// subject: тема письма, например «Совместная работа: <направление>» (кнопка с data-write-subject)
+function openWriteSheet(subject = "") {
+  const mailto = `mailto:${SITE.email}${subject ? `?subject=${encodeURIComponent(subject)}` : ""}`;
   const dlg = openSheet("Написать нам", `
     <p class="write__lead">Мы открыты к сотрудничеству и рады любым вопросам. Расскажите о своей задаче или идее, и мы подскажем, чем можем помочь.</p>
-    <p class="write__mail"><a href="mailto:${SITE.email}">${SITE.email}</a></p>
+    <p class="write__mail"><a href="${esc(mailto)}">${SITE.email}</a></p>
     <div class="write__actions">
-      <a class="btn btn--dark" href="mailto:${SITE.email}">открыть почту<span class="btn__icon">${ICONS.chat}</span></a>
+      <a class="btn btn--dark" href="${esc(mailto)}">открыть почту<span class="btn__icon">${ICONS.chat}</span></a>
       <button class="btn btn--ghost" type="button" data-copy-mail><span class="copy-label">скопировать адрес</span></button>
     </div>`, "sheet--write");
   dlg.querySelector("[data-copy-mail]").addEventListener("click", (e) => copyText(SITE.email, e.currentTarget));
@@ -227,7 +229,7 @@ const MOTION_GROUPS = [          // контейнер, его элементы,
 ];
 const MOTION_SINGLES = [
   "main .section-head", "main .section-head--row", ".featured .h2", ".featured__card", ".news-all > .h2",
-  ".dir-about .h2", ".dir-about__text", ".dir-about__tags", ".education__photo", ".education__text", ".education .btn",
+  ".dir-about .h2", ".dir-about__text", ".dir-cta", ".dir-about__tags", ".people-head", ".education__photo", ".education__text", ".education .btn",
 ];
 
 function countUp(title) {
@@ -327,9 +329,10 @@ function mountLayout() {
   page.querySelector(".back-top").addEventListener("click", () => window.scrollTo({ top: 0 }));
 
   document.addEventListener("click", (e) => {
-    if (!e.target.closest("[data-write]")) return;
+    const trigger = e.target.closest("[data-write]");
+    if (!trigger) return;
     e.preventDefault();
-    openWriteSheet();
+    openWriteSheet(trigger.dataset.writeSubject);
   });
 }
 
