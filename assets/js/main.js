@@ -177,10 +177,10 @@ function pubHTML(p, index) {
           <p class="pub__authors">${esc(p.authors)}</p>
         </div>
         ${p.desc ? `<div class="pub__desc">${ICONS.chevronPoint}<p>${esc(p.desc)}</p></div>` : ""}
-        <div>
+        ${p.tags && p.tags.length ? `<div>
           <p class="pub__tags-title">Ключевые теги</p>
           ${tagsHTML(p.tags)}
-        </div>
+        </div>` : ""}
       </div>
       <div class="pub__img${p.image ? "" : " is-empty"}">
         ${image}
@@ -404,7 +404,7 @@ function initPublications() {
   const getItems = () => {
     const term = q.value.trim().toLowerCase();
     const items = PUBLICATIONS.filter((p) =>
-      (!term || `${p.title} ${p.authors} ${p.journal} ${p.tags.join(" ")}`.toLowerCase().includes(term)) &&
+      (!term || `${p.title} ${p.authors} ${p.journal} ${(p.tags || []).join(" ")}`.toLowerCase().includes(term)) &&
       (!dirSel.value || pubDirs(p).includes(dirSel.value)) &&
       (!yearSel.value || p.date.startsWith(yearSel.value)));
     items.sort((a, b) => sortSel.value === "old" ? a.date.localeCompare(b.date) : b.date.localeCompare(a.date));

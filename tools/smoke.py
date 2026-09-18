@@ -57,6 +57,10 @@ _data = (ROOT / "assets" / "js" / "data.js").read_text(encoding="utf-8")
 _dirs_block = _data[:_data.index("window.PUBLICATIONS")]
 N_DIRECTIONS = len(re.findall(r'id: "[^"]+"', _dirs_block))
 N_PUBS_2022 = _data.count('date: "2022')
+PUB_PAGE = 6  # столько публикаций показывает страница до кнопки «показать еще»
+# поиск на странице публикаций идет по названию, авторам, журналу и тегам
+_pub_blocks = re.findall(r"\n  \{\n    date:.*?\n  \},", _data[_data.index("window.PUBLICATIONS"):], re.S)
+N_NATURE = sum(1 for b in _pub_blocks if "nature" in b.lower())
 
 # метки версий CSS/JS в HTML должны совпадать с содержимым файлов, иначе браузеры покажут старый кэш
 import hashlib
@@ -135,10 +139,14 @@ with sync_playwright() as p:
     page.click(".more .btn")
     check(page.locator(".pub").count() == 12, "публикации: «показать еще» не догрузил")
     page.fill("[name=q]", "Nature")
-    check(page.locator(".pub").count() == 1, "публикации: поиск по журналу не сработал")
+    want = min(N_NATURE, PUB_PAGE)
+    check(page.locator(".pub").count() == want,
+          f"публикации: поиск дал {page.locator('.pub').count()}, ждали {want}")
     page.click(".filters__reset")
     page.select_option("[name=year]", "2022")
-    check(page.locator(".pub").count() == N_PUBS_2022, f"публикации: фильтр по году дал {page.locator('.pub').count()}, в data.js {N_PUBS_2022}")
+    want = min(N_PUBS_2022, PUB_PAGE)
+    check(page.locator(".pub").count() == want,
+          f"публикации: фильтр по году дал {page.locator('.pub').count()}, ждали {want} (в data.js {N_PUBS_2022})")
     page.click(".view-toggle__btn[data-view=list]")
     check(page.locator(".pub-list.is-list").count() == 1, "публикации: не переключился вид «список»")
     check(not page.locator(".pub__img").first.is_visible(), "публикации: в виде «список» видны картинки")

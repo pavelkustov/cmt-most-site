@@ -33,7 +33,11 @@ python -m http.server 8000
 - `PUBLICATIONS` содержит публикации, новая добавляется копированием любого объекта.
   После добавления запустите `python tools/fetch_citations.py`: он скачает из Crossref по DOI данные для окна
   «Цитировать» (ГОСТ, MLA, APA, BibTeX, EndNote, RefMan, RefWorks) в `assets/js/citations.js`.
-  Без этого цитата соберется из полей `data.js`, но без тома, номера и страниц;
+  Без этого цитата соберется из полей `data.js`, но без тома, номера и страниц.
+  Откуда брать новые работы: `python tools/fetch_publications.py` собирает статьи сотрудников
+  из OpenAlex, профилей ORCID и Crossref в `docs/publications_db.json`, а
+  `python tools/publications_to_data.py` переносит из базы в `data.js` те, которых там еще нет
+  (что вошло в базу и чего не хватает — в `docs/CONTENT_GAPS.md`);
 - `NEWS` содержит новости, у новости месяца стоит `featured: true`;
 - `PEOPLE` содержит сотрудников центра: имя с фамилией, степень или ступень обучения и должность
   (источник — книга «ЦМТ Мост.xlsx» у владельца). Направления ссылаются сюда по имени,
