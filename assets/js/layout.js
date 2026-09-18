@@ -299,6 +299,8 @@ function initMotion() {
 
 function mountLayout() {
   watchTypography();
+  // страница 404 идет без шапки и подвала, ей нужна только типографика
+  if (document.body.dataset.layout === "off") return;
   // карточки и списки дорисовывает main.js в своем обработчике DOMContentLoaded, анимации настраиваем после него
   setTimeout(initMotion);
   const page = document.querySelector(".page");

@@ -11,6 +11,7 @@
 | `direction.html?id=puf` | Страница научного направления (id из `assets/js/data.js`) |
 | `publications.html` | Все публикации с поиском, фильтрами и видом «карточки / список» |
 | `news.html` | Новости, новость месяца и попап (`news.html?open=<id>` открывает новость сразу) |
+| `404.html` | Страница «не найдено», GitHub Pages отдает ее на любой несуществующий адрес |
 
 ## Как посмотреть локально
 
@@ -37,6 +38,20 @@ python -m http.server 8000
 
 Картинки кладутся в `assets/img/` (лучше в WebP, до 300 КБ), в данных указывается только имя файла.
 
+Новую страницу направления, когда она наполнится содержимым, надо дописать в `sitemap.xml`.
+
+## Шрифты
+
+Inter и Roboto лежат в репозитории (`assets/fonts`, подключены в `assets/css/fonts.css`), а не грузятся
+с Google Fonts: из России так быстрее и сайт не зависит от внешнего сервиса. Обновить набор:
+
+```powershell
+python tools/fetch_fonts.py
+```
+
+В именах файлов есть хэш содержимого, поэтому после обновления надо поправить две ссылки
+`rel="preload"` в `<head>` каждой страницы.
+
 ## Проверка перед публикацией
 
 ```powershell
@@ -58,8 +73,10 @@ python tools/smoke.py --shots  # то же и скриншоты в tools/shots/
 ## Структура
 
 ```
-index.html, direction.html, publications.html, news.html
+index.html, direction.html, publications.html, news.html, 404.html
+robots.txt, sitemap.xml  для поисковиков
 assets/css/style.css     стили (1rem = 10px на ширине 1920, дальше масштабируется)
+assets/css/fonts.css     подключение шрифтов из assets/fonts (собирает tools/fetch_fonts.py)
 assets/js/data.js        контент
 assets/js/layout.js      шапка, подвал, иконки, типографика (предлоги не висят в конце строки)
 assets/og                картинки превью ссылок 1200x630 (tools/make_share_images.py рисует их и PNG-иконки)

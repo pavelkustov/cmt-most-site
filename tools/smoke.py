@@ -15,16 +15,29 @@ from playwright.sync_api import sync_playwright
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SHOTS = "--shots" in sys.argv
-PAGES = ["index.html", "direction.html?id=puf", "direction.html?id=biosensing", "publications.html", "news.html"]
+PAGES = ["index.html", "direction.html?id=puf", "direction.html?id=biosensing", "publications.html", "news.html", "404.html"]
 WIDTHS = [1920, 1440, 1024, 390]
 
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
     def log_message(self, *args):
         pass
 
+    def handle_one_request(self):
+        # браузер бросает лишние соединения (предзагрузка шрифтов), на Windows это ошибка в консоли
+        try:
+            super().handle_one_request()
+        except (ConnectionAbortedError, ConnectionResetError):
+            self.close_connection = True
+
+
+# сервер многопоточный: браузер открывает несколько соединений сразу, на одном потоке страница зависала
+class QuietServer(socketserver.ThreadingTCPServer):
+    daemon_threads = True
+    allow_reuse_address = True
+
 
 handler = partial(QuietHandler, directory=str(ROOT))
-httpd = socketserver.TCPServer(("127.0.0.1", 0), handler)
+httpd = QuietServer(("127.0.0.1", 0), handler)
 port = httpd.server_address[1]
 threading.Thread(target=httpd.serve_forever, daemon=True).start()
 base = f"http://127.0.0.1:{port}/"
@@ -73,16 +86,23 @@ with sync_playwright() as p:
             page.on("console", lambda m: m.type == "error" and "ERR_NAME_NOT_RESOLVED" not in m.text and errors.append(m.text))
             bad = []
             page.on("response", lambda r: r.status >= 400 and "fonts." not in r.url and bad.append(f"{r.status} {r.url}"))
+            # шрифты лежат в репозитории, обращений к Google Fonts быть не должно
+            external = []
+            page.on("request", lambda r: ("fonts.googleapis.com" in r.url or "fonts.gstatic.com" in r.url) and external.append(r.url))
             page.goto(base + url, wait_until=WAIT, timeout=TIMEOUT)
             tag = f"[{width}] {url}"
             check(not errors, f"{tag}: ошибки JS {errors}")
             check(not bad, f"{tag}: битые ресурсы {bad}")
+            check(not external, f"{tag}: страница ходит за шрифтами наружу {external}")
             overflow = page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
             check(overflow <= 1, f"{tag}: горизонтальный скролл страницы {overflow}px")
             broken = page.evaluate("""[...document.images].filter(i => i.complete && i.naturalWidth === 0 && i.loading !== 'lazy').map(i => i.src)""")
             check(not broken, f"{tag}: не загрузились картинки {broken}")
-            check(page.locator(".site-header").count() == 1, f"{tag}: нет шапки")
-            check(page.locator(".site-footer").count() == 1, f"{tag}: нет подвала")
+            if url != "404.html":  # страница «не найдено» идет без шапки и подвала
+                check(page.locator(".site-header").count() == 1, f"{tag}: нет шапки")
+                check(page.locator(".site-footer").count() == 1, f"{tag}: нет подвала")
+            else:
+                check(page.locator(".oops__logo").count() == 1, f"{tag}: нет логотипа")
             if SHOTS:
                 out = ROOT / "tools" / "shots" / f"{width}-{url.replace('?', '_').replace('=', '-')}.png"
                 out.parent.mkdir(exist_ok=True)
@@ -154,6 +174,16 @@ with sync_playwright() as p:
         check(abs(gaps["bottom"] - 2 * gaps["top"]) <= 3, f"[{w}x{h}] {u}: поле под кнопкой не вдвое больше поля над шапкой: {gaps}")
         if SHOTS:
             pg.screenshot(path=str(ROOT / "tools" / "shots" / f"fit-{w}x{h}-{u.split('.')[0]}.png"))
+        pg.close()
+
+    # страница «не найдено» помещается в окно целиком, прокрутки быть не должно
+    for w, h in [(2000, 930), (1536, 730), (1920, 1080), (1366, 640), (390, 844)]:
+        pg = browser.new_context(viewport={"width": w, "height": h}).new_page()
+        pg.goto(base + "404.html", wait_until=WAIT, timeout=TIMEOUT)
+        over = pg.evaluate("document.documentElement.scrollHeight - document.documentElement.clientHeight")
+        check(over <= 1, f"[{w}x{h}] 404: страница не помещается в окно, лишние {over}px")
+        if SHOTS:
+            pg.screenshot(path=str(ROOT / "tools" / "shots" / f"404-{w}x{h}.png"))
         pg.close()
 
     # попап новости месяца целиком виден и текст влезает без прокрутки

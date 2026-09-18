@@ -308,6 +308,8 @@ svg { display: block; flex-shrink: 0; }
 }
 
 /* ---------- главная: о центре ---------- */
+/* промежуток между заголовком и метриками идет по той же шкале, что и промежутки между секциями:
+   иначе на планшете (761–1100px) внутри блока получалось просторнее, чем между блоками */
 .about { padding-top: var(--section-gap); display: flex; flex-direction: column; gap: 16rem; }
 .about__head { max-width: 90.8rem; }
 .metrics { display: flex; justify-content: space-between; gap: 4rem; }
@@ -321,7 +323,7 @@ svg { display: block; flex-shrink: 0; }
 .metric__text { font-size: 2.4rem; font-weight: 300; line-height: 1.35; text-transform: lowercase; }
 
 /* ---------- главная: наука ---------- */
-.science { margin-top: var(--section-gap); padding-block: 10rem 16.3rem; background: var(--bg-soft); }
+.science { margin-top: var(--section-gap); padding-block: 10rem; background: var(--bg-soft); }
 .science__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 4rem; }
 .science__head .lead { max-width: 54.4rem; }
 .slider-arrows { display: flex; gap: 1.6rem; }
@@ -401,7 +403,7 @@ svg { display: block; flex-shrink: 0; }
 .education__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 38% center; }
 /* вертикальный ритм по макету: заголовок и фото начинаются на одной линии, низ кнопки = низ фото */
 .education__body { flex: 0 1 82.2rem; display: flex; flex-direction: column; }
-.education .section-head { gap: 2.1rem; margin-top: -1rem; }
+.education .section-head { gap: 2.1rem; }
 .education__sub { font-family: var(--font-alt); font-size: 3.2rem; line-height: 1.25; }
 /* на десктопе строки идут строго по разбивке макета (br-desk): первая строка занимает колонку почти целиком,
    и при чуть другой отрисовке шрифта браузер добавлял лишнюю строку, кнопка уезжала ниже фото */
@@ -731,6 +733,60 @@ select.field {
 }
 .toast.is-shown { opacity: 1; transform: translate(-50%, 0); }
 
+/* ---------- страница «не найдено» (404.html) ----------
+   Отдельная от остальных страниц: без шапки и подвала, все стоит по центру одного экрана.
+   Фон и типографика те же, что на первом экране сайта. */
+/* Страница целиком помещается в окно, в том числе в широкое и невысокое: размеры взяты через
+   min() от обычного значения и от высоты окна, поэтому в низком окне сжимается верстка, а не шрифты
+   до нечитаемого. Прокрутки нет — единственный экран. */
+.oops {
+  position: relative; min-height: 100svh;
+  display: flex; flex-direction: column; align-items: center;
+  padding: min(6rem, 6vh) var(--gutter) min(5rem, 5vh); color: var(--mint); background: #0d1a14;
+}
+.oops__bg { position: absolute; inset: 0; overflow: hidden; }
+.oops__bg img { width: 100%; height: 100%; object-fit: cover; filter: blur(7.5px); transform: scale(1.06); }
+.oops__bg::after {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(70% 70% at 50% 45%, rgba(9, 9, 11, .35) 0%, rgba(9, 9, 11, .72) 100%);
+}
+.oops__inner, .oops__foot { position: relative; z-index: 1; }
+/* логотип стоит там же, где в шапке остальных страниц: левый верхний угол, те же поля */
+.oops__logo { position: absolute; z-index: 2; top: min(4rem, 4vh); left: var(--gutter); }
+.oops__logo img { width: 30.5rem; height: auto; }
+.oops__inner {
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding-block: min(12rem, 12vh) min(4rem, 4vh);
+}
+
+/* Мост из логотипа разведен посередине. Половины разъезжаются при загрузке, а при наведении
+   на «на главную» сходятся обратно. Заливка backwards, а не forwards: после анимации у половины
+   снова обычное значение, иначе анимация перебила бы наведение. */
+.bridge { width: min(30rem, 26vh); max-width: 62vw; height: auto; margin: 0 0 min(5.2rem, 5.5vh); color: var(--mint); }
+.bridge__half { transform-box: view-box; transition: transform .5s cubic-bezier(.2, .7, .2, 1); }
+.bridge__half--left { transform: translateX(-10px); }
+.bridge__half--right { transform: translateX(10px); }
+@keyframes bridge-part { from { transform: none; } }
+.bridge__half--left, .bridge__half--right { animation: bridge-part 1.1s cubic-bezier(.2, .7, .2, 1) .35s backwards; }
+.oops:has(.oops__home:hover) .bridge__half { transform: none; }
+
+.oops__title {
+  font-size: min(8.8rem, 9.4vh); font-weight: 400; line-height: 1.02; letter-spacing: -0.02em;
+  text-box: trim-both cap alphabetic;
+}
+.oops__text { margin-top: min(3.6rem, 4vh); font-size: min(2.8rem, 3.1vh); font-weight: 300; line-height: 1.45; max-width: 66rem; }
+.oops__actions { margin-top: min(5.6rem, 6vh); display: flex; align-items: center; gap: 4rem; flex-wrap: wrap; justify-content: center; }
+.oops__link {
+  font-size: 2rem; font-weight: 500; text-transform: uppercase; letter-spacing: -0.05rem;
+  border-bottom: 2px solid rgba(242, 253, 251, .35); padding-bottom: .4rem; transition: border-color .2s, color .2s;
+}
+.oops__link:hover { color: var(--white); border-color: var(--white); }
+.oops__foot { font-size: 1.8rem; text-transform: uppercase; color: rgba(242, 253, 251, .55); }
+
+@media (prefers-reduced-motion: reduce) {
+  .bridge__half { animation: none; }
+}
+
 /* ---------- планшеты и телефоны ---------- */
 @media (max-width: 1100px) {
   html { font-size: 6.4px; }
@@ -800,7 +856,7 @@ select.field {
   .metric__title { font-size: 3.6rem; margin-bottom: 1.6rem; }
   .metric__text { font-size: 2.4rem; }
 
-  .science { padding-block: 8rem 9.6rem; }
+  .science { padding-block: 8rem; }
   .science__head { flex-direction: column; align-items: flex-start; }
   .slider-arrows { display: none; }
   .carousel { margin-top: 2rem; gap: 1.6rem; }
@@ -895,6 +951,16 @@ select.field {
   .modal__close { top: 4rem; right: 3.2rem; }
   .modal__title { font-size: 3.6rem; }
   .modal__text { font-size: 2.56rem; }
+
+  .oops { padding: 4rem var(--gutter); }
+  .oops__logo { top: var(--hero-edge); }
+  .oops__logo img { width: 26rem; }
+  .oops__inner { padding-block: 10rem 4rem; }
+  .bridge { width: 24rem; margin-bottom: 4.4rem; }
+  .oops__title { font-size: 5.6rem; }
+  .oops__text { font-size: 2.56rem; margin-top: 2.8rem; }
+  .oops__actions { margin-top: 4.4rem; gap: 3.2rem; flex-direction: column; }
+  .oops__foot { font-size: 2rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
