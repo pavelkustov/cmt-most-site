@@ -246,6 +246,59 @@ STRANGERS = {
     "10.1134/s0006350919010056": "SASCUBE, рентгеновское рассеяние, не наш Ярошенко (проверено владельцем)",
     "modellingofcassinichargingandwakeformationinsaturnsmagnetosphere":
         "Кассини, тот же однофамилец, работа без DOI",
+    "10.24160/1993-6982-2023-6-77-87":
+        "подогреватели воды на ТЭЦ, Pavel Kustov из другой области (ORCID привязан ошибочно)",
+}
+
+# работы, которых нет ни в OpenAlex, ни в профилях ORCID: нашлись при сверке с Google Scholar.
+# DOI -> кто из центра в соавторах (проверено владельцем, повторной проверки не требуют)
+EXTRA = {
+    "10.1109/iclo69056.2026.11624674": ["Елена Герасимова", "Лидия Михайлова", "Михаил Зюзин"],
+    # Николай Жесткий: в OpenAlex его ORCID пустой, а имя пишется то Zhestkij, то Zhestkii
+    "10.1002/adom.202300881": ["Николай Жесткий"],
+    "10.1016/j.photonics.2021.100990": ["Николай Жесткий"],
+    "10.1038/s43246-024-00573-6": ["Николай Жесткий"],
+    "10.1002/adfm.202311235": ["Николай Жесткий"],
+    "10.1021/jacs.6c00409": ["Николай Жесткий"],
+    "10.1021/acsami.3c10193": ["Николай Жесткий"],
+    "10.3390/cryst12060846": ["Николай Жесткий"],
+    "10.1016/j.photonics.2023.101145": ["Николай Жесткий"],
+    "10.1016/j.photonics.2023.101198": ["Николай Жесткий"],
+    "10.15826/chimtech.2021.8.4.11": ["Николай Жесткий"],
+    "10.1002/lpor.202401912": ["Николай Жесткий"],
+    "10.1002/lpor.202501152": ["Николай Жесткий"],
+    "10.1021/acsanm.5c04932": ["Николай Жесткий"],
+    "10.1021/acs.jpcc.4c04885": ["Николай Жесткий"],
+    "10.1039/d5qm00166h": ["Николай Жесткий"],
+    "10.1109/iclo69056.2026.11624504": ["Николай Жесткий"],
+    "10.1117/12.3100337": ["Николай Жесткий"],
+    "10.1117/12.3105976": ["Николай Жесткий"],
+    "10.1117/12.3022176": ["Николай Жесткий"],
+    "10.1117/12.2691151": ["Николай Жесткий"],
+    # Артем Ларин: работы из его профиля Scholar, которых не было в базе или где его не было в авторах
+    "10.29026/oea.2025.250110": ["Артем Ларин"],
+    "10.1109/iclo69056.2026.11624504": ["Артем Ларин"],
+    "10.17586/2220-8054-2025-16-6-785-790": ["Артем Ларин"],
+    "10.17586/1023-5086-2026-93-03-33-39": ["Артем Ларин", "Дмитрий Зуев"],
+    # Эдуард Агеев: из его профиля Scholar
+    "10.1134/s0021364022200012": ["Эдуард Агеев"],
+    "10.1109/iclo69056.2026.11625116": ["Эдуард Агеев", "Екатерина Понкратова",
+                                        "Александр Лошкарев", "Мартин Сандомирский"],
+    # Михаил Зюзин: из его профиля Scholar
+    "10.1109/iclo69056.2026.11624899": ["Михаил Зюзин", "Лидия Михайлова"],
+    "10.1109/iclo69056.2026.11624559": ["Михаил Зюзин", "Иван Резник", "Арина Чередникова",
+                                        "Сабина Бикметова"],
+    "10.1109/iclo69056.2026.11625054": ["Михаил Зюзин", "Лидия Михайлова", "Мария Тимофеева",
+                                        "Арина Чередникова"],
+    "10.1134/s1990750826600287": ["Михаил Зюзин"],
+}
+
+# работам без DOI соавторов из центра дописываем по названию (тоже по профилям Scholar)
+EXTRA_TITLES = {
+    "Study of multipotent mesenchymal stromal cells as a cellular delivery system "
+    "for antitumor drugs and their remote control activation": ["Михаил Зюзин"],
+    "Polymeric micro-and nano-carriers as a universal platform for delivery "
+    "of biologically active substances to therapeutically cell populations": ["Михаил Зюзин"],
 }
 
 
@@ -306,6 +359,38 @@ def flat(title):
 # что считаем главной версией работы, когда название совпало
 RANK = ["article", "conference-paper", "book-chapter", "preprint", "other"]
 
+# русский журнал и его переводная английская версия: одна и та же статья выходит в обоих
+TRANSLATED = [
+    ("письма в журнал технической физики", "technical physics letters"),
+    ("письма в журнал экспериментальной", "jetp letters"),
+    ("письма в журнал экспериментальной", "journal of experimental and theoretical"),
+    ("физика и техника полупроводников", "semiconductors"),
+    ("неорганические материалы", "inorganic materials"),
+    ("журнал технической физики", "technical physics"),
+    ("оптика и спектроскопия", "optics and spectroscopy"),
+]
+
+
+def mark_translations(works):
+    """Помечает русский оригинал, если в базе уже есть его английский перевод."""
+    doubles = 0
+    latin = [r for r in works.values() if r["title"] and not re.search(r"[а-яА-Я]", r["title"])]
+    for rec in works.values():
+        if rec.get("duplicate_of") or not re.search(r"[а-яА-Я]", rec["title"] or ""):
+            continue
+        ru = rec["journal"].lower()
+        names = [en for rus, en in TRANSLATED if rus in ru]
+        for other in latin:
+            if (names and any(en in other["journal"].lower() for en in names)
+                    and other["year"] == rec["year"] and other["authors_count"] == rec["authors_count"] > 2):
+                if rec.get("on_site") and not other.get("on_site"):
+                    break  # на сайте стоит русская версия с ручной разметкой, ее и оставляем
+                rec["duplicate_of"] = other["doi"] or other["openalex"]
+                doubles += 1
+                print("перевод той же статьи:", rec["title"][:55], "->", other["journal"][:35])
+                break
+    return doubles
+
 
 def mark_duplicates(works):
     """Помечает препринты и вторые DOI той же работы, чтобы они не шли на сайт дважды."""
@@ -319,7 +404,9 @@ def mark_duplicates(works):
             rec["duplicate_of"] = ""
         if len(same) < 2:
             continue
-        rank = lambda kr: (RANK.index(kr[1]["type"]) if kr[1]["type"] in RANK else len(RANK),
+        # работа, которая уже стоит на сайте, остается главной: у нее ручная разметка
+        rank = lambda kr: (not kr[1].get("on_site"),
+                           RANK.index(kr[1]["type"]) if kr[1]["type"] in RANK else len(RANK),
                            -kr[1]["cited_by"], not kr[1]["doi"])
         main = sorted(same, key=rank)[0]
         for key, rec in same:
@@ -381,6 +468,11 @@ def orcid_works(orcid):
         }
 
 
+def plain(text):
+    """Убирает разметку и лишние пробелы: в Crossref в названиях бывает <sub>, <i> и переносы."""
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", text or "")).strip()
+
+
 def crossref_record(doi):
     """Карточка работы из Crossref (когда работы нет в OpenAlex)."""
     m = get(f"{CROSSREF}/{urllib.parse.quote(doi)}")["message"]
@@ -390,8 +482,8 @@ def crossref_record(doi):
     return {
         "doi": doi,
         "openalex": "",
-        "title": (m.get("title") or [""])[0],
-        "journal": (m.get("container-title") or [""])[0],
+        "title": plain((m.get("title") or [""])[0]),
+        "journal": plain((m.get("container-title") or [""])[0]),
         "publisher": m.get("publisher") or "",
         "date": "-".join(str(p).zfill(2) if i else str(p) for i, p in enumerate(date) if p),
         "year": date[0] if date else None,
@@ -409,7 +501,7 @@ def crossref_record(doi):
         "retracted": False,
         "keywords_en": m.get("subject") or [],
         "topics": [],
-        "abstract": re.sub(r"<[^>]+>", " ", m.get("abstract") or "").strip(),
+        "abstract": plain(m.get("abstract")),
         "center_authors": [],
         "match": {},
         "needs_check": False,
@@ -522,6 +614,28 @@ def main():
         print(f"{row['works']:5d}  {person['short']}  [{row['method']}]"
               + (f", из профиля ORCID добавлено {row['from_orcid']}" if row["from_orcid"] else ""))
 
+    # работы, добавленные руками после сверки с Google Scholar
+    for doi, names in EXTRA.items():
+        key = key_of(doi, "")
+        if key not in works:
+            try:
+                works[key] = dict(crossref_record(doi), source="сверка с Scholar")
+                print("добавлена руками:", works[key]["title"][:60])
+            except Exception as e:
+                print("нет данных Crossref по добавленной работе", doi, e)
+                continue
+        for name in names:
+            if name not in works[key]["center_authors"]:
+                works[key]["center_authors"].append(name)
+            works[key]["match"][name] = "проверено"
+
+    want = {flat(t): names for t, names in EXTRA_TITLES.items()}
+    for rec in works.values():
+        for name in want.get(flat(rec["title"]), []):
+            if name not in rec["center_authors"]:
+                rec["center_authors"].append(name)
+            rec["match"][name] = "проверено"
+
     # статьи, которые уже стоят на сайте, но не нашлись ни по ORCID, ни по имени
     for doi in site_dois:
         if key_of(doi, "") in works:
@@ -567,14 +681,21 @@ def main():
     if early:
         print(f"\nснято привязок по году: {early}")
 
+    # отметку «стоит на сайте» ставим до поиска дублей: она решает, какая версия главная
+    for rec in works.values():
+        rec["on_site"] = rec["doi"].lower() in site_dois
+
     doubles = mark_duplicates(works)
+    doubles += mark_translations(works)
 
     for rec in works.values():
         rec.setdefault("source", "openalex")
         rec.setdefault("itmo", None)  # None = аффилиацию еще не смотрели
         rec["type"] = TYPES.get(rec["type"], rec["type"])
+        rec["title"], rec["journal"] = plain(rec["title"]), plain(rec["journal"])
         rec["on_site"] = rec["doi"].lower() in site_dois
-        rec["needs_check"] = bool(rec["match"]) and "orcid" not in rec["match"].values()
+        trusted = {"orcid", "проверено"}
+        rec["needs_check"] = bool(rec["match"]) and not trusted & set(rec["match"].values())
         # направление тем вероятнее, чем больше авторов центра из его команды
         votes = {}
         for name in rec["center_authors"]:

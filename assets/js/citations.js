@@ -244,6 +244,250 @@ window.CITATIONS = {
   "year": 2026,
   "publisher": "IEEE"
  },
+ "10.1109/iclo69056.2026.11624674": {
+  "type": "proceedings-article",
+  "authors": [
+   [
+    "E.N.Gerasimova",
+    ""
+   ],
+   [
+    "L.V.Mikhailova",
+    ""
+   ],
+   [
+    "M.V.Zyuzin",
+    ""
+   ]
+  ],
+  "title": "Hybrid nanomaterials for optical heating and temperature monitoring in biological objects",
+  "container": "2026 International Conference Laser Optics (ICLO)",
+  "volume": null,
+  "issue": null,
+  "page": "395-395",
+  "year": 2026,
+  "publisher": "IEEE"
+ },
+ "10.1109/iclo69056.2026.11624504": {
+  "type": "proceedings-article",
+  "authors": [
+   [
+    "N.A.Zhestkij",
+    ""
+   ],
+   [
+    "A.V.Lubimova",
+    ""
+   ],
+   [
+    "A.O.Larin",
+    ""
+   ],
+   [
+    "S.A.Shipilovskikh",
+    ""
+   ],
+   [
+    "D.A.Zuev",
+    ""
+   ],
+   [
+    "V.A.Milichko",
+    ""
+   ]
+  ],
+  "title": "All-optical modulation of SHG intensity in metal-organic frameworks single crystals",
+  "container": "2026 International Conference Laser Optics (ICLO)",
+  "volume": null,
+  "issue": null,
+  "page": "116-116",
+  "year": 2026,
+  "publisher": "IEEE"
+ },
+ "10.1109/iclo69056.2026.11625116": {
+  "type": "proceedings-article",
+  "authors": [
+   [
+    "Ponkratova",
+    "E.Y."
+   ],
+   [
+    "Loshkarev",
+    "A.S."
+   ],
+   [
+    "Maleeva",
+    "K.A."
+   ],
+   [
+    "Sandomirskii",
+    "M.P."
+   ],
+   [
+    "Shtumpf",
+    "A.S."
+   ],
+   [
+    "Ageev",
+    "E.I."
+   ],
+   [
+    "Zuev",
+    "D.A."
+   ]
+  ],
+  "title": "Laser-assisted formation of hierarchical Ti-based SERS substrates",
+  "container": "2026 International Conference Laser Optics (ICLO)",
+  "volume": null,
+  "issue": null,
+  "page": "193-193",
+  "year": 2026,
+  "publisher": "IEEE"
+ },
+ "10.1134/s1990750826600287": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Evmenov",
+    "K. S."
+   ],
+   [
+    "Tkachenko",
+    "E. A."
+   ],
+   [
+    "Brezgin",
+    "S. A."
+   ],
+   [
+    "Kostyusheva",
+    "A. P."
+   ],
+   [
+    "Ponomareva",
+    "N. I."
+   ],
+   [
+    "Demina",
+    "P. A."
+   ],
+   [
+    "Fatkhutdinova",
+    "L."
+   ],
+   [
+    "Zyuzin",
+    "M. V."
+   ],
+   [
+    "Kostyushev",
+    "D. S."
+   ]
+  ],
+  "title": "Physicochemical Analysis of Extracellular Nanovesicles and Exosome-Like Nanovesicles",
+  "container": "Biochemistry (Moscow), Supplement Series B: Biomedical Chemistry",
+  "volume": "20",
+  "issue": "2",
+  "page": "145-158",
+  "year": 2026,
+  "publisher": "Pleiades Publishing Ltd"
+ },
+ "10.1109/iclo69056.2026.11625054": {
+  "type": "proceedings-article",
+  "authors": [
+   [
+    "A.A.Cherednikova",
+    ""
+   ],
+   [
+    "L.V.Mikhailova",
+    ""
+   ],
+   [
+    "M.V.Timofeeva",
+    ""
+   ],
+   [
+    "Zhilina",
+    "A.E."
+   ],
+   [
+    "M.V.Zyuzin",
+    ""
+   ]
+  ],
+  "title": "Photoluminescence quenching of carbon dots by multi-metal ion systems in aqueous solutions",
+  "container": "2026 International Conference Laser Optics (ICLO)",
+  "volume": null,
+  "issue": null,
+  "page": "437-437",
+  "year": 2026,
+  "publisher": "IEEE"
+ },
+ "10.1109/iclo69056.2026.11624899": {
+  "type": "proceedings-article",
+  "authors": [
+   [
+    "Mikhailova",
+    "L.V."
+   ],
+   [
+    "Gusliakova",
+    "O.A."
+   ],
+   [
+    "Shushunova",
+    "N.A."
+   ],
+   [
+    "Zyuzin",
+    "M.V."
+   ],
+   [
+    "Sukhorukov",
+    "G.B."
+   ]
+  ],
+  "title": "Light-Responsive Multilayer Carriers for Controlled STING Agonist Release",
+  "container": "2026 International Conference Laser Optics (ICLO)",
+  "volume": null,
+  "issue": null,
+  "page": "415-415",
+  "year": 2026,
+  "publisher": "IEEE"
+ },
+ "10.1109/iclo69056.2026.11624559": {
+  "type": "proceedings-article",
+  "authors": [
+   [
+    "Reznik",
+    "I.A."
+   ],
+   [
+    "Cherednikova",
+    "A. A."
+   ],
+   [
+    "Bikmetova",
+    "S."
+   ],
+   [
+    "Danilov",
+    "D. V."
+   ],
+   [
+    "Zyuzin",
+    "M. V."
+   ]
+  ],
+  "title": "Microfluidic synthesis of AgInS\n                    <sub>2</sub>\n                    /ZnS quantum dots with different stoichiometry for biomedicine",
+  "container": "2026 International Conference Laser Optics (ICLO)",
+  "volume": null,
+  "issue": null,
+  "page": "418-418",
+  "year": 2026,
+  "publisher": "IEEE"
+ },
  "10.1021/acsanm.6c00888": {
   "type": "journal-article",
   "authors": [
@@ -299,6 +543,66 @@ window.CITATIONS = {
   "page": "9729-9738",
   "year": 2026,
   "publisher": "American Chemical Society (ACS)"
+ },
+ "10.1117/12.3100337": {
+  "type": "proceedings-article",
+  "authors": [
+   [
+    "Milichko",
+    "Valentin A."
+   ],
+   [
+    "Alekseevskiy",
+    "Pavel"
+   ],
+   [
+    "Zhestkij",
+    "Nikolaj"
+   ]
+  ],
+  "title": "Nonlinear metal-organic framework crystals: from bulk to nanometer scales",
+  "container": "Nonlinear Optics and its Applications 2026",
+  "volume": null,
+  "issue": null,
+  "page": "85",
+  "year": 2026,
+  "publisher": "SPIE"
+ },
+ "10.1117/12.3105976": {
+  "type": "proceedings-article",
+  "authors": [
+   [
+    "Zhestkij",
+    "Nikolaj"
+   ],
+   [
+    "Efimova",
+    "Anastasiia"
+   ],
+   [
+    "Petrova",
+    "Elena"
+   ],
+   [
+    "Shipilovskikh",
+    "Sergey"
+   ],
+   [
+    "Zuev",
+    "Dmitry"
+   ],
+   [
+    "Milichko",
+    "Valentin"
+   ]
+  ],
+  "title": "Metal-organic frameworks as a crystalline optical media for data storage and encryption",
+  "container": "Photosensitive Materials and their Applications IV",
+  "volume": null,
+  "issue": null,
+  "page": "27",
+  "year": 2026,
+  "publisher": "SPIE"
  },
  "10.1016/j.photonics.2026.101586": {
   "type": "journal-article",
@@ -1072,6 +1376,42 @@ window.CITATIONS = {
   "year": 2026,
   "publisher": "Elsevier BV"
  },
+ "10.1002/lpor.202501152": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Zhestkij",
+    "Nikolaj"
+   ],
+   [
+    "Povarov",
+    "Svyatoslav"
+   ],
+   [
+    "Shipilovskikh",
+    "Sergei"
+   ],
+   [
+    "Yushina",
+    "Irina D."
+   ],
+   [
+    "Pierson",
+    "Jean-François"
+   ],
+   [
+    "Milichko",
+    "Valentin"
+   ]
+  ],
+  "title": "Highly Nonlinear Metal-Organic Framework Microcrystal for Ultrabroadband and Multiwavelength Coherent Light Emission",
+  "container": "Laser &amp; Photonics Reviews",
+  "volume": "20",
+  "issue": "3",
+  "page": "e01152",
+  "year": 2026,
+  "publisher": "Wiley"
+ },
  "10.1021/acsanm.5c04932": {
   "type": "journal-article",
   "authors": [
@@ -1371,6 +1711,17 @@ window.CITATIONS = {
   "page": "101480",
   "year": 2026,
   "publisher": "Elsevier BV"
+ },
+ "10.17586/1023-5086-2026-93-03-33-39": {
+  "type": "journal-article",
+  "authors": [],
+  "title": "Гистерезис нелинейной восприимчивости второго порядка в кремнии",
+  "container": "Оптический журнал",
+  "volume": null,
+  "issue": null,
+  "page": "",
+  "year": 2026,
+  "publisher": "ITMO University"
  },
  "10.1016/j.bioadv.2025.214632": {
   "type": "journal-article",
@@ -3980,6 +4331,50 @@ window.CITATIONS = {
   "year": 2024,
   "publisher": "IEEE"
  },
+ "10.1002/adfm.202311235": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Zhestkij",
+    "Nikolaj A."
+   ],
+   [
+    "Efimova",
+    "Anastasiia S."
+   ],
+   [
+    "Kenzhebayeva",
+    "Yuliya"
+   ],
+   [
+    "Povarov",
+    "Svyatoslav A."
+   ],
+   [
+    "Alekseevskiy",
+    "Pavel V."
+   ],
+   [
+    "Rzhevskiy",
+    "Sergey S."
+   ],
+   [
+    "Shipilovskikh",
+    "Sergei A."
+   ],
+   [
+    "Milichko",
+    "Valentin A."
+   ]
+  ],
+  "title": "Grayscale to Multicolor Laser Writing Inside a Label-Free Metal-Organic Frameworks",
+  "container": "Advanced Functional Materials",
+  "volume": "34",
+  "issue": "30",
+  "page": "2311235",
+  "year": 2024,
+  "publisher": "Wiley"
+ },
  "10.17691/stm2024.16.3.04": {
   "type": "journal-article",
   "authors": [
@@ -4181,6 +4576,34 @@ window.CITATIONS = {
   "volume": null,
   "issue": null,
   "page": "12",
+  "year": 2024,
+  "publisher": "SPIE"
+ },
+ "10.1117/12.3022176": {
+  "type": "proceedings-article",
+  "authors": [
+   [
+    "Zhestkij",
+    "Nikolai"
+   ],
+   [
+    "Efimova",
+    "Anastasia"
+   ],
+   [
+    "Shipilovskikh",
+    "Sergey"
+   ],
+   [
+    "Milichko",
+    "Valentin A."
+   ]
+  ],
+  "title": "From grayscale towards multi-color laser printing inside non-linear metal-organic framework microcrystals",
+  "container": "Photosensitive Materials and their Applications III",
+  "volume": null,
+  "issue": null,
+  "page": "47",
   "year": 2024,
   "publisher": "SPIE"
  },
@@ -4892,50 +5315,6 @@ window.CITATIONS = {
   "year": 2024,
   "publisher": "Royal Society of Chemistry (RSC)"
  },
- "10.24160/1993-6982-2023-6-77-87": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Astanovsky",
-    "Dmitriy"
-   ],
-   [
-    "Astanovsky",
-    "Lev"
-   ],
-   [
-    "Kustov",
-    "Pavel"
-   ],
-   [
-    "Okhlopkov",
-    "Andrey"
-   ],
-   [
-    "Nikishov",
-    "Kirill"
-   ],
-   [
-    "Popov",
-    "Nikolay"
-   ],
-   [
-    "Bitney",
-    "Vladislav"
-   ],
-   [
-    "Kulakov",
-    "Artem"
-   ]
-  ],
-  "title": "Evaluating the Effectiveness of Various Design Versions of Raw Water Heaters at a Combined Heat and Power Plant",
-  "container": "Vestnik MEI",
-  "volume": null,
-  "issue": "6",
-  "page": "77-87",
-  "year": 2023,
-  "publisher": "Moscow Power Engineering Institute (MPEI)"
- },
  "10.1016/j.photonics.2023.101222": {
   "type": "journal-article",
   "authors": [
@@ -5148,6 +5527,42 @@ window.CITATIONS = {
   "year": 2023,
   "publisher": "MDPI AG"
  },
+ "10.1016/j.photonics.2023.101198": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Zhestkij",
+    "Nikolaj"
+   ],
+   [
+    "Povarov",
+    "Svyatoslav"
+   ],
+   [
+    "Mezenov",
+    "Yuri A."
+   ],
+   [
+    "Rzhevskiy",
+    "Sergey S."
+   ],
+   [
+    "Kulakova",
+    "Alena N."
+   ],
+   [
+    "Milichko",
+    "Valentin A."
+   ]
+  ],
+  "title": "UiO-66 metal organic framework as stable platform for non-linear optical applications",
+  "container": "Photonics and Nanostructures - Fundamentals and Applications",
+  "volume": "57",
+  "issue": null,
+  "page": "101198",
+  "year": 2023,
+  "publisher": "Elsevier BV"
+ },
  "10.1117/12.2688987": {
   "type": "proceedings-article",
   "authors": [
@@ -5177,6 +5592,38 @@ window.CITATIONS = {
   "volume": null,
   "issue": null,
   "page": "26",
+  "year": 2023,
+  "publisher": "SPIE"
+ },
+ "10.1117/12.2691151": {
+  "type": "proceedings-article",
+  "authors": [
+   [
+    "Zhestkij",
+    "Nikolai"
+   ],
+   [
+    "Efimova",
+    "Anastasia"
+   ],
+   [
+    "Kenzhebayeva",
+    "Yuliya"
+   ],
+   [
+    "Shipilovskih",
+    "Sergey"
+   ],
+   [
+    "Milichko",
+    "Valentin"
+   ]
+  ],
+  "title": "Metal-organic frameworks as competitive non-linear optical materials: light conversion and structural modification",
+  "container": "Nanophotonics and Micro/Nano Optics IX",
+  "volume": null,
+  "issue": null,
+  "page": "33",
   "year": 2023,
   "publisher": "SPIE"
  },
@@ -6248,6 +6695,38 @@ window.CITATIONS = {
   "year": 2023,
   "publisher": "IEEE"
  },
+ "10.1016/j.photonics.2023.101145": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Bachinin",
+    "Semyon"
+   ],
+   [
+    "Marunchenko",
+    "Alexandr"
+   ],
+   [
+    "Zhestkij",
+    "Nikolaj"
+   ],
+   [
+    "Gunina",
+    "Ekaterina"
+   ],
+   [
+    "Milichko",
+    "Valentin A."
+   ]
+  ],
+  "title": "Metal-organic framework single crystal infrared photodetector",
+  "container": "Photonics and Nanostructures - Fundamentals and Applications",
+  "volume": "55",
+  "issue": null,
+  "page": "101145",
+  "year": 2023,
+  "publisher": "Elsevier BV"
+ },
  "10.17586/2220-8054-2023-14-3-349-353": {
   "type": "journal-article",
   "authors": [
@@ -6629,66 +7108,6 @@ window.CITATIONS = {
   "volume": "55",
   "issue": null,
   "page": "101147",
-  "year": 2023,
-  "publisher": "Elsevier BV"
- },
- "10.1016/j.jcis.2023.04.020": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Mitusova",
-    "Ksenia A."
-   ],
-   [
-    "Rogova",
-    "Anna"
-   ],
-   [
-    "Gerasimova",
-    "Elena N."
-   ],
-   [
-    "Ageev",
-    "Eduard I."
-   ],
-   [
-    "Yaroshenko",
-    "Vitaly V."
-   ],
-   [
-    "Shipilovskikh",
-    "Sergei A."
-   ],
-   [
-    "Feng",
-    "Lili"
-   ],
-   [
-    "Yang",
-    "Piaoping"
-   ],
-   [
-    "Petrov",
-    "Andrey A."
-   ],
-   [
-    "Muslimov",
-    "Albert R."
-   ],
-   [
-    "Zyuzin",
-    "Mikhail V."
-   ],
-   [
-    "Timin",
-    "Alexander S."
-   ]
-  ],
-  "title": "RETRACTED: Theoretical simulation and experimental design of selenium and gold incorporated polymer-based microcarriers for ROS-mediated combined photothermal therapy",
-  "container": "Journal of Colloid and Interface Science",
-  "volume": "643",
-  "issue": null,
-  "page": "232-246",
   "year": 2023,
   "publisher": "Elsevier BV"
  },
@@ -8240,61 +8659,53 @@ window.CITATIONS = {
   "year": 2022,
   "publisher": "American Chemical Society (ACS)"
  },
- "10.1016/j.apmt.2022.101571": {
+ "10.3390/cryst12060846": {
   "type": "journal-article",
   "authors": [
    [
-    "Postovalova",
-    "Alisa S."
+    "Zhestkij",
+    "Nikolaj"
    ],
    [
-    "Karpov",
-    "Timofey E."
+    "Efimova",
+    "Anastasiia"
    ],
    [
-    "Akhmetova",
-    "Darya R."
+    "Rzhevskiy",
+    "Sergey"
    ],
    [
-    "Rodimova",
-    "Svetlana A."
+    "Kenzhebayeva",
+    "Yuliya"
    ],
    [
-    "Kuznetsova",
-    "Daria S."
+    "Bachinin",
+    "Semyon"
    ],
    [
-    "Antuganov",
-    "Dmitrii O."
+    "Gunina",
+    "Ekaterina"
    ],
    [
-    "Sysoev",
-    "Dmitry S."
+    "Sergeev",
+    "Maxim"
    ],
    [
-    "Muslimov",
-    "Albert R."
+    "Dyachuk",
+    "Vyacheslav"
    ],
    [
-    "Stanzhevsky",
-    "Andrei A."
-   ],
-   [
-    "Zyuzin",
-    "Mikhail V."
-   ],
-   [
-    "Timin",
-    "Alexander S."
+    "Milichko",
+    "Valentin A."
    ]
   ],
-  "title": "RETRACTED: Preclinical studies of automated radiolabeled microcarriers for radiosynovectomy of inflammatory joint disease",
-  "container": "Applied Materials Today",
-  "volume": "29",
-  "issue": null,
-  "page": "101571",
+  "title": "Reversible and Irreversible Laser Interference Patterning of MOF Thin Films",
+  "container": "Crystals",
+  "volume": "12",
+  "issue": "6",
+  "page": "846",
   "year": 2022,
-  "publisher": "Elsevier BV"
+  "publisher": "MDPI AG"
  },
  "10.1016/j.carbon.2022.05.054": {
   "type": "journal-article",
@@ -8880,6 +9291,54 @@ window.CITATIONS = {
   "year": 2022,
   "publisher": "Springer Science and Business Media LLC"
  },
+ "10.1134/s0021364022200012": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Kudryashov",
+    "S. I."
+   ],
+   [
+    "Danilov",
+    "P. A."
+   ],
+   [
+    "Sdvizhenskii",
+    "P. A."
+   ],
+   [
+    "Lednev",
+    "V. N."
+   ],
+   [
+    "Chen",
+    "J."
+   ],
+   [
+    "Ostrikov",
+    "S. A."
+   ],
+   [
+    "Kuzmin",
+    "E. V."
+   ],
+   [
+    "Kovalev",
+    "M. S."
+   ],
+   [
+    "Levchenko",
+    "A. O."
+   ]
+  ],
+  "title": "Transformations of the Spectrum of an Optical Phonon Excited in Raman Scattering in the Bulk of Diamond by Ultrashort Laser Pulses with a Variable Duration",
+  "container": "JETP Letters",
+  "volume": "115",
+  "issue": "5",
+  "page": "251-255",
+  "year": 2022,
+  "publisher": "Pleiades Publishing Ltd"
+ },
  "10.1016/j.carbon.2022.02.041": {
   "type": "journal-article",
   "authors": [
@@ -9088,6 +9547,46 @@ window.CITATIONS = {
   "year": 2022,
   "publisher": "Pleiades Publishing Ltd"
  },
+ "10.1016/j.photonics.2021.100990": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Gunina",
+    "Ekaterina"
+   ],
+   [
+    "Zhestkij",
+    "Nikolaj"
+   ],
+   [
+    "Bachinin",
+    "Semyon"
+   ],
+   [
+    "Fisenko",
+    "Sergey P."
+   ],
+   [
+    "Shipilovskikh",
+    "Daria. A."
+   ],
+   [
+    "Milichko",
+    "Valentin A."
+   ],
+   [
+    "Shipilovskikh",
+    "Sergei A."
+   ]
+  ],
+  "title": "The influence of substitutes on the room temperature photoluminescence of 2-amino-4-oxobut-2-enoic acid molecular crystals",
+  "container": "Photonics and Nanostructures - Fundamentals and Applications",
+  "volume": "48",
+  "issue": null,
+  "page": "100990",
+  "year": 2022,
+  "publisher": "Elsevier BV"
+ },
  "10.1002/adom.202102163": {
   "type": "journal-article",
   "authors": [
@@ -9195,58 +9694,6 @@ window.CITATIONS = {
   "page": "24",
   "year": 2022,
   "publisher": "Ioffe Institute Russian Academy of Sciences"
- },
- "10.31857/s1234567822040024": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "АГЕЕВ",
-    "Э. И."
-   ],
-   [
-    "ИУДИН",
-    "В. А."
-   ],
-   [
-    "СУН",
-    "Я."
-   ],
-   [
-    "ПЕТРОВА",
-    "Е. А."
-   ],
-   [
-    "КУСТОВ",
-    "П. Н."
-   ],
-   [
-    "ЯРОШЕНКО",
-    "В. В."
-   ],
-   [
-    "МИХАЙЛОВА",
-    "Ю. В."
-   ],
-   [
-    "ГУДОВСКИХ",
-    "А. С."
-   ],
-   [
-    "МУХИН",
-    "И. С."
-   ],
-   [
-    "ЗУЕВ",
-    "Д. А."
-   ]
-  ],
-  "title": "ГИБРИДНЫЕ РЕЗОНАНСНЫЕ МЕТАЛЛОДИЭЛЕКТРИЧЕСКИЕ НАНОСТРУКТУРЫ ДЛЯ ЛОКАЛЬНОГО ОКРАШИВАНИЯ",
-  "container": "ПИСЬМА В ЖУРНАЛ ЭКСПЕРИМЕНТАЛЬНОЙ И ТЕОРЕТИЧЕСКОЙ ФИЗИКИ",
-  "volume": "115",
-  "issue": "3-4(2)",
-  "page": "213-217",
-  "year": 2022,
-  "publisher": "The Russian Academy of Sciences"
  },
  "10.17223/00213411/65/7/69": {
   "type": "journal-article",
@@ -9407,6 +9854,46 @@ window.CITATIONS = {
   "page": "2100253",
   "year": 2022,
   "publisher": "Wiley"
+ },
+ "10.15826/chimtech.2021.8.4.11": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Zhestkij",
+    "N. A."
+   ],
+   [
+    "Gunina",
+    "E. V."
+   ],
+   [
+    "Fisenko",
+    "S. P."
+   ],
+   [
+    "Rubtsov",
+    "A. E."
+   ],
+   [
+    "Shipilovskikh",
+    "D. A."
+   ],
+   [
+    "Milichko",
+    "V. A."
+   ],
+   [
+    "Shipilovskikh",
+    "S. A."
+   ]
+  ],
+  "title": "Synthesis of highly stable luminescent molecular crystals based on (<i>E</i>)-2-((3-(ethoxycarbonyl)-5-methyl-4-phenylthiophen-2-yl)amino)-4-oxo-4-(<i>p</i>-tolyl)but-2-enoic acid",
+  "container": "Chimica Techno Acta",
+  "volume": "8",
+  "issue": "4",
+  "page": "20218411",
+  "year": 2021,
+  "publisher": "Ural Federal University"
  },
  "10.1021/acsphotonics.1c01347": {
   "type": "journal-article",
@@ -14204,34 +14691,6 @@ window.CITATIONS = {
   "year": 2019,
   "publisher": "Wiley"
  },
- "10.1134/s0006350919010056": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Fedorov",
-    "B. A."
-   ],
-   [
-    "Smirnov",
-    "A. V."
-   ],
-   [
-    "Yaroshenko",
-    "V. V."
-   ],
-   [
-    "Porozov",
-    "Yu. B."
-   ]
-  ],
-  "title": "SASCUBE: An Updated Method of Cubes for Calculation of the Intensity of X-Ray Scattering by Biopolymers in Solution",
-  "container": "Biophysics",
-  "volume": "64",
-  "issue": "1",
-  "page": "38-48",
-  "year": 2019,
-  "publisher": "Pleiades Publishing Ltd"
- },
  "10.1088/1742-6596/1124/5/051013": {
   "type": "journal-article",
   "authors": [
@@ -18648,30 +19107,6 @@ window.CITATIONS = {
   "year": 2015,
   "publisher": "AIP Publishing"
  },
- "10.1016/j.icarus.2015.04.028": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Yaroshenko",
-    "V.V."
-   ],
-   [
-    "Miloch",
-    "W.J."
-   ],
-   [
-    "Lühr",
-    "H."
-   ]
-  ],
-  "title": "Particle-in-cell simulation of spacecraft/plasma interactions in the vicinity of Enceladus",
-  "container": "Icarus",
-  "volume": "257",
-  "issue": null,
-  "page": "1-8",
-  "year": 2015,
-  "publisher": "Elsevier BV"
- },
  "10.1557/opl.2015.656": {
   "type": "journal-article",
   "authors": [
@@ -19055,70 +19490,6 @@ window.CITATIONS = {
   "page": "055902",
   "year": 2013,
   "publisher": "IOP Publishing"
- },
- "10.7868/s0002337x13100096": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Петухов",
-    "И. А."
-   ],
-   [
-    "Паршина",
-    "Л. С."
-   ],
-   [
-    "Зуев",
-    "Д. А."
-   ],
-   [
-    "Лотин",
-    "А. А."
-   ],
-   [
-    "Новодворский",
-    "О. А."
-   ],
-   [
-    "Храмова",
-    "О. Д."
-   ],
-   [
-    "Шатохин",
-    "А. Н."
-   ],
-   [
-    "Путилин",
-    "Ф. Н."
-   ],
-   [
-    "Румянцева",
-    "М. Н."
-   ],
-   [
-    "Козловский",
-    "В. Ф."
-   ],
-   [
-    "Маслаков",
-    "К. И."
-   ],
-   [
-    "Иванов",
-    "В. К."
-   ],
-   [
-    "Гаськов",
-    "А. М."
-   ]
-  ],
-  "title": "Электрофизические свойства тонких пленок SnO<sub>2</sub>•Sb®, полученных методом импульсного лазерного осаждения",
-  "container": "Неорганические материалы",
-  "volume": "49",
-  "issue": "11",
-  "page": "1211-1215",
-  "year": 2013,
-  "publisher": "Akademizdatcenter Nauka"
  },
  "10.1134/s000635091206019x": {
   "type": "journal-article",
@@ -19651,46 +20022,6 @@ window.CITATIONS = {
   "page": "4-7",
   "year": 2011,
   "publisher": "IOP Publishing"
- },
- "10.1063/1.3659880": {
-  "type": "proceedings-article",
-  "authors": [
-   [
-    "Sultana",
-    "S."
-   ],
-   [
-    "Kourakis",
-    "I."
-   ],
-   [
-    "Yaroshenko",
-    "V. V."
-   ],
-   [
-    "Nosenko",
-    "Vladimir Yu."
-   ],
-   [
-    "Shukla",
-    "Padma K."
-   ],
-   [
-    "Thoma",
-    "Markus H."
-   ],
-   [
-    "Thomas",
-    "Hubertus M."
-   ]
-  ],
-  "title": "Strong electrostatic interaction effect on modulational stability of dust acoustic waves",
-  "container": "AIP Conference Proceedings",
-  "volume": null,
-  "issue": null,
-  "page": "435-436",
-  "year": 2011,
-  "publisher": "AIP"
  },
  "10.1134/s1063785011010226": {
   "type": "journal-article",

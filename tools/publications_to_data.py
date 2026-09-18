@@ -20,6 +20,11 @@ DB = ROOT / "docs" / "publications_db.json"
 SKIP_TYPES = {"peer-review", "dataset", "retraction", "other", "dissertation"}
 
 
+def retracted(rec):
+    """Отозванные работы на сайт не идут, как и уведомления об отзыве."""
+    return bool(rec["retracted"]) or rec["title"].upper().startswith("RETRACTED")
+
+
 def js(value):
     """Строка или список строк в том виде, в каком они лежат в data.js."""
     if isinstance(value, list):
@@ -53,6 +58,36 @@ def block_of(rec):
     return "\n  {\n" + "\n".join(lines) + "\n  },"
 
 
+def field(block, name):
+    """Значение поля записи data.js: строка в кавычках или список."""
+    m = re.search(name + r': (\[[^\]]*\]|"(?:[^"\\]|\\.)*")', block, re.S)
+    return m.group(1) if m else ""
+
+
+def carry_over(block, gone):
+    """Переносит ручную разметку с удаляемого дубля на остающуюся работу."""
+    moved = []
+    for name in ("quartile", "direction"):
+        theirs, mine = field(gone, name), field(block, name)
+        if theirs and theirs not in ('""', "[]") and mine in ("", '""', "[]"):
+            if mine:
+                block = block.replace(f"{name}: {mine}", f"{name}: {theirs}")
+            else:  # поля нет вовсе, дописываем в строку с датой
+                block = block.replace("direction:", f"{name}: {theirs}, direction:", 1)
+            moved.append(name)
+    desc = field(gone, "desc")
+    if desc and not field(block, "desc"):
+        block = block.replace("\n    tags:", f"\n    desc: {desc},\n    tags:", 1)
+        moved.append("desc")
+    tags = field(gone, "tags")
+    if re.search(r"[а-яА-Я]", tags) and not re.search(r"[а-яА-Я]", field(block, "tags")):
+        block = block.replace(f"tags: {field(block, 'tags')}", f"tags: {tags}", 1)
+        moved.append("теги")
+    if moved:
+        print("   перенесено на оставшуюся работу:", ", ".join(moved))
+    return block
+
+
 def sort_key(block):
     date = re.search(r'date: "([^"]*)"', block)
     return date.group(1) if date else ""
@@ -69,10 +104,13 @@ def main():
     have_title = {flat(m.group(1)) for b in old for m in [re.search(r'title: "(.*?)",\n', b, re.S)] if m}
 
     db = json.loads(DB.read_text(encoding="utf-8"))
-    added, skipped = [], {"дубль": 0, "не публикация": 0, "уже на сайте": 0, "без названия": 0}
+    added, skipped = [], {"дубль": 0, "не публикация": 0, "отозвана": 0,
+                          "уже на сайте": 0, "без названия": 0}
     for rec in db["works"]:
         if rec["duplicate_of"]:
             skipped["дубль"] += 1
+        elif retracted(rec):
+            skipped["отозвана"] += 1
         elif rec["type"] in SKIP_TYPES:
             skipped["не публикация"] += 1
         elif not rec["title"]:
@@ -82,7 +120,34 @@ def main():
         else:
             added.append(block_of(rec))
 
-    result = sorted(old + added, key=sort_key, reverse=True)
+    # то, что в базе оказалось дублем или работой тезки, со страницы убираем
+    bad = {r["doi"].lower() for r in db["works"] if (r["duplicate_of"] or retracted(r)) and r["doi"]}
+    # у работ без DOI (русские оригиналы переводных статей) сверяем название, но только если
+    # такого названия нет у оставленной записи: у дубля и у основной работы оно часто одно
+    good_titles = {flat(r["title"]) for r in db["works"] if not r["duplicate_of"]}
+    bad_titles = {flat(r["title"]) for r in db["works"]
+                  if r["duplicate_of"] and not r["doi"]} - good_titles
+    twin = {}  # DOI оставшейся работы -> разметка удаленного дубля
+    by_doi = {r["doi"].lower(): r for r in db["works"] if r["doi"]}
+    kept = []
+    for b in old:
+        doi = re.search(r'doi: "https://doi\.org/([^"]+)"', b)
+        title = re.search(r'title: "(.*?)",\n', b, re.S)
+        if (doi and doi.group(1).lower() in bad) or (title and flat(title.group(1)) in bad_titles):
+            name = (title.group(1) if title else doi.group(1))[:70]
+            print("убрана как отозванная:" if name.upper().startswith("RETRACTED")
+                  else "убрана как дубль:", name)
+            main = by_doi.get(doi.group(1).lower(), {}).get("duplicate_of", "") if doi else ""
+            twin[main.lower()] = b
+            continue
+        kept.append(b)
+
+    result = sorted(kept + added, key=sort_key, reverse=True)
+    if twin:
+        for i, b in enumerate(result):
+            doi = re.search(r'doi: "https://doi\.org/([^"]+)"', b)
+            if doi and doi.group(1).lower() in twin:
+                result[i] = carry_over(b, twin[doi.group(1).lower()])
     print(f"было: {len(old)}, добавляется: {len(added)}, станет: {len(result)}")
     print("пропущено:", ", ".join(f"{k} {v}" for k, v in skipped.items() if v))
     if args.dry:

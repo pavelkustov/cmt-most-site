@@ -286,11 +286,74 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1109/iclo69056.2026.11624494",
   },
   {
+    date: "2026-06", journal: "2026 International Conference Laser Optics (ICLO)", direction: [],
+    title: "Hybrid nanomaterials for optical heating and temperature monitoring in biological objects",
+    authors: "E.N.Gerasimova, L.V.Mikhailova, M.V.Zyuzin",
+    tags: [],
+    doi: "https://doi.org/10.1109/iclo69056.2026.11624674",
+  },
+  {
+    date: "2026-06", journal: "2026 International Conference Laser Optics (ICLO)", direction: [],
+    title: "All-optical modulation of SHG intensity in metal-organic frameworks single crystals",
+    authors: "N.A.Zhestkij, A.V.Lubimova, A.O.Larin, S.A.Shipilovskikh, D.A.Zuev, V.A.Milichko",
+    tags: [],
+    doi: "https://doi.org/10.1109/iclo69056.2026.11624504",
+  },
+  {
+    date: "2026-06", journal: "2026 International Conference Laser Optics (ICLO)", direction: [],
+    title: "Laser-assisted formation of hierarchical Ti-based SERS substrates",
+    authors: "E.Y. Ponkratova, A.S. Loshkarev, K.A. Maleeva, M.P. Sandomirskii, A.S. Shtumpf, E.I. Ageev, D.A. Zuev",
+    tags: [],
+    doi: "https://doi.org/10.1109/iclo69056.2026.11625116",
+  },
+  {
+    date: "2026-06", journal: "Biochemistry (Moscow), Supplement Series B: Biomedical Chemistry", direction: [],
+    title: "Physicochemical Analysis of Extracellular Nanovesicles and Exosome-Like Nanovesicles",
+    authors: "K. S. Evmenov, E. A. Tkachenko, S. A. Brezgin, A. P. Kostyusheva, N. I. Ponomareva, P. A. Demina, L. Fatkhutdinova, M. V. Zyuzin, D. S. Kostyushev",
+    tags: [],
+    doi: "https://doi.org/10.1134/s1990750826600287",
+  },
+  {
+    date: "2026-06", journal: "2026 International Conference Laser Optics (ICLO)", direction: [],
+    title: "Photoluminescence quenching of carbon dots by multi-metal ion systems in aqueous solutions",
+    authors: "A.A.Cherednikova, L.V.Mikhailova, M.V.Timofeeva, A.E. Zhilina, M.V.Zyuzin",
+    tags: [],
+    doi: "https://doi.org/10.1109/iclo69056.2026.11625054",
+  },
+  {
+    date: "2026-06", journal: "2026 International Conference Laser Optics (ICLO)", direction: [],
+    title: "Light-Responsive Multilayer Carriers for Controlled STING Agonist Release",
+    authors: "L.V. Mikhailova, O.A. Gusliakova, N.A. Shushunova, M.V. Zyuzin, G.B. Sukhorukov",
+    tags: [],
+    doi: "https://doi.org/10.1109/iclo69056.2026.11624899",
+  },
+  {
+    date: "2026-06", journal: "2026 International Conference Laser Optics (ICLO)", direction: [],
+    title: "Microfluidic synthesis of AgInS 2 /ZnS quantum dots with different stoichiometry for biomedicine",
+    authors: "I.A. Reznik, A. A. Cherednikova, S. Bikmetova, D. V. Danilov, M. V. Zyuzin",
+    tags: [],
+    doi: "https://doi.org/10.1109/iclo69056.2026.11624559",
+  },
+  {
     date: "2026-05-29", journal: "ACS Applied Nano Materials", direction: ["eco-nano"],
     title: "Continuous Separation of Laser-Ablated Silicon Nanoparticles Using a Spiral Inertial Microfluidic Device: A Route to Monodisperse Mie-Resonant Colloids for Nanophotonics",
     authors: "Sabina Bikmetova, Ivan Reznik, Daria Sennikova, Pavel Kustov, Artur Karamyants, Liliia Dvoretckaia, Lidia Mikhailova, Konstantin Arabuli, Kirill Lepik, Mikhail V. Zyuzin, Dmitry Zuev",
     tags: ["микрофлюидика", "кремниевые наночастицы", "лазерная абляция", "резонансы Ми", "монодисперсные коллоиды"],
     doi: "https://doi.org/10.1021/acsanm.6c00888",
+  },
+  {
+    date: "2026-05-28", journal: "Nonlinear Optics and its Applications 2026", direction: [],
+    title: "Nonlinear metal-organic framework crystals: from bulk to nanometer scales",
+    authors: "Valentin A. Milichko, Pavel Alekseevskiy, Nikolaj Zhestkij",
+    tags: [],
+    doi: "https://doi.org/10.1117/12.3100337",
+  },
+  {
+    date: "2026-05-27", journal: "Photosensitive Materials and their Applications IV", direction: [],
+    title: "Metal-organic frameworks as a crystalline optical media for data storage and encryption",
+    authors: "Nikolaj Zhestkij, Anastasiia Efimova, Elena Petrova, Sergey Shipilovskikh, Dmitry Zuev, Valentin Milichko",
+    tags: [],
+    doi: "https://doi.org/10.1117/12.3105976",
   },
   {
     date: "2026-05-01", journal: "Photonics and Nanostructures - Fundamentals and Applications", direction: [],
@@ -406,6 +469,13 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1016/j.commatsci.2025.114465",
   },
   {
+    date: "2026-02", journal: "Laser &amp; Photonics Reviews", direction: [],
+    title: "Highly Nonlinear Metal‐Organic Framework Microcrystal for Ultrabroadband and Multiwavelength Coherent Light Emission",
+    authors: "Nikolaj Zhestkij, Svyatoslav Povarov, Sergei Shipilovskikh, Irina D. Yushina, Jean‐François Pierson, Valentin Milichko",
+    tags: [],
+    doi: "https://doi.org/10.1002/lpor.202501152",
+  },
+  {
     date: "2026-01-30", journal: "ACS Applied Nano Materials", direction: ["eco-nano"],
     title: "Fiber-Integrated Metal–Organic Framework Nanosheets for Light Emission and Microendoscopy",
     authors: "Pavel V. Alekseevskiy, Anastasia Efimova, Sviatoslav Povarov, Nikolaj A. Zhestkij, Pavel A. Demakov, Nikita Burzak, Vyacheslav A. Dyachuk, Vladimir P. Fedin, Andrei S. Potapov, Xiaolin Yu, Valentin A. Milichko",
@@ -453,6 +523,13 @@ window.PUBLICATIONS = [
     authors: "Chunyu Li, Elena Petrova, Sabina Bikmetova, Denis V. Danilov, Dmitry Zuev, Eduard Ageev",
     tags: ["смачиваемость", "плавленый кварц", "лазерная обработка", "поверхность"],
     doi: "https://doi.org/10.1016/j.photonics.2025.101480",
+  },
+  {
+    date: "2026", journal: "Оптический журнал", direction: [],
+    title: "Гистерезис нелинейной восприимчивости второго порядка в кремнии",
+    authors: "",
+    tags: [],
+    doi: "https://doi.org/10.17586/1023-5086-2026-93-03-33-39",
   },
   {
     date: "2025-12-03", journal: "Biomaterials Advances", direction: [],
@@ -873,6 +950,13 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1109/iclo59702.2024.10624391",
   },
   {
+    date: "2024-07", journal: "Advanced Functional Materials", direction: [],
+    title: "Grayscale to Multicolor Laser Writing Inside a Label‐Free Metal‐Organic Frameworks",
+    authors: "Nikolaj A. Zhestkij, Anastasiia S. Efimova, Yuliya Kenzhebayeva, Svyatoslav A. Povarov, Pavel V. Alekseevskiy, Sergey S. Rzhevskiy, Sergei A. Shipilovskikh, Valentin A. Milichko",
+    tags: [],
+    doi: "https://doi.org/10.1002/adfm.202311235",
+  },
+  {
     date: "2024-06-28", journal: "Sovremennye tehnologii v medicine", direction: [],
     title: "Nanoparticles for Creating a Strategy to Stimulate Liver Regeneration",
     authors: "S.A. Rodimova, D.S. Kozlov, D.P. Krylov, L.V. Mikhailova, V.A. Kozlova, A.I. Gavrina, A.M. Mozherov, V.V. Elagin, D.S. Kuznetsova",
@@ -906,6 +990,13 @@ window.PUBLICATIONS = [
     authors: "Elena Gerasimova, Egor Uvarov, Vitaly Yaroshenko, Lev Logunov, Sergey Makarov, Mikhail Zyuzin",
     tags: ["Silicon", "Nanoparticle", "Materials science", "Optoelectronics", "Colloidal gold", "Temperature measurement", "Nanotechnology", "Physics"],
     doi: "https://doi.org/10.1117/12.3016897",
+  },
+  {
+    date: "2024-06-18", journal: "Photosensitive Materials and their Applications III", direction: [],
+    title: "From grayscale towards multi-color laser printing inside non-linear metal-organic framework microcrystals",
+    authors: "Nikolai Zhestkij, Anastasia Efimova, Sergey Shipilovskikh, Valentin A. Milichko",
+    tags: [],
+    doi: "https://doi.org/10.1117/12.3022176",
   },
   {
     date: "2024-05-23", journal: "Biomaterials Advances", direction: [],
@@ -1013,13 +1104,6 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1039/d4dt00038b",
   },
   {
-    date: "2023-12-22", journal: "Vestnik MEI", direction: [],
-    title: "Evaluating the Effectiveness of Various Design Versions of Raw Water Heaters at a Combined Heat and Power Plant",
-    authors: "Dmitriy Astanovsky, Lev Astanovsky, Pavel Kustov, Andrey Okhlopkov, Kirill Nikishov, Nikolay Popov, Vladislav Bitney, Artem Kulakov",
-    tags: ["Heat exchanger", "Spiral (railway)", "Process engineering", "Shell and tube heat exchanger", "Reliability (semiconductor)", "Mechanical engineering", "Work (physics)", "Tube (container)", "Engineering", "Power (physics)", "Computer science", "Environmental science"],
-    doi: "https://doi.org/10.24160/1993-6982-2023-6-77-87",
-  },
-  {
     date: "2023-12-21", journal: "arXiv (Cornell University)", direction: [],
     title: "Laminar flow synthesis of submicron CaCO$_3$ particles in 3D printed microfluidic chips",
     authors: "Reznik, I. A., Kolesova, E. P., Pestereva, A. S., Baranov, K. N., Osin, Y. N., Bogdanov, K. V., Swart, J. W., Moshkalev, S. A., Orlova, A. O.",
@@ -1062,11 +1146,25 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.3390/nano13233075",
   },
   {
+    date: "2023-12", journal: "Photonics and Nanostructures - Fundamentals and Applications", direction: [],
+    title: "UiO-66 metal organic framework as stable platform for non-linear optical applications",
+    authors: "Nikolaj Zhestkij, Svyatoslav Povarov, Yuri A. Mezenov, Sergey S. Rzhevskiy, Alena N. Kulakova, Valentin A. Milichko",
+    tags: [],
+    doi: "https://doi.org/10.1016/j.photonics.2023.101198",
+  },
+  {
     date: "2023-11-28", journal: "", direction: [],
     title: "Internal structure and quantum efficiency of hybrid metal-dielectric nanoparticles fabricated by femtosecond laser exposure of bi-layer film",
     authors: "Eduard I. Ageev, Sergei V. Koromyslov, Mikhail A. Gremilov, Van A. Gulinian, Dmitry A. Zuev",
     tags: ["Materials science", "Femtosecond", "Silicon", "Bilayer", "Optoelectronics", "Dielectric", "Photoluminescence", "Quantum dot", "Laser", "Nanoparticle", "Scanning electron microscope", "Nanotechnology", "Optics", "Composite material", "Membrane", "Chemistry"],
     doi: "https://doi.org/10.1117/12.2688987",
+  },
+  {
+    date: "2023-11-28", journal: "Nanophotonics and Micro/Nano Optics IX", direction: [],
+    title: "Metal-organic frameworks as competitive non-linear optical materials: light conversion and structural modification",
+    authors: "Nikolai Zhestkij, Anastasia Efimova, Yuliya Kenzhebayeva, Sergey Shipilovskih, Valentin Milichko",
+    tags: [],
+    doi: "https://doi.org/10.1117/12.2691151",
   },
   {
     date: "2023-11-23", journal: "Biomaterials Science", direction: [],
@@ -1241,6 +1339,13 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1109/nano58406.2023.10231180",
   },
   {
+    date: "2023-07", journal: "Photonics and Nanostructures - Fundamentals and Applications", direction: [],
+    title: "Metal-organic framework single crystal infrared photodetector",
+    authors: "Semyon Bachinin, Alexandr Marunchenko, Nikolaj Zhestkij, Ekaterina Gunina, Valentin A. Milichko",
+    tags: [],
+    doi: "https://doi.org/10.1016/j.photonics.2023.101145",
+  },
+  {
     date: "2023-06-27", journal: "Nanosystems Physics Chemistry Mathematics", direction: [],
     title: "Single-step lithography-free fabrication of nanoscale broadband radiation sources",
     authors: "E.I. Ageev, S.V. Koromyslov, M.A. Gremilov, D.V. Danilov, E.A. Petrova, I.I. Shishkin, D.A. Zuev",
@@ -1295,13 +1400,6 @@ window.PUBLICATIONS = [
     authors: "Yali Sun, Danni Zhao, Zeying Zhang, Nitika Garg, Bogdan V. Bogdanov, Pavel R. Senyushkin, Meng Su, Dmitry A. Zuev, Sandeep Kumar, Ashok K. Ganguli, Yanlin Song, Pavel Belov",
     tags: ["Materials science", "Anatase", "Nanostructure", "Photocatalysis", "Nanoparticle", "Dielectric", "Nanotechnology", "Characterization (materials science)", "Hybrid material", "Fabrication", "Colloidal gold", "Second-harmonic generation", "Optoelectronics", "Optics", "Laser", "Chemistry"],
     doi: "https://doi.org/10.1016/j.photonics.2023.101147",
-  },
-  {
-    date: "2023-04-10", journal: "Journal of Colloid and Interface Science", direction: [],
-    title: "RETRACTED: Theoretical simulation and experimental design of selenium and gold incorporated polymer-based microcarriers for ROS-mediated combined photothermal therapy",
-    authors: "Ksenia A. Mitusova, Anna Rogova, Elena N. Gerasimova, Eduard I. Ageev, Vitaly V. Yaroshenko, Sergei A. Shipilovskikh, Lili Feng, Piaoping Yang, Andrey A. Petrov, Albert R. Muslimov, Mikhail V. Zyuzin, Alexander S. Timin",
-    tags: ["Photothermal therapy", "In vivo", "Nanorod", "Nanotechnology", "Materials science", "Nanoparticle", "Reactive oxygen species", "Selenium", "Combination therapy", "Chemistry", "Biophysics", "Pharmacology", "Medicine", "Biochemistry"],
-    doi: "https://doi.org/10.1016/j.jcis.2023.04.020",
   },
   {
     date: "2023-04", journal: "Laser & Photonics Reviews", direction: ["integrated-nanophotonics"],
@@ -1570,11 +1668,11 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1021/acs.chemmater.2c01507",
   },
   {
-    date: "2022-06-25", journal: "Applied Materials Today", direction: [],
-    title: "RETRACTED: Preclinical studies of automated radiolabeled microcarriers for radiosynovectomy of inflammatory joint disease",
-    authors: "Alisa S. Postovalova, Timofey E. Karpov, Darya R. Akhmetova, Svetlana A. Rodimova, Daria S. Kuznetsova, Dmitrii O. Antuganov, Dmitry S. Sysoev, Albert R. Muslimov, Andrei A. Stanzhevsky, Mikhail V. Zyuzin, Alexander S. Timin",
-    tags: ["Microcarrier", "Medicine", "Joint disease", "Pathology", "Chemistry", "Osteoarthritis", "Cell"],
-    doi: "https://doi.org/10.1016/j.apmt.2022.101571",
+    date: "2022-06-15", journal: "Crystals", direction: [],
+    title: "Reversible and Irreversible Laser Interference Patterning of MOF Thin Films",
+    authors: "Nikolaj Zhestkij, Anastasiia Efimova, Sergey Rzhevskiy, Yuliya Kenzhebayeva, Semyon Bachinin, Ekaterina Gunina, Maxim Sergeev, Vyacheslav Dyachuk, Valentin A. Milichko",
+    tags: [],
+    doi: "https://doi.org/10.3390/cryst12060846",
   },
   {
     date: "2022-06-03", journal: "Carbon", direction: [],
@@ -1668,6 +1766,13 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1007/s11182-022-02553-0",
   },
   {
+    date: "2022-03", journal: "JETP Letters", direction: [],
+    title: "Transformations of the Spectrum of an Optical Phonon Excited in Raman Scattering in the Bulk of Diamond by Ultrashort Laser Pulses with a Variable Duration",
+    authors: "S. I. Kudryashov, P. A. Danilov, P. A. Sdvizhenskii, V. N. Lednev, J. Chen, S. A. Ostrikov, E. V. Kuzmin, M. S. Kovalev, A. O. Levchenko",
+    tags: [],
+    doi: "https://doi.org/10.1134/s0021364022200012",
+  },
+  {
     date: "2022-02-20", journal: "Carbon", direction: [],
     title: "Extreme structure and spontaneous lift of spin degeneracy in doped perforated bilayer graphenes",
     authors: "Iu.A. Melchakova, T.G. Tenev, N.V. Vitanov, O.N. Tchaikovskaya, L.A. Chernozatonskii, B.I. Yakobson, P.V. Avramov",
@@ -1697,6 +1802,13 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1134/S0021364022040014", image: "pub-10.webp",
   },
   {
+    date: "2022-02", journal: "Photonics and Nanostructures - Fundamentals and Applications", direction: [],
+    title: "The influence of substitutes on the room temperature photoluminescence of 2-amino-4-oxobut-2-enoic acid molecular crystals",
+    authors: "Ekaterina Gunina, Nikolaj Zhestkij, Semyon Bachinin, Sergey P. Fisenko, Daria. A. Shipilovskikh, Valentin A. Milichko, Sergei A. Shipilovskikh",
+    tags: [],
+    doi: "https://doi.org/10.1016/j.photonics.2021.100990",
+  },
+  {
     date: "2022-01-13", journal: "Advanced Optical Materials", direction: [],
     title: "Circular Subwavelength Photodetectors for 3D Space Exploration",
     authors: "Qi Pan, Yali Sun, Meng Su, Sisi Chen, Zheren Cai, Zeying Zhang, Miaomiao Zou, Bingda Chen, Julia V. Mikhailova, Dmitry Zuev, Yanlin Song",
@@ -1709,13 +1821,6 @@ window.PUBLICATIONS = [
     authors: "С.А. Хубежов, Е.Ю. Понкратова, М.Е. Карсакова, В.В. Пригодич, О.И. Ильин, И.В. Силаев, И.В. Тваури, Д.В. Якимчук, Е.Ю. Канюков, Д.А. Зуев",
     tags: ["Rutile", "Crystallite", "Materials science", "Nanostructure", "Titanium", "Titanium dioxide", "Diffraction", "Metal", "Atmospheric temperature range", "Chemical engineering", "Scanning electron microscope", "Nanotechnology", "Catalysis", "Metallurgy", "Chemistry", "Composite material", "Optics"],
     doi: "https://doi.org/10.21883/pjtf.2022.13.52740.19185n",
-  },
-  {
-    date: "2022-01-01", journal: "Письма в Журнал экспериментальной и теоретической физики", direction: [],
-    title: "ГИБРИДНЫЕ РЕЗОНАНСНЫЕ МЕТАЛЛОДИЭЛЕКТРИЧЕСКИЕ НАНОСТРУКТУРЫ ДЛЯ ЛОКАЛЬНОГО ОКРАШИВАНИЯ",
-    authors: "Э. И. АГЕЕВ, В. А. ИУДИН, Я. СУН, Е. А. ПЕТРОВА, П. Н. КУСТОВ, В. В. ЯРОШЕНКО, Ю. В. МИХАЙЛОВА, А. С. ГУДОВСКИХ, И. С. МУХИН, Д. А. ЗУЕВ",
-    tags: ["Medicine"],
-    doi: "https://doi.org/10.31857/s1234567822040024",
   },
   {
     date: "2022-01-01", journal: "Izvestiya vysshikh uchebnykh zavedenii Fizika", direction: [],
@@ -1744,6 +1849,13 @@ window.PUBLICATIONS = [
     authors: "Mikhail V. Rybin, Artem D. Sinelnik, Mohammad Tajik, Valentin A. Milichko, Evgenii V. Ubyivovk, Sergey A. Yakovlev, Alexander B. Pevtsov, Denis A. Yavsin, Dmitry A. Zuev, Sergey V. Makarov",
     tags: ["Nanophotonics", "Materials science", "Photonics", "Optoelectronics", "Nanoparticle", "Optical switch", "Dielectric", "Laser", "Fabrication", "Permittivity", "Phase (matter)", "Laser ablation", "Modulation (music)", "Second-harmonic generation", "Kerr effect", "Optics", "Nanotechnology", "Chemistry"],
     doi: "https://doi.org/10.1002/lpor.202100253",
+  },
+  {
+    date: "2021-12-15", journal: "Chimica Techno Acta", direction: [],
+    title: "Synthesis of highly stable luminescent molecular crystals based on (<i>E</i>)-2-((3-(ethoxycarbonyl)-5-methyl-4-phenylthiophen-2-yl)amino)-4-oxo-4-(<i>p</i>-tolyl)but-2-enoic acid",
+    authors: "N. A. Zhestkij, E. V. Gunina, S. P. Fisenko, A. E. Rubtsov, D. A. Shipilovskikh, V. A. Milichko, S. A. Shipilovskikh",
+    tags: [],
+    doi: "https://doi.org/10.15826/chimtech.2021.8.4.11",
   },
   {
     date: "2021-12-10", journal: "ACS Photonics", direction: [],
@@ -3426,12 +3538,6 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1134/s1063782614040186",
   },
   {
-    date: "2014-01-01", journal: "Физика и техника полупроводников", direction: [],
-    title: "Свойства пленок Zn1−xCoxO, полученных методом импульсного лазерного осаждения с использованием скоростной сепарации осаждаемых частиц",
-    authors: "А. А. Лотин, О. А. Новодворский, V. V. Rylkov, Dmitry Zuev, О. Д. Храмова, M. A. Pankov, Б. А. Аронзон, Anna Semisalova, N. S. Perov, A. Lashkul, E. Lähderanta, В.Я. Панченко",
-    tags: ["Geology"],
-  },
-  {
     date: "2014-01-01", journal: "", direction: [],
     title: "Импульсное лазерное напыление прозрачных высокопроводящих тонких пленок In2O3:Sn и SnO2:Sb",
     authors: "И. А. Петухов, Л. С. Паршина, Dmitry Zuev, Ф. Н. Путилин, А. Н. Шатохин, А.М. Гаськов, М.Н. Румянцева, О. А. Новодворский, О. Д. Храмова, А. А. Лотин",
@@ -3478,13 +3584,6 @@ window.PUBLICATIONS = [
     authors: "A A Lotin, O A Novodvorsky, D A Zuev",
     tags: ["Photoluminescence", "Materials science", "Heterojunction", "Exciton", "Spontaneous emission", "Excited state", "Metastability", "Pulsed laser deposition", "Analytical Chemistry (journal)", "Emission spectrum", "Stimulated emission", "Quantum well", "Laser", "Spectral line", "Atomic physics", "Optoelectronics", "Thin film", "Optics", "Chemistry", "Physics", "Condensed matter physics", "Nanotechnology"],
     doi: "https://doi.org/10.1088/1612-2011/10/5/055902",
-  },
-  {
-    date: "2013-01-01", journal: "Неорганические материалы", direction: [],
-    title: "Электрофизические свойства тонких пленок SnO2•Sb®, полученных методом импульсного лазерного осаждения",
-    authors: "И. А. Петухов, Л. С. Паршина, Д. А. Зуев, А. А. Лотин, О. А. Новодворский, О. Д. Храмова, А. Н. Шатохин, Ф. Н. Путилин, М. Н. Румянцева, В. Ф. Козловский, К. И. Маслаков, В. К. Иванов, А. М. Гаськов",
-    tags: ["Materials science"],
-    doi: "https://doi.org/10.7868/s0002337x13100096",
   },
   {
     date: "2013", journal: "Journal of Optoelectronics and Advanced Materials", direction: [],
@@ -3547,12 +3646,6 @@ window.PUBLICATIONS = [
     authors: "D. A. Zuev, A. A. Lotin, O. A. Novodvorsky, F. V. Lebedev, O. D. Khramova, I. A. Petuhov, Ph. N. Putilin, A. N. Shatohin, M. N. Rumyanzeva, A. M. Gaskov",
     tags: ["Materials science", "Thin film", "Indium tin oxide", "Substrate (aquarium)", "Electrical resistivity and conductivity", "Pulsed laser deposition", "Transmittance", "Deposition (geology)", "Optoelectronics", "Quartz", "Laser", "Tin", "Indium", "Analytical Chemistry (journal)", "Optics", "Nanotechnology", "Composite material", "Chemistry", "Metallurgy"],
     doi: "https://doi.org/10.1134/s1063782612030256",
-  },
-  {
-    date: "2012-01-01", journal: "Физика и техника полупроводников", direction: [],
-    title: "Импульсное лазерное осаждение тонких пленок ITO и их характеристики",
-    authors: "Dmitry Zuev, А. А. Лотин, О.А. Новодворский, F. V. Lebedev, О. Д. Храмова, И. А. Петухов, Ф. Н. Путилин, А. Н. Шатохин, М.Н. Румянцева, А.М. Гаськов",
-    tags: ["Computer science"],
   },
   {
     date: "2011-07-08", journal: "Applied Physics B", direction: [],

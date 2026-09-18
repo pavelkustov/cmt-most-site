@@ -3,9 +3,9 @@
  "source": "OpenAlex, профили ORCID, Crossref",
  "note": "Черновая база. Записи с match «name» проверяет владелец, поля tags и desc заполняются вручную.",
  "people_total": 36,
- "works_total": 507,
- "duplicates": 21,
- "unique_total": 486,
+ "works_total": 526,
+ "duplicates": 25,
+ "unique_total": 501,
  "works": [
   {
    "doi": "10.1016/j.cocom.2026.e01433",
@@ -51,7 +51,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -105,7 +105,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": true,
    "itmo": null,
@@ -307,7 +307,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -361,7 +361,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -375,6 +375,428 @@
     "bio-thermometry": 1
    },
    "duplicate_of": ""
+  },
+  {
+   "doi": "10.1134/s1990750826600287",
+   "openalex": "",
+   "title": "Physicochemical Analysis of Extracellular Nanovesicles and Exosome-Like Nanovesicles",
+   "journal": "Biochemistry (Moscow), Supplement Series B: Biomedical Chemistry",
+   "publisher": "Pleiades Publishing Ltd",
+   "date": "2026-06",
+   "year": 2026,
+   "type": "article",
+   "itmo": false,
+   "volume": "20",
+   "issue": "2",
+   "pages": "145-158",
+   "authors": "K. S. Evmenov, E. A. Tkachenko, S. A. Brezgin, A. P. Kostyusheva, N. I. Ponomareva, P. A. Demina, L. Fatkhutdinova, M. V. Zyuzin, D. S. Kostyushev",
+   "authors_count": 9,
+   "cited_by": 0,
+   "open_access": false,
+   "oa_url": "",
+   "language": "en",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "",
+   "center_authors": [
+    "Михаил Зюзин"
+   ],
+   "match": {
+    "Михаил Зюзин": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [
+    "drug-delivery",
+    "microfluidics",
+    "nanosensing",
+    "lipid-delivery"
+   ],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {
+    "drug-delivery": 1,
+    "microfluidics": 1,
+    "nanosensing": 1,
+    "lipid-delivery": 1
+   }
+  },
+  {
+   "doi": "10.1109/iclo69056.2026.11625054",
+   "openalex": "",
+   "title": "Photoluminescence quenching of carbon dots by multi-metal ion systems in aqueous solutions",
+   "journal": "2026 International Conference Laser Optics (ICLO)",
+   "publisher": "IEEE",
+   "date": "2026-06",
+   "year": 2026,
+   "type": "conference-paper",
+   "itmo": true,
+   "volume": null,
+   "issue": null,
+   "pages": "437-437",
+   "authors": "A.A.Cherednikova, L.V.Mikhailova, M.V.Timofeeva, A.E. Zhilina, M.V.Zyuzin",
+   "authors_count": 5,
+   "cited_by": 0,
+   "open_access": false,
+   "oa_url": "",
+   "language": "",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "",
+   "center_authors": [
+    "Михаил Зюзин",
+    "Лидия Михайлова",
+    "Мария Тимофеева",
+    "Арина Чередникова"
+   ],
+   "match": {
+    "Михаил Зюзин": "проверено",
+    "Лидия Михайлова": "проверено",
+    "Мария Тимофеева": "проверено",
+    "Арина Чередникова": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [
+    "lipid-delivery",
+    "nanosensing",
+    "drug-delivery",
+    "microfluidics",
+    "eco-nano"
+   ],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {
+    "drug-delivery": 1,
+    "microfluidics": 1,
+    "nanosensing": 2,
+    "lipid-delivery": 3,
+    "eco-nano": 1
+   }
+  },
+  {
+   "doi": "10.1109/iclo69056.2026.11624559",
+   "openalex": "",
+   "title": "Microfluidic synthesis of AgInS 2 /ZnS quantum dots with different stoichiometry for biomedicine",
+   "journal": "2026 International Conference Laser Optics (ICLO)",
+   "publisher": "IEEE",
+   "date": "2026-06",
+   "year": 2026,
+   "type": "conference-paper",
+   "itmo": true,
+   "volume": null,
+   "issue": null,
+   "pages": "418-418",
+   "authors": "I.A. Reznik, A. A. Cherednikova, S. Bikmetova, D. V. Danilov, M. V. Zyuzin",
+   "authors_count": 5,
+   "cited_by": 0,
+   "open_access": false,
+   "oa_url": "",
+   "language": "",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "",
+   "center_authors": [
+    "Михаил Зюзин",
+    "Иван Резник",
+    "Арина Чередникова",
+    "Сабина Бикметова"
+   ],
+   "match": {
+    "Михаил Зюзин": "проверено",
+    "Иван Резник": "проверено",
+    "Арина Чередникова": "проверено",
+    "Сабина Бикметова": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [
+    "microfluidics",
+    "nanosensing",
+    "lipid-delivery",
+    "drug-delivery"
+   ],
+   "on_site": false,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {
+    "drug-delivery": 1,
+    "microfluidics": 2,
+    "nanosensing": 2,
+    "lipid-delivery": 2
+   }
+  },
+  {
+   "doi": "10.1109/iclo69056.2026.11624899",
+   "openalex": "",
+   "title": "Light-Responsive Multilayer Carriers for Controlled STING Agonist Release",
+   "journal": "2026 International Conference Laser Optics (ICLO)",
+   "publisher": "IEEE",
+   "date": "2026-06",
+   "year": 2026,
+   "type": "conference-paper",
+   "itmo": true,
+   "volume": null,
+   "issue": null,
+   "pages": "415-415",
+   "authors": "L.V. Mikhailova, O.A. Gusliakova, N.A. Shushunova, M.V. Zyuzin, G.B. Sukhorukov",
+   "authors_count": 5,
+   "cited_by": 0,
+   "open_access": false,
+   "oa_url": "",
+   "language": "",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "",
+   "center_authors": [
+    "Михаил Зюзин",
+    "Лидия Михайлова"
+   ],
+   "match": {
+    "Михаил Зюзин": "проверено",
+    "Лидия Михайлова": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [
+    "lipid-delivery",
+    "drug-delivery",
+    "microfluidics",
+    "nanosensing"
+   ],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {
+    "drug-delivery": 1,
+    "microfluidics": 1,
+    "nanosensing": 1,
+    "lipid-delivery": 2
+   }
+  },
+  {
+   "doi": "10.1109/iclo69056.2026.11625116",
+   "openalex": "",
+   "title": "Laser-assisted formation of hierarchical Ti-based SERS substrates",
+   "journal": "2026 International Conference Laser Optics (ICLO)",
+   "publisher": "IEEE",
+   "date": "2026-06",
+   "year": 2026,
+   "type": "conference-paper",
+   "itmo": true,
+   "volume": null,
+   "issue": null,
+   "pages": "193-193",
+   "authors": "E.Y. Ponkratova, A.S. Loshkarev, K.A. Maleeva, M.P. Sandomirskii, A.S. Shtumpf, E.I. Ageev, D.A. Zuev",
+   "authors_count": 7,
+   "cited_by": 0,
+   "open_access": false,
+   "oa_url": "",
+   "language": "",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "",
+   "center_authors": [
+    "Эдуард Агеев",
+    "Екатерина Понкратова",
+    "Александр Лошкарев",
+    "Мартин Сандомирский"
+   ],
+   "match": {
+    "Эдуард Агеев": "проверено",
+    "Екатерина Понкратова": "проверено",
+    "Александр Лошкарев": "проверено",
+    "Мартин Сандомирский": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [
+    "eco-nano",
+    "biosensing",
+    "hybrid-nanophotonics",
+    "ai-nanophotonics",
+    "puf"
+   ],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {
+    "eco-nano": 2,
+    "hybrid-nanophotonics": 1,
+    "biosensing": 2,
+    "ai-nanophotonics": 1,
+    "puf": 1
+   }
+  },
+  {
+   "doi": "10.1109/iclo69056.2026.11624674",
+   "openalex": "",
+   "title": "Hybrid nanomaterials for optical heating and temperature monitoring in biological objects",
+   "journal": "2026 International Conference Laser Optics (ICLO)",
+   "publisher": "IEEE",
+   "date": "2026-06",
+   "year": 2026,
+   "type": "conference-paper",
+   "itmo": true,
+   "volume": null,
+   "issue": null,
+   "pages": "395-395",
+   "authors": "E.N.Gerasimova, L.V.Mikhailova, M.V.Zyuzin",
+   "authors_count": 3,
+   "cited_by": 0,
+   "open_access": false,
+   "oa_url": "",
+   "language": "",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "",
+   "center_authors": [
+    "Елена Герасимова",
+    "Лидия Михайлова",
+    "Михаил Зюзин"
+   ],
+   "match": {
+    "Елена Герасимова": "проверено",
+    "Лидия Михайлова": "проверено",
+    "Михаил Зюзин": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [
+    "lipid-delivery",
+    "bio-thermometry",
+    "drug-delivery",
+    "microfluidics",
+    "nanosensing"
+   ],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {
+    "bio-thermometry": 1,
+    "lipid-delivery": 2,
+    "drug-delivery": 1,
+    "microfluidics": 1,
+    "nanosensing": 1
+   }
+  },
+  {
+   "doi": "10.1109/iclo69056.2026.11624504",
+   "openalex": "",
+   "title": "All-optical modulation of SHG intensity in metal-organic frameworks single crystals",
+   "journal": "2026 International Conference Laser Optics (ICLO)",
+   "publisher": "IEEE",
+   "date": "2026-06",
+   "year": 2026,
+   "type": "conference-paper",
+   "itmo": true,
+   "volume": null,
+   "issue": null,
+   "pages": "116-116",
+   "authors": "N.A.Zhestkij, A.V.Lubimova, A.O.Larin, S.A.Shipilovskikh, D.A.Zuev, V.A.Milichko",
+   "authors_count": 6,
+   "cited_by": 0,
+   "open_access": false,
+   "oa_url": "",
+   "language": "",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "",
+   "center_authors": [
+    "Николай Жесткий",
+    "Артем Ларин"
+   ],
+   "match": {
+    "Николай Жесткий": "проверено",
+    "Артем Ларин": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [
+    "eco-nano",
+    "hybrid-nanophotonics"
+   ],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {
+    "eco-nano": 1,
+    "hybrid-nanophotonics": 1
+   }
+  },
+  {
+   "doi": "10.1117/12.3100337",
+   "openalex": "",
+   "title": "Nonlinear metal-organic framework crystals: from bulk to nanometer scales",
+   "journal": "Nonlinear Optics and its Applications 2026",
+   "publisher": "SPIE",
+   "date": "2026-05-28",
+   "year": 2026,
+   "type": "conference-paper",
+   "itmo": false,
+   "volume": null,
+   "issue": null,
+   "pages": "85",
+   "authors": "Valentin A. Milichko, Pavel Alekseevskiy, Nikolaj Zhestkij",
+   "authors_count": 3,
+   "cited_by": 0,
+   "open_access": false,
+   "oa_url": "",
+   "language": "",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "",
+   "center_authors": [
+    "Николай Жесткий"
+   ],
+   "match": {
+    "Николай Жесткий": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {}
+  },
+  {
+   "doi": "10.1117/12.3105976",
+   "openalex": "",
+   "title": "Metal-organic frameworks as a crystalline optical media for data storage and encryption",
+   "journal": "Photosensitive Materials and their Applications IV",
+   "publisher": "SPIE",
+   "date": "2026-05-27",
+   "year": 2026,
+   "type": "conference-paper",
+   "itmo": false,
+   "volume": null,
+   "issue": null,
+   "pages": "27",
+   "authors": "Nikolaj Zhestkij, Anastasiia Efimova, Elena Petrova, Sergey Shipilovskikh, Dmitry Zuev, Valentin Milichko",
+   "authors_count": 6,
+   "cited_by": 0,
+   "open_access": false,
+   "oa_url": "",
+   "language": "",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "",
+   "center_authors": [
+    "Николай Жесткий"
+   ],
+   "match": {
+    "Николай Жесткий": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {}
   },
   {
    "doi": "10.1021/acsanm.6c00888",
@@ -497,7 +919,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -590,8 +1012,12 @@
    "keywords_en": [],
    "topics": [],
    "abstract": "",
-   "center_authors": [],
-   "match": {},
+   "center_authors": [
+    "Николай Жесткий"
+   ],
+   "match": {
+    "Николай Жесткий": "проверено"
+   },
    "needs_check": false,
    "direction_candidates": [],
    "on_site": true,
@@ -638,7 +1064,7 @@
    "direction_candidates": [
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -782,7 +1208,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -844,7 +1270,7 @@
    "direction_candidates": [
     "drug-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -893,7 +1319,7 @@
     "Чуньюй Ли": "orcid"
    },
    "direction_candidates": [],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -947,7 +1373,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -1005,7 +1431,7 @@
     "nanosensing",
     "drug-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -1061,7 +1487,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -1111,7 +1537,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -1173,7 +1599,7 @@
     "lipid-delivery",
     "drug-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -1228,7 +1654,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -1269,13 +1695,49 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "crossref",
    "itmo": null,
    "direction_votes": {
     "biosensing": 1
    },
    "duplicate_of": ""
+  },
+  {
+   "doi": "10.1002/lpor.202501152",
+   "openalex": "",
+   "title": "Highly Nonlinear Metal‐Organic Framework Microcrystal for Ultrabroadband and Multiwavelength Coherent Light Emission",
+   "journal": "Laser &amp; Photonics Reviews",
+   "publisher": "Wiley",
+   "date": "2026-02",
+   "year": 2026,
+   "type": "article",
+   "itmo": true,
+   "volume": "20",
+   "issue": "3",
+   "pages": "e01152",
+   "authors": "Nikolaj Zhestkij, Svyatoslav Povarov, Sergei Shipilovskikh, Irina D. Yushina, Jean‐François Pierson, Valentin Milichko",
+   "authors_count": 6,
+   "cited_by": 4,
+   "open_access": false,
+   "oa_url": "",
+   "language": "en",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "Abstract \n                   \n                    Nonlinear optical (NLO) crystals are critical for developing coherent light sources that advance fundamental research and technological applications, including metrology, communication, precision machinery, and surgery. While NLO crystals offer unmatched bandwidth and efficiency, their miniaturization contradicts the phase‐matching and crystal size requirements. Here, a non‐centrosymmetric metal–organic framework (MOF) crystal is reported that enables broadband, multi‐wavelength coherent light generation on a microscale. By overcoming the limitations of the most conventional NLO crystals, MOF microcrystal of a fixed orientation supports simultaneously a wide range of NLO effects, initiated by two pump wavelengths in a free space. The second‐ and the third‐order optical nonlinearities in arbitrary direction, coupled with a 1.5 nm\n                     3 \n                    unit cell and the huge hyperpolarizability of this MOF, facilitates simultaneously a set of the sum‐frequency generation and cascaded processes that span over 350 nm with 7 to 32 coherent peaks of uniform intensity and a quality factor up to 180. Discovered counterintuitive light–matter interaction for MOF microcrystals highlights a new molecular design strategy of NLO microcrystals for miniaturized optoelectronic and communication devices.",
+   "center_authors": [
+    "Николай Жесткий"
+   ],
+   "match": {
+    "Николай Жесткий": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {}
   },
   {
    "doi": "10.1021/acsanm.5c04932",
@@ -1300,8 +1762,12 @@
    "keywords_en": [],
    "topics": [],
    "abstract": "",
-   "center_authors": [],
-   "match": {},
+   "center_authors": [
+    "Николай Жесткий"
+   ],
+   "match": {
+    "Николай Жесткий": "проверено"
+   },
    "needs_check": false,
    "direction_candidates": [],
    "on_site": true,
@@ -1351,7 +1817,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -1462,32 +1928,34 @@
     "Виталий Ярошенко",
     "Елена Петрова",
     "Мартин Сандомирский",
-    "Мария Федорова"
+    "Мария Федорова",
+    "Артем Ларин"
    ],
    "match": {
     "Дмитрий Зуев": "orcid",
     "Виталий Ярошенко": "name",
     "Елена Петрова": "orcid",
     "Мартин Сандомирский": "orcid",
-    "Мария Федорова": "orcid"
+    "Мария Федорова": "orcid",
+    "Артем Ларин": "проверено"
    },
    "direction_candidates": [
     "eco-nano",
     "puf",
     "ai-nanophotonics",
     "integrated-nanophotonics",
+    "hybrid-nanophotonics",
     "biosensing",
-    "bio-thermometry",
-    "hybrid-nanophotonics"
+    "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
    "direction_votes": {
-    "eco-nano": 4,
+    "eco-nano": 5,
     "puf": 4,
-    "hybrid-nanophotonics": 1,
+    "hybrid-nanophotonics": 2,
     "ai-nanophotonics": 3,
     "integrated-nanophotonics": 3,
     "biosensing": 2,
@@ -1540,7 +2008,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -1596,7 +2064,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -1651,7 +2119,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -1659,6 +2127,60 @@
     "biosensing": 1
    },
    "duplicate_of": ""
+  },
+  {
+   "doi": "10.17586/1023-5086-2026-93-03-33-39",
+   "openalex": "",
+   "title": "Гистерезис нелинейной восприимчивости второго порядка в кремнии",
+   "journal": "Оптический журнал",
+   "publisher": "ITMO University",
+   "date": "2026",
+   "year": 2026,
+   "type": "article",
+   "itmo": false,
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "authors": "",
+   "authors_count": 0,
+   "cited_by": 0,
+   "open_access": false,
+   "oa_url": "",
+   "language": "",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "",
+   "center_authors": [
+    "Артем Ларин",
+    "Дмитрий Зуев"
+   ],
+   "match": {
+    "Артем Ларин": "проверено",
+    "Дмитрий Зуев": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [
+    "eco-nano",
+    "hybrid-nanophotonics",
+    "puf",
+    "ai-nanophotonics",
+    "integrated-nanophotonics",
+    "biosensing",
+    "bio-thermometry"
+   ],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {
+    "eco-nano": 2,
+    "hybrid-nanophotonics": 2,
+    "puf": 1,
+    "ai-nanophotonics": 1,
+    "integrated-nanophotonics": 1,
+    "biosensing": 1,
+    "bio-thermometry": 1
+   }
   },
   {
    "doi": "10.1016/j.bioadv.2025.214632",
@@ -1709,7 +2231,7 @@
     "microfluidics",
     "nanosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -1766,7 +2288,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -1828,7 +2350,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -1888,7 +2410,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -2079,7 +2601,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -2138,7 +2660,7 @@
     "microfluidics",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -2262,7 +2784,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -2313,7 +2835,7 @@
    "direction_candidates": [
     "drug-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -2500,7 +3022,7 @@
     "Чуньюй Ли": "orcid"
    },
    "direction_candidates": [],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -2704,7 +3226,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -2736,8 +3258,12 @@
    "keywords_en": [],
    "topics": [],
    "abstract": "Abstract  Ultrathin light sources based on 2D materials are of fundamental importance for the design of planar optical and optoelectronic devices. Next to versatility in fabrication and integration of 2D materials with such devices, the efficiency of light emission at the nanometer scale remains a challenge. Here a geometrical approach is reported on to tune the light emission efficiency of 2D materials by mechanical exfoliation of lanthanide‐based metal‐organic frameworks (Ln‐MOFs). For Ln‐MOF nanosheets of a variable thickness (13.5–500 nm), it is discovered that a decrease in the thickness yields a 10–50 fold increase of photoluminescence (PL), while changing the temperature (300–7 K) additionally leads to a nonlinear growth of PL by 10–20 times. The reported temperature‐ and thickness‐driven light emission by 2D Ln‐MOFs opens prospects to design efficient, robust, and scalable ultrathin MOF‐based light sources and optical sensors.",
-   "center_authors": [],
-   "match": {},
+   "center_authors": [
+    "Николай Жесткий"
+   ],
+   "match": {
+    "Николай Жесткий": "проверено"
+   },
    "needs_check": false,
    "direction_candidates": [],
    "on_site": true,
@@ -2792,7 +3318,7 @@
     "eco-nano",
     "nanosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -2845,7 +3371,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -2948,7 +3474,7 @@
    "direction_candidates": [
     "nanosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "crossref",
    "itmo": null,
    "direction_votes": {
@@ -3009,7 +3535,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -3068,7 +3594,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -3121,7 +3647,7 @@
     "Чуньюй Ли": "orcid"
    },
    "direction_candidates": [],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -3175,7 +3701,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -3300,7 +3826,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -3349,7 +3875,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -3411,7 +3937,7 @@
     "eco-nano",
     "nanosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -3477,7 +4003,7 @@
     "integrated-nanophotonics",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -3544,7 +4070,7 @@
     "lipid-delivery",
     "drug-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -3604,7 +4130,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -3652,15 +4178,17 @@
    ],
    "abstract": "A one-step and large-scale patterning of different metal-organic framework thin films using a flash xenon lamp in real time with cm 2 s −1 speed is demonstrated.",
    "center_authors": [
-    "Мария Тимофеева"
+    "Мария Тимофеева",
+    "Николай Жесткий"
    ],
    "match": {
-    "Мария Тимофеева": "orcid"
+    "Мария Тимофеева": "orcid",
+    "Николай Жесткий": "проверено"
    },
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -3712,7 +4240,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -3789,13 +4317,23 @@
    "keywords_en": [],
    "topics": [],
    "abstract": "",
-   "center_authors": [],
-   "match": {},
+   "center_authors": [
+    "Артем Ларин"
+   ],
+   "match": {
+    "Артем Ларин": "проверено"
+   },
    "needs_check": false,
-   "direction_candidates": [],
+   "direction_candidates": [
+    "eco-nano",
+    "hybrid-nanophotonics"
+   ],
    "on_site": true,
    "source": "сайт",
-   "direction_votes": {},
+   "direction_votes": {
+    "eco-nano": 1,
+    "hybrid-nanophotonics": 1
+   },
    "duplicate_of": ""
   },
   {
@@ -3845,7 +4383,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -4054,7 +4592,7 @@
     "nanosensing",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -4118,7 +4656,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -4230,7 +4768,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -4282,7 +4820,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -4324,15 +4862,17 @@
    ],
    "abstract": "We report on a chemical way to tune the efficiency of second harmonic generation (SHG) by aminothiophene-based molecular crystals (MCs) of a fixed noncentrosymmetric crystal structure. Through the multistep synthesis of three substituted pyrrolo[1,2- a ]thieno[3,2- e ]pyrimidines, we design a set of MCs of a similar Pna 21 space group, providing stable (over 30 min of continuous generation) SHG in a controlled visible spectral range. Substitution of the donor methyl component of the MC with neutral hydrogen and acceptor chlorine leads to an approximately 400-fold increase in SHG efficiency due to 70% growth of the MC's hyperpolarizability. The reported chemical strategy, thereby, opens the way to design MCs and tune their SHG efficiency, being competitive with commercial nonlinear optical crystals.",
    "center_authors": [
-    "Мария Тимофеева"
+    "Мария Тимофеева",
+    "Николай Жесткий"
    ],
    "match": {
-    "Мария Тимофеева": "orcid"
+    "Мария Тимофеева": "orcid",
+    "Николай Жесткий": "проверено"
    },
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -4386,7 +4926,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -4452,7 +4992,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -4514,7 +5054,7 @@
     "Чуньюй Ли": "orcid"
    },
    "direction_candidates": [],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -4569,7 +5109,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -4701,7 +5241,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -4845,7 +5385,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -4980,7 +5520,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -5027,15 +5567,17 @@
    ],
    "abstract": "Abstract Neuromorphic architectures, expanding the limits of computing from conventional data processing and storage to advanced cognition, learning, and in-memory computing, impose restrictions on materials that should operate fast, energy efficiently, and highly endurant. Here we report on in-memory computing architecture based on metal-organic framework (MOF) single crystal with a light control. We demonstrate that the MOF with inherent memristive behavior (for data storage) changes nonlinearly its electric response when irradiated by light. This leads to three and more electronic states (spikes) with 81 ms duration and 1 s refractory time, allowing to implement 40 bits s−1 optoelectronic data processing. Next, the architecture is switched to the neuromorphic state upon the action of a set of laser pulses, providing the text recognition over 50 times with app. 100% accuracy. Thereby, simultaneous data storage, processing, and neuromorphic computing on MOF, driven by light, pave the way for multifunctional in-memory computing architectures.",
    "center_authors": [
-    "Мария Тимофеева"
+    "Мария Тимофеева",
+    "Николай Жесткий"
    ],
    "match": {
-    "Мария Тимофеева": "orcid"
+    "Мария Тимофеева": "orcid",
+    "Николай Жесткий": "проверено"
    },
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -5180,7 +5722,7 @@
     "drug-delivery",
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -5243,7 +5785,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -5313,7 +5855,7 @@
     "integrated-nanophotonics",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -5377,7 +5919,7 @@
     "integrated-nanophotonics",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -5391,6 +5933,42 @@
     "bio-thermometry": 1
    },
    "duplicate_of": ""
+  },
+  {
+   "doi": "10.1002/adfm.202311235",
+   "openalex": "",
+   "title": "Grayscale to Multicolor Laser Writing Inside a Label‐Free Metal‐Organic Frameworks",
+   "journal": "Advanced Functional Materials",
+   "publisher": "Wiley",
+   "date": "2024-07",
+   "year": 2024,
+   "type": "article",
+   "itmo": true,
+   "volume": "34",
+   "issue": "30",
+   "pages": "2311235",
+   "authors": "Nikolaj A. Zhestkij, Anastasiia S. Efimova, Yuliya Kenzhebayeva, Svyatoslav A. Povarov, Pavel V. Alekseevskiy, Sergey S. Rzhevskiy, Sergei A. Shipilovskikh, Valentin A. Milichko",
+   "authors_count": 8,
+   "cited_by": 13,
+   "open_access": false,
+   "oa_url": "",
+   "language": "en",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "Abstract  Direct laser writing (DLW), being a universal tool for fast creating colorless/color images on different substrates, still suffers from simultaneous writing grayscale and color images inside the transparent media. Here, it is discovered that a unique set of porosity, coordination bonding between organic and inorganic building blocks, and the lack of inversion symmetry of the label‐free metal‐organic frameworks (MOFs), on the one hand, provides the possibility of laser writing the grayscale images through the amorphization/carbonization. On the other hand, the reduction of the laser writing power leads to controllable creation of color images via defect formation with sub‐diffraction resolution inside the MOF crystals. The latter is due to the processes of self‐absorption of generated optical harmonics by nonlinear MOFs within the visible spectral range. As a result, simultaneous grayscale and multicolor writing of QR codes and images are demonstrated with up to 400 nm resolution inside optically transparent MOF crystals, thereby discovering a new family of functional materials for DLW.",
+   "center_authors": [
+    "Николай Жесткий"
+   ],
+   "match": {
+    "Николай Жесткий": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {}
   },
   {
    "doi": "10.17691/stm2024.16.3.04",
@@ -5424,7 +6002,7 @@
    "direction_candidates": [
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "crossref",
    "itmo": null,
    "direction_votes": {
@@ -5481,7 +6059,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -5540,7 +6118,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -5581,7 +6159,7 @@
    "direction_candidates": [
     "nanosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "crossref",
    "itmo": null,
    "direction_votes": {
@@ -5641,7 +6219,7 @@
     "eco-nano",
     "integrated-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -5655,6 +6233,42 @@
     "bio-thermometry": 2
    },
    "duplicate_of": ""
+  },
+  {
+   "doi": "10.1117/12.3022176",
+   "openalex": "",
+   "title": "From grayscale towards multi-color laser printing inside non-linear metal-organic framework microcrystals",
+   "journal": "Photosensitive Materials and their Applications III",
+   "publisher": "SPIE",
+   "date": "2024-06-18",
+   "year": 2024,
+   "type": "conference-paper",
+   "itmo": false,
+   "volume": null,
+   "issue": null,
+   "pages": "47",
+   "authors": "Nikolai Zhestkij, Anastasia Efimova, Sergey Shipilovskikh, Valentin A. Milichko",
+   "authors_count": 4,
+   "cited_by": 0,
+   "open_access": false,
+   "oa_url": "",
+   "language": "",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "",
+   "center_authors": [
+    "Николай Жесткий"
+   ],
+   "match": {
+    "Николай Жесткий": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {}
   },
   {
    "doi": "10.1016/j.bioadv.2024.213904",
@@ -5718,7 +6332,7 @@
     "ai-nanophotonics",
     "integrated-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -5780,7 +6394,7 @@
    "direction_candidates": [
     "drug-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -5832,7 +6446,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -5886,7 +6500,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -5944,7 +6558,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -5999,7 +6613,7 @@
    "direction_candidates": [
     "nanosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -6053,7 +6667,7 @@
     "integrated-nanophotonics",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": true,
    "itmo": null,
@@ -6113,7 +6727,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -6255,7 +6869,7 @@
    "direction_candidates": [
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -6296,7 +6910,7 @@
    "direction_candidates": [
     "nanosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "crossref",
    "itmo": null,
    "direction_votes": {
@@ -6352,7 +6966,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -6475,7 +7089,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -6596,7 +7210,7 @@
     "lipid-delivery",
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -6661,7 +7275,7 @@
     "ai-nanophotonics",
     "integrated-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -6713,69 +7327,12 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
    "direction_votes": {
     "eco-nano": 1
-   },
-   "duplicate_of": ""
-  },
-  {
-   "doi": "10.24160/1993-6982-2023-6-77-87",
-   "openalex": "W4390227835",
-   "title": "Evaluating the Effectiveness of Various Design Versions of Raw Water Heaters at a Combined Heat and Power Plant",
-   "journal": "Vestnik MEI",
-   "publisher": "",
-   "date": "2023-12-22",
-   "year": 2023,
-   "type": "article",
-   "volume": null,
-   "issue": "6",
-   "pages": "77-87",
-   "authors": "Dmitriy Astanovsky, Lev Astanovsky, Pavel Kustov, Andrey Okhlopkov, Kirill Nikishov, Nikolay Popov, Vladislav Bitney, Artem Kulakov",
-   "authors_count": 8,
-   "cited_by": 0,
-   "open_access": false,
-   "oa_url": "",
-   "language": "en",
-   "retracted": false,
-   "keywords_en": [
-    "Heat exchanger",
-    "Spiral (railway)",
-    "Process engineering",
-    "Shell and tube heat exchanger",
-    "Reliability (semiconductor)",
-    "Mechanical engineering",
-    "Work (physics)",
-    "Tube (container)",
-    "Engineering",
-    "Power (physics)",
-    "Computer science",
-    "Environmental science"
-   ],
-   "topics": [
-    "Advanced Power Generation Technologies",
-    "Engineering Diagnostics and Reliability",
-    "Industrial Engineering and Technologies"
-   ],
-   "abstract": "The article presents the results of the activities conducted by the Mosenergo PJSC and the Fast Engineering OJSC on studying various heat transfer apparatuses (shell-and-tube, plate, and radial-spiral ones) for use as raw water heaters (RWHs). The purpose of the work is to improve the reliability of RWH operation, reduce its mass and dimensions, minimize or completely eliminate maintenance during operation to achieve more economically efficient use of this equipment, which is a pressing problem for this thermal power industry area. To achieve this goal, the following activities were carried out: - an analytical review of information sources was done. Based on this review, a comparative assessment of the characteristics of existing designs of shell-and-tube heat exchangers and plate heat exchangers used as RWHs was carried out; - a review of information sources containing information about the design and operating experience of radial-spiral heat exchangers was done, and a comparative assessment of the characteristics of the designs of this type of heat exchangers with respect to the commonly used ones was carried out; - a radial-spiral RWH with a continuously operating filter for treating raw water prior to feed it to the RWHs was produced.",
-   "center_authors": [
-    "Павел Кустов"
-   ],
-   "match": {
-    "Павел Кустов": "orcid"
-   },
-   "direction_candidates": [
-    "puf"
-   ],
-   "on_site": false,
-   "source": "openalex",
-   "needs_check": false,
-   "itmo": null,
-   "direction_votes": {
-    "puf": 1
    },
    "duplicate_of": ""
   },
@@ -6828,7 +7385,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -6894,7 +7451,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -6954,7 +7511,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -6995,7 +7552,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "crossref",
    "itmo": null,
    "direction_votes": {
@@ -7066,7 +7623,7 @@
     "eco-nano",
     "integrated-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -7134,7 +7691,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -7142,6 +7699,78 @@
     "microfluidics": 1
    },
    "duplicate_of": ""
+  },
+  {
+   "doi": "10.1016/j.photonics.2023.101198",
+   "openalex": "",
+   "title": "UiO-66 metal organic framework as stable platform for non-linear optical applications",
+   "journal": "Photonics and Nanostructures - Fundamentals and Applications",
+   "publisher": "Elsevier BV",
+   "date": "2023-12",
+   "year": 2023,
+   "type": "article",
+   "itmo": false,
+   "volume": "57",
+   "issue": null,
+   "pages": "101198",
+   "authors": "Nikolaj Zhestkij, Svyatoslav Povarov, Yuri A. Mezenov, Sergey S. Rzhevskiy, Alena N. Kulakova, Valentin A. Milichko",
+   "authors_count": 6,
+   "cited_by": 8,
+   "open_access": false,
+   "oa_url": "",
+   "language": "en",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "",
+   "center_authors": [
+    "Николай Жесткий"
+   ],
+   "match": {
+    "Николай Жесткий": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {}
+  },
+  {
+   "doi": "10.1117/12.2691151",
+   "openalex": "",
+   "title": "Metal-organic frameworks as competitive non-linear optical materials: light conversion and structural modification",
+   "journal": "Nanophotonics and Micro/Nano Optics IX",
+   "publisher": "SPIE",
+   "date": "2023-11-28",
+   "year": 2023,
+   "type": "conference-paper",
+   "itmo": false,
+   "volume": null,
+   "issue": null,
+   "pages": "33",
+   "authors": "Nikolai Zhestkij, Anastasia Efimova, Yuliya Kenzhebayeva, Sergey Shipilovskih, Valentin Milichko",
+   "authors_count": 5,
+   "cited_by": 0,
+   "open_access": false,
+   "oa_url": "",
+   "language": "",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "",
+   "center_authors": [
+    "Николай Жесткий"
+   ],
+   "match": {
+    "Николай Жесткий": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {}
   },
   {
    "doi": "10.1117/12.2688987",
@@ -7203,7 +7832,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -7268,7 +7897,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -7404,7 +8033,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -7472,7 +8101,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -7592,7 +8221,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -7651,7 +8280,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -7711,7 +8340,7 @@
    "direction_candidates": [
     "drug-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -7827,7 +8456,7 @@
    "direction_candidates": [
     "nanosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "crossref",
    "itmo": null,
    "direction_votes": {
@@ -7885,7 +8514,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -7932,15 +8561,17 @@
    ],
    "abstract": "Laser conversion of metal-organic frameworks (MOFs) has recently emerged as a fast and low-energy consumptive approach to create scalable MOF derivatives for catalysis, energy, and optics. However, due to the virtually unlimited MOF structures and tunable laser parameters, the results of their interaction are unpredictable and poorly controlled. Here, we experimentally base a general approach to create nano- to centimeter-scale MOF derivatives with the desired nonlinear optical and catalytic properties. Five three- and two-dimensional MOFs, differing in chemical composition, topology, and thermal resistance, have been selected as precursors. Tuning the laser parameters (i.e., pulse duration from fs to ns and repetition rate from kHz to MHz), we switch between ultrafast nonthermal destruction and thermal decomposition of MOFs. We have established that regardless of the chemical composition and MOF topology, the tuning of the laser parameters allows obtaining a series of structurally different derivatives, and the transition from femtosecond to nanosecond laser regimes ensures the scaling of the derivatives from nano- to centimeter scales. Herein, the thermal resistance of MOFs affects the structure and chemical composition of the resulting derivatives. Finally, we outline the \"laser parameters versus MOF structure\" space, in which one can create the desired and scalable platforms with nonlinear optical properties from photoluminescence to light control and enhanced catalytic activity.",
    "center_authors": [
-    "Мария Тимофеева"
+    "Мария Тимофеева",
+    "Николай Жесткий"
    ],
    "match": {
-    "Мария Тимофеева": "orcid"
+    "Мария Тимофеева": "orcid",
+    "Николай Жесткий": "проверено"
    },
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -8057,7 +8688,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -8197,7 +8828,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -8252,7 +8883,7 @@
     "Чуньюй Ли": "orcid"
    },
    "direction_candidates": [],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -8291,7 +8922,7 @@
    "direction_candidates": [
     "nanosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "crossref",
    "itmo": null,
    "direction_votes": {
@@ -8342,15 +8973,17 @@
    ],
    "abstract": "Abstract Non‐centrosymmetric metal–organic frameworks (MOFs) have recently emerged as a promising class of coordination polymers for nonlinear optics and light conversion. Nevertheless, achieving high endurance and efficiency for the light conversion within the whole visible range by a single crystal of MOF remains a challenge. This article reports on the design of two non‐centrosymmetric MOFs based on a 1,3,5‐benzenetricarboxylic acid ligand and Er/Co ions, providing an efficient and simultaneous multiple second and third optical harmonic generations (SHG, THG) from 400 to 750 nm with a high endurance (over 100 cycles or 3 h of continuous operation). Optical experiments and quantum chemical modeling of the MOF single crystals confirm the polarization and chemistry‐dependent efficiency of SHG and THG, associated with the varied MOFs' symmetry and dipole moment. The observed coherent light conversion within the whole visible range by MOF single crystals at ambient conditions makes it possible to achieve the multicolor (up to three) coherent emission required for modern laser technologies, making MOFs highly competitive and sustainable materials for nonlinear optics.",
    "center_authors": [
-    "Мария Тимофеева"
+    "Мария Тимофеева",
+    "Николай Жесткий"
    ],
    "match": {
-    "Мария Тимофеева": "orcid"
+    "Мария Тимофеева": "orcid",
+    "Николай Жесткий": "проверено"
    },
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -8391,7 +9024,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "crossref",
    "itmo": null,
    "direction_votes": {
@@ -8456,7 +9089,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -8524,7 +9157,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -8580,7 +9213,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -8720,7 +9353,7 @@
     "integrated-nanophotonics",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -8828,6 +9461,42 @@
    "duplicate_of": ""
   },
   {
+   "doi": "10.1016/j.photonics.2023.101145",
+   "openalex": "",
+   "title": "Metal-organic framework single crystal infrared photodetector",
+   "journal": "Photonics and Nanostructures - Fundamentals and Applications",
+   "publisher": "Elsevier BV",
+   "date": "2023-07",
+   "year": 2023,
+   "type": "article",
+   "itmo": false,
+   "volume": "55",
+   "issue": null,
+   "pages": "101145",
+   "authors": "Semyon Bachinin, Alexandr Marunchenko, Nikolaj Zhestkij, Ekaterina Gunina, Valentin A. Milichko",
+   "authors_count": 5,
+   "cited_by": 9,
+   "open_access": false,
+   "oa_url": "",
+   "language": "en",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "",
+   "center_authors": [
+    "Николай Жесткий"
+   ],
+   "match": {
+    "Николай Жесткий": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {}
+  },
+  {
    "doi": "10.17586/2220-8054-2023-14-3-349-353",
    "openalex": "W4383683178",
    "title": "Single-step lithography-free fabrication of nanoscale broadband radiation sources",
@@ -8886,7 +9555,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -8957,7 +9626,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -9020,7 +9689,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -9092,7 +9761,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -9159,7 +9828,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -9206,7 +9875,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "crossref",
    "itmo": null,
    "direction_votes": {
@@ -9315,7 +9984,7 @@
    },
    "needs_check": false,
    "direction_candidates": [],
-   "on_site": false,
+   "on_site": true,
    "source": "crossref",
    "itmo": null,
    "direction_votes": {},
@@ -9379,7 +10048,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -9524,7 +10193,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -9590,7 +10259,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -9741,7 +10410,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -9815,7 +10484,7 @@
     "Чуньюй Ли": "orcid"
    },
    "direction_candidates": [],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -9879,7 +10548,7 @@
     "ai-nanophotonics",
     "integrated-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -9949,7 +10618,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -10011,7 +10680,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -10230,7 +10899,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -10292,7 +10961,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -10343,7 +11012,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -10412,7 +11081,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -10472,7 +11141,7 @@
    "direction_candidates": [
     "drug-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": true,
    "itmo": null,
@@ -10534,7 +11203,7 @@
    "direction_candidates": [
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -10592,7 +11261,7 @@
     "ai-nanophotonics",
     "integrated-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -10661,7 +11330,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -10746,7 +11415,7 @@
     "eco-nano",
     "nanosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "orcid",
    "itmo": null,
    "direction_votes": {
@@ -10809,7 +11478,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -11091,7 +11760,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -11155,7 +11824,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -11273,7 +11942,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -11345,7 +12014,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": true,
    "itmo": null,
@@ -11387,7 +12056,7 @@
    "direction_candidates": [
     "nanosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "crossref",
    "itmo": null,
    "direction_votes": {
@@ -11453,7 +12122,7 @@
     "bio-thermometry",
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -11525,7 +12194,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -11597,7 +12266,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -11747,7 +12416,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -11823,7 +12492,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -12052,7 +12721,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -12123,6 +12792,42 @@
    "duplicate_of": ""
   },
   {
+   "doi": "10.3390/cryst12060846",
+   "openalex": "",
+   "title": "Reversible and Irreversible Laser Interference Patterning of MOF Thin Films",
+   "journal": "Crystals",
+   "publisher": "MDPI AG",
+   "date": "2022-06-15",
+   "year": 2022,
+   "type": "article",
+   "itmo": true,
+   "volume": "12",
+   "issue": "6",
+   "pages": "846",
+   "authors": "Nikolaj Zhestkij, Anastasiia Efimova, Sergey Rzhevskiy, Yuliya Kenzhebayeva, Semyon Bachinin, Ekaterina Gunina, Maxim Sergeev, Vyacheslav Dyachuk, Valentin A. Milichko",
+   "authors_count": 9,
+   "cited_by": 12,
+   "open_access": false,
+   "oa_url": "",
+   "language": "en",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "Laser interference patterning on top of a thin film and inside a crystal is a powerful tool today to create the desired patterns for optical data processing. Here, we demonstrate reversible and irreversible laser interference patterning on a metal-organic framework (MOF) thin film through the water desorption and thermal decomposition processes, respectively. The irreversible interference pattern with a period of the strips of up to 5 µm has been realized, and its morphology has been characterized using confocal Raman and reflection spectroscopy as well as atomic force microscopy. We revealed that reducing the distance between the interference maxima from 10.5 to a record of 5 µm for MOFs yields a 10-fold increase in the surface roughness of the irreversible pattern; on the other hand, the reversible laser pattern provides a completely non-destructive effect of variable optical contrast. The experimental results obtained open up prospects for the use of MOF crystals as photosensitive materials in the template drawing of the desired patterns for different application scopes.",
+   "center_authors": [
+    "Николай Жесткий"
+   ],
+   "match": {
+    "Николай Жесткий": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {}
+  },
+  {
    "doi": "10.1016/j.carbon.2022.05.054",
    "openalex": "W4282029891",
    "title": "Nanodiamond islands confined between two graphene sheets as perspective 2D quantum materials",
@@ -12170,7 +12875,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -12236,7 +12941,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -12304,7 +13009,7 @@
     "ai-nanophotonics",
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -12378,7 +13083,7 @@
     "integrated-nanophotonics",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -12456,7 +13161,7 @@
     "ai-nanophotonics",
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -12529,7 +13234,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -12602,7 +13307,7 @@
     "integrated-nanophotonics",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -12668,7 +13373,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -12735,7 +13440,7 @@
     "ai-nanophotonics",
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -12794,7 +13499,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": true,
    "itmo": null,
@@ -12856,7 +13561,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -12922,7 +13627,7 @@
     "ai-nanophotonics",
     "integrated-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -12983,7 +13688,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -12991,6 +13696,48 @@
     "biosensing": 1
    },
    "duplicate_of": ""
+  },
+  {
+   "doi": "10.1134/s0021364022200012",
+   "openalex": "",
+   "title": "Transformations of the Spectrum of an Optical Phonon Excited in Raman Scattering in the Bulk of Diamond by Ultrashort Laser Pulses with a Variable Duration",
+   "journal": "JETP Letters",
+   "publisher": "Pleiades Publishing Ltd",
+   "date": "2022-03",
+   "year": 2022,
+   "type": "article",
+   "itmo": false,
+   "volume": "115",
+   "issue": "5",
+   "pages": "251-255",
+   "authors": "S. I. Kudryashov, P. A. Danilov, P. A. Sdvizhenskii, V. N. Lednev, J. Chen, S. A. Ostrikov, E. V. Kuzmin, M. S. Kovalev, A. O. Levchenko",
+   "authors_count": 9,
+   "cited_by": 10,
+   "open_access": false,
+   "oa_url": "",
+   "language": "en",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "",
+   "center_authors": [
+    "Эдуард Агеев"
+   ],
+   "match": {
+    "Эдуард Агеев": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [
+    "eco-nano",
+    "hybrid-nanophotonics"
+   ],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {
+    "eco-nano": 1,
+    "hybrid-nanophotonics": 1
+   }
   },
   {
    "doi": "10.1016/j.carbon.2022.02.041",
@@ -13038,7 +13785,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -13101,7 +13848,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -13170,7 +13917,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -13263,6 +14010,42 @@
    "duplicate_of": ""
   },
   {
+   "doi": "10.1016/j.photonics.2021.100990",
+   "openalex": "",
+   "title": "The influence of substitutes on the room temperature photoluminescence of 2-amino-4-oxobut-2-enoic acid molecular crystals",
+   "journal": "Photonics and Nanostructures - Fundamentals and Applications",
+   "publisher": "Elsevier BV",
+   "date": "2022-02",
+   "year": 2022,
+   "type": "article",
+   "itmo": false,
+   "volume": "48",
+   "issue": null,
+   "pages": "100990",
+   "authors": "Ekaterina Gunina, Nikolaj Zhestkij, Semyon Bachinin, Sergey P. Fisenko, Daria. A. Shipilovskikh, Valentin A. Milichko, Sergei A. Shipilovskikh",
+   "authors_count": 7,
+   "cited_by": 34,
+   "open_access": false,
+   "oa_url": "",
+   "language": "en",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "",
+   "center_authors": [
+    "Николай Жесткий"
+   ],
+   "match": {
+    "Николай Жесткий": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {}
+  },
+  {
    "doi": "10.1002/adom.202102163",
    "openalex": "W4205520938",
    "title": "Circular Subwavelength Photodetectors for 3D Space Exploration",
@@ -13317,7 +14100,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -13389,7 +14172,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -13454,7 +14237,7 @@
     "ai-nanophotonics": 1,
     "integrated-nanophotonics": 1
    },
-   "duplicate_of": ""
+   "duplicate_of": "10.1134/s0021364022040014"
   },
   {
    "doi": "10.17223/00213411/65/7/69",
@@ -13505,7 +14288,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -13614,7 +14397,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -13679,7 +14462,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -13754,7 +14537,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -13768,6 +14551,42 @@
     "bio-thermometry": 1
    },
    "duplicate_of": ""
+  },
+  {
+   "doi": "10.15826/chimtech.2021.8.4.11",
+   "openalex": "",
+   "title": "Synthesis of highly stable luminescent molecular crystals based on (E)-2-((3-(ethoxycarbonyl)-5-methyl-4-phenylthiophen-2-yl)amino)-4-oxo-4-(p-tolyl)but-2-enoic acid",
+   "journal": "Chimica Techno Acta",
+   "publisher": "Ural Federal University",
+   "date": "2021-12-15",
+   "year": 2021,
+   "type": "article",
+   "itmo": true,
+   "volume": "8",
+   "issue": "4",
+   "pages": "20218411",
+   "authors": "N. A. Zhestkij, E. V. Gunina, S. P. Fisenko, A. E. Rubtsov, D. A. Shipilovskikh, V. A. Milichko, S. A. Shipilovskikh",
+   "authors_count": 7,
+   "cited_by": 10,
+   "open_access": false,
+   "oa_url": "",
+   "language": "",
+   "retracted": false,
+   "keywords_en": [],
+   "topics": [],
+   "abstract": "The synthesis of (E)-2-((3-(ethoxycarbonyl)-5-methyl-4-phenylthiophen-2-yl)amino)-4-oxo-4-(p-tolyl)but-2-enoic acid was performed. This organic compound was used as a building block for the organic molecular crystals with highly stable photoluminescence at ambient conditions, which has been established during 10 years of exploitation.",
+   "center_authors": [
+    "Николай Жесткий"
+   ],
+   "match": {
+    "Николай Жесткий": "проверено"
+   },
+   "needs_check": false,
+   "direction_candidates": [],
+   "on_site": true,
+   "source": "сверка с Scholar",
+   "duplicate_of": "",
+   "direction_votes": {}
   },
   {
    "doi": "10.1021/acsphotonics.1c01347",
@@ -13827,7 +14646,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -13892,7 +14711,7 @@
     "ai-nanophotonics",
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -13966,7 +14785,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -14038,7 +14857,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -14111,7 +14930,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -14173,7 +14992,7 @@
    "direction_candidates": [
     "drug-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -14240,7 +15059,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -14306,7 +15125,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -14381,7 +15200,7 @@
     "ai-nanophotonics",
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -14463,7 +15282,7 @@
     "integrated-nanophotonics",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -14540,7 +15359,7 @@
     "ai-nanophotonics",
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -14608,7 +15427,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -14679,7 +15498,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -14751,7 +15570,7 @@
     "integrated-nanophotonics",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -14835,7 +15654,7 @@
     "ai-nanophotonics",
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -14906,7 +15725,7 @@
     "ai-nanophotonics",
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -14977,7 +15796,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -15043,7 +15862,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -15104,7 +15923,7 @@
     "lipid-delivery",
     "drug-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -15162,7 +15981,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -15227,7 +16046,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -15299,7 +16118,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -15370,7 +16189,7 @@
     "biosensing": 2,
     "bio-thermometry": 1
    },
-   "duplicate_of": ""
+   "duplicate_of": "10.1002/ange.202109985"
   },
   {
    "doi": "10.1002/ange.202109985",
@@ -15437,7 +16256,7 @@
     "biosensing": 2,
     "bio-thermometry": 1
    },
-   "duplicate_of": "10.1002/anie.202109985"
+   "duplicate_of": ""
   },
   {
    "doi": "10.1021/acs.nanolett.1c02616",
@@ -15503,7 +16322,7 @@
     "ai-nanophotonics",
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -15569,7 +16388,7 @@
    "direction_candidates": [
     "eco-nano"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -15627,7 +16446,7 @@
     "ai-nanophotonics",
     "integrated-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -15778,7 +16597,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -15905,7 +16724,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -15968,7 +16787,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -16035,7 +16854,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -16101,7 +16920,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -16171,7 +16990,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -16231,7 +17050,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -16295,7 +17114,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -16410,7 +17229,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -16471,7 +17290,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -16533,7 +17352,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -16604,7 +17423,7 @@
     "integrated-nanophotonics",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -16669,7 +17488,7 @@
     "ai-nanophotonics",
     "integrated-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -16734,7 +17553,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -16875,7 +17694,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -16939,7 +17758,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -17010,7 +17829,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -17184,7 +18003,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -17246,7 +18065,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -17301,7 +18120,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -17366,7 +18185,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -17426,7 +18245,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -17489,7 +18308,7 @@
     "integrated-nanophotonics",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -17561,7 +18380,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -17631,7 +18450,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -17705,7 +18524,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -17766,7 +18585,7 @@
     "lipid-delivery",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -17822,7 +18641,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -17888,7 +18707,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -17950,7 +18769,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -18022,7 +18841,7 @@
     "lipid-delivery",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -18083,7 +18902,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -18153,7 +18972,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -18218,7 +19037,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -18269,7 +19088,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -18325,7 +19144,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -18385,7 +19204,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -18457,7 +19276,7 @@
     "ai-nanophotonics",
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -18537,7 +19356,7 @@
     "ai-nanophotonics",
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -18601,7 +19420,7 @@
     "integrated-nanophotonics",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -18671,7 +19490,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -18738,7 +19557,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -18808,7 +19627,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -18883,7 +19702,7 @@
     "ai-nanophotonics",
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -18951,7 +19770,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -19025,7 +19844,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -19094,7 +19913,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -19160,7 +19979,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -19232,7 +20051,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -19297,7 +20116,7 @@
     "integrated-nanophotonics",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -19367,7 +20186,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -19435,7 +20254,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -19491,7 +20310,7 @@
    "direction_candidates": [
     "drug-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -19551,7 +20370,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -19616,7 +20435,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -19682,7 +20501,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -19752,7 +20571,7 @@
     "ai-nanophotonics",
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -19826,7 +20645,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -19905,7 +20724,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -19968,7 +20787,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -20039,7 +20858,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -20114,7 +20933,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -20182,7 +21001,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -20254,7 +21073,7 @@
     "lipid-delivery",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -20316,7 +21135,7 @@
     "ai-nanophotonics",
     "integrated-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -20379,7 +21198,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -20640,7 +21459,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -20783,7 +21602,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -20846,7 +21665,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -20908,7 +21727,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -20973,7 +21792,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -21039,7 +21858,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -21107,7 +21926,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -21176,7 +21995,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -21240,7 +22059,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -21290,7 +22109,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "crossref",
    "itmo": null,
    "direction_votes": {
@@ -21349,7 +22168,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -21413,7 +22232,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -21531,7 +22350,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -21662,7 +22481,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -21722,7 +22541,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -21789,7 +22608,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -21841,7 +22660,7 @@
    "direction_candidates": [
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -21904,7 +22723,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -21974,7 +22793,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -22000,7 +22819,7 @@
    "doi": "",
    "openalex": "",
    "title": "Topological States of Interacting Photon Pairs Emulated in a Topolectrical Circuit",
-   "journal": "2019 Photonics   Electromagnetics Research Symposium - Fall (PIERS - Fall)",
+   "journal": "2019 Photonics Electromagnetics Research Symposium - Fall (PIERS - Fall)",
    "date": "2019",
    "year": 2019,
    "type": "article",
@@ -22057,19 +22876,27 @@
    "keywords_en": [],
    "topics": [],
    "center_authors": [
-    "Алексей Пельтек"
+    "Алексей Пельтек",
+    "Михаил Зюзин"
    ],
    "match": {
-    "Алексей Пельтек": "orcid"
+    "Алексей Пельтек": "orcid",
+    "Михаил Зюзин": "проверено"
    },
    "needs_check": false,
    "direction_candidates": [
-    "drug-delivery"
+    "drug-delivery",
+    "microfluidics",
+    "nanosensing",
+    "lipid-delivery"
    ],
    "on_site": false,
    "source": "orcid",
    "direction_votes": {
-    "drug-delivery": 1
+    "drug-delivery": 2,
+    "microfluidics": 1,
+    "nanosensing": 1,
+    "lipid-delivery": 1
    },
    "duplicate_of": ""
   },
@@ -22149,19 +22976,27 @@
    "keywords_en": [],
    "topics": [],
    "center_authors": [
-    "Алексей Пельтек"
+    "Алексей Пельтек",
+    "Михаил Зюзин"
    ],
    "match": {
-    "Алексей Пельтек": "orcid"
+    "Алексей Пельтек": "orcid",
+    "Михаил Зюзин": "проверено"
    },
    "needs_check": false,
    "direction_candidates": [
-    "drug-delivery"
+    "drug-delivery",
+    "microfluidics",
+    "nanosensing",
+    "lipid-delivery"
    ],
    "on_site": false,
    "source": "orcid",
    "direction_votes": {
-    "drug-delivery": 1
+    "drug-delivery": 2,
+    "microfluidics": 1,
+    "nanosensing": 1,
+    "lipid-delivery": 1
    },
    "duplicate_of": ""
   },
@@ -22287,7 +23122,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -22350,7 +23185,7 @@
     "integrated-nanophotonics",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -22413,7 +23248,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -22483,7 +23318,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -22548,7 +23383,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -22619,7 +23454,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -22682,7 +23517,7 @@
     "integrated-nanophotonics",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -22741,7 +23576,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -22814,7 +23649,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -22886,7 +23721,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -22951,7 +23786,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -23029,7 +23864,7 @@
     "ai-nanophotonics",
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -23105,7 +23940,7 @@
     "ai-nanophotonics",
     "biosensing"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -23181,7 +24016,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -23245,7 +24080,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -23317,7 +24152,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -23377,7 +24212,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -23448,7 +24283,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -23526,7 +24361,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -23595,7 +24430,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -23657,7 +24492,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -23710,7 +24545,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -23840,7 +24675,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -23905,7 +24740,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -23971,7 +24806,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -24163,7 +24998,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -24229,7 +25064,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -24298,7 +25133,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -24440,7 +25275,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -24512,7 +25347,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -24584,7 +25419,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -24654,7 +25489,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -24722,7 +25557,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -24794,7 +25629,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -24846,7 +25681,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -24907,7 +25742,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -24976,7 +25811,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -25048,7 +25883,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -25114,7 +25949,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -25181,7 +26016,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -25244,7 +26079,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -25317,7 +26152,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -25391,7 +26226,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -25465,7 +26300,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -25538,7 +26373,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -25613,7 +26448,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -25679,7 +26514,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -25740,7 +26575,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -25813,7 +26648,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -25882,7 +26717,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -25938,7 +26773,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -26010,7 +26845,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -26080,7 +26915,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -26151,7 +26986,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -26217,7 +27052,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -26285,7 +27120,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -26394,7 +27229,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "crossref",
    "itmo": null,
    "direction_votes": {
@@ -26446,7 +27281,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -26507,7 +27342,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -26570,7 +27405,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -26638,7 +27473,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -26705,7 +27540,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -26780,7 +27615,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -26852,7 +27687,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -26920,7 +27755,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -26991,7 +27826,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -27063,7 +27898,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -27191,7 +28026,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -27255,7 +28090,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -27317,7 +28152,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -27389,7 +28224,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -27463,7 +28298,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -27640,7 +28475,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -27713,7 +28548,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -27783,7 +28618,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -27844,7 +28679,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -27911,7 +28746,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -27976,7 +28811,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -28041,7 +28876,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -28110,7 +28945,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -28185,7 +29020,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -28254,7 +29089,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -28318,7 +29153,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -28442,7 +29277,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -28507,7 +29342,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -28570,7 +29405,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -28640,7 +29475,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -28711,7 +29546,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -28781,7 +29616,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -28846,7 +29681,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -28911,7 +29746,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -28972,7 +29807,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -29036,7 +29871,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -29102,7 +29937,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -29168,7 +30003,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -29305,7 +30140,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -29375,7 +30210,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -29500,7 +30335,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -29682,7 +30517,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -29801,7 +30636,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -29855,7 +30690,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -29927,7 +30762,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -29994,7 +30829,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -30051,7 +30886,7 @@
    "direction_candidates": [
     "microfluidics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -30107,7 +30942,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -30230,7 +31065,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -30291,7 +31126,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -30415,7 +31250,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -30486,7 +31321,7 @@
     "biosensing": 1,
     "bio-thermometry": 1
    },
-   "duplicate_of": ""
+   "duplicate_of": "10.1134/s1063782614040186"
   },
   {
    "doi": "",
@@ -30602,7 +31437,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -30669,7 +31504,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -30717,7 +31552,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "crossref",
    "itmo": null,
    "direction_votes": {
@@ -30772,7 +31607,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -30838,7 +31673,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -30917,7 +31752,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -30988,7 +31823,7 @@
     "biosensing": 1,
     "bio-thermometry": 1
    },
-   "duplicate_of": ""
+   "duplicate_of": "10.1134/s0020168513100099"
   },
   {
    "publisher": "",
@@ -31129,7 +31964,7 @@
     "nanosensing",
     "lipid-delivery"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -31193,7 +32028,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -31261,7 +32096,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -31339,7 +32174,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -31408,7 +32243,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -31483,7 +32318,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -31548,7 +32383,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -31619,7 +32454,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -31690,7 +32525,7 @@
     "biosensing": 1,
     "bio-thermometry": 1
    },
-   "duplicate_of": ""
+   "duplicate_of": "10.1134/s1063782612030256"
   },
   {
    "doi": "10.1007/s00340-011-4625-x",
@@ -31750,7 +32585,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -31821,7 +32656,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -31896,7 +32731,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -31972,7 +32807,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -32038,7 +32873,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -32111,7 +32946,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -32183,7 +33018,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -32252,7 +33087,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -32314,7 +33149,7 @@
     "eco-nano",
     "hybrid-nanophotonics"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
@@ -32374,7 +33209,7 @@
     "biosensing",
     "bio-thermometry"
    ],
-   "on_site": false,
+   "on_site": true,
    "source": "openalex",
    "needs_check": false,
    "itmo": null,
