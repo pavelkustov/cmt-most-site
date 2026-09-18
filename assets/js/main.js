@@ -151,7 +151,6 @@ function openCiteSheet(p) {
 const pubDirs = (p) => (Array.isArray(p.direction) ? p.direction : p.direction ? [p.direction] : []);
 
 function pubHTML(p, index) {
-  const dirs = pubDirs(p).map((id) => DIRECTIONS.find((d) => d.id === id)).filter(Boolean);
   const image = p.image
     ? `<img src="${img(p.image)}" alt="" loading="lazy">`
     : `<span class="pub__img-placeholder">${esc(p.journal)}</span>`;
@@ -164,9 +163,8 @@ function pubHTML(p, index) {
     <div class="pub__meta">
       <div class="pub__meta-left">
         <time class="pub__date" datetime="${p.date}">${formatDate(p.date)}</time>
-        <span>${esc(p.journal)}</span>
         ${p.quartile ? `<span class="tag tag--outline">${esc(p.quartile)}</span>` : ""}
-        ${dirs.map((d) => `<a href="direction.html?id=${d.id}">${esc(d.title)}</a>`).join("")}
+        <span>${esc(p.journal)}</span>
       </div>
       <button class="pub__cite" type="button" data-cite="${index}" aria-haspopup="dialog"><span>Цитировать</span>${ICONS.download}</button>
     </div>
