@@ -5,6 +5,7 @@
     python tools/smoke.py --shots    # плюс скриншоты в tools/shots/
 """
 import http.server
+import re
 import pathlib
 import socketserver
 import sys
@@ -51,9 +52,14 @@ TIMEOUT = 120_000 if "--base" in sys.argv else 30_000
 problems = []
 checks = 0
 
+# ожидания считаем по данным сайта, а не пишем числом: контент меняется часто
+_data = (ROOT / "assets" / "js" / "data.js").read_text(encoding="utf-8")
+_dirs_block = _data[:_data.index("window.PUBLICATIONS")]
+N_DIRECTIONS = len(re.findall(r'id: "[^"]+"', _dirs_block))
+N_PUBS_2022 = _data.count('date: "2022')
+
 # метки версий CSS/JS в HTML должны совпадать с содержимым файлов, иначе браузеры покажут старый кэш
 import hashlib
-import re
 
 stale = []
 for html in ROOT.glob("*.html"):
@@ -114,7 +120,7 @@ with sync_playwright() as p:
     ctx = browser.new_context(viewport={"width": 1440, "height": 900})
     page = ctx.new_page()
     page.goto(base + "index.html", wait_until=WAIT, timeout=TIMEOUT)
-    check(page.locator(".dir-card").count() == 10, "главная: должно быть 10 карточек направлений")
+    check(page.locator(".dir-card").count() == N_DIRECTIONS, f"главная: карточек направлений {page.locator('.dir-card').count()}, в data.js {N_DIRECTIONS}")
     check(page.locator(".news__grid .news-card").count() == 3, "главная: должно быть 3 новости")
     page.click(".nav__item[aria-controls='nav-science']")
     check(page.locator("#nav-science").is_visible(), "меню «Наука» не раскрылось")
@@ -132,7 +138,7 @@ with sync_playwright() as p:
     check(page.locator(".pub").count() == 1, "публикации: поиск по журналу не сработал")
     page.click(".filters__reset")
     page.select_option("[name=year]", "2022")
-    check(page.locator(".pub").count() == 4, f"публикации: фильтр по году дал {page.locator('.pub').count()}")
+    check(page.locator(".pub").count() == N_PUBS_2022, f"публикации: фильтр по году дал {page.locator('.pub').count()}, в data.js {N_PUBS_2022}")
     page.click(".view-toggle__btn[data-view=list]")
     check(page.locator(".pub-list.is-list").count() == 1, "публикации: не переключился вид «список»")
     check(not page.locator(".pub__img").first.is_visible(), "публикации: в виде «список» видны картинки")

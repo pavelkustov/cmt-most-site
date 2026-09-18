@@ -1,7 +1,8 @@
 /* Логика страниц. Какая страница, определяем по <body data-page="..."> */
 
 const img = (file) => `assets/img/${file}`;
-const statsHTML = (items) => items.map(([value, label]) =>
+// незаполненные метрики пропускаем: лучше показать меньше цифр, чем выдуманные
+const statsHTML = (items) => items.filter(([value]) => value).map(([value, label]) =>
   `<div class="stat"><p class="stat__value">${esc(value)}</p><p class="stat__label">${esc(label)}</p></div>`).join("");
 const tagsHTML = (tags) => `<div class="tags">${tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>`;
 
@@ -26,8 +27,9 @@ function newsCardHTML(n) {
 
 /* Библиографические данные: из citations.js (Crossref), а если публикации там нет, из data.js */
 function refOf(p) {
-  const doi = p.doi.replace(/^https?:\/\/doi\.org\//, "");
-  const c = window.CITATIONS?.[doi];
+  // у статей в российских журналах DOI бывает не присвоен, цитата тогда собирается из data.js
+  const doi = (p.doi || "").replace(/^https?:\/\/doi\.org\//, "");
+  const c = doi && window.CITATIONS?.[doi];
   if (c) return { ...c, doi };
   return {
     type: "journal-article", doi, title: p.title, container: p.journal, year: Number(p.date.slice(0, 4)),
@@ -145,11 +147,18 @@ function openCiteSheet(p) {
   };
 }
 
+// одна работа может относиться сразу к нескольким направлениям, поэтому direction бывает и списком
+const pubDirs = (p) => (Array.isArray(p.direction) ? p.direction : p.direction ? [p.direction] : []);
+
 function pubHTML(p, index) {
-  const dir = DIRECTIONS.find((d) => d.id === p.direction);
+  const dirs = pubDirs(p).map((id) => DIRECTIONS.find((d) => d.id === id)).filter(Boolean);
   const image = p.image
     ? `<img src="${img(p.image)}" alt="" loading="lazy">`
     : `<span class="pub__img-placeholder">${esc(p.journal)}</span>`;
+  // у статей в российских журналах DOI бывает не присвоен, тогда ссылок нет
+  const title = p.doi
+    ? `<a href="${esc(p.doi)}" target="_blank" rel="noopener">${esc(p.title)}</a>`
+    : esc(p.title);
   return `
   <article class="pub">
     <div class="pub__meta">
@@ -157,17 +166,17 @@ function pubHTML(p, index) {
         <time class="pub__date" datetime="${p.date}">${formatDate(p.date)}</time>
         <span>${esc(p.journal)}</span>
         ${p.quartile ? `<span class="tag tag--outline">${esc(p.quartile)}</span>` : ""}
-        ${dir ? `<a href="direction.html?id=${dir.id}">${esc(dir.title)}</a>` : ""}
+        ${dirs.map((d) => `<a href="direction.html?id=${d.id}">${esc(d.title)}</a>`).join("")}
       </div>
       <button class="pub__cite" type="button" data-cite="${index}" aria-haspopup="dialog"><span>Цитировать</span>${ICONS.download}</button>
     </div>
     <div class="pub__main">
       <div class="pub__body">
         <div>
-          <h3 class="pub__title"><a href="${esc(p.doi)}" target="_blank" rel="noopener">${esc(p.title)}</a></h3>
+          <h3 class="pub__title">${title}</h3>
           <p class="pub__authors">${esc(p.authors)}</p>
         </div>
-        <div class="pub__desc">${ICONS.chevronPoint}<p>${esc(p.desc)}</p></div>
+        ${p.desc ? `<div class="pub__desc">${ICONS.chevronPoint}<p>${esc(p.desc)}</p></div>` : ""}
         <div>
           <p class="pub__tags-title">Ключевые теги</p>
           ${tagsHTML(p.tags)}
@@ -175,7 +184,7 @@ function pubHTML(p, index) {
       </div>
       <div class="pub__img${p.image ? "" : " is-empty"}">
         ${image}
-        <a class="pub__img-link" href="${esc(p.doi)}" target="_blank" rel="noopener">подробнее ${ICONS.arrowRight}</a>
+        ${p.doi ? `<a class="pub__img-link" href="${esc(p.doi)}" target="_blank" rel="noopener">подробнее ${ICONS.arrowRight}</a>` : ""}
       </div>
     </div>
   </article>`;
@@ -296,7 +305,7 @@ function initHome() {
           <span class="square-btn" aria-hidden="true">${ICONS.arrowUpRight}</span>
         </div>
       </div>
-      <div class="dir-card__img"><img src="${img(d.image)}" alt="" loading="lazy" style="object-position:${d.imagePos || "center"}"></div>
+      <div class="dir-card__img${d.image ? "" : " is-empty"}">${d.image ? `<img src="${img(d.image)}" alt="" loading="lazy" style="object-position:${d.imagePos || "center"}">` : ""}</div>
     </a>`).join("");
 
   mountSlider(carousel, document.querySelector(".science .slider-arrows"), ".dir-card");
@@ -306,13 +315,35 @@ function initHome() {
 
 /* ---------- направление ---------- */
 
+/* Порядок команды на странице направления: доктора наук, кандидаты наук, аспиранты,
+   магистры, студенты, бакалавры. Внутри ступени раньше идет тот, кто старше по курсу
+   (аспирант 4-го года выше аспиранта 1-го). Сортировка живет здесь, а не в data.js,
+   чтобы правило соблюдалось само при любой правке состава. */
+const STAGES = [[/доктор/i, 10], [/кандидат/i, 20], [/аспирант/i, 30], [/магистр/i, 40], [/студент/i, 50], [/бакалавр/i, 60]];
+
+function personRank(degree = "") {
+  const stage = STAGES.find(([re]) => re.test(degree));
+  if (!stage) return 90;
+  const year = Number((degree.match(/(\d)-го года/) || [])[1]);
+  // курс старше — выше в списке; если курс не указан, ставим в конец своей ступени
+  return stage[1] + (year ? 5 - year : 5);
+}
+
+function teamOf(d) {
+  return d.people
+    .map((name) => ({ name, ...(window.PEOPLE?.[name] || {}) }))
+    .map((p) => ({ ...p, role: [p.degree, p.post].filter(Boolean).join(", ") }))
+    .sort((a, b) => personRank(a.degree) - personRank(b.degree));
+}
+
 function initDirection() {
   const id = new URLSearchParams(location.search).get("id");
   const d = DIRECTIONS.find((x) => x.id === id) || DIRECTIONS.find((x) => x.id === "puf");
   document.title = `${d.title} · ЦМТ «Мост»`;
 
   // фон первого экрана: своя обложка из макета, иначе фото с карточки направления
-  document.querySelector(".hero__bg img").src = img(d.hero || d.image);
+  // у направлений без своей картинки фоном идет общий первый экран сайта
+  document.querySelector(".hero__bg img").src = img(d.hero || d.image || "hero-home.webp");
   document.querySelector(".hero__title").innerHTML = d.heroTitle || esc(d.title);
   document.querySelector(".hero__subtitle").textContent = d.subtitle || "Научное направление ЦМТ «Мост»";
 
@@ -331,10 +362,11 @@ function initDirection() {
 
   const people = document.querySelector(".people");
   if (d.people) {
-    people.innerHTML = d.people.map((p) => `
-      <figure class="person">
-        <img src="${img(p.photo)}" alt="${esc(p.name)}" loading="lazy" style="object-position:${p.pos || "center"}">
-        <figcaption class="person__text"><p class="person__name">${esc(p.name)}</p><p class="person__role">${esc(p.role)}</p></figcaption>
+    // фотография есть не у всех: без нее карточка остается плашкой фирменного цвета
+    people.innerHTML = teamOf(d).map((p) => `
+      <figure class="person${p.photo ? "" : " person--plain"}">
+        ${p.photo ? `<img src="${img(p.photo)}" alt="${esc(p.name)}" loading="lazy" style="object-position:${p.pos || "center"}">` : ""}
+        <figcaption class="person__text"><p class="person__name">${esc(p.name)}</p>${p.role ? `<p class="person__role">${esc(p.role)}</p>` : ""}</figcaption>
       </figure>`).join("");
     mountSlider(people, document.querySelector(".people-head .slider-arrows"), ".person");
     enableDragScroll(people);
@@ -344,7 +376,7 @@ function initDirection() {
   }
 
   const pubsSection = document.querySelector(".pubs");
-  const pubs = PUBLICATIONS.filter((p) => p.direction === d.id).sort((a, b) => b.date.localeCompare(a.date));
+  const pubs = PUBLICATIONS.filter((p) => pubDirs(p).includes(d.id)).sort((a, b) => b.date.localeCompare(a.date));
   if (!pubs.length) { pubsSection.remove(); return; }
   pubsSection.querySelector(".view-toggle-slot").outerHTML = viewToggleHTML();
   mountPubList(pubsSection, () => pubs, { pageSize: 6 }).render();
@@ -360,7 +392,7 @@ function initPublications() {
   const sortSel = form.querySelector("[name=sort]");
   const found = document.querySelector(".pubs__sub");
 
-  const usedDirs = new Set(PUBLICATIONS.map((p) => p.direction));
+  const usedDirs = new Set(PUBLICATIONS.flatMap(pubDirs));
   DIRECTIONS.filter((d) => usedDirs.has(d.id))
     .forEach((d) => dirSel.insertAdjacentHTML("beforeend", `<option value="${d.id}">${esc(d.title)}</option>`));
   [...new Set(PUBLICATIONS.map((p) => p.date.slice(0, 4)))].sort().reverse()
@@ -373,7 +405,7 @@ function initPublications() {
     const term = q.value.trim().toLowerCase();
     const items = PUBLICATIONS.filter((p) =>
       (!term || `${p.title} ${p.authors} ${p.journal} ${p.tags.join(" ")}`.toLowerCase().includes(term)) &&
-      (!dirSel.value || p.direction === dirSel.value) &&
+      (!dirSel.value || pubDirs(p).includes(dirSel.value)) &&
       (!yearSel.value || p.date.startsWith(yearSel.value)));
     items.sort((a, b) => sortSel.value === "old" ? a.date.localeCompare(b.date) : b.date.localeCompare(a.date));
     return items;

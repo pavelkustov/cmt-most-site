@@ -354,6 +354,8 @@ svg { display: block; flex-shrink: 0; }
 .stat__label { margin-top: 1.5rem; font-size: 2.04rem; line-height: 1.87rem; opacity: .6; white-space: nowrap; }
 .dir-card__img { height: 33rem; border-radius: var(--radius-l); overflow: hidden; flex-shrink: 0; isolation: isolate; }
 .dir-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
+/* направление без своей фотографии: плашка фирменного цвета вместо картинки */
+.dir-card__img.is-empty { background: linear-gradient(160deg, #35664c, #1c3a2c); }
 .dir-card:hover .square-btn { background: var(--green); }
 
 /* ---------- главная: индустрия ---------- */
@@ -476,8 +478,13 @@ svg { display: block; flex-shrink: 0; }
 
 /* ---------- страница направления ---------- */
 .dir-about { padding-top: var(--section-gap); }
+/* Правило блока «О направлении»: левая и правая колонки заканчиваются на одной линии.
+   Та колонка, что короче, прижимает свой последний блок к низу: слева это карточка-приглашение
+   (margin-top: auto), справа — облако ключевых слов (space-between). Высоту задает колонка
+   подлиннее, поэтому низ у них всегда общий при любой длине текста и любом числе слов. */
 .dir-about__grid { margin-top: 6.2rem; display: flex; justify-content: space-between; gap: 6rem; }
 .dir-about__main { max-width: 108.2rem; display: flex; flex-direction: column; gap: 6rem; }
+.dir-about__main > .dir-cta { margin-top: auto; }
 .dir-about__text { font-size: 2.4rem; font-weight: 300; line-height: 1.4; }
 /* карточка-приглашение под описанием: занимает место, где было пусто, и ведет к «Написать» */
 .dir-cta {
@@ -508,9 +515,15 @@ svg { display: block; flex-shrink: 0; }
 .person { margin: 0; position: relative; flex: 0 0 42.8rem; height: 52.7rem; border-radius: var(--radius-m); overflow: hidden; scroll-snap-align: start; color: var(--white); }
 .person img { width: 100%; height: 100%; object-fit: cover; }
 .person::after { content: ""; position: absolute; inset: 0; background: linear-gradient(179.85deg, rgba(255,255,255,0) 33.9%, var(--ink) 99%); }
+/* карточка сотрудника без фотографии: плашка фирменного цвета, затемнение снизу не нужно */
+.person--plain { background: linear-gradient(160deg, #35664c, #1c3a2c); }
+.person--plain::after { display: none; }
 .person__text { position: absolute; left: 3.9rem; right: 3.9rem; bottom: 4.2rem; z-index: 1; }
 .person__name { font-size: 3rem; font-weight: 500; line-height: 1; }
-.person__role { margin-top: 2.8rem; font-size: 2rem; font-weight: 300; line-height: 1.4; }
+/* подпись прижата к низу карточки, поэтому без min-height однострочная должность
+   опускала имя ниже, чем двухстрочная. Резервируем две строки: имя и первая строка
+   должности встают на одном уровне у всех сотрудников, а длинная должность не обрезается */
+.person__role { margin-top: 2.8rem; font-size: 2rem; font-weight: 300; line-height: 1.4; min-height: 2.8em; }
 
 /* ---------- публикации ---------- */
 .pubs { padding-top: var(--section-gap); }
