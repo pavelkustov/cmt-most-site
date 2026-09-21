@@ -72,6 +72,54 @@ window.CITATIONS = {
   "year": 2026,
   "publisher": "Elsevier BV"
  },
+ "10.1134/s1990750826600287": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Evmenov",
+    "K. S."
+   ],
+   [
+    "Tkachenko",
+    "E. A."
+   ],
+   [
+    "Brezgin",
+    "S. A."
+   ],
+   [
+    "Kostyusheva",
+    "A. P."
+   ],
+   [
+    "Ponomareva",
+    "N. I."
+   ],
+   [
+    "Demina",
+    "P. A."
+   ],
+   [
+    "Fatkhutdinova",
+    "L."
+   ],
+   [
+    "Zyuzin",
+    "M. V."
+   ],
+   [
+    "Kostyushev",
+    "D. S."
+   ]
+  ],
+  "title": "Physicochemical Analysis of Extracellular Nanovesicles and Exosome-Like Nanovesicles",
+  "container": "Biochemistry (Moscow), Supplement Series B: Biomedical Chemistry",
+  "volume": "20",
+  "issue": "2",
+  "page": "145-158",
+  "year": 2026,
+  "publisher": "Pleiades Publishing Ltd"
+ },
  "10.1016/j.inoche.2026.117450": {
   "type": "journal-article",
   "authors": [
@@ -119,6 +167,17 @@ window.CITATIONS = {
   "page": "117450",
   "year": 2026,
   "publisher": "Elsevier BV"
+ },
+ "10.17586/1023-5086-2026-93-03-33-39": {
+  "type": "journal-article",
+  "authors": [],
+  "title": "Гистерезис нелинейной восприимчивости второго порядка в кремнии",
+  "container": "Оптический журнал",
+  "volume": null,
+  "issue": null,
+  "page": "",
+  "year": 2026,
+  "publisher": "ITMO University"
  },
  "10.1021/acs.langmuir.6c02138": {
   "type": "journal-article",
@@ -215,34 +274,6 @@ window.CITATIONS = {
   "page": "251905",
   "year": 2026,
   "publisher": "AIP Publishing"
- },
- "10.1109/iclo69056.2026.11624494": {
-  "type": "proceedings-article",
-  "authors": [
-   [
-    "Larin",
-    "Artem O."
-   ],
-   [
-    "Ermina",
-    "Anna A."
-   ],
-   [
-    "Zharova",
-    "Yulia A."
-   ],
-   [
-    "Zuev",
-    "Dmitry A."
-   ]
-  ],
-  "title": "Hysteresis of second harmonic generation in metal-semiconductor Si/Au structures as a manifestation of the memory effect",
-  "container": "2026 International Conference Laser Optics (ICLO)",
-  "volume": null,
-  "issue": null,
-  "page": "212-212",
-  "year": 2026,
-  "publisher": "IEEE"
  },
  "10.1109/iclo69056.2026.11624674": {
   "type": "proceedings-article",
@@ -344,54 +375,6 @@ window.CITATIONS = {
   "year": 2026,
   "publisher": "IEEE"
  },
- "10.1134/s1990750826600287": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Evmenov",
-    "K. S."
-   ],
-   [
-    "Tkachenko",
-    "E. A."
-   ],
-   [
-    "Brezgin",
-    "S. A."
-   ],
-   [
-    "Kostyusheva",
-    "A. P."
-   ],
-   [
-    "Ponomareva",
-    "N. I."
-   ],
-   [
-    "Demina",
-    "P. A."
-   ],
-   [
-    "Fatkhutdinova",
-    "L."
-   ],
-   [
-    "Zyuzin",
-    "M. V."
-   ],
-   [
-    "Kostyushev",
-    "D. S."
-   ]
-  ],
-  "title": "Physicochemical Analysis of Extracellular Nanovesicles and Exosome-Like Nanovesicles",
-  "container": "Biochemistry (Moscow), Supplement Series B: Biomedical Chemistry",
-  "volume": "20",
-  "issue": "2",
-  "page": "145-158",
-  "year": 2026,
-  "publisher": "Pleiades Publishing Ltd"
- },
  "10.1109/iclo69056.2026.11625054": {
   "type": "proceedings-article",
   "authors": [
@@ -485,6 +468,34 @@ window.CITATIONS = {
   "volume": null,
   "issue": null,
   "page": "418-418",
+  "year": 2026,
+  "publisher": "IEEE"
+ },
+ "10.1109/iclo69056.2026.11624494": {
+  "type": "proceedings-article",
+  "authors": [
+   [
+    "Larin",
+    "Artem O."
+   ],
+   [
+    "Ermina",
+    "Anna A."
+   ],
+   [
+    "Zharova",
+    "Yulia A."
+   ],
+   [
+    "Zuev",
+    "Dmitry A."
+   ]
+  ],
+  "title": "Hysteresis of second harmonic generation in metal-semiconductor Si/Au structures as a manifestation of the memory effect",
+  "container": "2026 International Conference Laser Optics (ICLO)",
+  "volume": null,
+  "issue": null,
+  "page": "212-212",
   "year": 2026,
   "publisher": "IEEE"
  },
@@ -628,6 +639,34 @@ window.CITATIONS = {
   "year": 2026,
   "publisher": "Elsevier BV"
  },
+ "10.1016/j.photonics.2026.101551": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Bikmetova",
+    "Sabina"
+   ],
+   [
+    "Sennikova",
+    "Daria"
+   ],
+   [
+    "Zyuzin",
+    "Mikhail V."
+   ],
+   [
+    "Zuev",
+    "Dmitry"
+   ]
+  ],
+  "title": "Centrifugal microfluidics for size-selective separation of polydisperse Mie-resonant silicon nanoparticles",
+  "container": "Photonics and Nanostructures - Fundamentals and Applications",
+  "volume": "71",
+  "issue": null,
+  "page": "101551",
+  "year": 2026,
+  "publisher": "Elsevier BV"
+ },
  "10.1007/s13346-026-02112-x": {
   "type": "journal-article",
   "authors": [
@@ -707,6 +746,50 @@ window.CITATIONS = {
   "page": "",
   "year": 2026,
   "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1016/j.bios.2026.118408": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Filatov",
+    "Pavel"
+   ],
+   [
+    "Reushev",
+    "Vladislav A."
+   ],
+   [
+    "Shchekutieva",
+    "Ekaterina"
+   ],
+   [
+    "Otinov",
+    "Georgy"
+   ],
+   [
+    "Feng",
+    "Lili"
+   ],
+   [
+    "Vartanyan",
+    "Tigran"
+   ],
+   [
+    "Gorbenko",
+    "Daria"
+   ],
+   [
+    "Zyuzin",
+    "Mikhail V."
+   ]
+  ],
+  "title": "Selective detection of Staphylococcus aureus in food matrices using a chemiluminescent peroxidase-like DNA nanomachine",
+  "container": "Biosensors and Bioelectronics",
+  "volume": "298",
+  "issue": null,
+  "page": "118408",
+  "year": 2026,
+  "publisher": "Elsevier BV"
  },
  "10.1021/jacs.6c00409": {
   "type": "journal-article",
@@ -853,78 +936,6 @@ window.CITATIONS = {
   "volume": "71",
   "issue": null,
   "page": "101567",
-  "year": 2026,
-  "publisher": "Elsevier BV"
- },
- "10.1016/j.photonics.2026.101551": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Bikmetova",
-    "Sabina"
-   ],
-   [
-    "Sennikova",
-    "Daria"
-   ],
-   [
-    "Zyuzin",
-    "Mikhail V."
-   ],
-   [
-    "Zuev",
-    "Dmitry"
-   ]
-  ],
-  "title": "Centrifugal microfluidics for size-selective separation of polydisperse Mie-resonant silicon nanoparticles",
-  "container": "Photonics and Nanostructures - Fundamentals and Applications",
-  "volume": "71",
-  "issue": null,
-  "page": "101551",
-  "year": 2026,
-  "publisher": "Elsevier BV"
- },
- "10.1016/j.bios.2026.118408": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Filatov",
-    "Pavel"
-   ],
-   [
-    "Reushev",
-    "Vladislav A."
-   ],
-   [
-    "Shchekutieva",
-    "Ekaterina"
-   ],
-   [
-    "Otinov",
-    "Georgy"
-   ],
-   [
-    "Feng",
-    "Lili"
-   ],
-   [
-    "Vartanyan",
-    "Tigran"
-   ],
-   [
-    "Gorbenko",
-    "Daria"
-   ],
-   [
-    "Zyuzin",
-    "Mikhail V."
-   ]
-  ],
-  "title": "Selective detection of Staphylococcus aureus in food matrices using a chemiluminescent peroxidase-like DNA nanomachine",
-  "container": "Biosensors and Bioelectronics",
-  "volume": "298",
-  "issue": null,
-  "page": "118408",
   "year": 2026,
   "publisher": "Elsevier BV"
  },
@@ -1280,6 +1291,34 @@ window.CITATIONS = {
   "year": 2026,
   "publisher": "Elsevier BV"
  },
+ "10.1016/j.commatsci.2025.114465": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Oyeniyi",
+    "G.T."
+   ],
+   [
+    "Melchakova",
+    "Iu.A."
+   ],
+   [
+    "Polyutov",
+    "S.P."
+   ],
+   [
+    "Avramov",
+    "P.V."
+   ]
+  ],
+  "title": "Quantum and light absorption properties of bilayer g-C₃N₄ with large commensurate twist angles",
+  "container": "Computational Materials Science",
+  "volume": "263",
+  "issue": null,
+  "page": "114465",
+  "year": 2026,
+  "publisher": "Elsevier BV"
+ },
  "10.1016/j.photonics.2026.101523": {
   "type": "journal-article",
   "authors": [
@@ -1347,70 +1386,6 @@ window.CITATIONS = {
   "page": "2049-2056",
   "year": 2026,
   "publisher": "American Chemical Society (ACS)"
- },
- "10.1016/j.commatsci.2025.114465": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Oyeniyi",
-    "G.T."
-   ],
-   [
-    "Melchakova",
-    "Iu.A."
-   ],
-   [
-    "Polyutov",
-    "S.P."
-   ],
-   [
-    "Avramov",
-    "P.V."
-   ]
-  ],
-  "title": "Quantum and light absorption properties of bilayer g-C₃N₄ with large commensurate twist angles",
-  "container": "Computational Materials Science",
-  "volume": "263",
-  "issue": null,
-  "page": "114465",
-  "year": 2026,
-  "publisher": "Elsevier BV"
- },
- "10.1002/lpor.202501152": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Zhestkij",
-    "Nikolaj"
-   ],
-   [
-    "Povarov",
-    "Svyatoslav"
-   ],
-   [
-    "Shipilovskikh",
-    "Sergei"
-   ],
-   [
-    "Yushina",
-    "Irina D."
-   ],
-   [
-    "Pierson",
-    "Jean-François"
-   ],
-   [
-    "Milichko",
-    "Valentin"
-   ]
-  ],
-  "title": "Highly Nonlinear Metal-Organic Framework Microcrystal for Ultrabroadband and Multiwavelength Coherent Light Emission",
-  "container": "Laser &amp; Photonics Reviews",
-  "volume": "20",
-  "issue": "3",
-  "page": "e01152",
-  "year": 2026,
-  "publisher": "Wiley"
  },
  "10.1021/acsanm.5c04932": {
   "type": "journal-article",
@@ -1513,6 +1488,42 @@ window.CITATIONS = {
   "volume": "207",
   "issue": null,
   "page": "110462",
+  "year": 2026,
+  "publisher": "Elsevier BV"
+ },
+ "10.1016/j.photonics.2025.101480": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Li",
+    "Chunyu"
+   ],
+   [
+    "Petrova",
+    "Elena"
+   ],
+   [
+    "Bikmetova",
+    "Sabina"
+   ],
+   [
+    "Danilov",
+    "Denis V."
+   ],
+   [
+    "Zuev",
+    "Dmitry"
+   ],
+   [
+    "Ageev",
+    "Eduard"
+   ]
+  ],
+  "title": "Modification of wettability on fused silica surface via laser-induced nanostructures for enhanced capture of polystyrene particles",
+  "container": "Photonics and Nanostructures - Fundamentals and Applications",
+  "volume": "68",
+  "issue": null,
+  "page": "101480",
   "year": 2026,
   "publisher": "Elsevier BV"
  },
@@ -1675,53 +1686,6 @@ window.CITATIONS = {
   "page": "",
   "year": 2026,
   "publisher": "Elsevier BV"
- },
- "10.1016/j.photonics.2025.101480": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Li",
-    "Chunyu"
-   ],
-   [
-    "Petrova",
-    "Elena"
-   ],
-   [
-    "Bikmetova",
-    "Sabina"
-   ],
-   [
-    "Danilov",
-    "Denis V."
-   ],
-   [
-    "Zuev",
-    "Dmitry"
-   ],
-   [
-    "Ageev",
-    "Eduard"
-   ]
-  ],
-  "title": "Modification of wettability on fused silica surface via laser-induced nanostructures for enhanced capture of polystyrene particles",
-  "container": "Photonics and Nanostructures - Fundamentals and Applications",
-  "volume": "68",
-  "issue": null,
-  "page": "101480",
-  "year": 2026,
-  "publisher": "Elsevier BV"
- },
- "10.17586/1023-5086-2026-93-03-33-39": {
-  "type": "journal-article",
-  "authors": [],
-  "title": "Гистерезис нелинейной восприимчивости второго порядка в кремнии",
-  "container": "Оптический журнал",
-  "volume": null,
-  "issue": null,
-  "page": "",
-  "year": 2026,
-  "publisher": "ITMO University"
  },
  "10.1016/j.bioadv.2025.214632": {
   "type": "journal-article",
@@ -1927,41 +1891,45 @@ window.CITATIONS = {
   "year": 2025,
   "publisher": "SPIE"
  },
- "10.1002/lpor.202500691": {
+ "10.29026/oea.2025.250110": {
   "type": "journal-article",
   "authors": [
    [
-    "Gerasimova",
-    "Elena"
+    "Mahmoodpoor",
+    "Abolfazl"
    ],
    [
-    "Cherednikova",
-    "Arina"
+    "Alekseev",
+    "Prokhor A."
    ],
    [
-    "Feoktistova",
-    "Viktoria"
+    "Gasnikova",
+    "Ksenia A."
    ],
    [
-    "Fatkhutdinova",
-    "Landysh"
+    "Natalia",
+    "Kuzmenko"
    ],
    [
-    "Feng",
-    "Lili"
+    "Larin",
+    "Artem"
    ],
    [
-    "Zyuzin",
-    "Mikhail V."
+    "Makarov",
+    "Sergey"
+   ],
+   [
+    "Furasova",
+    "Aleksandra"
    ]
   ],
-  "title": "Optical Nanothermometry as a Diagnostic Tool for Diseases: Physical Principles, Challenges, and Limitations",
-  "container": "Laser &amp; Photonics Reviews",
-  "volume": "19",
-  "issue": "22",
-  "page": "e00691",
+  "title": "Halide perovskite volatile unipolar nanomemristor",
+  "container": "Opto-Electronic Advances",
+  "volume": "8",
+  "issue": "11",
+  "page": "250110",
   "year": 2025,
-  "publisher": "Wiley"
+  "publisher": "Opto-Electronic Advances"
  },
  "10.21294/1814-4861-2025-24-4-5-19": {
   "type": "journal-article",
@@ -2078,6 +2046,78 @@ window.CITATIONS = {
   "page": "302",
   "year": 2025,
   "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1002/lpor.202501152": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Zhestkij",
+    "Nikolaj"
+   ],
+   [
+    "Povarov",
+    "Svyatoslav"
+   ],
+   [
+    "Shipilovskikh",
+    "Sergei"
+   ],
+   [
+    "Yushina",
+    "Irina D."
+   ],
+   [
+    "Pierson",
+    "Jean-François"
+   ],
+   [
+    "Milichko",
+    "Valentin"
+   ]
+  ],
+  "title": "Highly Nonlinear Metal-Organic Framework Microcrystal for Ultrabroadband and Multiwavelength Coherent Light Emission",
+  "container": "Laser &amp; Photonics Reviews",
+  "volume": "20",
+  "issue": "3",
+  "page": "e01152",
+  "year": 2026,
+  "publisher": "Wiley"
+ },
+ "10.1002/lpor.202500691": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Gerasimova",
+    "Elena"
+   ],
+   [
+    "Cherednikova",
+    "Arina"
+   ],
+   [
+    "Feoktistova",
+    "Viktoria"
+   ],
+   [
+    "Fatkhutdinova",
+    "Landysh"
+   ],
+   [
+    "Feng",
+    "Lili"
+   ],
+   [
+    "Zyuzin",
+    "Mikhail V."
+   ]
+  ],
+  "title": "Optical Nanothermometry as a Diagnostic Tool for Diseases: Physical Principles, Challenges, and Limitations",
+  "container": "Laser &amp; Photonics Reviews",
+  "volume": "19",
+  "issue": "22",
+  "page": "e00691",
+  "year": 2025,
+  "publisher": "Wiley"
  },
  "10.1021/acsphotonics.5c00609": {
   "type": "journal-article",
@@ -2378,78 +2418,6 @@ window.CITATIONS = {
   "page": "291-300",
   "year": 2025,
   "publisher": "Allerton Press"
- },
- "10.1002/lpor.202401912": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Alekseevskiy",
-    "Pavel V."
-   ],
-   [
-    "Yu",
-    "Xiaolin"
-   ],
-   [
-    "Efimova",
-    "Anastasiia S."
-   ],
-   [
-    "Zhestkij",
-    "Nikolaj A."
-   ],
-   [
-    "Mezenov",
-    "Yuri A."
-   ],
-   [
-    "Kenzhebayeva",
-    "Yuliya A."
-   ],
-   [
-    "Povarov",
-    "Sviatoslav A."
-   ],
-   [
-    "Lubimova",
-    "Anastasia"
-   ],
-   [
-    "Bachinin",
-    "Semyon V."
-   ],
-   [
-    "Stepanidenko",
-    "Evgeniia A."
-   ],
-   [
-    "Dyachuk",
-    "Vyacheslav"
-   ],
-   [
-    "Li",
-    "Nan"
-   ],
-   [
-    "Fedin",
-    "Vladimir P."
-   ],
-   [
-    "Potapov",
-    "Andrei S."
-   ],
-   [
-    "Milichko",
-    "Valentin A."
-   ]
-  ],
-  "title": "Ultrathin Lanthanide-Based Metal-Organic Nanosheets with Thickness- and Temperature-Driven Light Emission",
-  "container": "Laser &amp; Photonics Reviews",
-  "volume": "19",
-  "issue": "12",
-  "page": "2401912",
-  "year": 2025,
-  "publisher": "Wiley"
  },
  "10.1103/4yzc-ppgy": {
   "type": "journal-article",
@@ -2775,37 +2743,77 @@ window.CITATIONS = {
   "year": 2025,
   "publisher": "American Chemical Society (ACS)"
  },
- "10.3390/ijms26052261": {
+ "10.1002/lpor.202401912": {
   "type": "journal-article",
   "authors": [
    [
-    "Zyuzin",
-    "Mikhail V."
+    "Alekseevskiy",
+    "Pavel V."
    ],
    [
-    "Zhu",
-    "Dingcheng"
+    "Yu",
+    "Xiaolin"
    ],
    [
-    "Parak",
-    "Wolfgang J."
+    "Efimova",
+    "Anastasiia S."
    ],
    [
-    "Feliu",
-    "Neus"
+    "Zhestkij",
+    "Nikolaj A."
    ],
    [
-    "Escudero",
-    "Alberto"
+    "Mezenov",
+    "Yuri A."
+   ],
+   [
+    "Kenzhebayeva",
+    "Yuliya A."
+   ],
+   [
+    "Povarov",
+    "Sviatoslav A."
+   ],
+   [
+    "Lubimova",
+    "Anastasia"
+   ],
+   [
+    "Bachinin",
+    "Semyon V."
+   ],
+   [
+    "Stepanidenko",
+    "Evgeniia A."
+   ],
+   [
+    "Dyachuk",
+    "Vyacheslav"
+   ],
+   [
+    "Li",
+    "Nan"
+   ],
+   [
+    "Fedin",
+    "Vladimir P."
+   ],
+   [
+    "Potapov",
+    "Andrei S."
+   ],
+   [
+    "Milichko",
+    "Valentin A."
    ]
   ],
-  "title": "Correction: Zyuzin et al. Development of Silica-Based Biodegradable Submicrometric Carriers and Investigating Their Characteristics as in Vitro Delivery Vehicles. Int. J. Mol. Sci. 2020, 21, 7563",
-  "container": "International Journal of Molecular Sciences",
-  "volume": "26",
-  "issue": "5",
-  "page": "2261",
+  "title": "Ultrathin Lanthanide-Based Metal-Organic Nanosheets with Thickness- and Temperature-Driven Light Emission",
+  "container": "Laser &amp; Photonics Reviews",
+  "volume": "19",
+  "issue": "12",
+  "page": "2401912",
   "year": 2025,
-  "publisher": "MDPI AG"
+  "publisher": "Wiley"
  },
  "10.17691/stm2025.17.1.05": {
   "type": "journal-article",
@@ -2830,6 +2838,30 @@ window.CITATIONS = {
   "page": "50",
   "year": 2025,
   "publisher": "Journal Sovremennye Tehnologii v Medicine"
+ },
+ "10.1134/s1062873824710043": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Peltek",
+    "O. O."
+   ],
+   [
+    "Kopoleva",
+    "E. A."
+   ],
+   [
+    "Zyuzin",
+    "M. V."
+   ]
+  ],
+  "title": "Laser-Induced Spatially Controlled Microbubble Formation in Trithiocyanuric Acid-Based Capsules Modified with Gold Nanoparticles",
+  "container": "Bulletin of the Russian Academy of Sciences: Physics",
+  "volume": "88",
+  "issue": "S3",
+  "page": "S472-S475",
+  "year": 2024,
+  "publisher": "Pleiades Publishing Ltd"
  },
  "10.1016/j.enceco.2025.01.003": {
   "type": "journal-article",
@@ -3167,46 +3199,6 @@ window.CITATIONS = {
   "year": 2025,
   "publisher": "Royal Society of Chemistry (RSC)"
  },
- "10.29026/oea.2025.250110": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Mahmoodpoor",
-    "Abolfazl"
-   ],
-   [
-    "Alekseev",
-    "Prokhor A."
-   ],
-   [
-    "Gasnikova",
-    "Ksenia A."
-   ],
-   [
-    "Natalia",
-    "Kuzmenko"
-   ],
-   [
-    "Larin",
-    "Artem"
-   ],
-   [
-    "Makarov",
-    "Sergey"
-   ],
-   [
-    "Furasova",
-    "Aleksandra"
-   ]
-  ],
-  "title": "Halide perovskite volatile unipolar nanomemristor",
-  "container": "Opto-Electronic Advances",
-  "volume": "8",
-  "issue": "11",
-  "page": "250110",
-  "year": 2025,
-  "publisher": "Opto-Electronic Advances"
- },
  "10.1002/adfm.202420600": {
   "type": "journal-article",
   "authors": [
@@ -3306,30 +3298,6 @@ window.CITATIONS = {
   "page": "12663-12672",
   "year": 2024,
   "publisher": "American Chemical Society (ACS)"
- },
- "10.1134/s1062873824710043": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Peltek",
-    "O. O."
-   ],
-   [
-    "Kopoleva",
-    "E. A."
-   ],
-   [
-    "Zyuzin",
-    "M. V."
-   ]
-  ],
-  "title": "Laser-Induced Spatially Controlled Microbubble Formation in Trithiocyanuric Acid-Based Capsules Modified with Gold Nanoparticles",
-  "container": "Bulletin of the Russian Academy of Sciences: Physics",
-  "volume": "88",
-  "issue": "S3",
-  "page": "S472-S475",
-  "year": 2024,
-  "publisher": "Pleiades Publishing Ltd"
  },
  "10.37188/lam.2025.005": {
   "type": "journal-article",
@@ -3603,6 +3571,58 @@ window.CITATIONS = {
   "year": 2024,
   "publisher": "American Chemical Society (ACS)"
  },
+ "10.1016/j.apsusc.2024.160669": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Khubezhov",
+    "Soslan A."
+   ],
+   [
+    "Ponkratova",
+    "Ekaterina Y."
+   ],
+   [
+    "Kuzmichev",
+    "Andrey M."
+   ],
+   [
+    "Maleeva",
+    "Ksenia A."
+   ],
+   [
+    "Larin",
+    "Artem O."
+   ],
+   [
+    "Karsakova",
+    "Marina E."
+   ],
+   [
+    "Yakimchuk",
+    "Dzmitry V."
+   ],
+   [
+    "Zyuzin",
+    "Mikhail V."
+   ],
+   [
+    "Makarov",
+    "Sergey V."
+   ],
+   [
+    "Zuev",
+    "Dmitry A."
+   ]
+  ],
+  "title": "Fast and scalable fabrication of Ag/TiO2 nanostructured substrates for enhanced plasmonic sensing and photocatalytic applications",
+  "container": "Applied Surface Science",
+  "volume": "670",
+  "issue": null,
+  "page": "160669",
+  "year": 2024,
+  "publisher": "Elsevier BV"
+ },
  "10.1016/j.saa.2024.125283": {
   "type": "journal-article",
   "authors": [
@@ -3710,58 +3730,6 @@ window.CITATIONS = {
   "page": "",
   "year": 2024,
   "publisher": "American Chemical Society (ACS)"
- },
- "10.1016/j.apsusc.2024.160669": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Khubezhov",
-    "Soslan A."
-   ],
-   [
-    "Ponkratova",
-    "Ekaterina Y."
-   ],
-   [
-    "Kuzmichev",
-    "Andrey M."
-   ],
-   [
-    "Maleeva",
-    "Ksenia A."
-   ],
-   [
-    "Larin",
-    "Artem O."
-   ],
-   [
-    "Karsakova",
-    "Marina E."
-   ],
-   [
-    "Yakimchuk",
-    "Dzmitry V."
-   ],
-   [
-    "Zyuzin",
-    "Mikhail V."
-   ],
-   [
-    "Makarov",
-    "Sergey V."
-   ],
-   [
-    "Zuev",
-    "Dmitry A."
-   ]
-  ],
-  "title": "Fast and scalable fabrication of Ag/TiO2 nanostructured substrates for enhanced plasmonic sensing and photocatalytic applications",
-  "container": "Applied Surface Science",
-  "volume": "670",
-  "issue": null,
-  "page": "160669",
-  "year": 2024,
-  "publisher": "Elsevier BV"
  },
  "10.1021/acs.jpca.4c02792": {
   "type": "journal-article",
@@ -4331,50 +4299,6 @@ window.CITATIONS = {
   "year": 2024,
   "publisher": "IEEE"
  },
- "10.1002/adfm.202311235": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Zhestkij",
-    "Nikolaj A."
-   ],
-   [
-    "Efimova",
-    "Anastasiia S."
-   ],
-   [
-    "Kenzhebayeva",
-    "Yuliya"
-   ],
-   [
-    "Povarov",
-    "Svyatoslav A."
-   ],
-   [
-    "Alekseevskiy",
-    "Pavel V."
-   ],
-   [
-    "Rzhevskiy",
-    "Sergey S."
-   ],
-   [
-    "Shipilovskikh",
-    "Sergei A."
-   ],
-   [
-    "Milichko",
-    "Valentin A."
-   ]
-  ],
-  "title": "Grayscale to Multicolor Laser Writing Inside a Label-Free Metal-Organic Frameworks",
-  "container": "Advanced Functional Materials",
-  "volume": "34",
-  "issue": "30",
-  "page": "2311235",
-  "year": 2024,
-  "publisher": "Wiley"
- },
  "10.17691/stm2024.16.3.04": {
   "type": "journal-article",
   "authors": [
@@ -4883,110 +4807,6 @@ window.CITATIONS = {
   "year": 2024,
   "publisher": "SPIE"
  },
- "10.1103/physreva.109.049902": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Pershin",
-    "D. A."
-   ],
-   [
-    "Yaroshenko",
-    "V. V."
-   ],
-   [
-    "Tsyganok",
-    "V. V."
-   ],
-   [
-    "Khlebnikov",
-    "V. A."
-   ],
-   [
-    "Davletov",
-    "E. T."
-   ],
-   [
-    "Shaykin",
-    "D. V."
-   ],
-   [
-    "Gadylshin",
-    "E. R."
-   ],
-   [
-    "Cojocaru",
-    "I. S."
-   ],
-   [
-    "Svechnikov",
-    "E. L."
-   ],
-   [
-    "Kapitanova",
-    "P. V."
-   ],
-   [
-    "Akimov",
-    "A. V."
-   ]
-  ],
-  "title": "Erratum: Microwave coherent spectroscopy of ultracold thulium atoms [Phys. Rev. A \n<b>102</b>\n, 043114 (2020)]",
-  "container": "Physical Review A",
-  "volume": "109",
-  "issue": "4",
-  "page": "049902",
-  "year": 2024,
-  "publisher": "American Physical Society (APS)"
- },
- "10.1016/j.jcis.2024.03.146": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Karpov",
-    "Timofey E."
-   ],
-   [
-    "Muslimov",
-    "Albert R."
-   ],
-   [
-    "Antuganov",
-    "Dmitrii O."
-   ],
-   [
-    "Postovalova",
-    "Alisa S."
-   ],
-   [
-    "Pavlov",
-    "Dmitri A."
-   ],
-   [
-    "Usov",
-    "Yuri V."
-   ],
-   [
-    "Shatik",
-    "Sergey V."
-   ],
-   [
-    "Zyuzin",
-    "Mikhail V."
-   ],
-   [
-    "Timin",
-    "Alexander S."
-   ]
-  ],
-  "title": "Expression of concern “Impact of metallic coating on the retention of225 Ac and its daugthers within core–shell nanocarriers” [J. Colloid Interface Sci. 608(Part 3) (2022) 2571–2583]",
-  "container": "Journal of Colloid and Interface Science",
-  "volume": "665",
-  "issue": null,
-  "page": "944",
-  "year": 2024,
-  "publisher": "Elsevier BV"
- },
  "10.1016/j.xphs.2024.03.009": {
   "type": "journal-article",
   "authors": [
@@ -5026,6 +4846,50 @@ window.CITATIONS = {
   "page": "2258-2267",
   "year": 2024,
   "publisher": "Elsevier BV"
+ },
+ "10.1002/adfm.202311235": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Zhestkij",
+    "Nikolaj A."
+   ],
+   [
+    "Efimova",
+    "Anastasiia S."
+   ],
+   [
+    "Kenzhebayeva",
+    "Yuliya"
+   ],
+   [
+    "Povarov",
+    "Svyatoslav A."
+   ],
+   [
+    "Alekseevskiy",
+    "Pavel V."
+   ],
+   [
+    "Rzhevskiy",
+    "Sergey S."
+   ],
+   [
+    "Shipilovskikh",
+    "Sergei A."
+   ],
+   [
+    "Milichko",
+    "Valentin A."
+   ]
+  ],
+  "title": "Grayscale to Multicolor Laser Writing Inside a Label-Free Metal-Organic Frameworks",
+  "container": "Advanced Functional Materials",
+  "volume": "34",
+  "issue": "30",
+  "page": "2311235",
+  "year": 2024,
+  "publisher": "Wiley"
  },
  "10.3791/66461": {
   "type": "journal-article",
@@ -5315,6 +5179,42 @@ window.CITATIONS = {
   "year": 2024,
   "publisher": "Royal Society of Chemistry (RSC)"
  },
+ "10.1016/j.photonics.2023.101198": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Zhestkij",
+    "Nikolaj"
+   ],
+   [
+    "Povarov",
+    "Svyatoslav"
+   ],
+   [
+    "Mezenov",
+    "Yuri A."
+   ],
+   [
+    "Rzhevskiy",
+    "Sergey S."
+   ],
+   [
+    "Kulakova",
+    "Alena N."
+   ],
+   [
+    "Milichko",
+    "Valentin A."
+   ]
+  ],
+  "title": "UiO-66 metal organic framework as stable platform for non-linear optical applications",
+  "container": "Photonics and Nanostructures - Fundamentals and Applications",
+  "volume": "57",
+  "issue": null,
+  "page": "101198",
+  "year": 2023,
+  "publisher": "Elsevier BV"
+ },
  "10.1016/j.photonics.2023.101222": {
   "type": "journal-article",
   "authors": [
@@ -5527,42 +5427,6 @@ window.CITATIONS = {
   "year": 2023,
   "publisher": "MDPI AG"
  },
- "10.1016/j.photonics.2023.101198": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Zhestkij",
-    "Nikolaj"
-   ],
-   [
-    "Povarov",
-    "Svyatoslav"
-   ],
-   [
-    "Mezenov",
-    "Yuri A."
-   ],
-   [
-    "Rzhevskiy",
-    "Sergey S."
-   ],
-   [
-    "Kulakova",
-    "Alena N."
-   ],
-   [
-    "Milichko",
-    "Valentin A."
-   ]
-  ],
-  "title": "UiO-66 metal organic framework as stable platform for non-linear optical applications",
-  "container": "Photonics and Nanostructures - Fundamentals and Applications",
-  "volume": "57",
-  "issue": null,
-  "page": "101198",
-  "year": 2023,
-  "publisher": "Elsevier BV"
- },
  "10.1117/12.2688987": {
   "type": "proceedings-article",
   "authors": [
@@ -5751,46 +5615,6 @@ window.CITATIONS = {
   "year": 2023,
   "publisher": "American Chemical Society (ACS)"
  },
- "10.1021/acsami.3c13857": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Muslimov",
-    "Albert R."
-   ],
-   [
-    "Antuganov",
-    "Dmitrii O."
-   ],
-   [
-    "Tarakanchikova",
-    "Yana V."
-   ],
-   [
-    "Zhukov",
-    "Mikhail V."
-   ],
-   [
-    "Nadporojskii",
-    "Michail A."
-   ],
-   [
-    "Zyuzin",
-    "Mikhail V."
-   ],
-   [
-    "Timin",
-    "Alexander S."
-   ]
-  ],
-  "title": "Correction to “Calcium Carbonate Core–Shell Particles for Incorporation of <sup>225</sup>Ac and Their Application in Local α-Radionuclide Therapy”",
-  "container": "ACS Applied Materials &amp; Interfaces",
-  "volume": "15",
-  "issue": "47",
-  "page": "55193-55193",
-  "year": 2023,
-  "publisher": "American Chemical Society (ACS)"
- },
  "10.1039/d3mh01106b": {
   "type": "journal-article",
   "authors": [
@@ -5874,46 +5698,6 @@ window.CITATIONS = {
   "page": "17",
   "year": 2023,
   "publisher": "SPIE"
- },
- "10.1021/acs.chemmater.3c02619": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Karpov",
-    "Timofey E."
-   ],
-   [
-    "Postovalova",
-    "Alisa S."
-   ],
-   [
-    "Akhmetova",
-    "Darya R."
-   ],
-   [
-    "Muslimov",
-    "Albert R."
-   ],
-   [
-    "Eletskaya",
-    "Elizaveta I."
-   ],
-   [
-    "Zyuzin",
-    "Mikhail V."
-   ],
-   [
-    "Timin",
-    "Alexander S."
-   ]
-  ],
-  "title": "Correction to “Universal Chelator-Free Radiolabeling of Organic and Inorganic-Based Nanocarriers with Diagnostic and Therapeutic Isotopes for Internal Radiotherapy”",
-  "container": "Chemistry of Materials",
-  "volume": "35",
-  "issue": "21",
-  "page": "9445-9445",
-  "year": 2023,
-  "publisher": "American Chemical Society (ACS)"
  },
  "10.1021/acsanm.3c03189": {
   "type": "journal-article",
@@ -6123,70 +5907,6 @@ window.CITATIONS = {
   "year": 2023,
   "publisher": "American Chemical Society (ACS)"
  },
- "10.1021/acsami.3c12684": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Peltek",
-    "Oleksii O."
-   ],
-   [
-    "Karpov",
-    "Timofey E."
-   ],
-   [
-    "Rogova",
-    "Anna"
-   ],
-   [
-    "Postovalova",
-    "Alisa"
-   ],
-   [
-    "Ageev",
-    "Eduard"
-   ],
-   [
-    "Petrov",
-    "Andrey"
-   ],
-   [
-    "Antuganov",
-    "Dmitri"
-   ],
-   [
-    "Stanzhevsky",
-    "Andrei A."
-   ],
-   [
-    "Maistrenko",
-    "Dmitri N."
-   ],
-   [
-    "Zuev",
-    "Dmitry"
-   ],
-   [
-    "Muslimov",
-    "Albert R."
-   ],
-   [
-    "Timin",
-    "Alexander S."
-   ],
-   [
-    "Zyuzin",
-    "Mikhail V."
-   ]
-  ],
-  "title": "Correction to “Development of Nanocarrier-Based Radionuclide and Photothermal Therapy in Combination with Chemotherapy in Melanoma Cancer Treatment”",
-  "container": "ACS Applied Materials &amp; Interfaces",
-  "volume": "15",
-  "issue": "39",
-  "page": "46579-46579",
-  "year": 2023,
-  "publisher": "American Chemical Society (ACS)"
- },
  "10.1038/s41377-023-01262-8": {
   "type": "journal-article",
   "authors": [
@@ -6303,33 +6023,33 @@ window.CITATIONS = {
   "year": 2023,
   "publisher": "Wiley"
  },
- "10.1007/s11082-023-05302-w": {
+ "10.1016/j.commatsci.2023.112266": {
   "type": "journal-article",
   "authors": [
    [
-    "Li",
-    "Chunyu"
+    "Melchakova",
+    "Iu.A."
    ],
    [
-    "Yandybaeva",
-    "Yulia I."
+    "Oyeniyi",
+    "G.T."
    ],
    [
-    "Andreeva",
-    "Olga V."
+    "Chernozatonskii",
+    "L.A."
    ],
    [
-    "Zakoldaev",
-    "Roman A."
+    "Avramov",
+    "P.V."
    ]
   ],
-  "title": "Correction: Femtosecond laser inscription of polarized-sensitive volume phase grating in nanoporous glass",
-  "container": "Optical and Quantum Electronics",
-  "volume": "55",
-  "issue": "11",
-  "page": "965",
+  "title": "Spin polarization and magnetostriction properties in superperiodic Janus twisted bilayer graphenes",
+  "container": "Computational Materials Science",
+  "volume": "227",
+  "issue": null,
+  "page": "112266",
   "year": 2023,
-  "publisher": "Springer Science and Business Media LLC"
+  "publisher": "Elsevier BV"
  },
  "10.1117/12.2673319": {
   "type": "proceedings-article",
@@ -6431,34 +6151,6 @@ window.CITATIONS = {
   "year": 2023,
   "publisher": "Wiley"
  },
- "10.1016/j.commatsci.2023.112266": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Melchakova",
-    "Iu.A."
-   ],
-   [
-    "Oyeniyi",
-    "G.T."
-   ],
-   [
-    "Chernozatonskii",
-    "L.A."
-   ],
-   [
-    "Avramov",
-    "P.V."
-   ]
-  ],
-  "title": "Spin polarization and magnetostriction properties in superperiodic Janus twisted bilayer graphenes",
-  "container": "Computational Materials Science",
-  "volume": "227",
-  "issue": null,
-  "page": "112266",
-  "year": 2023,
-  "publisher": "Elsevier BV"
- },
  "10.1016/j.photonics.2023.101172": {
   "type": "journal-article",
   "authors": [
@@ -6512,6 +6204,38 @@ window.CITATIONS = {
   "volume": "57",
   "issue": null,
   "page": "101172",
+  "year": 2023,
+  "publisher": "Elsevier BV"
+ },
+ "10.1016/j.photonics.2023.101145": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Bachinin",
+    "Semyon"
+   ],
+   [
+    "Marunchenko",
+    "Alexandr"
+   ],
+   [
+    "Zhestkij",
+    "Nikolaj"
+   ],
+   [
+    "Gunina",
+    "Ekaterina"
+   ],
+   [
+    "Milichko",
+    "Valentin A."
+   ]
+  ],
+  "title": "Metal-organic framework single crystal infrared photodetector",
+  "container": "Photonics and Nanostructures - Fundamentals and Applications",
+  "volume": "55",
+  "issue": null,
+  "page": "101145",
   "year": 2023,
   "publisher": "Elsevier BV"
  },
@@ -6694,38 +6418,6 @@ window.CITATIONS = {
   "page": "972-975",
   "year": 2023,
   "publisher": "IEEE"
- },
- "10.1016/j.photonics.2023.101145": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Bachinin",
-    "Semyon"
-   ],
-   [
-    "Marunchenko",
-    "Alexandr"
-   ],
-   [
-    "Zhestkij",
-    "Nikolaj"
-   ],
-   [
-    "Gunina",
-    "Ekaterina"
-   ],
-   [
-    "Milichko",
-    "Valentin A."
-   ]
-  ],
-  "title": "Metal-organic framework single crystal infrared photodetector",
-  "container": "Photonics and Nanostructures - Fundamentals and Applications",
-  "volume": "55",
-  "issue": null,
-  "page": "101145",
-  "year": 2023,
-  "publisher": "Elsevier BV"
  },
  "10.17586/2220-8054-2023-14-3-349-353": {
   "type": "journal-article",
@@ -7111,54 +6803,6 @@ window.CITATIONS = {
   "year": 2023,
   "publisher": "Elsevier BV"
  },
- "10.1002/lpor.202200661": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Yaroshenko",
-    "Vitaly"
-   ],
-   [
-    "Obramenko",
-    "Marina"
-   ],
-   [
-    "Dyatlovich",
-    "Anna"
-   ],
-   [
-    "Kustov",
-    "Pavel"
-   ],
-   [
-    "Gudovskikh",
-    "Alexander"
-   ],
-   [
-    "Goltaev",
-    "Aleksandr"
-   ],
-   [
-    "Mukhin",
-    "Ivan"
-   ],
-   [
-    "Ageev",
-    "Eduard"
-   ],
-   [
-    "Zuev",
-    "Dmitry"
-   ]
-  ],
-  "title": "Active Erbium-Doped Silicon Nanoantenna",
-  "container": "Laser &amp; Photonics Reviews",
-  "volume": "17",
-  "issue": "4",
-  "page": "2200661",
-  "year": 2023,
-  "publisher": "Wiley"
- },
  "10.1021/acsnano.3c00423": {
   "type": "journal-article",
   "authors": [
@@ -7403,110 +7047,6 @@ window.CITATIONS = {
   "year": 2023,
   "publisher": "Springer Science and Business Media LLC"
  },
- "10.1002/adma.202211363": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Zhang",
-    "Zeying"
-   ],
-   [
-    "Sun",
-    "Yali"
-   ],
-   [
-    "Yang",
-    "Yaqi"
-   ],
-   [
-    "Yang",
-    "Xu"
-   ],
-   [
-    "Wang",
-    "Huadong"
-   ],
-   [
-    "Yun",
-    "Yang"
-   ],
-   [
-    "Pan",
-    "Xiangyu"
-   ],
-   [
-    "Lian",
-    "Zewei"
-   ],
-   [
-    "Kuzmin",
-    "Artem"
-   ],
-   [
-    "Ponkratova",
-    "Ekaterina"
-   ],
-   [
-    "Mikhailova",
-    "Julia"
-   ],
-   [
-    "Xie",
-    "Zian"
-   ],
-   [
-    "Chen",
-    "Xiaoran"
-   ],
-   [
-    "Pan",
-    "Qi"
-   ],
-   [
-    "Chen",
-    "Bingda"
-   ],
-   [
-    "Xie",
-    "Hongfei"
-   ],
-   [
-    "Wu",
-    "Tingqing"
-   ],
-   [
-    "Chen",
-    "Sisi"
-   ],
-   [
-    "Chi",
-    "Jimei"
-   ],
-   [
-    "Liu",
-    "Fangyi"
-   ],
-   [
-    "Zuev",
-    "Dmitry"
-   ],
-   [
-    "Su",
-    "Meng"
-   ],
-   [
-    "Song",
-    "Yanlin"
-   ]
-  ],
-  "title": "Rapid Identification and Monitoring of Multiple Bacterial Infections Using Printed Nanoarrays",
-  "container": "Advanced Materials",
-  "volume": "35",
-  "issue": "12",
-  "page": "2211363",
-  "year": 2023,
-  "publisher": "Wiley"
- },
  "10.1016/j.jconhyd.2023.104161": {
   "type": "journal-article",
   "authors": [
@@ -7662,6 +7202,158 @@ window.CITATIONS = {
   "page": "6016-6029",
   "year": 2023,
   "publisher": "American Chemical Society (ACS)"
+ },
+ "10.1002/lpor.202200661": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Yaroshenko",
+    "Vitaly"
+   ],
+   [
+    "Obramenko",
+    "Marina"
+   ],
+   [
+    "Dyatlovich",
+    "Anna"
+   ],
+   [
+    "Kustov",
+    "Pavel"
+   ],
+   [
+    "Gudovskikh",
+    "Alexander"
+   ],
+   [
+    "Goltaev",
+    "Aleksandr"
+   ],
+   [
+    "Mukhin",
+    "Ivan"
+   ],
+   [
+    "Ageev",
+    "Eduard"
+   ],
+   [
+    "Zuev",
+    "Dmitry"
+   ]
+  ],
+  "title": "Active Erbium-Doped Silicon Nanoantenna",
+  "container": "Laser &amp; Photonics Reviews",
+  "volume": "17",
+  "issue": "4",
+  "page": "2200661",
+  "year": 2023,
+  "publisher": "Wiley"
+ },
+ "10.1002/adma.202211363": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Zhang",
+    "Zeying"
+   ],
+   [
+    "Sun",
+    "Yali"
+   ],
+   [
+    "Yang",
+    "Yaqi"
+   ],
+   [
+    "Yang",
+    "Xu"
+   ],
+   [
+    "Wang",
+    "Huadong"
+   ],
+   [
+    "Yun",
+    "Yang"
+   ],
+   [
+    "Pan",
+    "Xiangyu"
+   ],
+   [
+    "Lian",
+    "Zewei"
+   ],
+   [
+    "Kuzmin",
+    "Artem"
+   ],
+   [
+    "Ponkratova",
+    "Ekaterina"
+   ],
+   [
+    "Mikhailova",
+    "Julia"
+   ],
+   [
+    "Xie",
+    "Zian"
+   ],
+   [
+    "Chen",
+    "Xiaoran"
+   ],
+   [
+    "Pan",
+    "Qi"
+   ],
+   [
+    "Chen",
+    "Bingda"
+   ],
+   [
+    "Xie",
+    "Hongfei"
+   ],
+   [
+    "Wu",
+    "Tingqing"
+   ],
+   [
+    "Chen",
+    "Sisi"
+   ],
+   [
+    "Chi",
+    "Jimei"
+   ],
+   [
+    "Liu",
+    "Fangyi"
+   ],
+   [
+    "Zuev",
+    "Dmitry"
+   ],
+   [
+    "Su",
+    "Meng"
+   ],
+   [
+    "Song",
+    "Yanlin"
+   ]
+  ],
+  "title": "Rapid Identification and Monitoring of Multiple Bacterial Infections Using Printed Nanoarrays",
+  "container": "Advanced Materials",
+  "volume": "35",
+  "issue": "12",
+  "page": "2211363",
+  "year": 2023,
+  "publisher": "Wiley"
  },
  "10.1021/acs.langmuir.2c02382": {
   "type": "journal-article",
@@ -8055,45 +7747,29 @@ window.CITATIONS = {
   "year": 2022,
   "publisher": "Ural Federal University"
  },
- "10.1002/adom.202201375": {
+ "10.1016/j.surfin.2022.102344": {
   "type": "journal-article",
   "authors": [
    [
-    "Gerasimova",
-    "Elena N."
-   ],
-   [
     "Yaroshenko",
-    "Vitaly V."
-   ],
-   [
-    "Mikhailova",
-    "Lidia V."
-   ],
-   [
-    "Dolgintsev",
-    "Dmitry M."
-   ],
-   [
-    "Timin",
-    "Alexander S."
-   ],
-   [
-    "Zyuzin",
-    "Mikhail V."
+    "Vitaly"
    ],
    [
     "Zuev",
-    "Dmitry A."
+    "Dmitry"
+   ],
+   [
+    "Evlyukhin",
+    "Andrey B."
    ]
   ],
-  "title": "Thermally Induced Mechanical Switching of the Second-Harmonic Generation in pNIPAM Hydrogels-Linked Resonant Au and Si Nanoparticles",
-  "container": "Advanced Optical Materials",
-  "volume": "10",
-  "issue": "24",
-  "page": "2201375",
+  "title": "Resonant channeling of light near metal surface by passive and active silicon nanoparticles",
+  "container": "Surfaces and Interfaces",
+  "volume": "34",
+  "issue": null,
+  "page": "102344",
   "year": 2022,
-  "publisher": "Wiley"
+  "publisher": "Elsevier BV"
  },
  "10.3390/cancers14225487": {
   "type": "journal-article",
@@ -8183,30 +7859,6 @@ window.CITATIONS = {
   "year": 2022,
   "publisher": "Springer Science and Business Media LLC"
  },
- "10.1016/j.surfin.2022.102344": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Yaroshenko",
-    "Vitaly"
-   ],
-   [
-    "Zuev",
-    "Dmitry"
-   ],
-   [
-    "Evlyukhin",
-    "Andrey B."
-   ]
-  ],
-  "title": "Resonant channeling of light near metal surface by passive and active silicon nanoparticles",
-  "container": "Surfaces and Interfaces",
-  "volume": "34",
-  "issue": null,
-  "page": "102344",
-  "year": 2022,
-  "publisher": "Elsevier BV"
- },
  "10.1063/5.0122055": {
   "type": "journal-article",
   "authors": [
@@ -8250,6 +7902,46 @@ window.CITATIONS = {
   "page": "246-249",
   "year": 2022,
   "publisher": "IEEE"
+ },
+ "10.1002/adom.202201375": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Gerasimova",
+    "Elena N."
+   ],
+   [
+    "Yaroshenko",
+    "Vitaly V."
+   ],
+   [
+    "Mikhailova",
+    "Lidia V."
+   ],
+   [
+    "Dolgintsev",
+    "Dmitry M."
+   ],
+   [
+    "Timin",
+    "Alexander S."
+   ],
+   [
+    "Zyuzin",
+    "Mikhail V."
+   ],
+   [
+    "Zuev",
+    "Dmitry A."
+   ]
+  ],
+  "title": "Thermally Induced Mechanical Switching of the Second-Harmonic Generation in pNIPAM Hydrogels-Linked Resonant Au and Si Nanoparticles",
+  "container": "Advanced Optical Materials",
+  "volume": "10",
+  "issue": "24",
+  "page": "2201375",
+  "year": 2022,
+  "publisher": "Wiley"
  },
  "10.1088/1755-1315/1096/1/012004": {
   "type": "journal-article",
@@ -9291,54 +8983,6 @@ window.CITATIONS = {
   "year": 2022,
   "publisher": "Springer Science and Business Media LLC"
  },
- "10.1134/s0021364022200012": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Kudryashov",
-    "S. I."
-   ],
-   [
-    "Danilov",
-    "P. A."
-   ],
-   [
-    "Sdvizhenskii",
-    "P. A."
-   ],
-   [
-    "Lednev",
-    "V. N."
-   ],
-   [
-    "Chen",
-    "J."
-   ],
-   [
-    "Ostrikov",
-    "S. A."
-   ],
-   [
-    "Kuzmin",
-    "E. V."
-   ],
-   [
-    "Kovalev",
-    "M. S."
-   ],
-   [
-    "Levchenko",
-    "A. O."
-   ]
-  ],
-  "title": "Transformations of the Spectrum of an Optical Phonon Excited in Raman Scattering in the Bulk of Diamond by Ultrashort Laser Pulses with a Variable Duration",
-  "container": "JETP Letters",
-  "volume": "115",
-  "issue": "5",
-  "page": "251-255",
-  "year": 2022,
-  "publisher": "Pleiades Publishing Ltd"
- },
  "10.1016/j.carbon.2022.02.041": {
   "type": "journal-article",
   "authors": [
@@ -9432,6 +9076,46 @@ window.CITATIONS = {
   "volume": "344",
   "issue": null,
   "page": "1-11",
+  "year": 2022,
+  "publisher": "Elsevier BV"
+ },
+ "10.1016/j.photonics.2021.100990": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Gunina",
+    "Ekaterina"
+   ],
+   [
+    "Zhestkij",
+    "Nikolaj"
+   ],
+   [
+    "Bachinin",
+    "Semyon"
+   ],
+   [
+    "Fisenko",
+    "Sergey P."
+   ],
+   [
+    "Shipilovskikh",
+    "Daria. A."
+   ],
+   [
+    "Milichko",
+    "Valentin A."
+   ],
+   [
+    "Shipilovskikh",
+    "Sergei A."
+   ]
+  ],
+  "title": "The influence of substitutes on the room temperature photoluminescence of 2-amino-4-oxobut-2-enoic acid molecular crystals",
+  "container": "Photonics and Nanostructures - Fundamentals and Applications",
+  "volume": "48",
+  "issue": null,
+  "page": "100990",
   "year": 2022,
   "publisher": "Elsevier BV"
  },
@@ -9546,46 +9230,6 @@ window.CITATIONS = {
   "page": "186-189",
   "year": 2022,
   "publisher": "Pleiades Publishing Ltd"
- },
- "10.1016/j.photonics.2021.100990": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Gunina",
-    "Ekaterina"
-   ],
-   [
-    "Zhestkij",
-    "Nikolaj"
-   ],
-   [
-    "Bachinin",
-    "Semyon"
-   ],
-   [
-    "Fisenko",
-    "Sergey P."
-   ],
-   [
-    "Shipilovskikh",
-    "Daria. A."
-   ],
-   [
-    "Milichko",
-    "Valentin A."
-   ],
-   [
-    "Shipilovskikh",
-    "Sergei A."
-   ]
-  ],
-  "title": "The influence of substitutes on the room temperature photoluminescence of 2-amino-4-oxobut-2-enoic acid molecular crystals",
-  "container": "Photonics and Nanostructures - Fundamentals and Applications",
-  "volume": "48",
-  "issue": null,
-  "page": "100990",
-  "year": 2022,
-  "publisher": "Elsevier BV"
  },
  "10.1002/adom.202102163": {
   "type": "journal-article",
@@ -12123,66 +11767,6 @@ window.CITATIONS = {
   "year": 2020,
   "publisher": "Elsevier BV"
  },
- "10.1021/acsami.0c12973": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Zyuzin",
-    "Mikhail V."
-   ],
-   [
-    "Antuganov",
-    "Dmitrii"
-   ],
-   [
-    "Tarakanchikova",
-    "Yana V."
-   ],
-   [
-    "Karpov",
-    "Timofey E."
-   ],
-   [
-    "Mashel",
-    "Tatiana V."
-   ],
-   [
-    "Gerasimova",
-    "Elena N."
-   ],
-   [
-    "Peltek",
-    "Oleksii O."
-   ],
-   [
-    "Alexandre",
-    "Nominé"
-   ],
-   [
-    "Bruyere",
-    "Stéphanie"
-   ],
-   [
-    "Kondratenko",
-    "Yulia A."
-   ],
-   [
-    "Muslimov",
-    "Albert R."
-   ],
-   [
-    "Timin",
-    "Alexander S."
-   ]
-  ],
-  "title": "Correction to “Radiolabeling Strategies of Micron- and Submicron-Sized Core–Shell Carriers for <i>In Vivo</i> Studies”",
-  "container": "ACS Applied Materials &amp; Interfaces",
-  "volume": "12",
-  "issue": "33",
-  "page": "37805-37805",
-  "year": 2020,
-  "publisher": "American Chemical Society (ACS)"
- },
  "10.17223/00213411/63/8/76": {
   "type": "journal-article",
   "authors": [
@@ -13303,34 +12887,6 @@ window.CITATIONS = {
   "year": 2020,
   "publisher": "Springer Science and Business Media LLC"
  },
- "10.1186/s12951-019-0558-z": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Peltek",
-    "Oleksii O."
-   ],
-   [
-    "Muslimov",
-    "Albert R."
-   ],
-   [
-    "Zyuzin",
-    "Mikhail V."
-   ],
-   [
-    "Timin",
-    "Alexander S."
-   ]
-  ],
-  "title": "Correction to: Current outlook on radionuclide delivery systems: from design consideration to translation into clinics",
-  "container": "Journal of Nanobiotechnology",
-  "volume": "18",
-  "issue": "1",
-  "page": "2",
-  "year": 2020,
-  "publisher": "Springer Science and Business Media LLC"
- },
  "10.1364/ome.10.000029": {
   "type": "journal-article",
   "authors": [
@@ -13671,58 +13227,6 @@ window.CITATIONS = {
   "year": 2020,
   "publisher": "Euroasian Scientific and Industrial Chamber, Ltd."
  },
- "10.1039/c9nr08952g": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Larin",
-    "A. O."
-   ],
-   [
-    "Nominé",
-    "A."
-   ],
-   [
-    "Ageev",
-    "E. I."
-   ],
-   [
-    "Ghanbaja",
-    "J."
-   ],
-   [
-    "Kolotova",
-    "L. N."
-   ],
-   [
-    "Starikov",
-    "S. V."
-   ],
-   [
-    "Bruyère",
-    "S."
-   ],
-   [
-    "Belmonte",
-    "T."
-   ],
-   [
-    "Makarov",
-    "S. V."
-   ],
-   [
-    "Zuev",
-    "D. A."
-   ]
-  ],
-  "title": "Plasmonic nanosponges filled with silicon for enhanced white light emission",
-  "container": "Nanoscale",
-  "volume": "12",
-  "issue": "2",
-  "page": "1013-1021",
-  "year": 2020,
-  "publisher": "Royal Society of Chemistry (RSC)"
- },
  "10.1021/acsami.9b20697": {
   "type": "journal-article",
   "authors": [
@@ -13795,6 +13299,90 @@ window.CITATIONS = {
   "year": 2020,
   "publisher": "American Chemical Society (ACS)"
  },
+ "10.1134/s1063782619140197": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Sergaeva",
+    "O. N."
+   ],
+   [
+    "Yaroshenko",
+    "V. V."
+   ],
+   [
+    "Volkov",
+    "I. A."
+   ],
+   [
+    "Zuev",
+    "D. A."
+   ],
+   [
+    "Savelev",
+    "R. S."
+   ]
+  ],
+  "title": "Increase of the Zero-Phonon-Line Emission from Color Centers in Nanodiamonds by Coupling with Dielectric Nanocavity",
+  "container": "Semiconductors",
+  "volume": "53",
+  "issue": "14",
+  "page": "1942-1945",
+  "year": 2019,
+  "publisher": "Pleiades Publishing Ltd"
+ },
+ "10.1039/c9nr08952g": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Larin",
+    "A. O."
+   ],
+   [
+    "Nominé",
+    "A."
+   ],
+   [
+    "Ageev",
+    "E. I."
+   ],
+   [
+    "Ghanbaja",
+    "J."
+   ],
+   [
+    "Kolotova",
+    "L. N."
+   ],
+   [
+    "Starikov",
+    "S. V."
+   ],
+   [
+    "Bruyère",
+    "S."
+   ],
+   [
+    "Belmonte",
+    "T."
+   ],
+   [
+    "Makarov",
+    "S. V."
+   ],
+   [
+    "Zuev",
+    "D. A."
+   ]
+  ],
+  "title": "Plasmonic nanosponges filled with silicon for enhanced white light emission",
+  "container": "Nanoscale",
+  "volume": "12",
+  "issue": "2",
+  "page": "1013-1021",
+  "year": 2020,
+  "publisher": "Royal Society of Chemistry (RSC)"
+ },
  "10.1088/1742-6596/1410/1/012077": {
   "type": "journal-article",
   "authors": [
@@ -13858,38 +13446,6 @@ window.CITATIONS = {
   "page": "012077",
   "year": 2019,
   "publisher": "IOP Publishing"
- },
- "10.1134/s1063782619140197": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Sergaeva",
-    "O. N."
-   ],
-   [
-    "Yaroshenko",
-    "V. V."
-   ],
-   [
-    "Volkov",
-    "I. A."
-   ],
-   [
-    "Zuev",
-    "D. A."
-   ],
-   [
-    "Savelev",
-    "R. S."
-   ]
-  ],
-  "title": "Increase of the Zero-Phonon-Line Emission from Color Centers in Nanodiamonds by Coupling with Dielectric Nanocavity",
-  "container": "Semiconductors",
-  "volume": "53",
-  "issue": "14",
-  "page": "1942-1945",
-  "year": 2019,
-  "publisher": "Pleiades Publishing Ltd"
  },
  "10.1080/09506608.2018.1543832": {
   "type": "journal-article",
@@ -14223,54 +13779,6 @@ window.CITATIONS = {
   "year": 2019,
   "publisher": "SPIE"
  },
- "10.1109/metamaterials.2019.8900894": {
-  "type": "proceedings-article",
-  "authors": [
-   [
-    "Sun",
-    "Y."
-   ],
-   [
-    "Zuev",
-    "D."
-   ]
-  ],
-  "title": "Active Polarized Tuning of Near-field in Hybrid Metal/Dielectric Nanostructures Upon Femtosecond Laser Reshaping",
-  "container": "2019 Thirteenth International Congress on Artificial Materials for Novel Wave Phenomena (Metamaterials)",
-  "volume": null,
-  "issue": null,
-  "page": "X-408-X-410",
-  "year": 2019,
-  "publisher": "IEEE"
- },
- "10.1186/s12951-019-0524-9": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Peltek",
-    "Oleksii O."
-   ],
-   [
-    "Muslimov",
-    "Albert R."
-   ],
-   [
-    "Zyuzin",
-    "Mikhail V."
-   ],
-   [
-    "Timin",
-    "Alexander S."
-   ]
-  ],
-  "title": "Current outlook on radionuclide delivery systems: from design consideration to translation into clinics",
-  "container": "Journal of Nanobiotechnology",
-  "volume": "17",
-  "issue": "1",
-  "page": "90",
-  "year": 2019,
-  "publisher": "Springer Science and Business Media LLC"
- },
  "10.1134/s0021364019130010": {
   "type": "journal-article",
   "authors": [
@@ -14322,6 +13830,54 @@ window.CITATIONS = {
   "page": "25-30",
   "year": 2019,
   "publisher": "Pleiades Publishing Ltd"
+ },
+ "10.1109/metamaterials.2019.8900894": {
+  "type": "proceedings-article",
+  "authors": [
+   [
+    "Sun",
+    "Y."
+   ],
+   [
+    "Zuev",
+    "D."
+   ]
+  ],
+  "title": "Active Polarized Tuning of Near-field in Hybrid Metal/Dielectric Nanostructures Upon Femtosecond Laser Reshaping",
+  "container": "2019 Thirteenth International Congress on Artificial Materials for Novel Wave Phenomena (Metamaterials)",
+  "volume": null,
+  "issue": null,
+  "page": "X-408-X-410",
+  "year": 2019,
+  "publisher": "IEEE"
+ },
+ "10.1186/s12951-019-0524-9": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Peltek",
+    "Oleksii O."
+   ],
+   [
+    "Muslimov",
+    "Albert R."
+   ],
+   [
+    "Zyuzin",
+    "Mikhail V."
+   ],
+   [
+    "Timin",
+    "Alexander S."
+   ]
+  ],
+  "title": "Current outlook on radionuclide delivery systems: from design consideration to translation into clinics",
+  "container": "Journal of Nanobiotechnology",
+  "volume": "17",
+  "issue": "1",
+  "page": "90",
+  "year": 2019,
+  "publisher": "Springer Science and Business Media LLC"
  },
  "10.1016/j.jpcs.2019.05.036": {
   "type": "journal-article",
@@ -15439,6 +14995,54 @@ window.CITATIONS = {
   "year": 2018,
   "publisher": "SPIE"
  },
+ "10.1039/c7nr07953b": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Zalogina",
+    "A. S."
+   ],
+   [
+    "Savelev",
+    "R. S."
+   ],
+   [
+    "Ushakova",
+    "E. V."
+   ],
+   [
+    "Zograf",
+    "G. P."
+   ],
+   [
+    "Komissarenko",
+    "F. E."
+   ],
+   [
+    "Milichko",
+    "V. A."
+   ],
+   [
+    "Makarov",
+    "S. V."
+   ],
+   [
+    "Zuev",
+    "D. A."
+   ],
+   [
+    "Shadrivov",
+    "I. V."
+   ]
+  ],
+  "title": "Purcell effect in active diamond nanoantennas",
+  "container": "Nanoscale",
+  "volume": "10",
+  "issue": "18",
+  "page": "8721-8727",
+  "year": 2018,
+  "publisher": "Royal Society of Chemistry (RSC)"
+ },
  "10.1038/s41598-018-24492-y": {
   "type": "journal-article",
   "authors": [
@@ -15486,34 +15090,6 @@ window.CITATIONS = {
   "page": "6107",
   "year": 2018,
   "publisher": "Springer Science and Business Media LLC"
- },
- "10.15593/2411-4367/2017.04.06": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Larin",
-    "A"
-   ],
-   [
-    "Fedotov",
-    "M"
-   ],
-   [
-    "Bukharov",
-    "S"
-   ],
-   [
-    "Reznichenko",
-    "V"
-   ]
-  ],
-  "title": "New applications of fiber optic sensors",
-  "container": "Applied photonics",
-  "volume": null,
-  "issue": "4",
-  "page": "310-323",
-  "year": 2018,
-  "publisher": "PNRPU Publishing House"
  },
  "10.1002/jbio.201700322": {
   "type": "journal-article",
@@ -15691,110 +15267,6 @@ window.CITATIONS = {
   "year": 2018,
   "publisher": "IOP Publishing"
  },
- "10.1002/lpor.201700227": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Milichko",
-    "Valentin A."
-   ],
-   [
-    "Zuev",
-    "Dmitry A."
-   ],
-   [
-    "Baranov",
-    "Denis G."
-   ],
-   [
-    "Zograf",
-    "George P."
-   ],
-   [
-    "Volodina",
-    "Katerina"
-   ],
-   [
-    "Krasilin",
-    "Andrei A."
-   ],
-   [
-    "Mukhin",
-    "Ivan S."
-   ],
-   [
-    "Dmitriev",
-    "Pavel A."
-   ],
-   [
-    "Vinogradov",
-    "Vladimir V."
-   ],
-   [
-    "Makarov",
-    "Sergey V."
-   ],
-   [
-    "Belov",
-    "Pavel A."
-   ]
-  ],
-  "title": "Metal-Dielectric Nanocavity for Real-Time Tracing Molecular Events with Temperature Feedback",
-  "container": "Laser &amp; Photonics Reviews",
-  "volume": "12",
-  "issue": "1",
-  "page": "1700227",
-  "year": 2018,
-  "publisher": "Wiley"
- },
- "10.1039/c7nr07953b": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Zalogina",
-    "A. S."
-   ],
-   [
-    "Savelev",
-    "R. S."
-   ],
-   [
-    "Ushakova",
-    "E. V."
-   ],
-   [
-    "Zograf",
-    "G. P."
-   ],
-   [
-    "Komissarenko",
-    "F. E."
-   ],
-   [
-    "Milichko",
-    "V. A."
-   ],
-   [
-    "Makarov",
-    "S. V."
-   ],
-   [
-    "Zuev",
-    "D. A."
-   ],
-   [
-    "Shadrivov",
-    "I. V."
-   ]
-  ],
-  "title": "Purcell effect in active diamond nanoantennas",
-  "container": "Nanoscale",
-  "volume": "10",
-  "issue": "18",
-  "page": "8721-8727",
-  "year": 2018,
-  "publisher": "Royal Society of Chemistry (RSC)"
- },
  "10.1002/chem.201706135": {
   "type": "journal-article",
   "authors": [
@@ -15906,6 +15378,62 @@ window.CITATIONS = {
   "page": "535-539",
   "year": 2018,
   "publisher": "American Chemical Society (ACS)"
+ },
+ "10.1002/lpor.201700227": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Milichko",
+    "Valentin A."
+   ],
+   [
+    "Zuev",
+    "Dmitry A."
+   ],
+   [
+    "Baranov",
+    "Denis G."
+   ],
+   [
+    "Zograf",
+    "George P."
+   ],
+   [
+    "Volodina",
+    "Katerina"
+   ],
+   [
+    "Krasilin",
+    "Andrei A."
+   ],
+   [
+    "Mukhin",
+    "Ivan S."
+   ],
+   [
+    "Dmitriev",
+    "Pavel A."
+   ],
+   [
+    "Vinogradov",
+    "Vladimir V."
+   ],
+   [
+    "Makarov",
+    "Sergey V."
+   ],
+   [
+    "Belov",
+    "Pavel A."
+   ]
+  ],
+  "title": "Metal-Dielectric Nanocavity for Real-Time Tracing Molecular Events with Temperature Feedback",
+  "container": "Laser &amp; Photonics Reviews",
+  "volume": "12",
+  "issue": "1",
+  "page": "1700227",
+  "year": 2018,
+  "publisher": "Wiley"
  },
  "10.1109/comcas.2017.8244856": {
   "type": "proceedings-article",
@@ -16178,46 +15706,6 @@ window.CITATIONS = {
   "page": "032027",
   "year": 2017,
   "publisher": "IOP Publishing"
- },
- "10.1016/j.optlastec.2017.08.030": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Veiko",
-    "V."
-   ],
-   [
-    "Odintsova",
-    "G."
-   ],
-   [
-    "Vlasova",
-    "E."
-   ],
-   [
-    "Andreeva",
-    "Ya."
-   ],
-   [
-    "Krivonosov",
-    "A."
-   ],
-   [
-    "Ageev",
-    "E."
-   ],
-   [
-    "Gorbunova",
-    "E."
-   ]
-  ],
-  "title": "Corrigendum to “Laser coloration of titanium films: New development for jewelry and decoration” [Opt. Laser Technol. 93 (2017) 9–13]",
-  "container": "Optics &amp; Laser Technology",
-  "volume": "98",
-  "issue": null,
-  "page": "416",
-  "year": 2018,
-  "publisher": "Elsevier BV"
  },
  "10.1002/lpor.201700108": {
   "type": "journal-article",
@@ -17202,46 +16690,6 @@ window.CITATIONS = {
   "page": "56",
   "year": 2017,
   "publisher": "Springer Science and Business Media LLC"
- },
- "10.1016/j.matdes.2016.12.093": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Veiko",
-    "Vadim"
-   ],
-   [
-    "Odintsova",
-    "Galina"
-   ],
-   [
-    "Gorbunova",
-    "Elena"
-   ],
-   [
-    "Ageev",
-    "Eduard"
-   ],
-   [
-    "Shimko",
-    "Alexandr"
-   ],
-   [
-    "Karlagina",
-    "Yulia"
-   ],
-   [
-    "Andreeva",
-    "Yaroslava"
-   ]
-  ],
-  "title": "Corrigendum to “Development of complete color palette based on spectrophotometric measurements of steel oxidation results for enhancement of color laser marking technology” [Mater. Des. 89 (2016) 684–688]",
-  "container": "Materials &amp; Design",
-  "volume": "117",
-  "issue": null,
-  "page": "409",
-  "year": 2017,
-  "publisher": "Elsevier BV"
  },
  "10.1007/s11082-016-0876-4": {
   "type": "journal-article",
@@ -18787,6 +18235,50 @@ window.CITATIONS = {
   "year": 2016,
   "publisher": "Wiley"
  },
+ "10.1002/lpor.201500119": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Makarov",
+    "Sergey V."
+   ],
+   [
+    "Milichko",
+    "Valentin A."
+   ],
+   [
+    "Mukhin",
+    "Ivan S."
+   ],
+   [
+    "Shishkin",
+    "Ivan I."
+   ],
+   [
+    "Zuev",
+    "Dmitry A."
+   ],
+   [
+    "Mozharov",
+    "Alexey M."
+   ],
+   [
+    "Krasnok",
+    "Alexander E."
+   ],
+   [
+    "Belov",
+    "Pavel A."
+   ]
+  ],
+  "title": "Controllable femtosecond laser-induced dewetting for plasmonic applications",
+  "container": "Laser &amp; Photonics Reviews",
+  "volume": "10",
+  "issue": "1",
+  "page": "91-99",
+  "year": 2016,
+  "publisher": "Wiley"
+ },
  "10.1002/adma.201505346": {
   "type": "journal-article",
   "authors": [
@@ -18910,50 +18402,6 @@ window.CITATIONS = {
   "page": "81569-81577",
   "year": 2016,
   "publisher": "Royal Society of Chemistry (RSC)"
- },
- "10.1002/lpor.201500119": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Makarov",
-    "Sergey V."
-   ],
-   [
-    "Milichko",
-    "Valentin A."
-   ],
-   [
-    "Mukhin",
-    "Ivan S."
-   ],
-   [
-    "Shishkin",
-    "Ivan I."
-   ],
-   [
-    "Zuev",
-    "Dmitry A."
-   ],
-   [
-    "Mozharov",
-    "Alexey M."
-   ],
-   [
-    "Krasnok",
-    "Alexander E."
-   ],
-   [
-    "Belov",
-    "Pavel A."
-   ]
-  ],
-  "title": "Controllable femtosecond laser-induced dewetting for plasmonic applications",
-  "container": "Laser &amp; Photonics Reviews",
-  "volume": "10",
-  "issue": "1",
-  "page": "91-99",
-  "year": 2016,
-  "publisher": "Wiley"
  },
  "10.1134/s0021364015220026": {
   "type": "journal-article",
@@ -19383,22 +18831,6 @@ window.CITATIONS = {
   "year": 2013,
   "publisher": "Pleiades Publishing Ltd"
  },
- "10.2961/jlmn.2013.02.0007": {
-  "type": "journal-article",
-  "authors": [
-   [
-    "Veiko",
-    "V."
-   ]
-  ],
-  "title": "Photosensitive Glass Modification Based on Infrared СО2-laser Irradiation",
-  "container": "Journal of Laser Micro/Nanoengineering",
-  "volume": "8",
-  "issue": "2",
-  "page": "155-160",
-  "year": 2013,
-  "publisher": "Japan Laser Processing Society"
- },
  "10.1016/j.optlastec.2013.05.015": {
   "type": "journal-article",
   "authors": [
@@ -19422,6 +18854,22 @@ window.CITATIONS = {
   "page": "170-175",
   "year": 2013,
   "publisher": "Elsevier BV"
+ },
+ "10.2961/jlmn.2013.02.0007": {
+  "type": "journal-article",
+  "authors": [
+   [
+    "Veiko",
+    "V."
+   ]
+  ],
+  "title": "Photosensitive Glass Modification Based on Infrared СО2-laser Irradiation",
+  "container": "Journal of Laser Micro/Nanoengineering",
+  "volume": "8",
+  "issue": "2",
+  "page": "155-160",
+  "year": 2013,
+  "publisher": "Japan Laser Processing Society"
  },
  "10.1016/j.optmat.2013.03.027": {
   "type": "journal-article",

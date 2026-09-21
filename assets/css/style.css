@@ -244,7 +244,6 @@ svg { display: block; flex-shrink: 0; }
   opacity: 1; transform: none;
   transition: opacity .8s cubic-bezier(.2, .7, .2, 1) var(--d, 0ms), transform .8s cubic-bezier(.2, .7, .2, 1) var(--d, 0ms);
 }
-.count { display: inline-block; font-variant-numeric: tabular-nums; }
 
 /* линия этапов в «Индустрии» прорисовывается слева направо, этапы проявляются, когда линия доходит до их точки */
 .timeline.is-pending .timeline__line { clip-path: inset(0 100% 0 0); }
@@ -314,7 +313,12 @@ svg { display: block; flex-shrink: 0; }
    иначе на планшете (761–1100px) внутри блока получалось просторнее, чем между блоками */
 .about { padding-top: var(--section-gap); display: flex; flex-direction: column; gap: 16rem; }
 .about__head { max-width: 90.8rem; }
+/* места одинаковой ширины: цифры в них сменяются, и от разной длины подписи
+   колонки иначе прыгали бы вбок */
 .metrics { display: flex; justify-content: space-between; gap: 4rem; }
+.metrics > .metric { flex: 1 1 0; min-width: 0; }
+.metric__body { transition: opacity .5s ease, transform .5s ease; }
+.metric__body.is-out { opacity: 0; transform: translateY(-1rem); }
 .metric { display: flex; flex-direction: column; gap: 4rem; }
 .metric:nth-child(1) { width: 51.7rem; }
 .metric:nth-child(2) { width: 43.2rem; }

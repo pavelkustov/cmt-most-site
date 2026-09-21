@@ -232,31 +232,6 @@ const MOTION_SINGLES = [
   ".dir-about .h2", ".dir-about__text", ".dir-cta", ".dir-about__tags", ".people-head", ".education__photo", ".education__text", ".education .btn",
 ];
 
-function countUp(title) {
-  // «41 человек», «>200 публикаций», «10 лет»: досчитываем число от нуля, ширина под число зарезервирована
-  const node = [...title.childNodes].find((n) => n.nodeType === Node.TEXT_NODE && /\d/.test(n.data));
-  const m = node && node.data.match(/\d+/);
-  if (!m) return;
-  const target = Number(m[0]);
-  const span = document.createElement("span");
-  span.className = "count";
-  span.textContent = m[0];
-  const after = node.splitText(m.index);
-  after.data = after.data.slice(m[0].length);
-  title.insertBefore(span, after);
-  title.setAttribute("aria-label", title.textContent);
-  span.style.minWidth = `${span.getBoundingClientRect().width}px`;
-  span.textContent = "0";
-  const start = performance.now(), duration = 1200;
-  const tick = (now) => {
-    const t = Math.min(1, (now - start) / duration);
-    span.textContent = String(Math.round(target * (1 - Math.pow(1 - t, 3))));
-    if (t < 1) requestAnimationFrame(tick);
-    else { span.style.minWidth = ""; }
-  };
-  requestAnimationFrame(tick);
-}
-
 function initMotion() {
   if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
   const below = (el) => el.getBoundingClientRect().top > innerHeight;
@@ -271,7 +246,6 @@ function initMotion() {
     const t = e.target;
     if (t._items) {
       t._items.forEach(show);
-      if (t.matches(".metrics")) t._items.forEach((m) => { const title = m.querySelector(".metric__title"); if (title) countUp(title); });
     } else if (t.matches(".timeline")) {
       t.classList.replace("is-pending", "is-drawn");
     } else {

@@ -1,6 +1,8 @@
 """Собирает авторские абстракты публикаций в assets/js/abstracts.js.
 
 Абстракт берется как он есть у издателя, на языке статьи, и не переводится.
+Исключение одно: у русских журналов абстракт иногда идет двумя версиями подряд,
+русской и английской, из двух остается английская (решение владельца).
 Источники: docs/publications_db.json (там абстракты из OpenAlex) и Crossref по DOI
 для тех работ, у которых в базе абстракта нет. Crossref отдает его разметкой JATS,
 теги вычищаются, абзацы сохраняются.
@@ -40,6 +42,55 @@ NO_ABSTRACT = {
 JUNK = re.compile(r"^\s*(abstract|summary|graphical abstract|резюме|аннотация)[\s:.-]*", re.I)
 
 
+def superscripts(part):
+    """Верхний индекс, потерянный при реконструкции: «10 465» это 10^465, «cm -3» это cm^-3."""
+    part = re.sub(r"(?<![0-9.,-])10 ([0-9]{1,4})(?![0-9])", r"10^\1", part)
+    part = re.sub(r"\b(cm|nm|m|s|K|Hz|W|mol|L|A|um)\s?[−–-]\s?([0-9])\b", r"\1^-\2", part)
+    part = re.sub(r"\b(cm|nm|um|m)\s+([23])\b", r"\1^\2", part)
+    return part
+
+
+def sentences(text):
+    """Предложения вместе с их началом в строке: по ним ищется граница двух языков."""
+    out, start = [], 0
+    for m in re.finditer(r"(?<=[.!?])\s+", text):
+        out.append((start, text[start:m.start()]))
+        start = m.end()
+    out.append((start, text[start:]))
+    return [(at, s) for at, s in out if s.strip()]
+
+
+def script_of(part):
+    """Какой письменности в куске больше, кириллицы или латиницы."""
+    ru = len(re.findall(r"[а-яА-Я]", part))
+    en = len(re.findall(r"[a-zA-Z]", part))
+    return "ru" if ru > en else "en" if en > ru else ""
+
+
+def one_language(text):
+    """У русских журналов абстракт иногда идет двумя версиями подряд, русской и английской.
+    Оставляем английскую (решение владельца, 21.09.2026). Режем только там, где текст
+    делится ровно на две одноязычные части, иначе не трогаем."""
+    if min(len(re.findall(r"[а-яА-Я]", text)), len(re.findall(r"[a-zA-Z]", text))) < 200:
+        return text
+    parts = sentences(text)
+    marks = []
+    for _, s in parts:
+        marks.append(script_of(s) or (marks[-1] if marks else ""))
+    for i in range(1, len(parts)):
+        before, after = set(marks[:i]) - {""}, set(marks[i:]) - {""}
+        if len(before) == 1 and len(after) == 1 and before != after:
+            cut = parts[i][0]
+            return (text[cut:] if after == {"en"} else text[:cut]).strip()
+    return text
+
+
+def polish(text):
+    """Ручные абстракты через clean не гоняем, чтобы не портить авторский текст,
+    но степени и двуязычие приводим к тому же виду, что у собранных автоматом."""
+    return one_language((NL + NL).join(superscripts(p) for p in text.split(NL + NL)))
+
+
 def clean(text):
     """Из JATS, HTML или TeX делает простой текст с пустой строкой между абзацами."""
     if not text:
@@ -57,12 +108,10 @@ def clean(text):
     parts = [re.sub(r"\s+([.,;:!?)])", r"\1", p) for p in parts]
     parts = [re.sub(r"(\()\s+", r"\1", p) for p in parts]
     # так же теряется верхний индекс: «10 465» это 10^465, «cm -3» это cm^-3
-    parts = [re.sub(r"(?<![0-9.,-])10 ([0-9]{1,4})(?![0-9])", r"10^\1", p) for p in parts]
-    parts = [re.sub(r"\b(cm|nm|m|s|K|Hz|W|mol|L|A|um)\s?[−–-]\s?([0-9])\b", r"\1^-\2", p) for p in parts]
-    parts = [re.sub(r"\b(cm|nm|um|m)\s+([23])\b", r"\1^\2", p) for p in parts]
+    parts = [superscripts(p) for p in parts]
     # и отрывает подстрочные индексы формул: «CsPbBr 3» это CsPbBr3, «La 0.7» это La0.7
     parts = [re.sub(r"\b([A-Z][A-Za-z]{0,5})\s+([0-9]+(?:\.[0-9]+)?)\b", r"\1\2", p) for p in parts]
-    return (NL + NL).join(p for p in parts if len(p) > 1)
+    return one_language((NL + NL).join(p for p in parts if len(p) > 1))
 
 
 def site_dois():
@@ -126,11 +175,13 @@ def from_twin(doi, db):
     return ""
 
 
-def load_manual():
-    """Абстракты, вписанные владельцем руками. Они важнее всего, что отдают сервисы."""
+def load_manual(raw=False):
+    """Абстракты, вписанные владельцем руками. Они важнее всего, что отдают сервисы.
+    В файле лежат как есть, на сайт идут после polish: степени и двуязычие."""
     if not MANUAL.exists():
         return {}
-    return {k.lower(): v for k, v in json.loads(MANUAL.read_text(encoding="utf-8")).items() if v.strip()}
+    rows = {k.lower(): v for k, v in json.loads(MANUAL.read_text(encoding="utf-8")).items() if v.strip()}
+    return rows if raw else {k: polish(v) for k, v in rows.items()}
 
 
 def import_md(db):
@@ -138,7 +189,7 @@ def import_md(db):
     if not MISSING.exists():
         print("нет файла", MISSING)
         return
-    manual = load_manual()
+    manual = load_manual(raw=True)
     added = 0
     for chunk in MISSING.read_text(encoding="utf-8").split(NL + "## ")[1:]:
         doi = re.search(r"<!-- doi: ([^\s]+) -->", chunk)

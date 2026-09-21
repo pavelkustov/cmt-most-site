@@ -13,6 +13,10 @@ import argparse
 import json
 import pathlib
 import re
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from fetch_publications import STRANGERS   # работы однофамильцев, список ведется там
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "assets" / "js" / "data.js"
@@ -22,12 +26,18 @@ SKIP_TYPES = {"peer-review", "dataset", "retraction", "other", "dissertation"}
 # на сайт они не идут (решение владельца, 21.09.2026)
 NOTICE = re.compile(r"^\s*(correction|corrigendum|erratum|addendum|expression of concern|"
                     r"editorial expression|retraction note|publisher correction)\b", re.I)
+# приложения к статьям: файл с данными на Figshare или Zenodo это не отдельная работа,
+# у издателя он идет тем же типом «article» (решение владельца, 21.09.2026)
+EXTRA = re.compile(r"^\s*(additional file|supplementary (material|information|data|file)|"
+                   r"supporting information)\b", re.I)
 
 
 def retracted(rec):
-    """Отозванные работы на сайт не идут, как и уведомления об отзыве и о поправках."""
+    """Что на сайт не идет: отозванные работы, уведомления о поправках, приложения к статьям,
+    а еще работы однофамильцев, которые остались в базе с прошлых сборов."""
     return (bool(rec["retracted"]) or rec["title"].upper().startswith("RETRACTED")
-            or bool(NOTICE.match(rec["title"] or "")))
+            or bool(NOTICE.match(rec["title"] or "")) or bool(EXTRA.match(rec["title"] or ""))
+            or (rec["doi"] or "").lower() in STRANGERS or flat(rec["title"]) in STRANGERS)
 
 
 def js(value):

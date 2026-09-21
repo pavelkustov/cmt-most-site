@@ -729,4 +729,6 @@ def main():
     print("записано:", args.out)
 
 
-main()
+# запускается как скрипт, а из publications_to_data.py импортируется список STRANGERS
+if __name__ == "__main__":
+    main()

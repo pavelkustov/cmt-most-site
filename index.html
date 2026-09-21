@@ -21,10 +21,10 @@
   <link rel="preload" href="assets/fonts/inter-cyrillic-9f73b2f4.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-f11d729b.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/fonts.css?v=0293d912">
-  <link rel="stylesheet" href="assets/css/style.css?v=43daba5c">
-  <script src="assets/js/data.js?v=bb066abe" defer></script>
-  <script src="assets/js/layout.js?v=fdaec8e6" defer></script>
-  <script src="assets/js/main.js?v=ba04ad0d" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=844b17f4">
+  <script src="assets/js/data.js?v=5928f2e0" defer></script>
+  <script src="assets/js/layout.js?v=ff4b78e1" defer></script>
+  <script src="assets/js/main.js?v=fe4f174d" defer></script>
   <!-- разметка организации для поисковиков: название, принадлежность к ИТМО, контакты -->
   <script type="application/ld+json">
   {
@@ -71,38 +71,42 @@
         <h2 class="h2">ЦМТ «Мост»</h2>
         <p class="lead">центр, где научные идеи доводятся до практических<br>R&amp;D-решений и интегрируются в образование</p>
       </div>
+      <!-- в каждом месте своя тройка цифр, они сменяют друг друга: списки и сами числа
+           считаются в main.js по данным сайта, здесь стоит то, что видно первым -->
       <div class="metrics">
-        <div class="metric">
+        <div class="metric" data-slot="people">
           <div class="metric__icon" aria-hidden="true">
             <img src="assets/icons/m-people-1.svg" alt="" style="left:2.873rem;top:2.434rem;width:3.48rem;height:1.649rem;transform:rotate(180deg)">
             <img src="assets/icons/m-people-2.svg" alt="" style="left:3.593rem;top:.45rem;width:1.995rem;height:1.995rem">
             <img src="assets/icons/m-people-3.svg" alt="" style="left:.036rem;top:2.744rem;width:4.056rem;height:1.976rem;transform:rotate(180deg)">
             <img src="assets/icons/m-people-4.svg" alt="" style="left:.889rem;top:.494rem;width:2.349rem;height:2.261rem">
           </div>
-          <div>
-            <p class="metric__title">41 человек</p>
-            <p class="metric__text">работает над научными, образовательными и технологическими проектами центра</p>
+          <div class="metric__body">
+            <p class="metric__title">38 человек</p>
+            <p class="metric__text">работает над наукой, образованием и технологиями центра</p>
           </div>
         </div>
-        <div class="metric">
+        <div class="metric" data-slot="works">
           <div class="metric__icon" aria-hidden="true">
-            <img src="assets/icons/m-doc-1.svg" alt="" style="left:-.1rem;top:.1rem;width:5rem;height:5rem">
-            <img src="assets/icons/m-doc-2.svg" alt="" style="left:3.433rem;top:3.6rem;width:1.367rem;height:1.4rem">
-            <img src="assets/icons/m-doc-line.svg" alt="" style="left:.7rem;top:1.233rem;width:3.4rem;height:.2rem">
-            <img src="assets/icons/m-doc-line.svg" alt="" style="left:.7rem;top:2.017rem;width:3.4rem;height:.2rem">
-            <img src="assets/icons/m-doc-line.svg" alt="" style="left:.7rem;top:2.817rem;width:3.4rem;height:.2rem">
+            <!-- иконка сдвинута на 0.3rem вверх, чтобы ее низ встал на одну линию
+                 с низом соседних: у всех трех мест одинаковый отступ до цифры -->
+            <img src="assets/icons/m-doc-1.svg" alt="" style="left:-.1rem;top:-.2rem;width:5rem;height:5rem">
+            <img src="assets/icons/m-doc-2.svg" alt="" style="left:3.433rem;top:3.3rem;width:1.367rem;height:1.4rem">
+            <img src="assets/icons/m-doc-line.svg" alt="" style="left:.7rem;top:.933rem;width:3.4rem;height:.2rem">
+            <img src="assets/icons/m-doc-line.svg" alt="" style="left:.7rem;top:1.717rem;width:3.4rem;height:.2rem">
+            <img src="assets/icons/m-doc-line.svg" alt="" style="left:.7rem;top:2.517rem;width:3.4rem;height:.2rem">
           </div>
-          <div>
-            <p class="metric__title">&gt;200 публикаций</p>
+          <div class="metric__body">
+            <p class="metric__title">478 публикаций</p>
             <p class="metric__text">опубликовано сотрудниками центра в высокорейтинговых журналах</p>
           </div>
         </div>
-        <div class="metric">
+        <div class="metric" data-slot="impact">
           <div class="metric__icon" aria-hidden="true">
-            <img src="assets/icons/m-time.svg" alt="" style="left:0;top:0;width:41rem;height:5.2rem">
+            <img src="assets/icons/m-time.svg" alt="" style="left:0;top:-.1rem;width:41rem;height:5.2rem">
           </div>
-          <div>
-            <p class="metric__title">10 лет</p>
+          <div class="metric__body">
+            <p class="metric__title">11 лет</p>
             <p class="metric__text">ведется научно-образовательная деятельность центра (с 2015 года)</p>
           </div>
         </div>

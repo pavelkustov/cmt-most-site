@@ -25,6 +25,15 @@ MANUAL = {
         "Luminescent rare earth vanadate nanoparticles doped with Eu3+ and Bi3+ for sensing and imaging applications",
     "3D express crystallization of Foturan glass at CO2laser annealing on defects produced by picosecond laser":
         "3D express crystallization of Foturan glass at CO2 laser annealing on defects produced by picosecond laser",
+    # в записи слиплись английский и русский варианты названия, оставляем английский
+    "Crystallization of robotic swarms in a parabolic potential,Исследование кристаллизации "
+    "скопления роботов в параболическом потенциале":
+        "Crystallization of robotic swarms in a parabolic potential",
+    # на странице издателя название с пробелом: «micro- and nano-carriers»
+    "Polymeric micro-and nano-carriers as a universal platform for delivery of biologically "
+    "active substances to therapeutically cell populations":
+        "Polymeric micro- and nano-carriers as a universal platform for delivery of biologically "
+        "active substances to therapeutically cell populations",
 }
 
 

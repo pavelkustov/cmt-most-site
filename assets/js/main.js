@@ -344,7 +344,138 @@ function enableDragScroll(track) {
 
 /* ---------- главная ---------- */
 
+/* Цифры в блоке «ЦМТ Мост» считаются по данным сайта, а не пишутся в разметке руками:
+   иначе они устаревают с каждой новой работой. В разметке стоят те же числа, чтобы
+   страница была правдива и до выполнения скрипта.
+
+   Мест в блоке три, а цифр девять: у каждого места своя тройка, она сменяется по кругу.
+   Иконка у места одна и та же, меняются только число и подпись. */
+const START_YEAR = 2015;
+const METRIC_SHOW = 6000;    // сколько держится одна цифра
+const METRIC_FIRST = 2200;   // первая смена быстрее: иначе кажется, что блок застыл
+const METRIC_FADE = 500;     // столько длится затухание, столько же стоит в CSS
+const METRIC_STEP = 1200;    // на столько сдвинуты соседние места, чтобы не мигали разом
+
+const ORDINAL = { 2: "вторая", 3: "третья", 4: "четвертая", 5: "пятая", 6: "шестая", 7: "седьмая" };
+
+/* «каждая четвертая работа»: если доля не дотягивает до круглой, пишем «почти» */
+function everyNth(total, part) {
+  const share = total / (part || 1);
+  const nth = Math.round(share);
+  return (share > nth ? "почти каждая " : "каждая ") + (ORDINAL[nth] || `${nth}-я`);
+}
+
+function homeMetricSets() {
+  const count = (n, one, few, many) => `${n} ${plural(n, one, few, many)}`;
+  const people = Object.values(window.PEOPLE || {});
+  const withDegree = (re) => people.filter((p) => re.test(p.degree || "")).length;
+  const cited = PUBLICATIONS.reduce((sum, p) => sum + (p.cited || 0), 0);
+  const ranked = PUBLICATIONS.map((p) => p.cited || 0).sort((a, b) => b - a);
+  const h = ranked.filter((c, i) => c >= i + 1).length;
+  const known = PUBLICATIONS.filter((p) => p.quartile);
+  const top = known.filter((p) => p.quartile === "Q1" || p.quartile === "Q2");
+  const since = new Date().getFullYear() - 2;
+  const recent = PUBLICATIONS.filter((p) => Number(p.date.slice(0, 4)) >= since).length;
+  const cands = withDegree(/кандидат/);
+  const doctors = withDegree(/доктор/);
+  const postgrads = withDegree(/аспирант/);
+  return {
+    people: [
+      [count(people.length, "человек", "человека", "человек"),
+       "работает над наукой, образованием и технологиями центра"],
+      [`${count(cands, "кандидат", "кандидата", "кандидатов")} наук`,
+       (doctors ? `и ${count(doctors, "доктор", "доктора", "докторов")} наук ` : "")
+       + "ведут проекты центра и научное руководство"],
+      [count(postgrads, "аспирант", "аспиранта", "аспирантов"),
+       "ведут исследования в центре вместе со студентами и магистрами"],
+    ],
+    works: [
+      [count(PUBLICATIONS.length, "публикация", "публикации", "публикаций"),
+       "опубликовано сотрудниками центра в высокорейтинговых журналах"],
+      [`${Math.round((top.length / (known.length || 1)) * 100)}% в Q1 и Q2`,
+       "столько работ с известным квартилем вышло в лучших журналах"],
+      [count(recent, "статья", "статьи", "статей"),
+       `вышло за три последних года, это ${everyNth(PUBLICATIONS.length, recent)} работа центра`],
+    ],
+    impact: [
+      [count(new Date().getFullYear() - START_YEAR, "год", "года", "лет"),
+       "ведется научно-образовательная деятельность центра (с 2015 года)"],
+      [count(cited, "цитирование", "цитирования", "цитирований"),
+       "собрали работы сотрудников центра у коллег по всему миру"],
+      // «одним единственным» связано неразрывным пробелом: так строка ломается после
+      // «будь он» и обе половины выходят примерно одной длины
+      [`индекс Хирша ${h}`, "столько было бы у центра, будь он одним единственным ученым"],
+    ],
+  };
+}
+
+function initHomeMetrics() {
+  const sets = homeMetricSets();
+  const slots = [...document.querySelectorAll(".metric[data-slot]")]
+    .map((slot) => ({ slot, rows: sets[slot.dataset.slot] || [], at: 0 }))
+    .filter((s) => s.rows.length);
+
+  const draw = ({ slot, rows, at }) => {
+    const [value, text] = rows[at];
+    slot.querySelector(".metric__title").textContent = value;
+    slot.querySelector(".metric__text").textContent = text;
+  };
+  slots.forEach(draw);
+
+  /* Цифры и подписи разной длины, и при смене блок дергался бы по высоте. Меряем самую
+     высокую тройку места на текущей ширине и держим место под нее. */
+  const reserve = () => slots.forEach(({ slot, rows, at }) => {
+    const body = slot.querySelector(".metric__body");
+    const title = slot.querySelector(".metric__title");
+    const text = slot.querySelector(".metric__text");
+    let tallest = 0;
+    body.style.minHeight = "";
+    rows.forEach(([value, label]) => {
+      title.textContent = value;
+      text.textContent = label;
+      tallest = Math.max(tallest, body.getBoundingClientRect().height);
+    });
+    title.textContent = rows[at][0];
+    text.textContent = rows[at][1];
+    body.style.minHeight = `${Math.ceil(tallest)}px`;
+  });
+  reserve();
+  if (document.fonts) document.fonts.ready.then(reserve);   // шрифт приезжает позже разметки
+  let resized;
+  window.addEventListener("resize", () => { clearTimeout(resized); resized = setTimeout(reserve, 200); });
+
+  // цифры тикают, только когда блок на экране: незачем менять их в пустоту
+  const quiet = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const box = document.querySelector(".metrics");
+  if (quiet || !box || !("IntersectionObserver" in window) || slots.length < 2) return;
+  let timers = [], running = false, turn = 0;
+  const stop = () => { running = false; turn += 1; timers.forEach(clearInterval); timers = []; };
+  const swap = (s) => {
+    const body = s.slot.querySelector(".metric__body");
+    body.classList.add("is-out");
+    setTimeout(() => {
+      s.at = (s.at + 1) % s.rows.length;
+      draw(s);
+      body.classList.remove("is-out");
+    }, METRIC_FADE);
+  };
+  const start = () => {
+    if (running) return;
+    running = true;
+    const mine = (turn += 1);
+    // соседние места стартуют со сдвигом, поэтому мигают по очереди, а не разом
+    slots.forEach((s, i) => setTimeout(() => {
+      if (mine !== turn) return;
+      swap(s);
+      timers.push(setInterval(() => swap(s), METRIC_SHOW));
+    }, METRIC_FIRST + i * METRIC_STEP));
+  };
+  new IntersectionObserver((entries) => entries.forEach((e) => (e.isIntersecting ? start() : stop())))
+    .observe(box);
+}
+
 function initHome() {
+  initHomeMetrics();
   const carousel = document.querySelector(".carousel");
   carousel.innerHTML = DIRECTIONS.map((d) => `
     <a class="dir-card" href="direction.html?id=${d.id}">
