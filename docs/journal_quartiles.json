@@ -1,0 +1,762 @@
+{
+ "ACS Applied Bio Materials": {
+  "quartile": "Q1",
+  "title": "ACS Applied Bio Materials",
+  "year": "2025"
+ },
+ "ACS Applied Materials & Interfaces": {
+  "quartile": "Q1",
+  "title": "ACS Applied Materials and Interfaces",
+  "year": "2025"
+ },
+ "ACS Applied Nano Materials": {
+  "quartile": "Q1",
+  "title": "ACS Applied Nano Materials",
+  "year": "2025"
+ },
+ "ACS Applied Optical Materials": {
+  "quartile": "Q2",
+  "title": "ACS Applied Optical Materials",
+  "year": "2025"
+ },
+ "ACS Biomaterials Science & Engineering": {
+  "quartile": "Q1",
+  "title": "ACS Biomaterials Science and Engineering",
+  "year": "2025"
+ },
+ "ACS Catalysis": {
+  "quartile": "Q1",
+  "title": "ACS Catalysis",
+  "year": "2025"
+ },
+ "ACS Nano": {
+  "quartile": "Q1",
+  "title": "ACS Nano",
+  "year": "2025"
+ },
+ "ACS Omega": {
+  "quartile": "Q1",
+  "title": "ACS Omega",
+  "year": "2025"
+ },
+ "ACS Photonics": {
+  "quartile": "Q1",
+  "title": "ACS Photonics",
+  "year": "2025"
+ },
+ "ACS Sustainable Chemistry & Engineering": {
+  "quartile": "Q1",
+  "title": "ACS Sustainable Chemistry and Engineering",
+  "year": "2025"
+ },
+ "Advanced Functional Materials": {
+  "quartile": "Q1",
+  "title": "Advanced Functional Materials",
+  "year": "2025"
+ },
+ "Advanced Healthcare Materials": {
+  "quartile": "Q1",
+  "title": "Advanced Healthcare Materials",
+  "year": "2025"
+ },
+ "Advanced Materials": {
+  "quartile": "Q1",
+  "title": "Advanced Materials",
+  "year": "2025"
+ },
+ "Advanced Materials Interfaces": {
+  "quartile": "Q1",
+  "title": "Advanced Materials Interfaces",
+  "year": "2025"
+ },
+ "Advanced Optical Materials": {
+  "quartile": "Q1",
+  "title": "Advanced Optical Materials",
+  "year": "2025"
+ },
+ "Advances in Colloid and Interface Science": {
+  "quartile": "Q1",
+  "title": "Advances in Colloid and Interface Science",
+  "year": "2025"
+ },
+ "Angewandte Chemie": {
+  "quartile": "Q1",
+  "title": "Angewandte Chemie - International Edition",
+  "year": "2025"
+ },
+ "Angewandte Chemie International Edition": {
+  "quartile": "Q1",
+  "title": "Angewandte Chemie - International Edition",
+  "year": "2025"
+ },
+ "Annalen der Physik": {
+  "quartile": "Q2",
+  "title": "Annalen der Physik",
+  "year": "2025"
+ },
+ "Applied Physics B": {
+  "quartile": "Q2",
+  "title": "Applied Physics B: Lasers and Optics",
+  "year": "2025"
+ },
+ "Applied Physics Letters": {
+  "quartile": "Q1",
+  "title": "Applied Physics Letters",
+  "year": "2025"
+ },
+ "Applied Surface Science": {
+  "quartile": "Q1",
+  "title": "Applied Surface Science",
+  "year": "2025"
+ },
+ "BIOPHYSICS": {
+  "quartile": "Q4",
+  "title": "Biophysics (Russian Federation)",
+  "year": "2025"
+ },
+ "Biochemistry (Moscow), Supplement Series B: Biomedical Chemistry": {
+  "quartile": "Q4",
+  "title": "Biochemistry (Moscow) Supplement Series B: Biomedical Chemistry",
+  "year": "2025"
+ },
+ "Bioconjugate Chemistry": {
+  "quartile": "Q1",
+  "title": "Bioconjugate Chemistry",
+  "year": "2025"
+ },
+ "Bioengineering & Translational Medicine": {
+  "quartile": "Q1",
+  "title": "Bioengineering and Translational Medicine",
+  "year": "2025"
+ },
+ "Biomaterials": {
+  "quartile": "Q1",
+  "title": "Biomaterials",
+  "year": "2025"
+ },
+ "Biomaterials Advances": {
+  "quartile": "Q1",
+  "title": "Biomaterials Advances",
+  "year": "2025"
+ },
+ "Biomaterials Science": {
+  "quartile": "Q1",
+  "title": "Biomaterials Science",
+  "year": "2025"
+ },
+ "Biosensors and Bioelectronics": {
+  "quartile": "Q1",
+  "title": "Biosensors and Bioelectronics",
+  "year": "2025"
+ },
+ "Bulletin of the Lebedev Physics Institute": {
+  "quartile": "Q4",
+  "title": "Bulletin of the Lebedev Physics Institute",
+  "year": "2025"
+ },
+ "Bulletin of the Russian Academy of Sciences Physics": {
+  "quartile": "Q3",
+  "title": "Bulletin of the Russian Academy of Sciences: Physics",
+  "year": "2025"
+ },
+ "Bulletin of the Russian Academy of Sciences: Physics": {
+  "quartile": "Q3",
+  "title": "Bulletin of the Russian Academy of Sciences: Physics",
+  "year": "2025"
+ },
+ "Cancers": {
+  "quartile": "Q1",
+  "title": "Cancers",
+  "year": "2025"
+ },
+ "Carbon": {
+  "quartile": "Q1",
+  "title": "Carbon",
+  "year": "2025"
+ },
+ "Cells": {
+  "quartile": "Q1",
+  "title": "Cells",
+  "year": "2025"
+ },
+ "Cellular Therapy and Transplantation": {
+  "quartile": "Q4",
+  "title": "Cellular Therapy and Transplantation",
+  "year": "2025"
+ },
+ "Chemical Engineering Journal": {
+  "quartile": "Q1",
+  "title": "Chemical Engineering Journal",
+  "year": "2025"
+ },
+ "Chemical Physics Letters": {
+  "quartile": "Q2",
+  "title": "Chemical Physics Letters",
+  "year": "2025"
+ },
+ "Chemistry - A European Journal": {
+  "quartile": "Q1",
+  "title": "Chemistry - A European Journal",
+  "year": "2025"
+ },
+ "Chemistry of Materials": {
+  "quartile": "Q1",
+  "title": "Chemistry of Materials",
+  "year": "2025"
+ },
+ "Chimica Techno Acta": {
+  "quartile": "Q4",
+  "title": "Chimica Techno Acta",
+  "year": "2025"
+ },
+ "Communications Materials": {
+  "quartile": "Q1",
+  "title": "Communications Materials",
+  "year": "2025"
+ },
+ "Computational Condensed Matter": {
+  "quartile": "Q2",
+  "title": "Computational Condensed Matter",
+  "year": "2025"
+ },
+ "Computational Materials Science": {
+  "quartile": "Q1",
+  "title": "Computational Materials Science",
+  "year": "2025"
+ },
+ "Crystals": {
+  "quartile": "Q2",
+  "title": "Crystals",
+  "year": "2025"
+ },
+ "Dalton Transactions": {
+  "quartile": "Q2",
+  "title": "Dalton Transactions",
+  "year": "2025"
+ },
+ "Diffusion and defect data, solid state data. Part B, Solid state phenomena/Solid state phenomena": {
+  "quartile": "Q4",
+  "title": "Solid State Phenomena",
+  "year": "2025"
+ },
+ "Drug Delivery and Translational Research": {
+  "quartile": "Q1",
+  "title": "Drug Delivery and Translational Research",
+  "year": "2025"
+ },
+ "Electronics": {
+  "quartile": "Q2",
+  "title": "Electronics (Switzerland)",
+  "year": "2025"
+ },
+ "Environmental Chemistry and Ecotoxicology": {
+  "quartile": "Q1",
+  "title": "Environmental Chemistry and Ecotoxicology",
+  "year": "2025"
+ },
+ "European Journal of Medicinal Chemistry": {
+  "quartile": "Q1",
+  "title": "European Journal of Medicinal Chemistry",
+  "year": "2025"
+ },
+ "Expert Opinion on Drug Delivery": {
+  "quartile": "Q1",
+  "title": "Expert Opinion on Drug Delivery",
+  "year": "2025"
+ },
+ "FlatChem": {
+  "quartile": "Q1",
+  "title": "FlatChem",
+  "year": "2025"
+ },
+ "Fluids": {
+  "quartile": "Q2",
+  "title": "Fluids",
+  "year": "2025"
+ },
+ "IEEE Access": {
+  "quartile": "Q1",
+  "title": "IEEE Access",
+  "year": "2025"
+ },
+ "Inorganic Chemistry Communications": {
+  "quartile": "Q1",
+  "title": "Inorganic Chemistry Communications",
+  "year": "2025"
+ },
+ "Inorganic Materials": {
+  "quartile": "Q4",
+  "title": "Inorganic Materials",
+  "year": "2025"
+ },
+ "International Journal of Heat and Mass Transfer": {
+  "quartile": "Q1",
+  "title": "International Journal of Heat and Mass Transfer",
+  "year": "2025"
+ },
+ "International Journal of Molecular Sciences": {
+  "quartile": "Q1",
+  "title": "International Journal of Molecular Sciences",
+  "year": "2025"
+ },
+ "International Journal of Quantum Chemistry": {
+  "quartile": "Q3",
+  "title": "International Journal of Quantum Chemistry",
+  "year": "2025"
+ },
+ "International Materials Reviews": {
+  "quartile": "Q1",
+  "title": "International Materials Reviews",
+  "year": "2025"
+ },
+ "Izvestiya vysshikh uchebnykh zavedenii Fizika": {
+  "quartile": "Q3",
+  "title": "Russian Physics Journal",
+  "year": "2025"
+ },
+ "JETP Letters": {
+  "quartile": "Q3",
+  "title": "JETP Letters",
+  "year": "2025"
+ },
+ "Journal of Applied Physics": {
+  "quartile": "Q2",
+  "title": "Journal of Applied Physics",
+  "year": "2025"
+ },
+ "Journal of Biophotonics": {
+  "quartile": "Q2",
+  "title": "Journal of Biophotonics",
+  "year": "2025"
+ },
+ "Journal of Colloid and Interface Science": {
+  "quartile": "Q1",
+  "title": "Journal of Colloid and Interface Science",
+  "year": "2025"
+ },
+ "Journal of Contaminant Hydrology": {
+  "quartile": "Q1",
+  "title": "Journal of Contaminant Hydrology",
+  "year": "2025"
+ },
+ "Journal of Controlled Release": {
+  "quartile": "Q1",
+  "title": "Journal of Controlled Release",
+  "year": "2025"
+ },
+ "Journal of Experimental and Theoretical Physics Letters": {
+  "quartile": "Q3",
+  "title": "JETP Letters",
+  "year": "2025"
+ },
+ "Journal of Laser Micro/Nanoengineering": {
+  "quartile": "Q3",
+  "title": "Journal of Laser Micro Nanoengineering",
+  "year": "2025"
+ },
+ "Journal of Materials Chemistry A": {
+  "quartile": "Q1",
+  "title": "Journal of Materials Chemistry A",
+  "year": "2025"
+ },
+ "Journal of Nanobiotechnology": {
+  "quartile": "Q1",
+  "title": "Journal of Nanobiotechnology",
+  "year": "2025"
+ },
+ "Journal of Optical Technology": {
+  "quartile": "Q4",
+  "title": "Journal of Optical Technology (A Translation of Opticheskii Zhurnal)",
+  "year": "2025"
+ },
+ "Journal of Optoelectronics and Advanced Materials": {
+  "quartile": "Q4",
+  "title": "Journal of Optoelectronics and Advanced Materials",
+  "year": "2025"
+ },
+ "Journal of Pharmaceutical Sciences": {
+  "quartile": "Q2",
+  "title": "Journal of Pharmaceutical Sciences",
+  "year": "2025"
+ },
+ "Journal of Physics and Chemistry of Solids": {
+  "quartile": "Q1",
+  "title": "Journal of Physics and Chemistry of Solids",
+  "year": "2025"
+ },
+ "Journal of Visualized Experiments": {
+  "quartile": "Q2",
+  "title": "Journal of Visualized Experiments",
+  "year": "2025"
+ },
+ "Journal of the American Chemical Society": {
+  "quartile": "Q1",
+  "title": "Journal of the American Chemical Society",
+  "year": "2025"
+ },
+ "Journal of the Optical Society of America B": {
+  "quartile": "Q2",
+  "title": "Journal of the Optical Society of America B: Optical Physics",
+  "year": "2025"
+ },
+ "Lab on a Chip": {
+  "quartile": "Q1",
+  "title": "Lab on a Chip",
+  "year": "2025"
+ },
+ "Langmuir": {
+  "quartile": "Q1",
+  "title": "Langmuir",
+  "year": "2025"
+ },
+ "Laser & Photonics Review": {
+  "quartile": "Q1",
+  "title": "Laser and Photonics Reviews",
+  "year": "2025"
+ },
+ "Laser & Photonics Reviews": {
+  "quartile": "Q1",
+  "title": "Laser and Photonics Reviews",
+  "year": "2025"
+ },
+ "Laser Physics": {
+  "quartile": "Q3",
+  "title": "Laser Physics",
+  "year": "2025"
+ },
+ "Laser Physics Letters": {
+  "quartile": "Q3",
+  "title": "Laser Physics Letters",
+  "year": "2025"
+ },
+ "Light Advanced Manufacturing": {
+  "quartile": "Q1",
+  "title": "Light: Advanced Manufacturing",
+  "year": "2025"
+ },
+ "Light Science & Applications": {
+  "quartile": "Q1",
+  "title": "Light: Science and Applications",
+  "year": "2025"
+ },
+ "Light: Science & Applications": {
+  "quartile": "Q1",
+  "title": "Light: Science and Applications",
+  "year": "2025"
+ },
+ "Materials & Design": {
+  "quartile": "Q1",
+  "title": "Materials and Design",
+  "year": "2025"
+ },
+ "Materials Chemistry Frontiers": {
+  "quartile": "Q1",
+  "title": "Materials Chemistry Frontiers",
+  "year": "2025"
+ },
+ "Materials Horizons": {
+  "quartile": "Q1",
+  "title": "Materials Horizons",
+  "year": "2025"
+ },
+ "Materials Science and Engineering C": {
+  "quartile": "Q1",
+  "title": "Materials Science and Engineering: A",
+  "year": "2025"
+ },
+ "Materials Science in Semiconductor Processing": {
+  "quartile": "Q1",
+  "title": "Materials Science in Semiconductor Processing",
+  "year": "2025"
+ },
+ "Matter": {
+  "quartile": "Q1",
+  "title": "Matter",
+  "year": "2025"
+ },
+ "Methods in molecular biology": {
+  "quartile": "Q4",
+  "title": "Methods in Molecular Biology",
+  "year": "2025"
+ },
+ "Micromachines": {
+  "quartile": "Q2",
+  "title": "Micromachines",
+  "year": "2025"
+ },
+ "Molecular Medicine": {
+  "quartile": "Q1",
+  "title": "Molecular Medicine",
+  "year": "2025"
+ },
+ "Nano Letters": {
+  "quartile": "Q1",
+  "title": "Nano Letters",
+  "year": "2025"
+ },
+ "Nanomaterials": {
+  "quartile": "Q1",
+  "title": "Nanomaterials",
+  "year": "2025"
+ },
+ "Nanophotonics": {
+  "quartile": "Q1",
+  "title": "Nanophotonics",
+  "year": "2025"
+ },
+ "Nanoscale": {
+  "quartile": "Q1",
+  "title": "Nanoscale",
+  "year": "2025"
+ },
+ "Nanosystems Physics Chemistry Mathematics": {
+  "quartile": "Q3",
+  "title": "Nanosystems: Physics, Chemistry, Mathematics",
+  "year": "2025"
+ },
+ "Nature Communications": {
+  "quartile": "Q1",
+  "title": "Nature Communications",
+  "year": "2025"
+ },
+ "Nuclear Medicine and Biology": {
+  "quartile": "Q2",
+  "title": "Nuclear Medicine and Biology",
+  "year": "2025"
+ },
+ "Optica": {
+  "quartile": "Q1",
+  "title": "Optica",
+  "year": "2025"
+ },
+ "Optical Materials": {
+  "quartile": "Q1",
+  "title": "Optical Materials",
+  "year": "2025"
+ },
+ "Optical Materials Express": {
+  "quartile": "Q2",
+  "title": "Optical Materials Express",
+  "year": "2025"
+ },
+ "Optical and Quantum Electronics": {
+  "quartile": "Q2",
+  "title": "Optical and Quantum Electronics (discontinued)",
+  "year": "2023"
+ },
+ "Optics & Laser Technology": {
+  "quartile": "Q1",
+  "title": "Optics and Laser Technology",
+  "year": "2025"
+ },
+ "Optics Express": {
+  "quartile": "Q1",
+  "title": "Optics Express",
+  "year": "2025"
+ },
+ "Optics and Spectroscopy": {
+  "quartile": "Q4",
+  "title": "Optics and Spectroscopy (English translation of Optika i Spektroskopiya)",
+  "year": "2025"
+ },
+ "Opto-Electronic Advances": {
+  "quartile": "Q1",
+  "title": "Opto-Electronic Advances",
+  "year": "2025"
+ },
+ "Optoelectronics Instrumentation and Data Processing": {
+  "quartile": "Q4",
+  "title": "Optoelectronics, Instrumentation and Data Processing",
+  "year": "2025"
+ },
+ "Particle & Particle Systems Characterization": {
+  "quartile": "Q2",
+  "title": "Particle and Particle Systems Characterization",
+  "year": "2025"
+ },
+ "Pharmaceutics": {
+  "quartile": "Q1",
+  "title": "Pharmaceutics",
+  "year": "2025"
+ },
+ "Photonics": {
+  "quartile": "Q2",
+  "title": "Photonics",
+  "year": "2025"
+ },
+ "Photonics and Nanostructures - Fundamentals and Applications": {
+  "quartile": "Q2",
+  "title": "Photonics and Nanostructures - Fundamentals and Applications",
+  "year": "2025"
+ },
+ "Physical Chemistry Chemical Physics": {
+  "quartile": "Q2",
+  "title": "Physical Chemistry Chemical Physics",
+  "year": "2025"
+ },
+ "Physical Review A": {
+  "quartile": "Q1",
+  "title": "Physical Review A",
+  "year": "2025"
+ },
+ "Physical review. E": {
+  "quartile": "Q2",
+  "title": "Physical Review E",
+  "year": "2025"
+ },
+ "Physics of Fluids": {
+  "quartile": "Q1",
+  "title": "Physics of Fluids",
+  "year": "2025"
+ },
+ "Physics of the Solid State": {
+  "quartile": "Q4",
+  "title": "Physics of the Solid State",
+  "year": "2025"
+ },
+ "Quantum Electronics": {
+  "quartile": "Q3",
+  "title": "Quantum Electronics",
+  "year": "2025"
+ },
+ "RSC Advances": {
+  "quartile": "Q1",
+  "title": "RSC Advances",
+  "year": "2025"
+ },
+ "Review of Scientific Instruments": {
+  "quartile": "Q2",
+  "title": "Review of Scientific Instruments",
+  "year": "2025"
+ },
+ "Russian Physics Journal": {
+  "quartile": "Q3",
+  "title": "Russian Physics Journal",
+  "year": "2025"
+ },
+ "Scientific Reports": {
+  "quartile": "Q1",
+  "title": "Scientific Reports",
+  "year": "2025"
+ },
+ "Scientific and technical journal of information technologies mechanics and optics": {
+  "quartile": "Q4",
+  "title": "Scientific and Technical Journal of Information Technologies, Mechanics and Optics",
+  "year": "2025"
+ },
+ "Semiconductors": {
+  "quartile": "Q4",
+  "title": "Semiconductors",
+  "year": "2025"
+ },
+ "Siberian Journal of Oncology": {
+  "quartile": "Q4",
+  "title": "Siberian Journal of Oncology",
+  "year": "2025"
+ },
+ "Small": {
+  "quartile": "Q1",
+  "title": "Small",
+  "year": "2025"
+ },
+ "Small Methods": {
+  "quartile": "Q1",
+  "title": "Small Methods",
+  "year": "2025"
+ },
+ "Sovremennye tehnologii v medicine": {
+  "quartile": "Q3",
+  "title": "Sovremennye Tehnologii v Medicine",
+  "year": "2025"
+ },
+ "Spectrochimica Acta Part A Molecular and Biomolecular Spectroscopy": {
+  "quartile": "Q1",
+  "title": "Spectrochimica Acta - Part A: Molecular and Biomolecular Spectroscopy",
+  "year": "2025"
+ },
+ "Spectrochimica Acta Part A: Molecular and Biomolecular Spectroscopy": {
+  "quartile": "Q1",
+  "title": "Spectrochimica Acta - Part A: Molecular and Biomolecular Spectroscopy",
+  "year": "2025"
+ },
+ "St Petersburg State Polytechnical University Journal Physics and Mathematics": {
+  "quartile": "Q4",
+  "title": "St. Petersburg State Polytechnical University Journal: Physics and Mathematics",
+  "year": "2025"
+ },
+ "Surfaces and Interfaces": {
+  "quartile": "Q1",
+  "title": "Surfaces and Interfaces",
+  "year": "2025"
+ },
+ "Technical Physics Letters": {
+  "quartile": "Q4",
+  "title": "Technical Physics Letters",
+  "year": "2025"
+ },
+ "Technologies": {
+  "quartile": "Q1",
+  "title": "Technologies",
+  "year": "2025"
+ },
+ "The Journal of Physical Chemistry A": {
+  "quartile": "Q2",
+  "title": "Journal of Physical Chemistry A",
+  "year": "2025"
+ },
+ "The Journal of Physical Chemistry C": {
+  "quartile": "Q1",
+  "title": "Journal of Physical Chemistry C",
+  "year": "2025"
+ },
+ "The Journal of Physical Chemistry Letters": {
+  "quartile": "Q1",
+  "title": "Journal of Physical Chemistry Letters",
+  "year": "2025"
+ },
+ "The Science of The Total Environment": {
+  "quartile": "Q1",
+  "title": "Science of the Total Environment",
+  "year": "2025"
+ },
+ "Topics in Current Chemistry": {
+  "quartile": "Q1",
+  "title": "Topics in Current Chemistry (Switzerland)",
+  "year": "2024"
+ },
+ "Transactions of Tianjin University": {
+  "quartile": "Q1",
+  "title": "Transactions of Tianjin University",
+  "year": "2025"
+ },
+ "Vacuum": {
+  "quartile": "Q1",
+  "title": "Vacuum",
+  "year": "2025"
+ },
+ "Оптика и спектроскопия": {
+  "quartile": "Q4",
+  "title": "Optics and Spectroscopy (English translation of Optika i Spektroskopiya)",
+  "year": "2025"
+ },
+ "Оптический журнал": {
+  "quartile": "Q4",
+  "title": "Journal of Optical Technology (A Translation of Opticheskii Zhurnal)",
+  "year": "2025"
+ },
+ "Письма в журнал технической физики": {
+  "quartile": "Q4",
+  "title": "Technical Physics Letters",
+  "year": "2025"
+ },
+ "Современные технологии в медицине": {
+  "quartile": "Q3",
+  "title": "Sovremennye Tehnologii v Medicine",
+  "year": "2025"
+ },
+ "中国科学通报：英文版": {
+  "quartile": "Q1",
+  "title": "Science Bulletin",
+  "year": "2025"
+ }
+}

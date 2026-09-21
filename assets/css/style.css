@@ -304,7 +304,9 @@ svg { display: block; flex-shrink: 0; }
   /* строка, заданная вручную (<span class="line">), не переносится, даже если шире границы — исключения по просьбе владельца */
   [data-page="direction"] .hero__title .line { white-space: nowrap; }
   /* подзаголовок уменьшен в той же пропорции, что заголовок: 32px * 100/120 */
-  [data-page="direction"] .hero__subtitle { font-size: 2.67rem; }
+  /* на странице направления подзаголовок длиннее, ему нужна строка пошире,
+     иначе заданный владельцем перенос дает лишнюю строку */
+  [data-page="direction"] .hero__subtitle { font-size: 2.67rem; max-width: 106rem; }
 }
 
 /* ---------- главная: о центре ---------- */
@@ -605,21 +607,42 @@ svg { display: block; flex-shrink: 0; }
 .cite__exports { margin-top: 2.8rem; display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem 3.2rem; }
 .cite__export { font-size: 2rem; color: var(--green); border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
 .cite__export:hover { color: var(--green-deep); border-color: currentColor; }
-.pub__main { display: flex; gap: 6rem; align-items: center; }
-.pub__body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3.7rem; }
-.pub__title { font-size: 2.8rem; font-weight: 300; line-height: 1.4; text-transform: uppercase; }
-.pub__title a:hover { color: var(--green); }
-.pub__authors { margin-top: 2.8rem; font-size: 2.8rem; font-weight: 500; line-height: 1.4; max-width: 97.5rem; }
-.pub__desc { display: flex; gap: 1.2rem; align-items: flex-start; }
-.pub__desc svg { width: 3.24rem; height: 4.44rem; margin-top: -1rem; }
-.pub__desc p {
-  position: relative; max-width: 92.4rem; font-family: var(--font-alt); font-size: 2.2rem; line-height: 1.25;
-  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+.pub__main { display: flex; gap: 6rem; align-items: stretch; }
+/* колонка с текстом тянется на высоту картинки: заголовок по ее верхнему краю,
+   ключевые теги по нижнему, абстракт занимает то, что осталось между ними */
+.pub__body { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 2.4rem; }
+/* заголовок не длиннее трех строк, иначе текст перерастает картинку */
+.pub__title {
+  font-size: 2.8rem; font-weight: 300; line-height: 1.4; text-transform: uppercase;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
-.pub__desc p::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5.1rem;
+.pub__title a:hover { color: var(--green); }
+/* химические формулы и обозначения в названии не переводим в верхний регистр */
+.pub__title .keep-case { text-transform: none; }
+/* список авторов не длиннее трех строк, иначе текст перерастает картинку;
+   полный состав остается в данных и в окне «Цитировать» */
+.pub__authors {
+  margin-top: 2.8rem; font-size: 2.8rem; font-weight: 500; line-height: 1.4; max-width: 97.5rem;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.pub__desc {
+  position: relative; flex: 1 1 0; min-height: 5.5rem; display: flex; gap: 1.2rem;
+  align-items: flex-start; overflow: hidden; cursor: pointer;
+}
+.pub__desc-btn { flex: none; color: inherit; transition: transform .25s; }
+.pub__desc svg { width: 3.24rem; height: 4.44rem; margin-top: -1rem; }
+.pub__desc-text { max-width: 92.4rem; font-family: var(--font-alt); font-size: 2.2rem; line-height: 1.25; }
+.pub__desc-text p + p { margin-top: 1.4rem; }
+/* затуманивание нижней строки, пока абстракт свернут */
+.pub__desc::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5.1rem; pointer-events: none;
   background: linear-gradient(0deg, var(--row-bg, #fff) 2.5%, transparent 96%);
 }
+.pub__desc.is-open { flex: none; overflow: visible; }
+.pub__desc.is-open::after { display: none; }
+.pub__desc.is-open .pub__desc-btn { transform: rotate(90deg); }
+/* ключевые теги всегда в одну строку: что не поместилось, не показываем */
+.pub__tags .tags { max-height: 4.2rem; overflow: hidden; }
 .pub:nth-child(even) { --row-bg: var(--bg-soft); }
 .pub__tags-title { font-size: 3.2rem; font-weight: 500; line-height: 1.2; letter-spacing: -0.05rem; margin-bottom: 2rem; }
 .pub__img {
@@ -642,9 +665,11 @@ svg { display: block; flex-shrink: 0; }
 }
 .pub-list.is-list .pub__img, .pub-list.is-list .pub__tags-title { display: none; }
 .pub-list.is-list .pub__main { align-items: stretch; }
-.pub-list.is-list .pub__title { font-size: 2.8rem; }
-.pub-list.is-list .pub__authors { margin-top: 1.2rem; font-size: 2.4rem; max-width: none; }
-.pub-list.is-list .pub__desc p { max-width: 152.8rem; -webkit-line-clamp: 2; }
+.pub-list.is-list .pub__title { font-size: 2.8rem; -webkit-line-clamp: unset; display: block; }
+.pub-list.is-list .pub__authors { margin-top: 1.2rem; font-size: 2.4rem; max-width: none; -webkit-line-clamp: unset; display: block; }
+.pub-list.is-list .pub__desc { max-height: 7rem; }
+.pub-list.is-list .pub__desc.is-open { max-height: none; }
+.pub-list.is-list .pub__desc-text { max-width: 152.8rem; }
 .pub-list.is-list .pub__body { gap: 2.8rem; }
 
 .more { margin-top: 6.4rem; display: flex; flex-direction: column; align-items: center; gap: 2.4rem; }
@@ -802,6 +827,9 @@ select.field {
 
 /* ---------- планшеты и телефоны ---------- */
 @media (max-width: 1100px) {
+  /* на узком экране перенос, заданный владельцем в подзаголовке, только мешает:
+     строка и так короткая, текст переносится сам */
+  .hero__subtitle br { display: none; }
   html { font-size: 6.4px; }
   :root { --gutter: 4rem; --section-gap: 12rem; }
   .site-header__right { gap: 1.6rem; }

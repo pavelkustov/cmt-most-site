@@ -18,11 +18,16 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "assets" / "js" / "data.js"
 DB = ROOT / "docs" / "publications_db.json"
 SKIP_TYPES = {"peer-review", "dataset", "retraction", "other", "dissertation"}
+# уведомления о поправках и об озабоченности редакции: это не самостоятельные работы,
+# на сайт они не идут (решение владельца, 21.09.2026)
+NOTICE = re.compile(r"^\s*(correction|corrigendum|erratum|addendum|expression of concern|"
+                    r"editorial expression|retraction note|publisher correction)\b", re.I)
 
 
 def retracted(rec):
-    """Отозванные работы на сайт не идут, как и уведомления об отзыве."""
-    return bool(rec["retracted"]) or rec["title"].upper().startswith("RETRACTED")
+    """Отозванные работы на сайт не идут, как и уведомления об отзыве и о поправках."""
+    return (bool(rec["retracted"]) or rec["title"].upper().startswith("RETRACTED")
+            or bool(NOTICE.match(rec["title"] or "")))
 
 
 def js(value):

@@ -8,3 +8,5 @@ desktop.ini
 design/assets_manifest.txt
 design/render-*.png
 CLAUDE.md
+data/sjr/*
+!data/sjr/README.md

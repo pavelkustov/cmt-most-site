@@ -150,14 +150,51 @@ function openCiteSheet(p) {
 // одна работа может относиться сразу к нескольким направлениям, поэтому direction бывает и списком
 const pubDirs = (p) => (Array.isArray(p.direction) ? p.direction : p.direction ? [p.direction] : []);
 
+const SPLIT = /\n{2,}/;  // абзацы абстракта
+
+/* Абстракт берется из assets/js/abstracts.js по DOI и показывается как есть, на языке
+   статьи. Если абстракта нет, показываем короткое описание из данных, когда оно написано. */
+function abstractOf(p) {
+  const doi = (p.doi || "").replace("https://doi.org/", "").toLowerCase();
+  const full = doi && window.ABSTRACTS ? window.ABSTRACTS[doi] : "";
+  return full || p.desc || "";
+}
+
+/* Название публикации выводится заглавными, а химическую формулу это портит:
+   MAPbI3 превращается в MAPBI3, c-Si в C-SI. Такие куски оставляем как в оригинале. */
+const FORMULA = /^(?:[A-Z][a-z]?[0-9]*)+$/;          // TiO2, CsPbBr3, ZnO, HeLa
+const PREFIX = /^[a-z]{1,2}-[A-Z]/;                  // c-Si, fs-Laser, a-SiC
+const LOWUP = /^[a-z][A-Z]/;                         // pH, mRNA
+const ABBR = /^[A-Z]{2,}[a-z]+[0-9]*$/;              // MOFs, DNAzyme
+
+function keepsCase(word) {
+  const core = word.replace(/^[^0-9A-Za-z]+|[^0-9A-Za-z+]+$/g, "");
+  if (core.length < 2 || !/[a-z]/.test(core) || !/[A-Z]/.test(core)) return false;
+  if (PREFIX.test(core) || LOWUP.test(core) || ABBR.test(core)) return true;
+  // формула может быть склеена через дробь или дефис: Ag/TiO2, ZnO-based
+  return core.split(/[/:-]/).some((part) => {
+    if (!FORMULA.test(part)) return false;
+    const elements = part.match(/[A-Z][a-z]?[0-9]*/g) || [];
+    return elements.length > 1 || /[0-9]/.test(part);
+  });
+}
+
+// разбиваем по пробелам, чтобы не трогать остальной текст названия
+const titleHTML = (title) => title.split(/(\s+)/)
+  .map((part) => (keepsCase(part) ? `<span class="keep-case">${esc(part)}</span>` : esc(part)))
+  .join("");
+
 function pubHTML(p, index) {
   const image = p.image
     ? `<img src="${img(p.image)}" alt="" loading="lazy">`
     : `<span class="pub__img-placeholder">${esc(p.journal)}</span>`;
-  // у статей в российских журналах DOI бывает не присвоен, тогда ссылок нет
-  const title = p.doi
-    ? `<a href="${esc(p.doi)}" target="_blank" rel="noopener">${esc(p.title)}</a>`
-    : esc(p.title);
+  // у статей в российских журналах DOI бывает не присвоен: тогда ведем на страницу издателя,
+  // ссылку владелец находит руками, она лежит в поле url
+  const link = p.doi || p.url || "";
+  const title = link
+    ? `<a href="${esc(link)}" target="_blank" rel="noopener">${titleHTML(p.title)}</a>`
+    : titleHTML(p.title);
+  const text = abstractOf(p);
   return `
   <article class="pub">
     <div class="pub__meta">
@@ -174,15 +211,18 @@ function pubHTML(p, index) {
           <h3 class="pub__title">${title}</h3>
           <p class="pub__authors">${esc(p.authors)}</p>
         </div>
-        ${p.desc ? `<div class="pub__desc">${ICONS.chevronPoint}<p>${esc(p.desc)}</p></div>` : ""}
-        ${p.tags && p.tags.length ? `<div>
+        ${text ? `<div class="pub__desc">
+          <button class="pub__desc-btn" type="button" aria-expanded="false" title="Показать абстракт целиком">${ICONS.chevronPoint}</button>
+          <div class="pub__desc-text">${text.split(SPLIT).map((part) => `<p>${esc(part)}</p>`).join("")}</div>
+        </div>` : ""}
+        ${p.tags && p.tags.length ? `<div class="pub__tags">
           <p class="pub__tags-title">Ключевые теги</p>
           ${tagsHTML(p.tags)}
         </div>` : ""}
       </div>
       <div class="pub__img${p.image ? "" : " is-empty"}">
         ${image}
-        ${p.doi ? `<a class="pub__img-link" href="${esc(p.doi)}" target="_blank" rel="noopener">подробнее ${ICONS.arrowRight}</a>` : ""}
+        ${link ? `<a class="pub__img-link" href="${esc(link)}" target="_blank" rel="noopener">подробнее ${ICONS.arrowRight}</a>` : ""}
       </div>
     </div>
   </article>`;
@@ -195,6 +235,18 @@ function mountPubList(root, getItems, { pageSize = Infinity } = {}) {
   const toggle = root.querySelectorAll(".view-toggle__btn");
   let shown = pageSize;
   let items = [];
+
+  // абстракт свернут до высоты карточки, по клику раскрывается целиком
+  list.addEventListener("click", (e) => {
+    const desc = e.target.closest(".pub__desc");
+    if (!desc || e.target.closest("a")) return;
+    const open = desc.classList.toggle("is-open");
+    const btn = desc.querySelector(".pub__desc-btn");
+    if (btn) {
+      btn.setAttribute("aria-expanded", String(open));
+      btn.title = open ? "Свернуть абстракт" : "Показать абстракт целиком";
+    }
+  });
 
   let view = "cards";
   try { view = localStorage.getItem("pubView") || "cards"; } catch (e) { /* хранилище недоступно */ }
@@ -299,7 +351,7 @@ function initHome() {
       <div class="dir-card__top">
         <h3 class="dir-card__title">${esc(d.title)}</h3>
         <div class="dir-card__row">
-          <div class="dir-card__stats">${statsHTML([[d.team, "человек в команде"], [d.pubs, "публикаций"]])}</div>
+          <div class="dir-card__stats">${statsHTML([[d.team, "человек в команде"], [PUBLICATIONS.filter((p) => pubDirs(p).includes(d.id)).length, "публикаций"]])}</div>
           <span class="square-btn" aria-hidden="true">${ICONS.arrowUpRight}</span>
         </div>
       </div>
@@ -327,6 +379,22 @@ function personRank(degree = "") {
   return stage[1] + (year ? 5 - year : 5);
 }
 
+/* Метрики направления считаются по его же публикациям, а не берутся из анкет:
+   цитирования и квартили приходят из базы работ (tools/enrich_publications.py). */
+function pubMetrics(pubs) {
+  const cites = pubs.reduce((sum, p) => sum + (p.cited || 0), 0);
+  const ranked = [...pubs].map((p) => p.cited || 0).sort((a, b) => b - a);
+  const h = ranked.filter((c, i) => c >= i + 1).length;
+  const known = pubs.filter((p) => p.quartile);
+  const top = known.filter((p) => p.quartile === "Q1" || p.quartile === "Q2");
+  const since = new Date().getFullYear() - 2;
+  const recent = pubs.filter((p) => Number(p.date.slice(0, 4)) >= since).length;
+  return {
+    cites, h, recent, since,
+    topShare: known.length >= 3 ? Math.round((top.length / known.length) * 100) : 0,
+  };
+}
+
 function teamOf(d) {
   return d.people
     .map((name) => ({ name, ...(window.PEOPLE?.[name] || {}) }))
@@ -343,15 +411,24 @@ function initDirection() {
   // у направлений без своей картинки фоном идет общий первый экран сайта
   document.querySelector(".hero__bg img").src = img(d.hero || d.image || "hero-home.webp");
   document.querySelector(".hero__title").innerHTML = d.heroTitle || esc(d.title);
-  document.querySelector(".hero__subtitle").textContent = d.subtitle || "Научное направление ЦМТ «Мост»";
+  // в подзаголовке разрешен только перенос строки: где делить фразу, решает владелец
+  document.querySelector(".hero__subtitle").innerHTML =
+    (d.subtitle || "Научное направление ЦМТ «Мост»").split("<br>").map(esc).join("<br>");
 
   const about = document.querySelector(".dir-about");
   const text = d.about
     ? d.about.map((p) => `<p>${esc(p)}</p>`).join("")
     : `<p>Описание направления готовится. Пока можно написать нам, и мы расскажем о проектах команды.</p>`;
-  const stats = [[d.team, plural(d.team, "человек", "человека", "человек") + " в команде"], [d.pubs, "публикаций"]];
-  if (d.awards) stats.push([d.awards, "наград"]);
-  if (d.conferences) stats.push([d.conferences, "конференций"]);
+  const dirPubs = PUBLICATIONS.filter((p) => pubDirs(p).includes(d.id)).sort((a, b) => b.date.localeCompare(a.date));
+  const m = pubMetrics(dirPubs);
+  const stats = [
+    [d.team, plural(d.team, "человек", "человека", "человек") + " в команде"],
+    [dirPubs.length, "публикаций"],
+    [m.cites, "цитирований"],
+    [m.h, "индекс Хирша"],
+    [m.topShare ? m.topShare + "%" : 0, "статей в Q1 и Q2"],
+    [m.recent, "статей с " + m.since + " года"],
+  ];
   about.querySelector(".dir-about__text").innerHTML = text;
   // тема письма из карточки-приглашения: сразу видно, по какому направлению запрос
   about.querySelector(".dir-cta__btn").dataset.writeSubject = `Совместная работа: ${d.title}`;
@@ -374,7 +451,7 @@ function initDirection() {
   }
 
   const pubsSection = document.querySelector(".pubs");
-  const pubs = PUBLICATIONS.filter((p) => pubDirs(p).includes(d.id)).sort((a, b) => b.date.localeCompare(a.date));
+  const pubs = dirPubs;
   if (!pubs.length) { pubsSection.remove(); return; }
   pubsSection.querySelector(".view-toggle-slot").outerHTML = viewToggleHTML();
   mountPubList(pubsSection, () => pubs, { pageSize: 6 }).render();
