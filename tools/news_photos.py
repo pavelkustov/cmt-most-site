@@ -27,10 +27,10 @@ from PIL import Image, ImageOps
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from news_from_form import STORE, write_js, write_store  # разбор анкеты живет там
+from sources import PHOTOS as SRC  # снимки лежат в data/photos, путь ведет общий модуль
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 IMG = ROOT / "assets" / "img"
-SRC = ROOT.parent / "Фото"
 # ширина и соотношение сторон для двух мест на странице. Числа из макета:
 # карточка 520x330 и новость месяца 900x559 это 3:2, колонка окна новости 900x990
 SIZES = {"": (1600, 3 / 2), "-popup": (1100, 900 / 990)}
@@ -197,6 +197,8 @@ def main():
 
     done, skipped, blind, left = [], [], [], []
     for path in sorted(src.iterdir()):
+        if path.name.lower() == "readme.md":  # пояснение к папке, а не снимок
+            continue
         number = re.fullmatch(r"(\d+)", path.stem)
         if not number or path.suffix.lower() not in (".jpg", ".jpeg", ".png", ".jfif", ".webp"):
             skipped.append(path.name)

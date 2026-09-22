@@ -519,7 +519,7 @@ svg { display: block; flex-shrink: 0; }
 .dir-cta__text { margin-top: 1.2rem; max-width: 62rem; font-size: 2rem; font-weight: 300; line-height: 1.4; color: var(--ink); }
 .dir-cta__btn { flex-shrink: 0; }
 .dir-about__text p + p { margin-top: 1.6rem; }
-.dir-about__side { flex: 0 0 52.7rem; display: flex; flex-direction: column; gap: 6.8rem; }
+.dir-about__side { flex: 0 0 52.7rem; display: flex; flex-direction: column; gap: 6.8rem; justify-content: space-between; }
 .dir-stats { display: grid; grid-template-columns: 19.1rem 19.1rem; column-gap: 9.2rem; row-gap: 4rem; }
 .dir-stats .stat__label { opacity: .4; }
 .dir-about__side .tags { gap: 1.3rem .8rem; }

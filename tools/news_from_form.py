@@ -16,14 +16,17 @@ import json
 import pathlib
 import re
 import shutil
+import sys
 import tempfile
 
 import docx
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from sources import FORM  # анкета лежит в data/news, путь ведет общий модуль
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "assets" / "js" / "data.js"
 STORE = ROOT / "docs" / "news.json"
-FORM = ROOT.parent / "011_Новости.docx"
 NL = chr(10)
 
 # Адрес новости в ссылке вида news.html?open=..., поэтому имя короткое и латинское.

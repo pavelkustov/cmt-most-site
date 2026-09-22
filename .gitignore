@@ -10,3 +10,9 @@ design/render-*.png
 CLAUDE.md
 data/sjr/*
 !data/sjr/README.md
+data/book/*
+!data/book/README.md
+data/news/*
+!data/news/README.md
+data/photos/*
+!data/photos/README.md

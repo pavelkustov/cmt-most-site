@@ -21,15 +21,18 @@ import pathlib
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
 import time
 import urllib.parse
 import urllib.request
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from sources import BOOK as XLSX  # книга лежит в data/book, путь ведет общий модуль
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "assets" / "js" / "data.js"
 OUT = ROOT / "docs" / "publications_db.json"
-XLSX = ROOT.parent / "ЦМТ Мост.xlsx"
 SHEET = "Сотрудники центра"
 
 API = "https://api.openalex.org"

@@ -13,12 +13,15 @@ import argparse
 import json
 import pathlib
 import re
+import sys
 
 import openpyxl
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from sources import BOOK  # книга лежит в data/book, путь ведет общий модуль
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "assets" / "js" / "data.js"
-BOOK = ROOT.parent / "ЦМТ Мост.xlsx"
 NL = chr(10)
 
 
