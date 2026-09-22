@@ -38,14 +38,14 @@ window.PEOPLE = {
   "Синьи Чжу": { degree: "аспирант 3-го года", post: "инженер" },
   "Арина Чередникова": { degree: "аспирант 3-го года", post: "инженер" },
   "Павел Филатов": { degree: "аспирант 3-го года", post: "младший научный сотрудник" },
-  "Данни Чжао": { degree: "аспирант 2-го года" },
+  "Данни Чжао": { degree: "аспирант 2-го года", post: "инженер" },
   "Иван Важенин": { degree: "аспирант 2-го года", post: "лаборант" },
   "Михаил Висков": { degree: "аспирант 2-го года", post: "инженер" },
   "Фидан Нахметова": { degree: "аспирант 2-го года", post: "инженер" },
   "Мартин Сандомирский": { degree: "магистр 2-го года", post: "лаборант" },
   "Ван Гулинян": { degree: "магистр 2-го года", post: "лаборант" },
   "Дарья Сенникова": { degree: "магистр 2-го года", post: "лаборант" },
-  "Александра Ахундзянова": { degree: "магистр 2-го года" },
+  "Александра Ахундзянова": { degree: "магистр 2-го года", post: "инженер" },
   "Мария Папулова": { degree: "аспирант 2-го года", post: "лаборант" },
   "Софья Гонтова": { degree: "магистр 1-го года", post: "лаборант" },
   "Арина Бурлакова": { degree: "магистр 1-го года", post: "лаборант" },
@@ -53,7 +53,7 @@ window.PEOPLE = {
   "Александр Лошкарев": { degree: "бакалавр", post: "лаборант" },
   "Дарья Петренко": { degree: "магистр", post: "инженер" },
   /* этих двоих нет в книге «ЦМТ Мост.xlsx», данные взяты из анкет направлений */
-  "Александра-Мария Иванова": { degree: "студент" },
+  "Александра-Мария Иванова": { degree: "магистр 2-го года", post: "инженер" },
   "Алексий Валентюк": { degree: "аспирант 1-го года", post: "инженер" },
 };
 
@@ -318,7 +318,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1109/iclo69056.2026.11624494",
   },
   {
-    date: "2026-05-29", journal: "ACS Applied Nano Materials", cited: 0, quartile: "Q1", direction: ["eco-nano"],
+    date: "2026-05-29", journal: "ACS Applied Nano Materials", cited: 0, quartile: "Q1", direction: ["eco-nano", "microfluidics"],
     title: "Continuous Separation of Laser-Ablated Silicon Nanoparticles Using a Spiral Inertial Microfluidic Device: A Route to Monodisperse Mie-Resonant Colloids for Nanophotonics",
     authors: "Sabina Bikmetova, Ivan Reznik, Daria Sennikova, Pavel Kustov, Artur Karamyants, Liliia Dvoretckaia, Lidia Mikhailova, Konstantin Arabuli, Kirill Lepik, Mikhail V. Zyuzin, Dmitry Zuev",
     tags: ["Nanophotonics", "Microfluidics", "Dispersity", "Nanoparticle", "Silicon", "Colloid", "Spiral", "Microtechnology"],
@@ -346,7 +346,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1016/j.photonics.2026.101586",
   },
   {
-    date: "2026-04-30", journal: "Photonics and Nanostructures - Fundamentals and Applications", cited: 1, quartile: "Q2", direction: ["eco-nano"],
+    date: "2026-04-30", journal: "Photonics and Nanostructures - Fundamentals and Applications", cited: 1, quartile: "Q2", direction: ["eco-nano", "microfluidics"],
     title: "Centrifugal microfluidics for size-selective separation of polydisperse Mie-resonant silicon nanoparticles",
     authors: "Sabina Bikmetova, Daria Sennikova, Mikhail V. Zyuzin, Dmitry Zuev",
     tags: ["Microfluidics", "Silicon", "Dispersity", "Nanoparticle", "Polystyrene", "Colloid", "Centrifugal force"],
@@ -375,7 +375,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1021/jacs.6c00409",
   },
   {
-    date: "2026-04-03", journal: "Известия вузов Пищевая технология", cited: 0, direction: [],
+    date: "2026-04-03", journal: "Известия вузов Пищевая технология", cited: 0, direction: ["drug-delivery"],
     title: "СРАВНИТЕЛЬНАЯ ОЦЕНКА ФИЗИКО-ХИМИЧЕСКИХ СВОЙСТВ ЛИПОСОМАЛЬНЫХ СИСТЕМ НА ОСНОВЕ СОЕВЫХ И ПОДСОЛНЕЧНЫХ ЛЕЦИТИНОВ",
     authors: "Ф.М. Нахметова, В.Ю. Маркина",
     tags: ["липосомы", "промышленные фосфатиды", "соевый лецитин", "подсолнечный лецитин", "липидный состав", "фосфолипиды", "ресвератрол", "инкапсуляция"],
@@ -439,7 +439,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1016/j.commatsci.2025.114465",
   },
   {
-    date: "2026-02-09", journal: "Photonics and Nanostructures - Fundamentals and Applications", cited: 0, quartile: "Q2", direction: [],
+    date: "2026-02-09", journal: "Photonics and Nanostructures - Fundamentals and Applications", cited: 0, quartile: "Q2", direction: ["microfluidics"],
     title: "Stoichiometry-dependent ROS generation efficiency in ternary quantum dots",
     authors: "Ivan A. Reznik, Arina A. Cherednikova, Denis V. Danilov, Aleksandra V. Koroleva, Evgeniy V. Zhizhin, Sergei A. Cherevkov, Mikhail V. Zyuzin",
     tags: ["Photoluminescence", "Quantum dot", "Intersystem crossing", "Stoichiometry", "Quantum efficiency", "Photodegradation", "Excited state", "Ternary operation", "Luminescence"],
@@ -732,7 +732,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.37188/lam.2025.062",
   },
   {
-    date: "2025-01-01", journal: "Lab on a Chip", cited: 5, quartile: "Q1", direction: [],
+    date: "2025-01-01", journal: "Lab on a Chip", cited: 5, quartile: "Q1", direction: ["microfluidics"],
     title: "Scalable and ultrafast CAR-T cell production using microfluidics",
     authors: "Vladislav Markelov, Konstantin V. Arabuli, Ivan Gaponenko, Vladislav Sergeev, Alena Shakirova, Kirill V. Lepik, Alexander D. Kulagin, Mikhail V. Zyuzin",
     tags: ["Chimeric antigen receptor", "T cell", "CD8", "Phenotype", "Bottleneck", "Cell", "Cell biology", "Antigen", "Immunology", "Immune system", "Genetics", "Embedded system", "Biology", "Chemistry", "Computer science"],
@@ -959,7 +959,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1117/12.3022176",
   },
   {
-    date: "2024-05-23", journal: "Biomaterials Advances", cited: 5, quartile: "Q1", direction: [],
+    date: "2024-05-23", journal: "Biomaterials Advances", cited: 5, quartile: "Q1", direction: ["microfluidics"],
     title: "On-chip fabrication of calcium carbonate nanoparticles loaded with various compounds using microfluidic approach",
     authors: "Konstantin V. Arabuli, Elena Kopoleva, Anas Akenoun, Lidia V. Mikhailova, Elena Petrova, Albert R. Muslimov, Dina A. Senichkina, Sergey Tsymbal, Alena I. Shakirova, Alexander I. Ignatiev, Kirill V. Lepik, Mikhail V. Zyuzin",
     tags: ["Fabrication", "Calcium carbonate", "Microfluidics", "Nanoparticle", "Chip", "Microfluidic chip", "Composite material", "Telecommunications", "Nanotechnology", "Materials science", "Computer science"],
@@ -973,7 +973,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1021/acs.nanolett.4c00325",
   },
   {
-    date: "2024-05-15", journal: "Micromachines", cited: 2, quartile: "Q2", direction: [],
+    date: "2024-05-15", journal: "Micromachines", cited: 2, quartile: "Q2", direction: ["microfluidics"],
     title: "Synthesis of Submicron CaCO3 Particles in 3D-Printed Microfluidic Chips Supporting Advection and Diffusion Mixing",
     authors: "Ivan Reznik, Ekaterina Kolesova, Anna Pestereva, Konstantin Baranov, Yury Osin, Kirill Bogdanov, Jacobus Swart, Stanislav Moshkalev, Anna Orlova",
     tags: ["Microfluidics", "Mixing", "Diffusion", "Advection", "Materials science", "Nanotechnology", "Physics"],
@@ -1001,7 +1001,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1117/12.3022611",
   },
   {
-    date: "2024-03-18", journal: "Journal of Pharmaceutical Sciences", cited: 5, quartile: "Q2", direction: [],
+    date: "2024-03-18", journal: "Journal of Pharmaceutical Sciences", cited: 5, quartile: "Q2", direction: ["drug-delivery"],
     title: "Anticancer and Chemosensitizing Effects of Menadione-Containing Peptide-Targeted Solid Lipid Nanoparticles",
     authors: "Mohamed Zoughaib, Tatiana N. Pashirova, Viktoriia Nikolaeva, Marat Kamalov, Fidan Nakhmetova, Diana V. Salakhieva, Timur I. Abdullin",
     tags: ["Solid lipid nanoparticle", "Peptide", "Menadione", "Pharmacology", "Nanoparticle", "Solid tumor", "Drug", "Internal medicine", "Cancer", "Oxidative stress", "Chemistry", "Combinatorial chemistry", "Biochemistry", "Medicine", "Nanotechnology", "Materials science"],
@@ -1036,7 +1036,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.2139/ssrn.4869185",
   },
   {
-    date: "2024-01-01", journal: "Journal of Materials Chemistry A", cited: 15, quartile: "Q1", direction: [],
+    date: "2024-01-01", journal: "Journal of Materials Chemistry A", cited: 15, quartile: "Q1", direction: ["microfluidics"],
     title: "Continuous fabrication of MOF-based memory elements via droplet microfluidic synthesis",
     authors: "Alina Kuleshova, Irina Koriakina, Anastasia Lubimova, Maria Timofeeva, Ekaterina Gunina, Kirill Bogdanov, Ivan Reznik, Svyatoslav A. Povarov, Soslan Khubezhov, Dmitriy Guzei, Andrey Minakov, Kazumi Toda-Peters, Amy Q. Shen, Valentin Milichko, Mikhail V. Zyuzin",
     tags: ["Fabrication", "Microfluidics", "Materials science", "Nanotechnology", "Medicine"],
@@ -1099,7 +1099,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1021/acsanm.3c04494",
   },
   {
-    date: "2023-12-04", journal: "Nanomaterials", cited: 8, quartile: "Q1", direction: [],
+    date: "2023-12-04", journal: "Nanomaterials", cited: 8, quartile: "Q1", direction: ["microfluidics"],
     title: "Microfluidic Vaterite Synthesis: Approaching the Nanoscale Particles",
     authors: "Ivan Reznik, Mikhail A. Baranov, Sergei A. Cherevkov, Petr V. Konarev, Vladimir V. Volkov, Stanislav Moshkalev, Daria B. Trushina",
     tags: ["Vaterite", "Microfluidics", "Dynamic light scattering", "Microreactor", "Nanoparticle", "Particle size", "Crystallization", "Particle", "Nanoscopic scale", "Calcium carbonate", "Composite material", "Materials science", "Nanotechnology", "Chemical engineering", "Chemistry", "Organic chemistry"],
@@ -1241,7 +1241,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1016/j.photonics.2023.101145",
   },
   {
-    date: "2023-07-12", journal: "Technologies", cited: 4, quartile: "Q1", direction: [],
+    date: "2023-07-12", journal: "Technologies", cited: 4, quartile: "Q1", direction: ["microfluidics"],
     title: "Optical Properties of AgInS2 Quantum Dots Synthesized in a 3D-Printed Microfluidic Chip",
     authors: "Konstantin Baranov, Ivan Reznik, Sofia Karamysheva, Jacobus W. Swart, Stanislav Moshkalev, Anna Orlova",
     tags: ["Quantum dot", "Microfluidics", "Photonics", "Electronics", "Chip", "Scalability", "Microfluidic chip", "Colloid", "Quantum yield", "Nanoparticle", "Electrical engineering", "Telecommunications", "Fluorescence", "Nanotechnology", "Materials science", "Optoelectronics", "Computer science", "Chemistry", "Engineering", "Physics"],
@@ -1341,7 +1341,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1021/acsnano.3c00423",
   },
   {
-    date: "2023-03-16", journal: "ACS Applied Nano Materials", cited: 9, quartile: "Q1", direction: [],
+    date: "2023-03-16", journal: "ACS Applied Nano Materials", cited: 9, quartile: "Q1", direction: ["microfluidics"],
     title: "Droplet Microfluidic Synthesis of Halide Perovskites Affords Upconversion Lasing in Mie-Resonant Cuboids",
     authors: "Irina Koryakina, Sabina Bikmetova, Daria Khmelevskaia, Daria Markina, Alina Kuleshova, Lev Logunov, Alexander S. Timin, Anatoly Pushkarev, Sergey Makarov, Mikhail V. Zyuzin",
     tags: ["Lasing threshold", "Microfluidics", "Microreactor", "Laser", "Nucleation", "Halide", "Particle", "Wavelength", "Materials science", "Optoelectronics", "Nanotechnology", "Optics", "Chemistry"],
@@ -1449,7 +1449,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.25205/978-5-4437-1526-1-91",
   },
   {
-    date: "2023-01-01", journal: "", cited: 0, direction: [],
+    date: "2023-01-01", journal: "", cited: 0, direction: ["drug-delivery"],
     title: "CYTOTOXIC AND PROOXIDANT EFFECTS OF AN ANTITUMOR FORMULATION OF MENADIONE BASED ON SOLID LIPID NANOPARTICLES",
     authors: "V.A. Nikolaeva, M. Zoughaib, M.I. Kamalov, F.M. Nakhmetova, M.V. Khokhlachev, T.N. Pashirova, T.I. Abdullin, D.V. Salakhieva",
     tags: ["Menadione", "Solid lipid nanoparticle", "Nanoparticle", "Solid tumor", "Peptide", "Cytotoxic T cell", "Oxidative phosphorylation", "Colloid", "Oxidative stress", "In vitro", "Cancer", "Chemistry", "Biochemistry", "Nanotechnology", "Materials science", "Organic chemistry", "Biology"],
@@ -1498,7 +1498,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1007/s11182-022-02742-x",
   },
   {
-    date: "2022-10-28", journal: "Physics of Fluids", cited: 5, quartile: "Q1", direction: [],
+    date: "2022-10-28", journal: "Physics of Fluids", cited: 5, quartile: "Q1", direction: ["microfluidics"],
     title: "A simple and accessible approach for processing photopolymer master molds for the fabrication of microfluidic polydimethylsiloxane devices",
     authors: "A. Otroshchenko, M. V. Zyuzin",
     tags: ["Polydimethylsiloxane", "Microfluidics", "Photopolymer", "Fabrication", "Soft lithography", "Rapid prototyping", "PDMS stamp", "3D printing", "Curing", "Lithography", "Mold", "Polymer", "Composite material", "Nanotechnology", "Materials science", "Optoelectronics"],
@@ -1527,7 +1527,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1088/1755-1315/1096/1/012004",
   },
   {
-    date: "2022-09-28", journal: "Chemical Engineering Journal", cited: 67, quartile: "Q1", direction: [],
+    date: "2022-09-28", journal: "Chemical Engineering Journal", cited: 67, quartile: "Q1", direction: ["microfluidics"],
     title: "Microfluidic synthesis of metal-organic framework crystals with surface defects for enhanced molecular loading",
     authors: "Irina G. Koryakina, Semyon V. Bachinin, Elena N. Gerasimova, Maria V. Timofeeva, Sergei A. Shipilovskikh, Anton S. Bukatin, Aleksandr Sakhatskii, Alexander S. Timin, Valentin A. Milichko, Mikhail V. Zyuzin",
     tags: ["Microfluidics", "Drug delivery", "Porosity", "Metal-organic framework", "Fluorescence", "Molecule", "Solvothermal synthesis", "Composite material", "Materials science", "Nanotechnology", "Chemical engineering", "Chemistry", "Organic chemistry"],
@@ -1910,7 +1910,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.3390/cells10112894",
   },
   {
-    date: "2021-10-19", journal: "Advances in Colloid and Interface Science", cited: 23, quartile: "Q1", direction: [],
+    date: "2021-10-19", journal: "Advances in Colloid and Interface Science", cited: 23, quartile: "Q1", direction: ["microfluidics"],
     title: "Microfluidic synthesis of optically responsive materials for nano- and biophotonics",
     authors: "Irina G. Koryakina, Polina K. Afonicheva, Konstantin V. Arabuli, Anatoly A. Evstrapov, Alexander S. Timin, Mikhail V. Zyuzin",
     tags: ["Biophotonics", "Microfluidics", "Nanomaterials", "Nanoparticle", "Photonics", "Nanotechnology", "Materials science", "Optoelectronics"],
@@ -2043,7 +2043,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1016/j.msec.2021.112161",
   },
   {
-    date: "2021-04-14", journal: "Chemistry of Materials", cited: 20, quartile: "Q1", direction: [],
+    date: "2021-04-14", journal: "Chemistry of Materials", cited: 20, quartile: "Q1", direction: ["microfluidics"],
     title: "Single-Step Microfluidic Synthesis of Halide Perovskite Nanolasers in Suspension",
     authors: "Irina G. Koryakina, Maksim Naumochkin, Daria I. Markina, Soslan A. Khubezhov, Anatoly P. Pushkarev, Anatoly A. Evstrapov, Sergey V. Makarov, Mikhail V. Zyuzin",
     tags: ["Halide", "Perovskite", "Microfluidics", "Suspension", "Materials science", "Optoelectronics", "Nanotechnology", "Chemical engineering", "Chemistry", "Inorganic chemistry", "Engineering"],
@@ -2388,7 +2388,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1063/5.0032009",
   },
   {
-    date: "2020-01-01", journal: "AIP conference proceedings", cited: 0, direction: [],
+    date: "2020-01-01", journal: "AIP conference proceedings", cited: 0, direction: ["microfluidics"],
     title: "Microfluidics-based synthesis of lead cesium bromide perovskite microcrystals",
     authors: "Irina Koryakina, Daria Markina, Anatoly Evstrapov, Anatoly Pushkarev, Sergey Makarov, Mikhail V. Zyuzin",
     tags: ["Microfluidics", "Polydimethylsiloxane", "Perovskite", "Reagent", "Bromide", "Materials science", "Nanotechnology", "Chemical engineering", "Chemistry", "Inorganic chemistry", "Organic chemistry"],
@@ -2669,7 +2669,7 @@ window.PUBLICATIONS = [
     doi: "https://doi.org/10.1117/12.2320988",
   },
   {
-    date: "2018-09-01", journal: "Journal of Physics Conference Series", cited: 0, direction: [],
+    date: "2018-09-01", journal: "Journal of Physics Conference Series", cited: 0, direction: ["microfluidics"],
     title: "Silica microcarriers produced from a microfluidics-generated emulsion",
     authors: "A D Trofimov, A A Goncharenko, A R Muslimov, A S Timin, M V Zyuzin, A A Evstrapov",
     tags: ["Emulsion", "Polydimethylsiloxane", "Microfluidics", "Microcarrier", "Chromatography", "Materials science", "Chemical engineering", "Nanotechnology", "Chemistry"],
@@ -3592,26 +3592,579 @@ window.PUBLICATIONS = [
   },
 ];
 
-/* Новости. В макете карточки-заглушки одинаковые, заменить на реальные. */
-const PLACEHOLDER_NEWS = {
-  tag: "Грант", date: "2026-05-14", image: "news-1.webp",
-  title: "Сотрудники центра выступили на ICLO-2026",
-  text: "Финансирование направлено на новое оборудование для синтеза квантовых точек и масштабирование прикладных R&D-проектов с индустриальными партнерами",
-};
-
+/* Новости. Переносит из анкеты «011_Новости.docx» python tools/news_from_form.py,
+   разобранный список лежит в docs/news.json. Руками правим только через анкету. */
 window.NEWS = [
   {
-    id: "kustov-phd", featured: true, tag: "Достижение", date: "2026-05-14", image: "news-featured-card.webp", popupImage: "news-featured-popup.webp",
+    id: "nlp-school-2026", featured: true, tag: "Конференция", date: "2026-09-07", image: "news-nlp-school-2026.webp?v=29f2e0f0", popupImage: "news-nlp-school-2026-popup.webp?v=44838e71",
+    title: "Лидия Михайлова — <br> приглашенный лектор школы <br> по нелинейной фотонике",
+    text: "Лидия Михайлова выступила с приглашенной лекцией на X международной школе молодых ученых «Нелинейная и биомедицинская фотоника» в Новосибирске.",
+    body: {
+      lead: [
+        "Лидия Михайлова выступила в качестве приглашенного лектора на X международной школе молодых ученых «Нелинейная и биомедицинская фотоника», прошедшей с 1 по 4 сентября 2026 года в Академгородке г. Новосибирска на базе НГУ. Тема ее доклада — «Светоиндуцированная тераностика: оптическая термометрия на наномасштабе и терапия».",
+      ],
+      note: [
+        "Школа по нелинейной фотонике проводится с 2017 года для студентов, аспирантов, молодых ученых и кандидатов наук в возрасте до 35 лет. Программа охватывает широкий спектр проблем — от фундаментальных исследований до актуальных практических применений технологий фотоники. Ежегодно в рамках мероприятия читается порядка 30 лекций от ведущих экспертов, которые посещают более 70 слушателей. Участие Лидии Михайловой в качестве приглашенного лектора подтверждает высокий уровень исследований нашего центра.",
+      ],
+    },
+  },
+  {
+    id: "itmo-collab-2026", tag: "Достижение", date: "2026-09-02", image: "news-itmo-collab-2026.webp?v=0fffc503", popupImage: "news-itmo-collab-2026-popup.webp?v=389a7cbe",
+    title: "Павел Филатов возглавил <br> программу ITMO Collab <br> в сезоне 2026/2027",
+    text: "Павел Филатов стал руководителем программы ITMO Collab. Конкурс междисциплинарных студенческих проектов ИТМО, где лучшие команды получат до 1 000 000 рублей.",
+    body: {
+      lead: [
+        "Павел Филатов стал руководителем программы ITMO Collab в сезоне 2026/2027. ITMO Collab — это конкурс междисциплинарных студенческих проектов для бакалавров, магистрантов и аспирантов ИТМО, где идеи на стыке дисциплин превращаются в реальные проекты. Здесь особенно ценятся решения, для которых знаний одной области недостаточно. Лучшие команды получат до 1 000 000 рублей на реализацию своих идей.",
+      ],
+      quote: [
+        "«ITMO Collab — это уникальный конкурс, направленный на формирование новых междисциплинарных научных команд из студентов и аспирантов университета. Ежегодно в его рамках возникают сильные долгосрочные коллаборации на стыке разных областей науки, и я уверен, что этот сезон не станет исключением. Уверен, в этом году мы увидим проекты, которые смогут изменить представление о привычных технологиях и заложить основу для дальнейшего развития университета», — отметил Павел Филатов.",
+      ],
+      note: [
+        "Поздравляем Павла с назначением и желаем продуктивного сезона!",
+      ],
+    },
+  },
+  {
+    id: "biomaterials-paper", tag: "Публикация", date: "2026-08-26", image: "news-biomaterials-paper.webp?v=1da0e5e0", popupImage: "news-biomaterials-paper-popup.webp?v=f03cac34",
+    title: "Новая публикация <br> участников центра <br> в журнале Biomaterials",
+    text: "Члены нашей команды опубликовали статью о наночастицах с микроРНК-200а для терапии острых и хронических заболеваний печени",
+    body: {
+      lead: [
+        "Поздравляем коллег с выходом статьи «MicroRNA-200a as a therapeutic agent for acute and chronic liver pathologies and regeneration»! Авторами исследования выступили наши сотрудники Лидия Михайлова, Константин Арабули и Михаил Зюзин. Работа выполнена в тесном сотрудничестве с коллегами из Приволжского исследовательского медицинского университета (Нижний Новгород), Первого МГМУ им. И.М. Сеченова (Москва), Приволжского окружного медицинского центра ФМБА России (Нижний Новгород) и Нижегородского областного клинического онкологического диспансера.",
+        "Исследователи разработали эффективный подход на основе наночастиц, загруженных микроРНК-200а, для лечения острых и хронических заболеваний печени. В экспериментах на крысах новая терапия успешно предотвращала повреждение печени и значительно снижала содержание коллагена в тканях органа, заметно улучшая его состояние. Это открывает перспективы для разработки новых методов терапии фиброза и цирроза.",
+      ],
+      note: [
+        "Мы гордимся нашими коллегами и благодарим всех партнеров за плодотворное сотрудничество. Желаем авторам дальнейших успехов и новых прорывных результатов!",
+      ],
+    },
+  },
+  {
+    id: "phd-finish-2026", tag: "Событие", date: "2026-07-13", image: "news-phd-finish-2026.webp?v=7668d711", popupImage: "news-phd-finish-2026-popup.webp?v=c98f7293",
+    title: "Четверо сотрудников <br> нашего центра завершили <br> аспирантуру ИТМО",
+    text: "Константин Арабули, Николай Жесткий, Лидия Михайлова и Мария Тимофеева завершили обучение в аспирантуре. Впереди — защита кандидатских диссертаций.",
+    body: {
+      lead: [
+        "4 человека из нашего центра — Константин Арабули, Николай Жесткий, Лидия Михайлова и Мария Тимофеева — завершили обучение в аспирантуре (11.07). Впереди только защита кандидатских степеней.",
+      ],
+      note: [
+        "Поздравляем Константина, Николая, Лидию и Марию с важным этапом! Желаем успешной защиты кандидатских диссертаций и новых научных достижений.",
+      ],
+    },
+  },
+  {
+    id: "iclo-2026", tag: "Конференция", date: "2026-06-29", image: "news-iclo-2026.webp?v=26cfb8f6", popupImage: "news-iclo-2026-popup.webp?v=ce6a83ac",
+    title: "Команда ЦМТ «Мост» <br> представила 9 докладов <br> на конференции ICLO 2026",
+    text: "С 22 по 26 июня в Санкт-Петербурге прошла International Conference Laser Optics (ICLO 2026). Наша команда выступила с 9 докладами, охватывающими передовые направления фотоники и лазерной физики.",
+    body: {
+      lead: [
+        "С 22 по 26 июня 2026 года в Санкт-Петербурге состоялась крупнейшая в Восточной Европе конференция по фотонике — International Conference Laser Optics (ICLO 2026). Это традиционное мероприятие, проводимое раз в два года с 1970-х годов, вновь собрало ведущих исследователей со всего мира. В этом году конференция привлекла более 1000 участников и более 800 презентаций из 17 стран, проходивших как в очном, так и в онлайн-формате. Организатором выступил Фонд лазерной физики при технической поддержке IEEE Photonics Society и содействии Союза промышленников и предпринимателей Санкт-Петербурга.",
+      ],
+      quote: [
+        "В рамках конференции наша команда представила 9 докладов. Лидия Михайлова рассказала о светоактивируемой иммуномодуляции с использованием полимерных носителей с золотыми наностержнями. Дарья Сенникова представила результаты импульсной лазерной абляции в жидкостном потоке для генерации кремниевых наночастиц. Николай Жесткий выступил с докладом об оптической модуляции интенсивности ГВГ в монокристаллах металл-органических каркасов. Александр Лошкарев представил два доклада, посвященных Raman-спектроскопии для детекции аминокислот и лазерному формированию SERS-подложек на основе TiO2. Елена Герасимова рассказала о гибридных наноматериалах для оптического нагрева и термометрии биологических объектов. Арина Чередникова представила исследование тушения фотолюминесценции углеродных точек мультиметаллическими ионными системами. Иван Резник доложил о микрофлюидном синтезе квантовых точек AgInS2/ZnS для биомедицины. Сабина Бикметова выступила с докладом о разделении Ми-резонансных кремниевых наночастиц микрофлюидными методами. Артем Ларин представил результаты исследования гистерезиса генерации второй гармоники в структурах Si/Au как проявления эффекта памяти.",
+      ],
+      note: [
+        "Участие в ICLO — это не только возможность представить свои результаты на международной арене, но и важный шаг для развития научных коллабораций. Наши сотрудники продемонстрировали высокий уровень исследований, достойно представив центр.",
+      ],
+    },
+  },
+  {
+    id: "lumos-2026", tag: "Конференция", date: "2026-05-25", image: "news-lumos-2026.webp?v=d5050550", popupImage: "news-lumos-2026-popup.webp?v=bda07e4b",
+    title: "Павел Филатов представил <br> доклад на конференции <br> по люминесценции LUMOS-2026",
+    text: "Павел Филатов принял участие во Всероссийской конференции LUMOS-2026 в Санкт-Петербурге. Он представил доклад о хемилюминесцентных ДНК-структурах для обнаружения Staphylococcus aureus.",
+    body: {
+      lead: [
+        "С 18 по 22 мая в Санкт-Петербурге состоялась Всероссийская конференция по люминесценции LUMOS-2026. Это ключевое междисциплинарное событие объединило ведущих ученых, исследователей и инженеров для обсуждения фундаментальных и прикладных задач в области люминесценции, оптических явлений и спектроскопии. Миссия конференции — создание открытой платформы для диалога между физикой, химией, биологией и медициной, а также продолжение традиций отечественной научной школы.",
+        "Сотрудник нашего центра Павел Филатов достойно представил организацию на этом престижном форуме. В рамках секции он выступил с докладом на тему «Разработка хемилюминесцентных ДНК-структур с пероксидазной активностью для селективного обнаружения Staphylococcus aureus».",
+      ],
+      quote: [
+        "«Конференция LUMOS-2026 очень понравилась мне своей междисциплинарностью. Доклад о разработках нашей лаборатории вызвал интерес у нескольких специалистов из разных научных областей и городов. В результате общения с коллегами мы наметили три потенциальные коллаборации. Одна из них — с исследователями из МФТИ — уже активно развивается», — поделился Павел Филатов.",
+      ],
+      note: [
+        "Участие в конференциях такого уровня позволяет нашему центру не только делиться результатами прорывных работ, но и находить новых партнеров для совместных междисциплинарных проектов. Мы поздравляем Павла с успешным выступлением и желаем продуктивной работы в рамках новых коллабораций!",
+      ],
+    },
+  },
+  {
+    id: "liver-mirna", tag: "Наука", date: "2026-05-15", image: "news-liver-mirna.webp?v=efced859", popupImage: "news-liver-mirna-popup.webp?v=1a47af90",
+    title: "Ученые центра и ПИМУ <br> разработали новый <br> подход для лечения печени",
+    text: "Ученые ПИМУ и ЦМТ «Мост» создали наночастицы с микроРНК-200а для лечения острых болезней печени. На крысах они предотвратили повреждение органа и уменьшили количество коллагена в тканях.",
+    body: {
+      lead: [
+        "Ежегодно от болезней печени умирает около 2 млн человек. Хронические заболевания часто связаны с фиброзом — разрастанием соединительной ткани, ведущим к циррозу и раку. Острые поражения возникают при отравлениях и передозировке лекарств. Существующие методы лишь устраняют симптомы, не восстанавливая ткань. Перспективны микроРНК, управляющие генами, но они нестабильны и требуют носителей. Ученые ПИМУ и ЦМТ «Мост» предложили наночастицы из биосовместимого полилактида для доставки микроРНК-200a, дефицит которой возникает при болезнях печени. Подход направлен на лечение острых и хронических патологий с одновременной стимуляцией регенерации органа.",
+      ],
+      quote: [
+        "«Наша часть работы в ИТМО заключалась в разработке носителей для терапевтической РНК, нацеленных на лечение фиброза печени и острой печеночной недостаточности у крыс. Мы произвели синтез наночастиц из полимолочной кислоты, загрузили в них терапевтическую микроРНК, после чего уже наши коллеги вводили готовые комплексы лабораторным животным с привитыми патологиями. Загрузка терапевтической РНК в носители — сложный и очень ответственный этап. Мало просто доставить молекулу в клетку: нужно сохранить ее стабильность и активность, обеспечив попадание строго в цитозоль. Именно поэтому мы уделили особое внимание выбору корректной стратегии загрузки, исключающей повреждение РНК», — отметил Михаил Зюзин, ведущий научный сотрудник.",
+      ],
+      note: [
+        "Эффективность подхода проверили на моделях острого повреждения печени и прогрессирующего фиброза у крыс. Целевая доставка микроРНК-200a с помощью полилактидных наночастиц позволила остановить гибель клеток после первой инъекции, а при хроническом заболевании — обратить фиброз вспять на две стадии. В исследовании также принимали участие сотрудники Первого Московского государственного медицинского университета имени И.М. Сеченова, Приволжского окружного медицинского центра ФМБА и Нижегородского областного клинического онкологического диспансера.",
+      ],
+    },
+  },
+  {
+    id: "kustov-phd", tag: "Достижение", date: "2026-05-14", image: "news-featured-card.webp", popupImage: "news-featured-popup.webp",
     title: "Новоиспеченный кандидат физико-математических наук Павел Кустов",
     text: "Его исследования посвящены разработке и изучению оптических свойств кремниевых микро- и наносистем, которые могут стать основой для передовых масштабируемых нанофотонных защитных меток.",
     body: {
-      lead: "Его исследования посвящены разработке и изучению оптических свойств кремниевых микро- и наносистем, которые могут стать основой для передовых масштабируемых нанофотонных защитных меток.",
+      lead: [
+        "Его исследования посвящены разработке и изучению оптических свойств кремниевых микро- и наносистем, которые могут стать основой для передовых масштабируемых нанофотонных защитных меток.",
+      ],
       quote: [
         "Спрос на надежные технологии защиты от подделок стремительно растет. Существующие решения, представленные на рынке, уже не обеспечивают достаточного уровня безопасности, поэтому все большее развитие получает направление физически неклонируемых меток.",
         "Такие метки невозможно воспроизвести или скопировать даже производителю. Нанофотонные структуры на основе кремния открывают путь к созданию подобных технологий благодаря своей универсальности и оптической стабильности.",
       ],
-      note: "В своей работе Павел показывает, как управление оптическими свойствами четырех различных типов нанофотонных структур позволяет создавать скрытые физически неклонируемые защитные метки.",
+      note: [
+        "В своей работе Павел показывает, как управление оптическими свойствами четырех различных типов нанофотонных структур позволяет создавать скрытые физически неклонируемые защитные метки.",
+      ],
     },
   },
-  ...Array.from({ length: 8 }, (_, i) => ({ id: `news-${i + 1}`, ...PLACEHOLDER_NEWS })),
+  {
+    id: "tv-spb-2026", tag: "Событие", date: "2026-03-12", image: "news-tv-spb-2026.webp?v=7fa0440a", popupImage: "news-tv-spb-2026-popup.webp?v=871d1f74",
+    title: "Наши коллеги приняли <br> участие в программе <br> «Петербург — город решений»",
+    text: "Лидия Михайлова и Ван Гулинян приняли участие в программе «Петербург — город решений» на телеканале «Санкт-Петербург». Они рассказали о новом методе фототермической иммунотерапии рака.",
+    body: {
+      lead: [
+        "Наши коллеги Лидия Михайлова и Ван Гулинян пообщались с корреспондентами телеканала «Санкт-Петербург». В результате упоминание Нового физтеха ИТМО и разработок наших коллег появилось в программе «Петербург — город решений». Эпизод: «Развитие науки» (12 марта 2026).",
+      ],
+      note: [
+        "В выпуске коллеги рассказали о новой разработке — новом методе фототермической иммунотерапии рака, который позволяет с высокой точностью управлять иммунным ответом внутри самой опухоли. В основе технологии — светочувствительные микроносители, которые под действием лазерного излучения высвобождают иммуномодулирующий препарат строго в заданном месте и в нужный момент. Это помогает «перепрограммировать» опухоль-ассоциированные макрофаги — иммунные клетки, обычно поддерживающие рост опухоли, — из режима «защитника» в режим «борца». Результаты исследования опубликованы в Biomaterials Advances в статье «Light-directed reprogramming of tumor-associated macrophages via STING agonist delivery». Выпуск можно посмотреть по ссылке — наши коллеги появляются на 43-й минуте.",
+      ],
+    },
+  },
+  {
+    id: "ponkratova-phd", tag: "Достижение", date: "2025-12-25", image: "news-ponkratova-phd.webp?v=da2788b3", popupImage: "news-ponkratova-phd-popup.webp?v=a478363a",
+    title: "Поздравляем Екатерину Понкратову с защитой кандидатской диссертации",
+    text: "Екатерина Понкратова успешно защитила кандидатскую диссертацию и получила статус постдока. Ее работа посвящена созданию наносистем для биосенсинга и фотокатализа.",
+    body: {
+      lead: [
+        "Поздравляем Екатерину Понкратову с успешной защитой кандидатской диссертации и присвоением статуса постдока! Работа Екатерины посвящена разработке простых и масштабируемых методов создания наносистем, обладающих чувствительным оптическим откликом на биоаналиты и способных эффективно разлагать их под действием света.",
+      ],
+      note: [
+        "Оптическое детектирование биологических аналитов — одно из ключевых направлений современной науки благодаря высокой чувствительности резонансных нанофотонных структур к изменениям окружающей среды. Это позволяет определять низкие концентрации различных аналитов за короткое время. Одновременно создание наноструктур с заданной морфологией и фазовым составом играет важную роль в разработке эффективных фотокаталитических систем. Однако большинство существующих методов получения таких наноструктур (например, химические или литографические) остаются сложными и трудоемкими. Исследования Екатерины направлены на преодоление этих ограничений и упрощение процесса создания наносистем для биосенсинга и фотокатализа. Желаем Екатерине новых научных успехов!",
+      ],
+    },
+  },
+  {
+    id: "cust-course-2025", tag: "Событие", date: "2025-12-22", image: "news-cust-course-2025.webp?v=7721dfeb", popupImage: "news-cust-course-2025-popup.webp?v=79f49064",
+    title: "Эдуард Агеев прочитал курс <br> по лазерной микроскопии <br> в Чанчуне в CUST",
+    text: "С 8 по 21 декабря 2025 года Эдуард Агеев провел модульный курс «Basic principles of laser microscopy» для магистров первого года программы «Applied Physics» на базе объединенного института CUST-ИТМО.",
+    body: {
+      lead: [
+        "С 8 по 21 декабря 2025 года в Чанчуньском политехническом университете (Changchun University of Science and Technology, CUST) Эдуард Агеев прочитал модульный курс «Basic principles of laser microscopy» для магистров первого года обучения программы «Applied Physics» на базе объединенного института CUST-ИТМО.",
+      ],
+      note: [
+        "Курс был организован на базе объединенного института CUST-ИТМО и охватил базовые принципы лазерной микроскопии. Подобные образовательные модули укрепляют академическое сотрудничество между университетами и способствуют подготовке квалифицированных специалистов в области фотоники и прикладной физики.",
+      ],
+    },
+  },
+  {
+    id: "valiev-scholarship", tag: "Достижение", date: "2025-12-16",
+    title: "Мария Тимофеева — <br> обладатель стипендии <br> имени К.А. Валиева",
+    text: "Аспирантка нашего центра Мария Тимофеева стала победителем конкурсного отбора на именную стипендию имени К.А. Валиева. Стипендия назначается Минобрнауки РФ за достижения в области электронной промышленности.",
+    body: {
+      lead: [
+        "Мария Тимофеева стала обладателем именной стипендии для аспирантов имени К.А. Валиева. Стипендия выплачивается ежемесячно в течение 12 месяцев.",
+      ],
+      note: [
+        "Именная стипендия имени К.А. Валиева предназначена для аспирантов очной формы обучения, имеющих значительные достижения в области развития электронной промышленности. Ежегодно по результатам конкурсного отбора, который проводит Минобрнауки РФ, назначается 30 таких стипендий по всей России. Поздравляем Марию с заслуженной наградой и желаем новых научных успехов!",
+      ],
+    },
+  },
+  {
+    id: "holoexpo-2025", tag: "Конференция", date: "2025-09-18", image: "news-holoexpo-2025.webp?v=c4bee3d5", popupImage: "news-holoexpo-2025-popup.webp?v=cfb51a27",
+    title: "Павел Кустов получил <br> награду за лучший доклад <br> на Холоэкспо 2025",
+    text: "Команда ЦМТ «Мост» приняла участие в конференции по фотонике Холоэкспо 2025 в Уфе. Павел Кустов удостоен награды за лучший устный доклад.",
+    body: {
+      lead: [
+        "Holoexpo 2025 — ежегодная конференция по фотонике, где ученые, инженеры и представители бизнеса обсуждают современные оптические технологии и их практическое применение. В этом году мероприятие прошло в Уфе. В работе конференции приняли участие члены нашей команды — Дмитрий Зуев, Артем Ларин и Павел Кустов.",
+        "Мы поздравляем Павла Кустова с наградой за лучший устный доклад. В работе «Нанофотонные физически неклонируемые защитные метки: создание, оптические свойства и протоколы считывания» он представил лазерные методы создания микро- и наноструктур на основе кремниевых и золото-кремниевых гибридных материалов. Разработанные метки обладают уникальными оптическими характеристиками и могут использоваться для надежной защиты от подделок.",
+      ],
+      note: [
+        "Мы гордимся нашими коллегами и благодарим организаторов Холоэкспо 2025 за высокую оценку. Участие в таких конференциях позволяет не только продемонстрировать достижения, но и обменяться опытом с ведущими специалистами отрасли.",
+      ],
+    },
+  },
+  {
+    id: "eastmag-2025", tag: "Конференция", date: "2025-09-18", image: "news-eastmag-2025.webp?v=b00dfab0", popupImage: "news-eastmag-2025-popup.webp?v=6b45e7b9",
+    title: "Юлия Мельчакова <br> представила постер <br> на EASTMAG-2025",
+    text: "Юлия Мельчакова приняла участие в IX Euro-Asian Symposium «Trends in Magnetism» (EASTMAG-2025) в Южно-Сахалинске и представила постер о структуре и спонтанном снятии вырождения спина в легированных перфорированных бислойных графенах.",
+    body: {
+      lead: [
+        "Юлия Мельчакова приняла участие в IX Euro-Asian Symposium «Trends in Magnetism» (EASTMAG-2025), который прошел 13–17 сентября 2025 года в Южно-Сахалинске, Россия. Она представила постер на тему «Extreme structure and spontaneous lift of spin degeneracy in doped perforated bilayer graphenes».",
+      ],
+      note: [
+        "EASTMAG — международная площадка для обсуждения актуальных проблем магнетизма и физики конденсированного состояния. Участие Юлии в симпозиуме подтверждает активную работу нашей группы в области теоретических исследований спин-поляризованных материалов для оптики и фотоники.",
+      ],
+    },
+  },
+  {
+    id: "ciop-2025", tag: "Конференция", date: "2025-08-16", image: "news-ciop-2025.webp?v=4f27bd5b", popupImage: "news-ciop-2025-popup.webp?v=9bd1614c",
+    title: "Данни Чжао представила <br> постерный доклад <br> на CIOP 2025",
+    text: "Данни Чжао приняла участие в конференции CIOP 2025 в Китае. Она представила постерный доклад об оптических свойствах диэлектрических наноструктур.",
+    body: {
+      lead: [
+        "Член нашей команды Данни Чжао приняла участие в конференции CIOP 2025 в Китае. CIOP — это ежегодная англоязычная конференция по оптике, которая проводится в Китае каждое лето и рассчитана на 1000 участников. Конференция позиционируется как «комплексная, международная и интегрирующая промышленность, образование и науку». Темы докладов охватывают основы оптики, материалы, устройства и системные приложения. Она предоставляет платформу для взаимодействия исследователей, инженеров и представителей бизнеса.",
+        "В этом году конференция прошла в Сиане с 10 по 14 августа. Наша коллега Данни Чжао представила свой постерный доклад под названием «Исследование оптических свойств диэлектрических наноструктур, напечатанных на разнородных подложках». Благодаря участию в конференции она смогла оценить масштаб знаний в этой области. Ведущие специалисты из различных сфер делились своими проектами, что пробудило в ней еще больший интерес к исследованию нанооптики.",
+      ],
+      note: [
+        "Участие наших сотрудников в международных конференциях — это не только возможность заявить о себе, но и важный вклад в развитие всего центра. Мы благодарим Данни за достойное представление команды на CIOP 2025.",
+      ],
+    },
+  },
+  {
+    id: "knvsh-2025", tag: "Достижение", date: "2025-08-15", image: "news-knvsh-2025.webp?v=8e8fd661", popupImage: "news-knvsh-2025-popup.webp?v=d01bbc47",
+    title: "Наш студент <br> Мартин Сандомирский — <br> победитель конкурса КНВШ",
+    text: "Наш коллега Мартин Сандомирский стал победителем конкурса на получение грантов КНВШ для молодых ученых",
+    body: {
+      lead: [
+        "Стали известны результаты конкурса на получение грантов КНВШ для молодых ученых. Среди победителей — наш коллега, Мартин Сандомирский! Тема его проекта-победителя: «Спектральные физически неклонируемые функции на основе нелинейной широкополосной фотолюминесценции».",
+      ],
+      note: [
+        "Эта победа означает, что эксперты высоко оценили не только работу Мартина, но и уровень исследований всей нашей научной группы. Мы гордимся тобой, Мартин! Поздравляем и ждем новых открытий!",
+      ],
+    },
+  },
+  {
+    id: "everest-2025", tag: "Достижение", date: "2025-07-17", image: "news-everest-2025.webp?v=0c9b4a48", popupImage: "news-everest-2025-popup.webp?v=1e4418dd",
+    title: "Мартин Сандомирский — <br> победитель конкурса <br> «Научный Эверест»",
+    text: "Сотрудник нашего центра Мартин Сандомирский стал одним из победителей конкурса «Научный Эверест». Его бакалаврская работа посвящена спектральным физически неклонируемым функциям на основе нелинейной широкополосной фотолюминесценции мультирезонансных золото-кремниевых частиц.",
+    body: {
+      lead: [
+        "Сотрудник нашего центра Мартин Сандомирский стал одним из победителей конкурса «Научный Эверест» благодаря своей бакалаврской работе на тему «Спектральные физически неклонируемые функции на основе нелинейной широкополосной фотолюминесценции мультирезонансных золото-кремниевых частиц». Данная награда присуждается студентам ИТМО, чьи выпускные работы отличаются высокой научной и/или прикладной значимостью.",
+      ],
+      note: [
+        "Поздравляем Мартина с заслуженной победой и желаем новых научных свершений!",
+      ],
+    },
+  },
+  {
+    id: "meng-su-visit", tag: "Событие", date: "2025-06-30", image: "news-meng-su-visit.webp?v=03f84be7", popupImage: "news-meng-su-visit-popup.webp?v=02903e5f",
+    title: "Профессор Мон Су <br> из университета CAS <br> посетил наш центр",
+    text: "Нашу команду посетил профессор Мон Су (Meng Su) из Химического института Китайской академии наук — наш давний ключевой партнер.",
+    body: {
+      lead: [
+        "Мы рады сообщить, что нашу команду посетил профессор Мон Су (Meng Su) из Химического института Китайской академии наук — наш давний и ключевой научный партнер. В течение нескольких лет совместной работы с профессором Су было опубликовано несколько статей в ведущих международных журналах (Advanced Materials, Angewandte Chemie и др.), а его экспертиза в области наук о материалах, зеленой печати и химии значительно обогатила наши исследования.",
+      ],
+      note: [
+        "Во время визита мы обсудили совместную работу, результаты и перспективы дальнейшего сотрудничества. Кроме того, профессор Су принял участие в международной конференции FLAMN-2025 с приглашенным докладом на тему: «Nano- and microstructured materials and photonics work together for medicine» («Нано- и микроструктурированные материалы и фотоника в медицине»). Мы благодарим профессора Мон Су за плодотворный визит и уверены, что наше сотрудничество будет развиваться и приносить новые значимые результаты!",
+      ],
+    },
+  },
+  {
+    id: "flamn-25-award", tag: "Достижение", date: "2025-06-27", image: "news-flamn-25-award.webp?v=e23426d6", popupImage: "news-flamn-25-award-popup.webp?v=641997e0",
+    title: "Дарья Сенникова — обладатель <br> приза зрительских симпатий <br> на FLAMN-25",
+    text: "Дарья Сенникова получила Приз зрительских симпатий за постерный доклад на симпозиуме FLAMN-25. Ее работа о физических свойствах коллоидных растворов с кремниевыми наночастицами набрала 24 голоса участников.",
+    body: {
+      lead: [
+        "Мы рады сообщить, что Дарья Сенникова была удостоена Приза зрительских симпатий за свой постерный доклад на симпозиуме FLAMN-25, проходившем 24–27 июня. Ее доклад на тему «Физические свойства водных коллоидных растворов, содержащих оптически резонансные кремниевые наночастицы» получил 24 голоса участников симпозиума.",
+      ],
+      note: [
+        "Эта награда подчеркивает высокий уровень и значимость исследований Дарьи в области лазерных нанотехнологий. Мы чрезвычайно гордимся ее достижением и теплым приемом, который ее работа получила в научном сообществе. Поздравляем Дарью с этой заслуженной наградой!",
+      ],
+    },
+  },
+  {
+    id: "flamn-25", tag: "Конференция", date: "2025-06-27", image: "news-flamn-25.webp?v=e2988f4f", popupImage: "news-flamn-25-popup.webp?v=8dea620c",
+    title: "Наша команда успешно выступила на симпозиуме FLAMN-25",
+    text: "Участники нашего центра приняли активное участие в симпозиуме FLAMN-25, который прошел в Санкт-Петербурге 24–27 июня 2025 года. Команда представила ряд докладов о последних исследованиях в области лазерных нанотехнологий.",
+    body: {
+      lead: [
+        "Участники ЦМТ «Мост» приняли активное участие в симпозиуме FLAMN-25 (Frontiers in Laser-Assisted Micro- and Nanotechnologies), который проходил в Санкт-Петербурге с 24 по 27 июня 2025 года. FLAMN-25 объединил ведущих специалистов в области лазерно-материального взаимодействия, лазерных технологий и их промышленного применения. В этом году симпозиум был особенно значимым, поскольку отмечал 60-летие научной школы лазерных технологий Университета ИТМО, продолжая традиции легендарных конференций LAMN и LMI.",
+      ],
+      note: [
+        "Наша команда представила свои научные достижения: Дмитрий Зуев, Мартин Сандомирский, Елена Петрова, Чунью Ли, Дарья Сенникова и Сабина Бикметова выступили с докладами о своих последних исследованиях. Ван Гулинян представил ключевой доклад, посвященный деятельности и проектам нашего центра. Симпозиум стал отличной возможностью для обмена идеями, установления сотрудничества и изучения новых направлений в области лазерных технологий. Мы уверены, что полученные знания помогут нам в дальнейшей работе! Следите за новостями о наших научных достижениях!",
+      ],
+    },
+  },
+  {
+    id: "nature-comms-2025", tag: "Статья", date: "2025-06-18", image: "news-nature-comms-2025.webp?v=9fa675dc", popupImage: "news-nature-comms-2025-popup.webp?v=f0746875",
+    title: "Наша новая статья <br> в Nature Communications <br> по неклонируемым меткам",
+    text: "В Nature Communications вышла наша статья: с помощью мультирезонансных золото-кремниевых частиц удалось создать физически неклонируемые функции с рекордной плотностью информации.",
+    body: {
+      lead: [
+        "Физически неклонируемые функции (ФНФ) — это системы со случайными структурными особенностями, неконтролируемо возникающими в процессе производства. При должном оптическом считывании и компьютерной обработке они могут служить источниками уникальных ключей для защиты от подделок или задач криптографии. Логичным этапом развития таких систем является уменьшение характерных размеров их случайности до наномасштабов, что позволило бы создавать более емкие источники криптографических ключей. Однако подобный переход сопряжен с фундаментальными проблемами, связанными с дифракционным пределом оптического считывания.",
+      ],
+      note: [
+        "Участники нашего центра совместно с коллегами из Université de Lorraine и New Uzbekistan University предложили решение данной проблемы за счет использования мультирезонансных золото-кремниевых частиц. Уникальные спектральные особенности широкополосной фотолюминесценции этих частиц были использованы в качестве «отпечатков» их наноразмерных структурных неоднородностей. В результате удалось достичь сверхвысокой плотности хранения уникальной информации в этих физически неклонируемых функциях — минимум на 2–3 порядка превышающую значения, представленные в других работах. Статья опубликована в Nature Communications (IF = 14.9): https://www.nature.com/articles/s41467-025-60121-9",
+      ],
+    },
+  },
+  {
+    id: "yali-sun-hust", tag: "Событие", date: "2025-04-22", image: "news-yali-sun-hust.webp?v=2be57170", popupImage: "news-yali-sun-hust-popup.webp?v=91a10c94",
+    title: "Наш постдок Яли Сунь переходит <br> на должность профессора <br> в университет HUST",
+    text: "Яли Сунь, одна из первых участниц нашей группы, покидает команду, чтобы занять должность профессора в ведущем китайском университете Huazhong University of Science and Technology (HUST, Китай).",
+    body: {
+      lead: [
+        "Наша воспитанница Яли Сунь переходит на новую должность в Huazhong University of Science and Technology! Яли покидает нашу команду, чтобы занять должность профессора в ведущем китайском университете Huazhong University of Science and Technology (HUST, Китай)!",
+      ],
+      note: [
+        "Яли присоединилась к нашей команде в 2015 году и стала одним из ее первых участников. За годы совместной работы она внесла значительный вклад в развитие научных направлений центра, опубликовав более 25 статей в ведущих международных журналах (Light: Science and Applications, Advanced Materials, ACS Photonics и т.д.), успешно руководила и завершила проект РНФ, а также является научным наставником и другом для многих студентов и аспирантов группы. Область ее исследований — оптические свойства и применения гибридных металл-диэлектрических наносистем — остается важной частью работы нашей команды. Мы высоко ценим вклад Яли в развитие нашей группы и желаем ей новых достижений, вдохновения и успехов на профессиональном пути! И, конечно, мы будем развивать коллаборацию с Яли теперь уже в качестве руководителя научной группы Университета HUST.",
+      ],
+    },
+  },
+  {
+    id: "zmaga-hust", tag: "Событие", date: "2025-04-22", image: "news-zmaga-hust.webp?v=1649e01c", popupImage: "news-zmaga-hust-popup.webp?v=068a2a78",
+    title: "Наш студент Георгий Змага <br> посетил университет HUST <br> в Ухане",
+    text: "Участник нашей команды Георгий Змага посетил Хуачжунский университет науки и технологий (HUST, Ухань, Китай). Он работал в оптической лаборатории, провел измерения для проекта по детектированию слабого рамановского сигнала одиночных молекул и посетил Optics Valley Laboratory.",
+    body: {
+      lead: [
+        "Участник нашей группы, Георгий Змага, посетил Хуачжунский университет науки и технологий (HUST, г. Ухань, Китай). За время визита Георгий побывал в нескольких лабораториях университета.",
+      ],
+      note: [
+        "Для проекта по решению проблемы детектируемости слабого рамановского сигнала одиночных молекул проводились измерения карт интенсивностей высокого разрешения на базе оптической лаборатории HUST. Также с помощью коллабораторов из университета удалось посетить Optics Valley Laboratory, сотрудники которой занимаются имиджингом и вопросами применения машинного обучения и других инструментов для анализа оптических сигналов. Полученный опыт позволяет рассчитывать на дальнейшее сотрудничество и совместные прикладные проекты в области фотоники.",
+      ],
+    },
+  },
+  {
+    id: "photonics-expo-2025", tag: "Конференция", date: "2025-04-01", image: "news-photonics-expo-2025.webp?v=0f2639fc", popupImage: "news-photonics-expo-2025-popup.webp?v=34e9036c",
+    title: "Наша команда приняла <br> участие в выставке <br> «Фотоника 2025»",
+    text: "С 1 по 4 апреля 2025 года члены нашей команды представили прикладные проекты на выставке «Фотоника 2025» в Москве. На стенде ИТМО были показаны синтез наночастиц кремния лазерной абляцией и защитные неклонируемые метки Unclonix.",
+    body: {
+      lead: [
+        "С 1 по 4 апреля 2025 года члены нашей команды приняли участие в выставке «Фотоника 2025» в Москве, на территории Экспофорума. Выставка «Фотоника» — это крупнейший отраслевой форум в России и странах СНГ по количеству участников, ключевая деловая платформа для установления партнерств и заключения сделок в сфере фотонических технологий, а также уникальный шанс для личного общения с топовыми экспертами во всех направлениях фотоники.",
+      ],
+      note: [
+        "На стенде Университета ИТМО были представлены прикладные проекты, а именно синтез наночастиц кремния лазерной абляцией и защитные неклонируемые метки Unclonix. За 4 продуктивных дня к нашим проектам был проявлен невероятный интерес со стороны коллег-исследователей, производственников и других посетителей выставки. Проявленный интерес в очередной раз показал нам важность проводимых нами исследований — мы обязательно их продолжим и скоро вернемся с новыми наработками.",
+      ],
+    },
+  },
+  {
+    id: "nanophysics-2025", tag: "Конференция", date: "2025-03-15",
+    title: "Дмитрий Зуев выступил <br> на симпозиуме «Нанофизика <br> и наноэлектроника»",
+    text: "Дмитрий Зуев принял участие в XXIX Симпозиуме «Нанофизика и наноэлектроника», который прошел 11–14 марта 2025 года в Нижнем Новгороде. Он представил доклад о гибридных нанофотонных системах.",
+    body: {
+      lead: [
+        "Дмитрий Зуев принял участие в симпозиуме «Нанофизика и наноэлектроника», который прошел 11–14 марта 2025 года в Нижнем Новгороде. Дмитрий выступил с докладом на тему «Гибридные нанофотонные системы — основы и применения».",
+      ],
+      note: [
+        "Научная тематика симпозиума охватывает широкий круг вопросов физики конденсированных сред. Ее актуальность диктуется большим количеством работ в этой области в России и за рубежом, и она лежит в рамках одного из приоритетных направлений развития науки, технологий и техники в России. На симпозиуме уделяется особое внимание обсуждению транспортных и оптических свойств полупроводниковых, магнитных и сверхпроводящих наноструктур, методам их изготовления и тестирования. Симпозиум позволяет обсудить результаты исследований, полученные российскими учеными, систематизировать их и провести сравнительный анализ с достижениями зарубежных научных групп.",
+      ],
+    },
+  },
+  {
+    id: "melchakova-join", tag: "Событие", date: "2025-03-13", image: "news-melchakova-join.webp?v=00b39730", popupImage: "news-melchakova-join-popup.webp?v=e996adb7",
+    title: "Юлия Мельчакова присоединилась к нашей команде в роли постдока",
+    text: "Наша команда пополнилась: к нам присоединилась Юлия Мельчакова, постдок. Она будет заниматься теоретическим исследованием спин-поляризованных материалов для оптики и фотоники.",
+    body: {
+      lead: [
+        "Мы рады сообщить, что наша группа стала больше — к нам присоединилась Юлия Мельчакова, постдок. Работа Юлии посвящена теоретическому исследованию спин-поляризованных материалов для оптики и фотоники.",
+      ],
+      note: [
+        "Напомним, что наноматериалы используются человечеством уже давно, задолго до того, как термин «наноматериалы» стал популярным. Эти вещества, размеры которых измеряются в нанометрах (1 нанометр = 10⁻⁹ метра), обладают уникальными физическими, химическими и биологическими свойствами, недоступными их макроскопическим аналогам. Современные исследования наноматериалов находят применение в медицине, энергетике, электронике и экологических технологиях. Особый интерес вызывает разработка спиновых наноматериалов, которые совмещают принципы спинтроники с оптическими явлениями — именно в этой перспективной области будет работать Юлия.",
+      ],
+    },
+  },
+  {
+    id: "biophotonics-school-2024", tag: "Конференция", date: "2024-11-14", image: "news-biophotonics-school-2024.webp?v=20ae1893", popupImage: "news-biophotonics-school-2024-popup.webp?v=2818a307",
+    title: "Дмитрий Зуев и команда <br> Физфака ИТМО провели <br> Школу по биофотонике",
+    text: "С 11 по 13 ноября прошла Школа по биофотонике, организованная Дмитрием Зуевым и командой Физического факультета ИТМО. Трехдневный курс лекций охватил темы от основ до последних достижений в области биофотоники.",
+    body: {
+      lead: [
+        "Дмитрий Зуев и команда Физического факультета ИТМО организовали Школу по Биофотонике, которая прошла с 11 по 13 ноября.",
+      ],
+      note: [
+        "Цель школы — предоставить платформу для обмена знаниями, идеями и новейшими научными открытиями в различных областях биофотоники, среди которых — биосенсинг, доставка биологически активных соединений в клетки, фототермическая и фотодинамическая терапия, материалы для биологических приложений и взаимодействие света с биологическими объектами. Школа представляла собой 3-дневный курс лекций от основ до последних достижений в области биофотоники и дискуссий с экспертами по современным научным вопросам.",
+      ],
+    },
+  },
+  {
+    id: "metanano-2024", tag: "Конференция", date: "2024-10-27", image: "news-metanano-2024.webp?v=a270c318", popupImage: "news-metanano-2024-popup.webp?v=2cc7124c",
+    title: "Команда нашего центра <br> участвует на школе <br> METANANO 2024",
+    text: "Члены нашей группы Екатерина Понкратова, Артем Ларин, Елена Петрова и Мартин Сандомирский приняли участие в школе METANANO 2024 в Циндао. Мартин Сандомирский получил награду за лучший постер.",
+    body: {
+      lead: [
+        "Члены нашей команды — Екатерина Понкратова, Артем Ларин, Елена Петрова и Мартин Сандомирский — приняли участие в школе METANANO по нанофотонике и прикладным материалам, которая проходила с 13 по 26 октября 2024 года в Циндао (Китай). Они представили свои работы на постерной сессии.",
+      ],
+      note: [
+        "Школа предоставила платформу для взаимодействия исследователей, студентов и представителей индустрии, желающих ознакомиться с последними достижениями в области нанофотоники и перспективных материалов. Программа включала лекции, практические семинары и постерные сессии, охватывающие такие направления, как диэлектрическая нанофотоника, перспективные материалы для фотоники, хиральные и бианизотропные метаповерхности, перовскитная нанофотоника. Особые поздравления Мартину Сандомирскому, получившему награду за лучший постер за работу «Гибридные золото-кремниевые субмикрогубки: лазерное изготовление и характеристика». Школа стала отличной возможностью для установления профессиональных контактов и создания новых коллабораций с ведущими специалистами в областях нанофотоники, перспективных материалов, оптоэлектроники и смежных дисциплин.",
+      ],
+    },
+  },
+  {
+    id: "spie-cos-2024", tag: "Конференция", date: "2024-10-15",
+    title: "Синьи Чжу приняла участие <br> на конференции SPIE/COS <br> Photonics Asia",
+    text: "Член нашей группы Синьи Чжу приняла участие в международном форуме SPIE/COS Photonics Asia, который прошел 12–14 октября 2024 года. Мероприятие посвящено передовым оптическим и фотонным технологиям.",
+    body: {
+      lead: [
+        "Член нашей команды, Синьи Чжу, приняла участие в SPIE/COS Photonics Asia с 12 по 14 октября 2024 года. Это международный форум для новых разработок в области передовых оптических и фотонных технологий, целью которого является демонстрация последних исследований в области биомедицинской оптики, передовой оптической визуализации, квантовой и нелинейной оптики, лазерной обработки, плазмоники, голографии и многого другого.",
+      ],
+      note: [
+        "Участие в таких форумах помогает нашей команде быть в курсе мировых тенденций и укреплять научные связи.",
+      ],
+    },
+  },
+  {
+    id: "microelectronics-2024", tag: "Конференция", date: "2024-09-29", image: "news-microelectronics-2024.webp?v=9df910e9", popupImage: "news-microelectronics-2024-popup.webp?v=7f614685",
+    title: "Павел Кустов принял <br> участие в форуме <br> «Микроэлектроника 2024»",
+    text: "Член нашей группы Павел Кустов принял участие в форуме «Микроэлектроника 2024» — главном отраслевом событии в сфере электронных технологий. Мероприятие собрало ведущих экспертов и новаторов.",
+    body: {
+      lead: [
+        "Павел Кустов принял участие в форуме «Микроэлектроника 2024», который собрал ведущих экспертов и новаторов из разных уголков планеты.",
+      ],
+      quote: [
+        "Российский форум «Микроэлектроника» — главное отраслевое событие в сфере электронных технологий. Изначально созданный как площадка для диалога между разработчиками электронных компонентов и производителями конечной продукции, форум сегодня привлекает внимание специалистов из самых разных отраслей промышленности и служит важной платформой для профессионального взаимодействия и обмена опытом между всеми участниками рынка. Это мероприятие стало для нас настоящей витриной достижений и перспектив в области микроэлектроники, оставив нас под впечатлением от его размаха и энергетики! Особая благодарность организаторам за высокий стандарт мероприятия! Благодаря их усилиям форум стал местом, где идеи превращаются в реальные проекты, а сотрудничество ведет к новым достижениям.",
+      ],
+      note: [
+        "link",
+      ],
+    },
+  },
+  {
+    id: "alt-2024", tag: "Конференция", date: "2024-09-28", image: "news-alt-2024.webp?v=39faf618", popupImage: "news-alt-2024-popup.webp?v=cc7e7f8a",
+    title: "Дмитрий Зуев — приглашенный <br> докладчик на конференции <br> ALT 2024",
+    text: "Дмитрий Зуев выступил в качестве приглашенного докладчика на 31-й Международной конференции Advanced Laser Technologies (ALT 2024) в ДВФУ, Владивосток",
+    body: {
+      lead: [
+        "Дмитрий Зуев был приглашенным докладчиком на 31-й Международной конференции Advanced Laser Technologies (ALT 2024), которая прошла в Дальневосточном федеральном университете (ДВФУ), Владивосток, 23–27 сентября 2024 года.",
+      ],
+      note: [
+        "Основанная в 1992 году нобелевским лауреатом Александром Прохоровым (директором Института общей физики РАН), конференция ALT преследует две основные цели: объединение фундаментальных исследований в области лазерных технологий с их промышленным применением (обработка материалов, лазерная медицина, фотоника и др.), что делает ее ведущей площадкой для ученых и инженеров, а также сохранение активного участия российских/советских ученых (при ведущей роли исследователей из ИОФ РАН) при ежегодной ротации стран-организаторов — это создает уникальные возможности для установления научных контактов между различными исследовательскими школами. На конференции были представлены доклады, посвященные фундаментальным и прикладным аспектам инновационных лазерных технологий. Доклад Дмитрия был посвящен гибридным металл-диэлектрическим наноструктурам: основам, приложениям и перспективам. На конференции сложилась благоприятная атмосфера для плодотворных дискуссий, обмена знаниями и возможностей для нетворкинга.",
+      ],
+    },
+  },
+  {
+    id: "holoexpo-2024", tag: "Конференция", date: "2024-09-15", image: "news-holoexpo-2024.webp?v=4d0aaacc", popupImage: "news-holoexpo-2024-popup.webp?v=4dfadafe",
+    title: "Эдуард Агеев представил доклад на конференции «Холоэкспо»",
+    text: "С 9 по 13 сентября 2024 года в Казани прошла 21-я международная конференция по голографии и прикладным оптическим технологиям «Холоэкспо». Эдуард Агеев представил доклад о лазерной микро- и нанофабрикации.",
+    body: {
+      lead: [
+        "С 9 по 13 сентября 2024 года в Казани прошла 21-я международная конференция по голографии и прикладным оптическим технологиям «Холоэкспо». На ней Эдуардом Агеевым был представлен доклад «Лазерная микро- и нанофабрикация — от гибридных материалов до защитных меток».",
+      ],
+      note: [
+        "В рамках секции «Технологии микро- и наноструктурирования» основное внимание было уделено исследованию воздействия лазерного излучения на материалы и изменению свойств материалов и поверхностей после лазерного воздействия. Большая часть докладов была представлена молодыми специалистами и учеными. Первые два дня научной программы конференции открывали пленарные заседания «Тенденции развития оптических технологий», где выступили ведущие ученые отрасли. В демозоне были представлены компании: «Азимут Фотоникс», «Активная фотоника», Центр фотоники и фотонных технологий (Сколтех), «Специальные системы. Фотоника», «James River Brunch», «Inscience», «Компания Славич», «НИИ «Гириконд», «ЛЛС».",
+      ],
+    },
+  },
+  {
+    id: "rosupack-2024", tag: "Конференция", date: "2024-06-22", image: "news-rosupack-2024.webp?v=31a774d1", popupImage: "news-rosupack-2024-popup.webp?v=c44210cd",
+    title: "Павел Кустов принял <br> участие в выставке <br> RosUpack 2024",
+    text: "Член нашей команды Павел Кустов принял участие в 29-й Международной выставке упаковочной индустрии RosUpack — крупнейшей выставке в России и Восточной Европе.",
+    body: {
+      lead: [
+        "Член нашей команды Павел Кустов принял участие в 29-й Международной выставке упаковочной индустрии, крупнейшей выставке в России и Восточной Европе.",
+      ],
+      note: [
+        "RosUpack — единственная и самая крупная выставка в России и СНГ, на которой комплексно представлен процесс упаковочного производства для различных отраслей: пищевой, перерабатывающей, химической промышленности, медицины и фармацевтики, а также предприятий общественного питания, оптовой и розничной торговли, складского хозяйства, логистики и др. Павел был впечатлен масштабом и энергетикой RosUpack 2024! Столько интересных знакомств, продуктивных встреч и инновационных решений в сфере упаковки. Отдельное спасибо организаторам за высокий уровень мероприятия!",
+      ],
+    },
+  },
+  {
+    id: "school-projects-2024", tag: "Достижение", date: "2024-05-24",
+    title: "Школьные проекты <br> под руководством нашей группы <br> получили научные награды",
+    text: "В нашем центре ежегодно стажируются 11 школьников из Санкт-Петербурга, Красноярска, Котласа и Приозерска. Их проекты завоевали дипломы I и II степени на «Сахаровских чтениях 2024» и других конференциях.",
+    body: {
+      lead: [
+        "Наша команда активно вовлекает школьников в научную деятельность. Сейчас в нашей группе ежегодно проходят стажировку 11 школьников из Санкт-Петербурга, Красноярска, Котласа и Приозерска. Все члены нашей команды — от студентов бакалавриата до постдоков — работают со школьниками. Такой подход не только открывает школьникам дорогу в науку, но и способствует созданию новых исследовательских коллективов, способных решать задачи разного уровня. Более того, участники команды получают ценный опыт наставничества, который формирует необходимые компетенции для того, чтобы стать успешными лидерами.",
+      ],
+      note: [
+        "Школьные проекты под руководством членов нашей группы принимали участие в международных конференциях и завоевали ряд научных наград. Например: школьный проект «Оптимизация распознавания меток ПНФ» под руководством Елены Петровой получил диплом первой степени на международной конференции «Сахаровские чтения 2024»; диплом второй степени получил школьный проект «Обработка и анализ данных экспериментов по детектированию белковых соединений на основе комбинационного рассеяния света» под руководством Артема Штумпфа; школьный проект «Повышение чувствительности резонансов плазмонных наночастиц путем выбора их материала» под руководством Мартина Сандомирского получил диплом участника; школьный проект «Лазерно-индуцированное изготовление функциональных элементов нанофотоники и исследование их свойств» под руководством Вана Гулиняна получил диплом участника XIII съезда молодых ученых ИТМО.",
+      ],
+    },
+  },
+  {
+    id: "harbin-seminar-2024", tag: "Конференция", date: "2024-04-29", image: "news-harbin-seminar-2024.webp?v=689a4148", popupImage: "news-harbin-seminar-2024-popup.webp?v=56c74064",
+    title: "Дмитрий Зуев выступил <br> на семинаре в Харбинском <br> инженерном университете",
+    text: "Дмитрий Зуев был приглашенным докладчиком на международном семинаре «Нанотехнологии для оптики и оптоэлектроники» в Харбинском инженерном университете (26–29 апреля 2024).",
+    body: {
+      lead: [
+        "Дмитрий Зуев был приглашенным докладчиком в Харбинском инженерном университете на международном семинаре «Нанотехнологии для оптики и оптоэлектроники», который проходил с 26 по 29 апреля 2024 года. Он выступил с докладом на тему «Гибридные металлодиэлектрические нанофотонные структуры».",
+      ],
+      note: [
+        "Целью выступления было привлечение иностранных студентов и исследователей к обучению и занятию наукой в совместном центре в Циндао (Университет ХИУ–ИТМО). Участие в международном семинаре способствует развитию сотрудничества между университетами, обмену опытом и продвижению наших разработок в области нанофотоники.",
+      ],
+    },
+  },
+  {
+    id: "conferences-2023", tag: "Конференция", date: "2024-01-25", image: "news-conferences-2023.webp?v=d3549f7c", popupImage: "news-conferences-2023-popup.webp?v=b92c05ff",
+    title: "Наша команда <br> на всероссийских <br> и международных конференциях",
+    text: "Члены нашей команды представили результаты исследований на конференциях ICMAT 2023, IEEE-NANO 2023, Метаматериалы'2023, ВКВО-2023, «Невская фотоника — 2023» и других.",
+    body: {
+      lead: [
+        "Члены нашей команды представили результаты своих научных исследований на всероссийских и международных научных конференциях.",
+      ],
+      note: [
+        "Руководитель нашей группы Дмитрий Зуев и постдок Яли Сунь приняли участие в конференции ICMAT 2023 (Сингапур). Аспирантка Екатерина Понкратова участвовала в конференции IEEE-NANO 2023 (Чеджу, Южная Корея). Постдок Виталий Ярошенко и аспирант Артем Ларин посетили образовательный семинар Resonant Nanophotonics Educational Workshop 2023 (Москва, Россия). Аспирант Артем Ларин был приглашенным докладчиком на VII Международной школе молодых ученых «Нелинейная фотоника» (Новосибирск, Россия). Постдок Виталий Ярошенко и аспирант Павел Кустов приняли участие в 17-м Международном конгрессе по искусственным материалам для новых волновых явлений (Метаматериалы'2023). Виталий Ярошенко выступил с приглашенным докладом на конференции ВКВО-2023 (Пермь, Россия). Дмитрий Зуев принял участие с приглашенным докладом в конференции «Невская фотоника — 2023» (Санкт-Петербург, Россия).",
+      ],
+    },
+  },
+  {
+    id: "larin-phd", tag: "Достижение", date: "2023-12-13", image: "news-larin-phd.webp?v=c1b0d9a5", popupImage: "news-larin-phd-popup.webp?v=2b579c80",
+    title: "Артем Ларин успешно <br> защитил кандидатскую <br> диссертацию",
+    text: "Наш коллега Артем Ларин успешно защитил кандидатскую диссертацию на тему «Фотолюминесценция и генерация второй гармоники кремния в металл-полупроводниковых наносистемах».",
+    body: {
+      lead: [
+        "Наш коллега Артем Ларин успешно защитил кандидатскую диссертацию на тему «Фотолюминесценция и генерация второй гармоники кремния в металл-полупроводниковых наносистемах».",
+      ],
+      note: [
+        "Поздравляем и желаем удачи в качестве постдока!",
+      ],
+    },
+  },
+  {
+    id: "new-phd-students-2023", tag: "Событие", date: "2023-12-05", image: "news-new-phd-students-2023.webp?v=df47f511", popupImage: "news-new-phd-students-2023-popup.webp?v=683e78f1",
+    title: "К нашей команде присоединились две иностранные аспирантки",
+    text: "В 2023 году к нашей команде присоединились аспирантки Чуньюй Ли и Синьи Чжу, а также магистрантка Данни Чжао. Они будут работать над проектами в области зеленой печати и двухфотонной полимеризации.",
+    body: {
+      lead: [
+        "Две иностранные аспирантки — Чуньюй Ли и Синьи Чжу — присоединились к нашей команде в 2023 году. Чуньюй начала исследования в области зеленой печати (проблема управления смачиваемостью поверхности). Синьи отвечает за исследования двухфотонной полимеризации (лазерное 3D аддитивное производство). Магистрантка Данни Чжао присоединилась к группе в рамках годичной стажировки.",
+      ],
+      note: [
+        "Также Данни Чжао выиграла стипендию правительства Китая на обучение в аспирантуре Университета ИТМО по контракту и присоединится к группе в осеннем семестре 2024 года. Мы рады приветствовать новых участниц и уверены, что их исследования обогатят нашу команду и откроют новые направления для сотрудничества.",
+      ],
+    },
+  },
+  {
+    id: "unclonix-gitex-2023", tag: "Конференция", date: "2023-10-19", image: "news-unclonix-gitex-2023.webp?v=e7267852", popupImage: "news-unclonix-gitex-2023-popup.webp?v=3393c56b",
+    title: "Команда Unclonix представила <br> проект на Expand North Star <br> в Дубае",
+    text: "Команда проекта Unclonix приняла участие в международной выставке технологических стартапов Expand North Star в рамках форума GITEX в Дубае. Разработки представили инвесторам и экспертам отрасли.",
+    body: {
+      lead: [
+        "Команда проекта Unclonix в лице Павла Кустова и Мартина Сандомирского приняла участие в международной выставке технологических стартапов Expand North Star, которая проходила с 15 по 18 октября в Дубае (ОАЭ) в рамках всемирно известного ежегодного форума GITEX.",
+      ],
+      note: [
+        "Участие в выставке предоставило прекрасную возможность представить разработки Unclonix широкому кругу инвесторов и представителей отрасли, получить ценный опыт и обратную связь от ведущих экспертов. Полученные знания и контакты, несомненно, станут важным стимулом для дальнейшего развития проекта.",
+      ],
+    },
+  },
+  {
+    id: "physics-course-2023", tag: "Образование", date: "2023-09-10", image: "news-physics-course-2023.webp?v=f95efb58", popupImage: "news-physics-course-2023-popup.webp?v=3ded6906",
+    title: "Наша группа преподает <br> курс «Экспериментальные <br> методы в физике»",
+    text: "Наша группа разработала и преподает междисциплинарный курс «Экспериментальные методы в физике» для 25 студентов бакалавриата программы «Лазерная фотоника и оптоэлектроника» ИТМО.",
+    body: {
+      lead: [
+        "Наша группа разработала и преподает междисциплинарный курс «Экспериментальные методы в физике» для 25 студентов бакалавриата образовательной программы «Лазерная фотоника и оптоэлектроника» Института лазерных технологий ИТМО.",
+      ],
+      note: [
+        "Данный курс включает в себя лекции, основанные на передовых исследованиях в области нанофотоники, а также лабораторные работы с использованием высокотехнологичного оборудования Университета ИТМО. Наши преподаватели: Дмитрий Зуев, Эдуард Агеев, Виталий Ярошенко, Артем Ларин. Кроме того, по данному образовательному курсу в университетской программе ITMO.Mentors обучается Павел Кустов.",
+      ],
+    },
+  },
+  {
+    id: "unclonable-labels-2023", tag: "Достижение", date: "2023-06-12", image: "news-unclonable-labels-2023.webp?v=12dcc9f0", popupImage: "news-unclonable-labels-2023-popup.webp?v=5ba2e5cb",
+    title: "Наши ученые создали неклонируемые защитные метки на основе кремния",
+    text: "Наша команда разработала неклонируемые метки для защиты товаров от подделок на основе наночастиц кремния, формируемых лазером.",
+    body: {
+      lead: [
+        "Члены нашей команды научились создавать неклонируемые метки для защиты товаров от подделок. Это изображения на основе наночастиц кремния, которые формируются с помощью лазера. Влиять на цвет, структуру и расположение кремниевых частиц нельзя: эти параметры распределяются случайным образом, благодаря чему метку невозможно подделать. Чтобы проверить метку на оригинальность, достаточно загрузить ее фото в специальную программу, которая мгновенно выносит вердикт. Результаты исследования опубликованы в журнале ACS Applied Nano Materials.",
+      ],
+      quote: [
+        "«Представьте, что у вас в руке есть песок и вы решили высыпать его на тарелку. Как только последняя песчинка упадет, вы сможете увидеть узор. Повторить этот же узор на другой тарелке у вас не получится. На этом принципе основана неклонируемость нашей защитной технологии. Вместо песка мы взяли кремний: лазер оказывает воздействие на кремниевую пленку, в результате чего из нее „выбиваются“ наночастицы, которые случайным образом формируют текстуру. Итоговая картинка напоминает скопление разноцветных звезд», ― рассказывает первый автор статьи, аспирант Павел Кустов.",
+      ],
+      note: [
+        "В основе технологии, разработанной в научной группе старшего научного сотрудника Нового физтеха ИТМО Дмитрия Зуева, — метод лазерной абляции, а именно перенос кремниевой пленки на стекло лазерным импульсом. Общую форму метки можно определять заранее — например, задать ей форму логотипа бренда. Однако параметры наночастиц кремния, из которых формируется картинка, запрограммировать нельзя. Каждое изображение получается уникальным и повторить его невозможно. Кремний выбран не случайно: в сравнении с другими веществами, он доступный, устойчивый к внешним воздействиям и обладает большими цветовыми возможностями. Также его можно наносить на более широкий спектр материалов. Для каждой кремниевой частички присваиваются уникальные данные: координаты по расположению и цвету, а также процент кристалличности (структура). Все эти параметры кодируются и вносятся в базу данных. Координаты местоположения отвечают за форму метки и обеспечивают первый уровень защиты. Хроматические координаты ответственны за цветовую палитру и повышают надежность еще на ступень. И, наконец, процент кристалличности, последний уровень защиты, отражает, насколько упорядоченно или хаотично располагаются атомы в каждой частице. «Наши метки не видны невооруженным глазом. Чтобы их рассмотреть и проверить на оригинальность, нужно сделать фотографию метки, используя увеличивающий объектив или микроскоп, и загрузить ее в специально написанную программу. Эта программа с помощью машинного обучения и компьютерного зрения выравнивает, кластеризует, то есть упрощает фото до некой раскраски, где каждой цифре соответствует определенный цвет, а затем сравнивает ее с данными из базы. Если все параметры совпадут, программа вынесет вердикт, что перед вами оригинал. Если же различий будет слишком много, укажет на подделку», ― поясняет соавтор статьи, студентка Нового физтеха ИТМО Елена Петрова. По словам авторов проекта, метки идеально подойдут для производителей предметов роскоши или товаров, выпускаемых в ограниченном количестве: лекарств, автомобилей, ювелирных украшений, музыкальных инструментов. «В международном научном пространстве совсем немного исследований, где предлагаются доступные и легко внедряемые технологии создания неклонируемых защитных меток. Метод лазерной абляции и кремний используются для этих целей впервые. Оказалось, что относительно простой способ может обеспечить максимальный уровень защиты. Следующий шаг в проекте — сделать наши метки более гибкими, чтобы расширить спектр материалов, на которые их можно наносить», ― заключил соавтор статьи, студент Мартин Сандомирский.",
+      ],
+    },
+  },
+  {
+    id: "yaroshenko-phd", tag: "Достижение", date: "2022-12-07", image: "news-yaroshenko-phd.webp?v=ccbd9a29", popupImage: "news-yaroshenko-phd-popup.webp?v=95521dc9",
+    title: "Виталий Ярошенко успешно защитил кандидатскую диссертацию",
+    text: "Наш сотрудник Виталий Ярошенко успешно защитил кандидатскую диссертацию на тему диэлектрических резонансных структур для управления люминесцентными свойствами.",
+    body: {
+      lead: [
+        "Наш сотрудник Виталий Ярошенко успешно защитил кандидатскую диссертацию на тему «Диэлектрические резонансные структуры для управления люминесцентными свойствами азотно-вакансионных центров в алмазе и ионов эрбия в кремниевой матрице».",
+      ],
+      note: [
+        "Поздравляем Виталия с успешной защитой и желаем удачи в дальнейшей работе в качестве постдока! Гордимся достижением коллеги и уверены, что впереди его ждут новые научные успехи.",
+      ],
+    },
+  },
 ];
