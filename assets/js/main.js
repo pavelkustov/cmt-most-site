@@ -497,7 +497,9 @@ function initHome() {
 
   mountSlider(carousel, document.querySelector(".science .slider-arrows"), ".dir-card");
 
-  document.querySelector(".news__grid").innerHTML = NEWS.filter((n) => !n.featured).slice(0, 3).map(newsCardHTML).join("");
+  // на главной три самые свежие новости, новость месяца в том числе: отдельного места
+  // под нее здесь нет, и без этого самая свежая новость с главной просто пропадала
+  document.querySelector(".news__grid").innerHTML = NEWS.slice(0, 3).map(newsCardHTML).join("");
 }
 
 /* ---------- направление ---------- */
