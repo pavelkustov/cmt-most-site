@@ -8,14 +8,20 @@ const tagsHTML = (tags) => `<div class="tags">${tags.map((t) => `<span class="ta
 
 /* ---------- новости ---------- */
 
+/* В заголовке новости владелец сам решает, где сломать строку: пишет <br> прямо в тексте.
+   Все остальное экранируем, наружу пропускаем только сам перенос. */
+function newsTitleHTML(title) {
+  return esc(title).replace(/&lt;\/?br\s*\/?&gt;/gi, "<br>");
+}
+
 function newsCardHTML(n) {
   return `
   <article class="news-card">
-    <div class="news-card__img"><img src="${img(n.image || "news-1.webp")}" alt="" loading="lazy"></div>
+    <div class="news-card__img${n.image ? "" : " is-empty"}">${n.image ? `<img src="${img(n.image)}" alt="" loading="lazy">` : ""}</div>
     <div class="news-card__body">
       <div class="news-meta"><span class="tag">${esc(n.tag)}</span><time class="news-meta__date" datetime="${n.date}">${formatDate(n.date)}</time></div>
       <div>
-        <h3 class="news-card__title">${esc(n.title)}</h3>
+        <h3 class="news-card__title">${newsTitleHTML(n.title)}</h3>
         <p class="news-card__text">${esc(n.text)}</p>
       </div>
       <a class="link-arrow" href="news.html?open=${encodeURIComponent(n.id)}" data-open-news="${esc(n.id)}">Читать ${ICONS.arrowRight}</a>
@@ -638,6 +644,14 @@ function initNews() {
   const photo = (n) => n.image
     ? `<img src="${img(n.image)}" alt="" loading="lazy">`
     : "";
+  // вступление и заключение приходят абзацами: в анкете их пишут в несколько строк
+  const paras = (text, cls = "") => (Array.isArray(text) ? text : [text]).filter(Boolean)
+    .map((p) => `<p${cls ? ` class="${cls}"` : ""}>${esc(p)}</p>`).join("");
+  // длинный текст прокручивается внутри окна: подсказка внизу гаснет, когда текст дочитан
+  const body = modal.querySelector(".modal__body");
+  const atEnd = () => modal.querySelector(".modal__dialog").classList
+    .toggle("at-end", body.scrollTop + body.clientHeight >= body.scrollHeight - 4);
+  body.addEventListener("scroll", atEnd);
 
   if (featured) {
     document.querySelector(".featured__slot").outerHTML = `
@@ -646,7 +660,7 @@ function initNews() {
         <span class="featured__body">
           <span class="news-meta"><span class="tag">${esc(featured.tag)}</span><time class="news-meta__date" datetime="${featured.date}">${formatDate(featured.date)}</time></span>
           <span class="featured__main">
-            <span class="featured__title">${esc(featured.title)}</span>
+            <span class="featured__title">${newsTitleHTML(featured.title)}</span>
             <span class="featured__text">${esc(featured.text)}</span>
           </span>
           <span class="link-arrow">Читать ${ICONS.arrowRight}</span>
@@ -678,15 +692,18 @@ function initNews() {
     modal.querySelector(".modal__img").innerHTML = photo({ image: n.popupImage || n.image });
     modal.querySelector(".modal__dialog").classList.toggle("no-image", !n.image);
     modal.querySelector(".modal__meta").innerHTML = `<span class="tag">${esc(n.tag)}</span><time class="news-meta__date" datetime="${n.date}">${formatDate(n.date)}</time>`;
-    modal.querySelector(".modal__title").textContent = n.title;
+    // в окне колонка другая, поэтому перенос из карточки там скрыт стилями
+    modal.querySelector(".modal__title").innerHTML = newsTitleHTML(n.title);
     modal.querySelector(".modal__text").innerHTML = b
-      ? `<p>${esc(b.lead)}</p>
-         ${b.quote ? `<blockquote>${b.quote.map((q) => `<p>${esc(q)}</p>`).join("")}</blockquote>` : ""}
-         ${b.note ? `<p class="note">${esc(b.note)}</p>` : ""}`
+      ? `${paras(b.lead)}
+         ${b.quote ? `<blockquote>${paras(b.quote)}</blockquote>` : ""}
+         ${paras(b.note, "note")}`
       : `<p>${esc(n.text)}</p>`;
     lastFocus = document.activeElement;
     modal.hidden = false;
     document.body.style.overflow = "hidden";
+    body.scrollTop = 0;
+    atEnd();
     modal.querySelector(".modal__close").focus();
     history.replaceState(null, "", `?open=${encodeURIComponent(id)}`);
   };

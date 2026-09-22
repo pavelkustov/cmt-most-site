@@ -437,12 +437,30 @@ svg { display: block; flex-shrink: 0; }
 }
 .news-card:hover { transform: translateY(-.6rem); box-shadow: 0 1.6rem 4rem rgba(37, 67, 57, .12); }
 .news-card__img { height: 33rem; border-radius: var(--radius-l); overflow: hidden; }
-.news-card__img img { width: 100%; height: 100%; object-fit: cover; object-position: bottom; }
+.news-card__img img { width: 100%; height: 100%; object-fit: cover; }
+/* фотография есть не у всех новостей: без нее место снимка занимает плашка фирменного цвета */
+.news-card__img.is-empty { background: linear-gradient(160deg, #35664c, #1c3a2c); }
 .news-card__body { flex: 1; display: flex; flex-direction: column; gap: 4rem; padding: 0 4.1rem 3.5rem; }
 .news-meta { display: flex; align-items: center; gap: 1.76rem; }
 .news-meta__date { font-family: var(--font-alt); font-size: 2rem; color: var(--date); }
-.news-card__title { font-size: 3.6rem; font-weight: 500; line-height: 1.2; letter-spacing: -0.05rem; }
-.news-card__text { margin-top: 2rem; font-family: var(--font-alt); font-size: 2rem; font-weight: 300; line-height: 1.35; }
+/* заголовок и анонс у всех карточек занимают одинаковое место: три строки заголовка
+   и пять строк анонса. Так текст и ссылка «читать» стоят на одной линии во всем ряду.
+   Три строки это около 70 знаков, заголовки под эту меру переписаны (docs/news_titles.json).
+   Что длиннее, обрезается многоточием */
+/* Перенос, поставленный владельцем в заголовке, работает, пока страница масштабируется
+   вместе с окном: базовый размер это clamp(6.4px, 100vw/192, 10px), ниже 1229 пикселей он
+   упирается в минимум, колонка продолжает сужаться и заданные строки начинают ломаться.
+   Там перенос скрываем, как и в окне новости, где колонка другой ширины. */
+.modal__title br { display: none; }
+.news-card__title {
+  font-size: 2.7rem; font-weight: 500; line-height: 1.2; letter-spacing: -0.05rem; min-height: 3.6em;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.news-card__text {
+  margin-top: 2rem; font-family: var(--font-alt); font-size: 2rem; font-weight: 300; line-height: 1.35;
+  min-height: 6.75em;
+  display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden;
+}
 .news-card .link-arrow { margin-top: auto; align-self: flex-end; }
 
 /* ---------- подвал ---------- */
@@ -702,7 +720,8 @@ select.field {
 /* размеры из макета: карточка 1690x559, фото 900 (скруглено только слева, обрезает карточка),
    текстовая часть 799 с полями 40/80, между блоками 54, между заголовком и текстом 24 */
 .featured__card {
-  margin-top: 6rem; display: grid; grid-template-columns: 90fr 79fr; grid-template-rows: minmax(0, 1fr); height: 55.9rem;
+  /* высота из макета это минимум: с длинным заголовком карточка растет, а не режет текст */
+  margin-top: 6rem; display: grid; grid-template-columns: 90fr 79fr; grid-template-rows: minmax(0, 1fr); min-height: 55.9rem;
   background: var(--bg-soft); border-radius: var(--radius-l); overflow: hidden; text-align: left; width: 100%;
   transition: box-shadow .25s;
 }
@@ -716,8 +735,11 @@ select.field {
 .featured__body { padding: 4rem 8rem; display: flex; flex-direction: column; justify-content: center; gap: 5.4rem; }
 .featured__main { display: flex; flex-direction: column; gap: 2.4rem; }
 /* в макете заголовок 666px шире поля 639px, заходит в правый отступ */
-.featured__title { font-size: 4.8rem; font-weight: 500; line-height: 1.2; letter-spacing: -0.05rem; margin-right: -2.7rem; }
-/* анонс не длиннее 4 строк, как в макете: карточка остается 559px, полный текст в попапе */
+.featured__title {
+  font-size: 4.4rem; font-weight: 500; line-height: 1.2; letter-spacing: -0.05rem; margin-right: -2.7rem;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+/* анонс не длиннее 4 строк, как в макете: полный текст открывается в окне новости */
 .featured__text {
   font-family: var(--font-alt); font-size: 2.4rem; font-weight: 300; line-height: 1.2; max-width: 51.5rem;
   display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
@@ -736,15 +758,26 @@ select.field {
 .modal__backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, .35); animation: fade .2s; }
 .modal__dialog {
   position: relative; width: 100%; max-width: calc(169 * var(--u)); max-height: calc(100vh - 6rem);
-  display: grid; grid-template-columns: calc(90 * var(--u)) 1fr; background: var(--bg-soft); border-radius: var(--radius-l); overflow: hidden;
+  display: grid; grid-template-columns: calc(90 * var(--u)) 1fr; grid-template-rows: minmax(0, 1fr);
+  background: var(--bg-soft); border-radius: var(--radius-l); overflow: hidden;
   animation: pop .25s cubic-bezier(.2, .8, .2, 1);
 }
 .modal__img { position: relative; background: #d9e4dc; min-height: calc(40 * var(--u)); }
 .modal__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .modal__body {
-  position: relative; overflow-y: auto; padding: calc(4 * var(--u)) calc(8 * var(--u)) calc(6 * var(--u));
+  min-height: 0; overflow-y: auto; padding: calc(4 * var(--u)) calc(8 * var(--u)) calc(6 * var(--u));
   display: flex; flex-direction: column; gap: calc(2.4 * var(--u));
+  scrollbar-width: thin; scrollbar-color: #c3d4c7 transparent;
 }
+/* длинный текст новости прокручивается внутри окна. Чтобы это было видно, нижний край
+   текста затуманивается, а в конце прокрутки подсказка убирается (класс ставит main.js) */
+.modal__dialog::after {
+  content: ""; position: absolute; left: calc(90 * var(--u)); right: 0; bottom: 0; height: calc(7 * var(--u));
+  background: linear-gradient(rgba(243, 247, 243, 0), var(--bg-soft));
+  pointer-events: none; opacity: 1; transition: opacity .2s;
+}
+.modal__dialog.no-image::after, .modal__dialog.at-end::after { opacity: 0; }
+.modal__dialog.no-image::after { left: 0; }
 .modal__meta { min-height: calc(4.1 * var(--u)); }
 .modal__close {
   position: absolute; top: calc(4 * var(--u)); right: calc(8 * var(--u));
@@ -830,6 +863,17 @@ select.field {
 }
 
 /* ---------- планшеты и телефоны ---------- */
+@media (max-width: 1228px) {
+  .news-card__title br, .featured__title br { display: none; }
+  /* базовый размер уперся в минимум, а колонки продолжают сужаться: заголовок мельче
+     и карточек в ряду две, иначе заголовок перестает помещаться в три строки */
+  .news-card__title { font-size: 2.4rem; }
+  .news__grid, .news-all .news__grid { grid-template-columns: 1fr 1fr; }
+  .featured__card { grid-template-columns: 1fr; }
+  .featured__img { height: 40rem; }
+  .featured__title { font-size: 3.6rem; }
+}
+
 @media (max-width: 1100px) {
   /* на узком экране перенос, заданный владельцем в подзаголовке, только мешает:
      строка и так короткая, текст переносится сам */
@@ -851,9 +895,13 @@ select.field {
   .br-desk { display: none; }
   .education__text { white-space: normal; }
   .news__grid { grid-template-columns: 1fr 1fr; }
+  /* на планшете колонка новости месяца узкая, поэтому заголовок мельче: иначе он выходит
+     за три строки, а мера в три строки одна для всех экранов */
+  .featured__title { font-size: 3.2rem; }
   .site-footer__cols { grid-template-columns: 1fr 1fr; row-gap: 6rem; }
   .pub__img { flex-basis: 44rem; height: 34rem; }
-  .modal__dialog { grid-template-columns: 1fr; }
+  .modal__dialog { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); }
+  .modal__dialog::after { left: 0; }
   .modal__img { height: 40vh; min-height: 0; }
 }
 
@@ -946,7 +994,7 @@ select.field {
   .news__grid, .news-all .news__grid { grid-template-columns: 1fr; gap: 3.2rem; margin-top: 5rem; }
   .news-card__img { height: 38rem; }
   .news-card__body { padding: 0 3.2rem 3.2rem; gap: 3rem; }
-  .news-card__title { font-size: 3.6rem; }
+  .news-card__title { font-size: 3rem; }
   .news-card__text { font-size: 2.4rem; }
 
   .site-footer__logo img { width: 30rem; }
@@ -985,7 +1033,7 @@ select.field {
   .featured__card { grid-template-columns: 1fr; height: auto; }
   .featured__img { height: 44rem; }
   .featured__body { padding: 4rem 3.2rem; }
-  .featured__title { font-size: 4rem; }
+  .featured__title { font-size: 3.4rem; }
   .featured__text { font-size: 2.56rem; }
 
   .modal { padding: 0; align-items: end; }

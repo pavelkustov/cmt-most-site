@@ -50,17 +50,23 @@ WAIT = "load"  # networkidle зависает, когда тормозят вн�
 TIMEOUT = 120_000 if "--base" in sys.argv else 30_000
 
 problems = []
+notes = []
 checks = 0
 
 # ожидания считаем по данным сайта, а не пишем числом: контент меняется часто
 _data = (ROOT / "assets" / "js" / "data.js").read_text(encoding="utf-8")
 _dirs_block = _data[:_data.index("window.PUBLICATIONS")]
+_pubs_block = _data[_data.index("window.PUBLICATIONS"):_data.index("window.NEWS")]
+_news_block = _data[_data.index("window.NEWS"):]
 N_DIRECTIONS = len(re.findall(r'id: "[^"]+"', _dirs_block))
-N_PUBS_2022 = _data.count('date: "2022')
+N_PUBS_2022 = _pubs_block.count('date: "2022')
 PUB_PAGE = 6  # столько публикаций показывает страница до кнопки «показать еще»
 # поиск на странице публикаций идет по названию, авторам, журналу и тегам
-_pub_blocks = re.findall(r"\n  \{\n    date:.*?\n  \},", _data[_data.index("window.PUBLICATIONS"):], re.S)
+_pub_blocks = re.findall(r"\n  \{\n    date:.*?\n  \},", _pubs_block, re.S)
 N_NATURE = sum(1 for b in _pub_blocks if "nature" in b.lower())
+NEWS_IDS = re.findall(r'id: "([^"]+)"', _news_block)
+N_NEWS = len(NEWS_IDS)
+NEWS_PAGE = 6  # столько новостей показывает страница до кнопки «показать еще», кроме новости месяца
 
 # метки версий CSS/JS в HTML должны совпадать с содержимым файлов, иначе браузеры покажут старый кэш
 import hashlib
@@ -70,6 +76,16 @@ for html in ROOT.glob("*.html"):
     for path, ver in re.findall(r'(?:href|src)="(assets/(?:css|js)/[^"?]+)(?:\?v=([0-9a-f]+))?"', html.read_text(encoding="utf-8")):
         if ver != hashlib.sha1((ROOT / path).read_bytes()).hexdigest()[:8]:
             stale.append(f"{html.name}: {path}")
+
+
+def note(cond, msg):
+    """Замечание по содержимому: гейт не валит, но печатается в конце.
+
+    Заголовки и анонсы пишет владелец, и слишком длинный текст это не поломка верстки,
+    а повод подрезать текст, поэтому такие вещи идут отдельным списком.
+    """
+    if not cond:
+        notes.append(msg)
 
 
 def check(cond, msg):
@@ -152,12 +168,33 @@ with sync_playwright() as p:
     check(not page.locator(".pub__img").first.is_visible(), "публикации: в виде «список» видны картинки")
 
     page.goto(base + "news.html", wait_until=WAIT, timeout=TIMEOUT)
+    check(str(N_NEWS) in page.locator(".news-all .pubs__sub").inner_text(),
+          f"новости: в подписи нет числа новостей из data.js ({N_NEWS})")
+    check(page.locator(".news-all .news-card").count() == min(NEWS_PAGE, N_NEWS - 1),
+          f"новости: на первой странице {page.locator('.news-all .news-card').count()}, ждали {min(NEWS_PAGE, N_NEWS - 1)}")
+    page.click(".news-all .more .btn")
+    check(page.locator(".news-all .news-card").count() == min(2 * NEWS_PAGE, N_NEWS - 1),
+          "новости: «показать еще» не догрузил")
+    # заголовки переписаны под три строки: обрезанных многоточием быть не должно
+    cut = page.eval_on_selector_all(
+        ".news-all .news-card__title, .featured__title",
+        "els => els.filter(e => e.scrollHeight > e.clientHeight + 1).map(e => e.textContent.slice(0, 40))")
+    note(not cut, f"новости: заголовок не встал в три строки, обрезан многоточием: {cut}")
+    # карточки в ряду одинаковые: ссылка «читать» у всех на одной линии от верха карточки
+    tops = page.eval_on_selector_all(
+        ".news-all .news-card",
+        "els => els.map(e => Math.round(e.querySelector('.link-arrow').getBoundingClientRect().top"
+        " - e.getBoundingClientRect().top))")
+    check(len(set(tops)) == 1, f"новости: «читать» в карточках на разной высоте: {sorted(set(tops))}")
     page.click(".featured__card")
     check(page.locator(".modal").is_visible(), "новости: попап не открылся")
     page.keyboard.press("Escape")
     check(not page.locator(".modal").is_visible(), "новости: попап не закрылся по Esc")
-    page.goto(base + "news.html?open=news-2", wait_until=WAIT, timeout=TIMEOUT)
+    # id берем из data.js: заглушки из макета убраны, а имена новостей меняются вместе с контентом
+    page.goto(base + f"news.html?open={NEWS_IDS[1]}", wait_until=WAIT, timeout=TIMEOUT)
     check(page.locator(".modal").is_visible(), "новости: попап по ссылке ?open= не открылся")
+    check(bool(page.locator(".modal__title").inner_text().strip()),
+          "новости: в попапе пустой заголовок")
 
     # первый экран целиком помещается в широкие невысокие окна (Chrome с панелями, масштаб Windows 125%)
     fits = [(w, h, u) for w, h in [(2000, 930), (1536, 730), (1920, 960), (2560, 1300)]
@@ -200,7 +237,9 @@ with sync_playwright() as p:
             pg.screenshot(path=str(ROOT / "tools" / "shots" / f"404-{w}x{h}.png"))
         pg.close()
 
-    # попап новости месяца целиком виден и текст влезает без прокрутки
+    # попап целиком виден в окне, а длинный текст прокручивается внутри него.
+    # Раньше проверялось, что текст влезает без прокрутки, и это скрывало обрезку:
+    # тело попапа росло выше окна, а край окна отрезал последние абзацы
     for w, h in [(2000, 930), (1536, 730), (1920, 1080), (1440, 900)]:
         pg = browser.new_context(viewport={"width": w, "height": h}).new_page()
         pg.goto(base + "news.html?open=kustov-phd", wait_until=WAIT, timeout=TIMEOUT)
@@ -211,7 +250,16 @@ with sync_playwright() as p:
             return {top: d.top, bottom: d.bottom, overflow: b.scrollHeight - b.clientHeight};
         })()""")
         check(m["top"] >= 0 and m["bottom"] <= h, f"[{w}x{h}] попап выходит за окно: {m}")
-        check(m["overflow"] <= 2, f"[{w}x{h}] текст попапа не влезает, нужна прокрутка: {m}")
+        end = pg.evaluate("""(() => {
+            const b = document.querySelector('.modal__body');
+            b.scrollTop = b.scrollHeight;
+            b.dispatchEvent(new Event('scroll'));
+            const d = document.querySelector('.modal__dialog');
+            return {left: b.scrollHeight - b.clientHeight - b.scrollTop,
+                    hint: d.classList.contains('at-end')};
+        })()""")
+        check(end["left"] <= 2, f"[{w}x{h}] текст попапа не прокручивается до конца: {end}")
+        check(end["hint"], f"[{w}x{h}] подсказка о прокрутке не гаснет в конце текста: {end}")
         if SHOTS:
             pg.screenshot(path=str(ROOT / "tools" / "shots" / f"popup-{w}x{h}.png"))
         pg.close()
@@ -225,6 +273,8 @@ with sync_playwright() as p:
 
 httpd.shutdown()
 print(f"проверок {checks}, проблем {len(problems)}")
+for n in notes:
+    print(" ~ " + n)
 for pr in problems:
     print(" -", pr)
 sys.exit(1 if problems else 0)
