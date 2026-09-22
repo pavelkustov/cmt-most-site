@@ -44,6 +44,10 @@ HEAD = 0.9        # запас над лицом на макушку, в выс�
 FRAMES = {
     "valiev-scholarship": {"at": 0.30, "put": 0.30},   # лицо Марии, сверху был потолок
     "melchakova-join": {"at": 0.39, "put": 0.50},      # портрет Юлии, срезало макушку
+    # владелец сказал, что должно остаться в кадре (22.09.2026)
+    "everest-2025": {"at": 0.50, "put": 0.50, "at_x": 0.49},          # Мартин почти в рост
+    "photonics-expo-2025": {"at": 0.54, "put": 0.50, "at_x": 0.38},   # все трое у стенда
+    "itmo-collab-2026": {"at": 0.50, "put": 0.50, "at_x": 0.53},      # Павел с микрофоном по центру
 }
 BLIND_TOP = 0.42  # то же, когда лиц не нашлось: кадр чуть выше середины
 
@@ -97,7 +101,8 @@ def crop_box(size, faces, ratio, frame=None):
         crop_w, crop_h = height * ratio, height
 
     if frame:
-        x = (width - crop_w) / 2
+        # at и at_x это точка интереса на исходнике, put и put_x куда ее поставить в кадре
+        x = width * frame.get("at_x", 0.5) - crop_w * frame.get("put_x", 0.5)
         y = height * frame["at"] - crop_h * frame["put"]
     elif len(faces):
         left = min(x for x, y, w, h in faces)
@@ -126,8 +131,8 @@ def crop_box(size, faces, ratio, frame=None):
 
 
 def save(image, faces, name, width, ratio, dry, frame=None):
-    box = crop_box(image.size, faces, ratio, frame)
-    cut = image.crop(box)
+    # ratio None означает «снимок целиком», без кадрирования: так он идет в окно новости
+    cut = image if ratio is None else image.crop(crop_box(image.size, faces, ratio, frame))
     if cut.width > width:
         cut = cut.resize((width, round(cut.height * width / cut.width)), Image.LANCZOS)
     if not dry:

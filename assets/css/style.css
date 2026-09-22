@@ -798,6 +798,17 @@ select.field {
   display: flex; flex-direction: column; gap: calc(2 * var(--u));
 }
 .modal__text .note { font-style: italic; }
+/* Интервью читается как разговор: вводка крупнее остального текста, вопрос набран
+   фирменным зеленым и отбит сверху, ответ идет обычным абзацем с отступом слева,
+   так видно, где чья реплика. */
+.nb { white-space: nowrap; }
+.modal__text .intro { font-size: calc(2.6 * var(--u)); line-height: 1.25; }
+.modal__text .q {
+  font-weight: 500; color: var(--green); margin-top: calc(2.4 * var(--u));
+  padding-top: calc(2.4 * var(--u)); border-top: 1px solid rgba(63, 130, 89, .25);
+}
+.modal__text .intro + .q { margin-top: calc(1.2 * var(--u)); }
+.modal__text .a { padding-left: calc(2.4 * var(--u)); }
 @keyframes fade { from { opacity: 0; } }
 @keyframes pop { from { opacity: 0; transform: translateY(2rem) scale(.98); } }
 

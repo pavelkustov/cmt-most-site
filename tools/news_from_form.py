@@ -44,14 +44,20 @@ SLUGS = {
 }
 
 # Новости, которые владелец пока не выкладывает.
-SKIP = {
-    9: "интервью с Яли Сунь: в анкете съехали поля и нет даты, владелец отложил новость",
-}
+SKIP = {}
 
 # Даты, которые в анкете стоят неверно. Решения владельца от 22.09.2026.
 DATES = {
-    24: "2025-12-25",  # в анкете 25.12.2015, а защита Понкратовой прошла в 2025
+    9: "2025-08-21",   # в ячейке даты стоит заголовок, день назвал владелец
+    24: "2024-12-25",  # в анкете 25.12.2015, Понкратова защитилась в 2024
     35: "2024-04-29",  # в ячейке даты повторен заголовок, семинар шел 26–29 апреля 2024
+}
+
+# Таблицы, где владелец заполнял анкету со сдвигом на строку: заголовок попал в дату
+# и дальше все съехало. Ключ это поле новости, значение это откуда его брать в анкете,
+# список означает склейку нескольких ячеек по порядку.
+SHIFT = {
+    9: {"title": "date", "text": "title", "lead": ["text", "lead"]},
 }
 
 # Пометки владельца в ячейке фотографии. Именем файла не являются, на сайт не идут.
@@ -143,6 +149,18 @@ def photo_of(value):
     return value
 
 
+def unshift(fields, plan):
+    """Раскладывает съехавшие ячейки анкеты по своим полям (см. SHIFT)."""
+    out = {k: v for k, v in fields.items() if k not in plan and k not in sum(
+        ([x] if isinstance(x, str) else x for x in plan.values()), [])}
+    for field, source in plan.items():
+        parts = [fields.get(s, "") for s in ([source] if isinstance(source, str) else source)]
+        value = NL.join(p for p in parts if p.strip())
+        if value:
+            out[field] = value
+    return out
+
+
 def apply(record, fields):
     """Накладывает заполненные ячейки на запись новости. УДАЛИТЬ стирает значение."""
     body = record.setdefault("body", {})
@@ -202,16 +220,29 @@ def js_news(items):
     return NL.join(out)
 
 
+def in_order(items):
+    """Новости всегда лежат от свежих к старым, и наверху страницы самая свежая.
+
+    Порядок задается здесь, а не в вызывающем коде: дату правят и из других скриптов,
+    и без общей сортировки карточка оставалась бы на прежнем месте.
+    """
+    rows = sorted(items, key=lambda n: n["date"], reverse=True)
+    for n in rows:
+        n["featured"] = n is rows[0]
+    return rows
+
+
 def write_js(items):
     """Переписывает window.NEWS в data.js по разобранному списку."""
     text = DATA.read_text(encoding="utf-8")
     start = text.index("window.NEWS = [") + len("window.NEWS = [")
     end = text.index(NL + "];", start)
-    DATA.write_text(text[:start] + NL + js_news(items) + text[end:], encoding="utf-8", newline=NL)
+    DATA.write_text(text[:start] + NL + js_news(in_order(items)) + text[end:],
+                    encoding="utf-8", newline=NL)
 
 
 def write_store(items):
-    STORE.write_text(json.dumps(items, ensure_ascii=False, indent=1) + NL,
+    STORE.write_text(json.dumps(in_order(items), ensure_ascii=False, indent=1) + NL,
                      encoding="utf-8", newline=NL)
 
 
@@ -247,6 +278,8 @@ def main():
             continue
         record = by_id.get(slug, {"id": slug})
         was = json.dumps(record, ensure_ascii=False, sort_keys=True)
+        if number in SHIFT:
+            fields = unshift(fields, SHIFT[number])
         apply(record, fields)
         # номер таблицы в анкете: по нему tools/news_photos.py раскладывает фотографии
         record["form"] = number
@@ -278,9 +311,11 @@ def main():
     for n in items:
         n["featured"] = n is top
 
-    # в карточке под заголовок отведено четыре строки, под анонс пять: что длиннее,
-    # обрезается многоточием. Меры взяты из стилей, их же просит анкета
-    long_title = [n["id"] for n in items if len(n["title"]) > TITLE_MAX]
+    # в карточке под заголовок отведено три строки, под анонс пять: что длиннее,
+    # обрезается многоточием. Меры взяты из стилей, их же просит анкета.
+    # Маркеры переноса в счет не идут, это разметка, а не текст
+    plain = lambda s: re.sub(r"\s*<\s*/?\s*br\s*/?\s*>\s*", " ", s)
+    long_title = [n["id"] for n in items if len(plain(n["title"])) > TITLE_MAX]
     long_text = [n["id"] for n in items if len(n.get("text", "")) > TEXT_MAX]
 
     print(f"новостей: {len(items)}, добавлено: {len(added)}, изменено: {len(set(changed))}")

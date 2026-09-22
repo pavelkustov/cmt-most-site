@@ -11,7 +11,79 @@ const tagsHTML = (tags) => `<div class="tags">${tags.map((t) => `<span class="ta
 /* В заголовке новости владелец сам решает, где сломать строку: пишет <br> прямо в тексте.
    Все остальное экранируем, наружу пропускаем только сам перенос. */
 function newsTitleHTML(title) {
-  return esc(title).replace(/&lt;\/?br\s*\/?&gt;/gi, "<br>");
+  return esc(title)
+    .replace(/&lt;\/?br\s*\/?&gt;/gi, "<br>")
+    // названия вроде FLAMN-25 и LUMOS-2026 браузер рвет по дефису, а это одно слово
+    .replace(/([A-Za-zА-Яа-я]{2,})-(\d+)/g, '<span class="nb">$1-$2</span>');
+}
+
+const newsPhoto = (n) => (n.image ? `<img src="${img(n.image)}" alt="" loading="lazy">` : "");
+
+/* Окно новости живет и на странице новостей, и на главной: с главной карточка открывается
+   здесь же, а не уводит на другую страницу. Разметка окна есть в обоих файлах. */
+function mountNewsModal(fallbackId = "") {
+  const modal = document.querySelector(".modal");
+  if (!modal) return;
+  const body = modal.querySelector(".modal__body");
+  let lastFocus = null;
+
+  // вступление и заключение приходят абзацами: в анкете их пишут в несколько строк.
+  // В интервью абзац с вопросом выделяется, иначе разговор читается сплошняком
+  const paras = (text, cls = "", ask = false) => (Array.isArray(text) ? text : [text])
+    .filter(Boolean)
+    .map((p, i) => {
+      // в интервью первый абзац это вводка, дальше вопрос и ответ чередуются
+      const kind = !ask ? cls
+        : i === 0 ? `${cls} intro`.trim()
+        : /\?\s*$/.test(p) ? `${cls} q`.trim()
+        : `${cls} a`.trim();
+      return `<p${kind ? ` class="${kind}"` : ""}>${esc(p)}</p>`;
+    }).join("");
+  // длинный текст прокручивается внутри окна: подсказка внизу гаснет, когда текст дочитан
+  const atEnd = () => modal.querySelector(".modal__dialog").classList
+    .toggle("at-end", body.scrollTop + body.clientHeight >= body.scrollHeight - 4);
+  body.addEventListener("scroll", atEnd);
+
+  const open = (id) => {
+    const n = NEWS.find((x) => x.id === id);
+    if (!n) return;
+    const b = n.body;
+    modal.querySelector(".modal__img").innerHTML = newsPhoto({ image: n.popupImage || n.image });
+    modal.querySelector(".modal__dialog").classList.toggle("no-image", !n.image);
+    modal.querySelector(".modal__meta").innerHTML = `<span class="tag">${esc(n.tag)}</span><time class="news-meta__date" datetime="${n.date}">${formatDate(n.date)}</time>`;
+    // в окне колонка другая, поэтому перенос из карточки там скрыт стилями
+    modal.querySelector(".modal__title").innerHTML = newsTitleHTML(n.title);
+    const talk = (n.tag || "").toLowerCase() === "интервью";
+    modal.querySelector(".modal__text").innerHTML = b
+      ? `${paras(b.lead, "", talk)}
+         ${b.quote ? `<blockquote>${paras(b.quote)}</blockquote>` : ""}
+         ${paras(b.note, "note")}`
+      : `<p>${esc(n.text)}</p>`;
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+    body.scrollTop = 0;
+    atEnd();
+    modal.querySelector(".modal__close").focus();
+    history.replaceState(null, "", `?open=${encodeURIComponent(id)}`);
+  };
+  const close = () => {
+    modal.hidden = true;
+    document.body.style.overflow = "";
+    history.replaceState(null, "", location.pathname);
+    lastFocus?.focus();
+  };
+
+  document.addEventListener("click", (e) => {
+    const trigger = e.target.closest("[data-open-news]");
+    if (trigger) { e.preventDefault(); open(trigger.dataset.openNews); }
+  });
+  modal.querySelector(".modal__close").addEventListener("click", close);
+  modal.querySelector(".modal__backdrop").addEventListener("click", close);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hidden) close(); });
+
+  const requested = new URLSearchParams(location.search).get("open");
+  if (requested) open(NEWS.some((n) => n.id === requested) ? requested : fallbackId);
 }
 
 function newsCardHTML(n) {
@@ -500,6 +572,7 @@ function initHome() {
   // на главной три самые свежие новости, новость месяца в том числе: отдельного места
   // под нее здесь нет, и без этого самая свежая новость с главной просто пропадала
   document.querySelector(".news__grid").innerHTML = NEWS.slice(0, 3).map(newsCardHTML).join("");
+  mountNewsModal();
 }
 
 /* ---------- направление ---------- */
@@ -640,25 +713,11 @@ function initPublications() {
 function initNews() {
   const featured = NEWS.find((n) => n.featured);
   const rest = NEWS.filter((n) => !n.featured);
-  const modal = document.querySelector(".modal");
-  let lastFocus = null;
-
-  const photo = (n) => n.image
-    ? `<img src="${img(n.image)}" alt="" loading="lazy">`
-    : "";
-  // вступление и заключение приходят абзацами: в анкете их пишут в несколько строк
-  const paras = (text, cls = "") => (Array.isArray(text) ? text : [text]).filter(Boolean)
-    .map((p) => `<p${cls ? ` class="${cls}"` : ""}>${esc(p)}</p>`).join("");
-  // длинный текст прокручивается внутри окна: подсказка внизу гаснет, когда текст дочитан
-  const body = modal.querySelector(".modal__body");
-  const atEnd = () => modal.querySelector(".modal__dialog").classList
-    .toggle("at-end", body.scrollTop + body.clientHeight >= body.scrollHeight - 4);
-  body.addEventListener("scroll", atEnd);
 
   if (featured) {
     document.querySelector(".featured__slot").outerHTML = `
       <button class="featured__card${featured.image ? "" : " no-image"}" type="button" data-open-news="${featured.id}">
-        ${featured.image ? `<span class="featured__img">${photo(featured)}</span>` : ""}
+        ${featured.image ? `<span class="featured__img">${newsPhoto(featured)}</span>` : ""}
         <span class="featured__body">
           <span class="news-meta"><span class="tag">${esc(featured.tag)}</span><time class="news-meta__date" datetime="${featured.date}">${formatDate(featured.date)}</time></span>
           <span class="featured__main">
@@ -687,45 +746,8 @@ function initNews() {
   more.querySelector("button").addEventListener("click", () => { shown += pageSize; render(); });
   render();
 
-  const open = (id) => {
-    const n = NEWS.find((x) => x.id === id);
-    if (!n) return;
-    const b = n.body;
-    modal.querySelector(".modal__img").innerHTML = photo({ image: n.popupImage || n.image });
-    modal.querySelector(".modal__dialog").classList.toggle("no-image", !n.image);
-    modal.querySelector(".modal__meta").innerHTML = `<span class="tag">${esc(n.tag)}</span><time class="news-meta__date" datetime="${n.date}">${formatDate(n.date)}</time>`;
-    // в окне колонка другая, поэтому перенос из карточки там скрыт стилями
-    modal.querySelector(".modal__title").innerHTML = newsTitleHTML(n.title);
-    modal.querySelector(".modal__text").innerHTML = b
-      ? `${paras(b.lead)}
-         ${b.quote ? `<blockquote>${paras(b.quote)}</blockquote>` : ""}
-         ${paras(b.note, "note")}`
-      : `<p>${esc(n.text)}</p>`;
-    lastFocus = document.activeElement;
-    modal.hidden = false;
-    document.body.style.overflow = "hidden";
-    body.scrollTop = 0;
-    atEnd();
-    modal.querySelector(".modal__close").focus();
-    history.replaceState(null, "", `?open=${encodeURIComponent(id)}`);
-  };
-  const close = () => {
-    modal.hidden = true;
-    document.body.style.overflow = "";
-    history.replaceState(null, "", location.pathname);
-    lastFocus?.focus();
-  };
-
-  document.addEventListener("click", (e) => {
-    const trigger = e.target.closest("[data-open-news]");
-    if (trigger) { e.preventDefault(); open(trigger.dataset.openNews); }
-  });
-  modal.querySelector(".modal__close").addEventListener("click", close);
-  modal.querySelector(".modal__backdrop").addEventListener("click", close);
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hidden) close(); });
-
-  const requested = new URLSearchParams(location.search).get("open");
-  if (requested) open(NEWS.some((n) => n.id === requested) ? requested : featured?.id);
+  // неизвестный адрес ?open= на этой странице открывает новость месяца, а не пустоту
+  mountNewsModal(featured?.id);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
