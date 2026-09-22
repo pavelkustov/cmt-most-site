@@ -3609,7 +3609,7 @@ window.NEWS = [
     },
   },
   {
-    id: "itmo-collab-2026", tag: "Достижение", date: "2026-09-02", image: "news-itmo-collab-2026.webp?v=0fffc503", popupImage: "news-itmo-collab-2026-popup.webp?v=389a7cbe",
+    id: "itmo-collab-2026", tag: "Достижение", date: "2026-09-02", image: "news-itmo-collab-2026.webp?v=2e15fc16", popupImage: "news-itmo-collab-2026-popup.webp?v=74f128c2",
     title: "Павел Филатов возглавил <br> программу ITMO Collab <br> в сезоне 2026/2027",
     text: "Павел Филатов стал руководителем программы ITMO Collab. Конкурс междисциплинарных студенческих проектов ИТМО, где лучшие команды получат до 1 000 000 рублей.",
     body: {
@@ -3625,7 +3625,7 @@ window.NEWS = [
     },
   },
   {
-    id: "biomaterials-paper", tag: "Публикация", date: "2026-08-26", image: "news-biomaterials-paper.webp?v=1da0e5e0", popupImage: "news-biomaterials-paper-popup.webp?v=f03cac34",
+    id: "biomaterials-paper", tag: "Публикация", date: "2026-08-26", image: "news-biomaterials-paper.webp?v=1da0e5e0", popupImage: "news-biomaterials-paper-popup.webp?v=aff3dde6",
     title: "Новая публикация <br> участников центра <br> в журнале Biomaterials",
     text: "Члены нашей команды опубликовали статью о наночастицах с микроРНК-200а для терапии острых и хронических заболеваний печени",
     body: {
@@ -3639,7 +3639,7 @@ window.NEWS = [
     },
   },
   {
-    id: "phd-finish-2026", tag: "Событие", date: "2026-07-13", image: "news-phd-finish-2026.webp?v=7668d711", popupImage: "news-phd-finish-2026-popup.webp?v=c98f7293",
+    id: "phd-finish-2026", tag: "Событие", date: "2026-07-13", image: "news-phd-finish-2026.webp?v=944e2d31", popupImage: "news-phd-finish-2026-popup.webp?v=dcadcd21",
     title: "Четверо сотрудников <br> нашего центра завершили <br> аспирантуру ИТМО",
     text: "Константин Арабули, Николай Жесткий, Лидия Михайлова и Мария Тимофеева завершили обучение в аспирантуре. Впереди — защита кандидатских диссертаций.",
     body: {
@@ -3757,7 +3757,7 @@ window.NEWS = [
     },
   },
   {
-    id: "valiev-scholarship", tag: "Достижение", date: "2025-12-16", image: "news-valiev-scholarship.webp?v=a0e21768", popupImage: "news-valiev-scholarship-popup.webp?v=a22f798d",
+    id: "valiev-scholarship", tag: "Достижение", date: "2025-12-16", image: "news-valiev-scholarship.webp?v=99682b81", popupImage: "news-valiev-scholarship-popup.webp?v=df0425aa",
     title: "Мария Тимофеева — <br> обладатель стипендии <br> имени К.А. Валиева",
     text: "Аспирантка нашего центра Мария Тимофеева стала победителем конкурсного отбора на именную стипендию имени К.А. Валиева. Стипендия назначается Минобрнауки РФ за достижения в области электронной промышленности.",
     body: {
@@ -3770,7 +3770,7 @@ window.NEWS = [
     },
   },
   {
-    id: "holoexpo-2025", tag: "Конференция", date: "2025-09-18", image: "news-holoexpo-2025.webp?v=c4bee3d5", popupImage: "news-holoexpo-2025-popup.webp?v=cfb51a27",
+    id: "holoexpo-2025", tag: "Конференция", date: "2025-09-18", image: "news-holoexpo-2025.webp?v=f1dc6164", popupImage: "news-holoexpo-2025-popup.webp?v=1bc918f1",
     title: "Павел Кустов получил <br> награду за лучший доклад <br> на Холоэкспо 2025",
     text: "Команда ЦМТ «Мост» приняла участие в конференции по фотонике Холоэкспо 2025 в Уфе. Павел Кустов удостоен награды за лучший устный доклад.",
     body: {
@@ -3811,7 +3811,7 @@ window.NEWS = [
     },
   },
   {
-    id: "knvsh-2025", tag: "Достижение", date: "2025-08-15", image: "news-knvsh-2025.webp?v=8e8fd661", popupImage: "news-knvsh-2025-popup.webp?v=d01bbc47",
+    id: "knvsh-2025", tag: "Достижение", date: "2025-08-15", image: "news-knvsh-2025.webp?v=789f2c50", popupImage: "news-knvsh-2025-popup.webp?v=d01bbc47",
     title: "Наш студент <br> Мартин Сандомирский — <br> победитель конкурса КНВШ",
     text: "Наш коллега Мартин Сандомирский стал победителем конкурса на получение грантов КНВШ для молодых ученых",
     body: {
@@ -3889,7 +3889,7 @@ window.NEWS = [
     },
   },
   {
-    id: "yali-sun-hust", tag: "Событие", date: "2025-04-22", image: "news-yali-sun-hust.webp?v=2be57170", popupImage: "news-yali-sun-hust-popup.webp?v=91a10c94",
+    id: "yali-sun-hust", tag: "Событие", date: "2025-04-22", image: "news-yali-sun-hust.webp?v=f15a2413", popupImage: "news-yali-sun-hust-popup.webp?v=645aad0b",
     title: "Наш постдок Яли Сунь переходит <br> на должность профессора <br> в университет HUST",
     text: "Яли Сунь, одна из первых участниц нашей группы, покидает команду, чтобы занять должность профессора в ведущем китайском университете Huazhong University of Science and Technology (HUST, Китай).",
     body: {
@@ -3902,7 +3902,7 @@ window.NEWS = [
     },
   },
   {
-    id: "zmaga-hust", tag: "Событие", date: "2025-04-22", image: "news-zmaga-hust.webp?v=1649e01c", popupImage: "news-zmaga-hust-popup.webp?v=068a2a78",
+    id: "zmaga-hust", tag: "Событие", date: "2025-04-22", image: "news-zmaga-hust.webp?v=c63f5d19", popupImage: "news-zmaga-hust-popup.webp?v=068a2a78",
     title: "Наш студент Георгий Змага <br> посетил университет HUST <br> в Ухане",
     text: "Участник нашей команды Георгий Змага посетил Хуачжунский университет науки и технологий (HUST, Ухань, Китай). Он работал в оптической лаборатории, провел измерения для проекта по детектированию слабого рамановского сигнала одиночных молекул и посетил Optics Valley Laboratory.",
     body: {
@@ -3915,7 +3915,7 @@ window.NEWS = [
     },
   },
   {
-    id: "photonics-expo-2025", tag: "Конференция", date: "2025-04-01", image: "news-photonics-expo-2025.webp?v=0f2639fc", popupImage: "news-photonics-expo-2025-popup.webp?v=34e9036c",
+    id: "photonics-expo-2025", tag: "Конференция", date: "2025-04-01", image: "news-photonics-expo-2025.webp?v=1d7c5011", popupImage: "news-photonics-expo-2025-popup.webp?v=09834e00",
     title: "Наша команда приняла <br> участие в выставке <br> «Фотоника 2025»",
     text: "С 1 по 4 апреля 2025 года члены нашей команды представили прикладные проекты на выставке «Фотоника 2025» в Москве. На стенде ИТМО были показаны синтез наночастиц кремния лазерной абляцией и защитные неклонируемые метки Unclonix.",
     body: {
@@ -3928,7 +3928,7 @@ window.NEWS = [
     },
   },
   {
-    id: "nanophysics-2025", tag: "Конференция", date: "2025-03-15", image: "news-nanophysics-2025.webp?v=1a5cc495", popupImage: "news-nanophysics-2025-popup.webp?v=4dda09df",
+    id: "nanophysics-2025", tag: "Конференция", date: "2025-03-15", image: "news-nanophysics-2025.webp?v=1a5cc495", popupImage: "news-nanophysics-2025-popup.webp?v=611384af",
     title: "Дмитрий Зуев выступил <br> на симпозиуме «Нанофизика <br> и наноэлектроника»",
     text: "Дмитрий Зуев принял участие в XXIX Симпозиуме «Нанофизика и наноэлектроника», который прошел 11–14 марта 2025 года в Нижнем Новгороде. Он представил доклад о гибридных нанофотонных системах.",
     body: {
@@ -3941,7 +3941,7 @@ window.NEWS = [
     },
   },
   {
-    id: "melchakova-join", tag: "Событие", date: "2025-03-13", image: "news-melchakova-join.webp?v=00b39730", popupImage: "news-melchakova-join-popup.webp?v=e996adb7",
+    id: "melchakova-join", tag: "Событие", date: "2025-03-13", image: "news-melchakova-join.webp?v=d823051c", popupImage: "news-melchakova-join-popup.webp?v=ae9ce2ba",
     title: "Юлия Мельчакова присоединилась к нашей команде в роли постдока",
     text: "Наша команда пополнилась: к нам присоединилась Юлия Мельчакова, постдок. Она будет заниматься теоретическим исследованием спин-поляризованных материалов для оптики и фотоники.",
     body: {
@@ -3967,7 +3967,7 @@ window.NEWS = [
     },
   },
   {
-    id: "metanano-2024", tag: "Конференция", date: "2024-10-27", image: "news-metanano-2024.webp?v=a270c318", popupImage: "news-metanano-2024-popup.webp?v=2cc7124c",
+    id: "metanano-2024", tag: "Конференция", date: "2024-10-27", image: "news-metanano-2024.webp?v=a270c318", popupImage: "news-metanano-2024-popup.webp?v=a777fd28",
     title: "Команда нашего центра <br> участвует на школе <br> METANANO 2024",
     text: "Члены нашей группы Екатерина Понкратова, Артем Ларин, Елена Петрова и Мартин Сандомирский приняли участие в школе METANANO 2024 в Циндао. Мартин Сандомирский получил награду за лучший постер.",
     body: {
@@ -3993,7 +3993,7 @@ window.NEWS = [
     },
   },
   {
-    id: "microelectronics-2024", tag: "Конференция", date: "2024-09-29", image: "news-microelectronics-2024.webp?v=9df910e9", popupImage: "news-microelectronics-2024-popup.webp?v=7f614685",
+    id: "microelectronics-2024", tag: "Конференция", date: "2024-09-29", image: "news-microelectronics-2024.webp?v=7941bd30", popupImage: "news-microelectronics-2024-popup.webp?v=7f614685",
     title: "Павел Кустов принял <br> участие в форуме <br> «Микроэлектроника 2024»",
     text: "Член нашей группы Павел Кустов принял участие в форуме «Микроэлектроника 2024» — главном отраслевом событии в сфере электронных технологий. Мероприятие собрало ведущих экспертов и новаторов.",
     body: {
@@ -4009,7 +4009,7 @@ window.NEWS = [
     },
   },
   {
-    id: "alt-2024", tag: "Конференция", date: "2024-09-28", image: "news-alt-2024.webp?v=39faf618", popupImage: "news-alt-2024-popup.webp?v=cc7e7f8a",
+    id: "alt-2024", tag: "Конференция", date: "2024-09-28", image: "news-alt-2024.webp?v=39faf618", popupImage: "news-alt-2024-popup.webp?v=ee84db5b",
     title: "Дмитрий Зуев — приглашенный <br> докладчик на конференции <br> ALT 2024",
     text: "Дмитрий Зуев выступил в качестве приглашенного докладчика на 31-й Международной конференции Advanced Laser Technologies (ALT 2024) в ДВФУ, Владивосток",
     body: {
@@ -4023,7 +4023,7 @@ window.NEWS = [
   },
   {
     id: "holoexpo-2024", tag: "Конференция", date: "2024-09-15", image: "news-holoexpo-2024.webp?v=4d0aaacc", popupImage: "news-holoexpo-2024-popup.webp?v=4dfadafe",
-    title: "Эдуард Агеев представил доклад на конференции «Холоэкспо»",
+    title: "Эдуард Агеев представил <br> доклад на конференции <br> «Холоэкспо-2024»",
     text: "С 9 по 13 сентября 2024 года в Казани прошла 21-я международная конференция по голографии и прикладным оптическим технологиям «Холоэкспо». Эдуард Агеев представил доклад о лазерной микро- и нанофабрикации.",
     body: {
       lead: [
@@ -4035,7 +4035,7 @@ window.NEWS = [
     },
   },
   {
-    id: "rosupack-2024", tag: "Конференция", date: "2024-06-22", image: "news-rosupack-2024.webp?v=31a774d1", popupImage: "news-rosupack-2024-popup.webp?v=c44210cd",
+    id: "rosupack-2024", tag: "Конференция", date: "2024-06-22", image: "news-rosupack-2024.webp?v=7f2d4361", popupImage: "news-rosupack-2024-popup.webp?v=c44210cd",
     title: "Павел Кустов принял <br> участие в выставке <br> RosUpack 2024",
     text: "Член нашей команды Павел Кустов принял участие в 29-й Международной выставке упаковочной индустрии RosUpack — крупнейшей выставке в России и Восточной Европе.",
     body: {
@@ -4048,7 +4048,7 @@ window.NEWS = [
     },
   },
   {
-    id: "school-projects-2024", tag: "Достижение", date: "2024-05-24", image: "news-school-projects-2024.webp?v=15f6d23d", popupImage: "news-school-projects-2024-popup.webp?v=9abf782e",
+    id: "school-projects-2024", tag: "Достижение", date: "2024-05-24", image: "news-school-projects-2024.webp?v=9b766db5", popupImage: "news-school-projects-2024-popup.webp?v=38973509",
     title: "Школьные проекты <br> под руководством нашей группы <br> получили научные награды",
     text: "В нашем центре ежегодно стажируются 11 школьников из Санкт-Петербурга, Красноярска, Котласа и Приозерска. Их проекты завоевали дипломы I и II степени на «Сахаровских чтениях 2024» и других конференциях.",
     body: {
@@ -4061,7 +4061,7 @@ window.NEWS = [
     },
   },
   {
-    id: "harbin-seminar-2024", tag: "Конференция", date: "2024-04-29", image: "news-harbin-seminar-2024.webp?v=689a4148", popupImage: "news-harbin-seminar-2024-popup.webp?v=56c74064",
+    id: "harbin-seminar-2024", tag: "Конференция", date: "2024-04-29", image: "news-harbin-seminar-2024.webp?v=d53d1182", popupImage: "news-harbin-seminar-2024-popup.webp?v=56c74064",
     title: "Дмитрий Зуев выступил <br> на семинаре в Харбинском <br> инженерном университете",
     text: "Дмитрий Зуев был приглашенным докладчиком на международном семинаре «Нанотехнологии для оптики и оптоэлектроники» в Харбинском инженерном университете (26–29 апреля 2024).",
     body: {
@@ -4074,7 +4074,7 @@ window.NEWS = [
     },
   },
   {
-    id: "conferences-2023", tag: "Конференция", date: "2024-01-25", image: "news-conferences-2023.webp?v=d3549f7c", popupImage: "news-conferences-2023-popup.webp?v=b92c05ff",
+    id: "conferences-2023", tag: "Конференция", date: "2024-01-25", image: "news-conferences-2023.webp?v=d3549f7c", popupImage: "news-conferences-2023-popup.webp?v=8775abf3",
     title: "Наша команда <br> на всероссийских <br> и международных конференциях",
     text: "Члены нашей команды представили результаты исследований на конференциях ICMAT 2023, IEEE-NANO 2023, Метаматериалы'2023, ВКВО-2023, «Невская фотоника — 2023» и других.",
     body: {
@@ -4113,7 +4113,7 @@ window.NEWS = [
     },
   },
   {
-    id: "unclonix-gitex-2023", tag: "Конференция", date: "2023-10-19", image: "news-unclonix-gitex-2023.webp?v=e7267852", popupImage: "news-unclonix-gitex-2023-popup.webp?v=3393c56b",
+    id: "unclonix-gitex-2023", tag: "Конференция", date: "2023-10-19", image: "news-unclonix-gitex-2023.webp?v=a2962b22", popupImage: "news-unclonix-gitex-2023-popup.webp?v=3393c56b",
     title: "Команда Unclonix представила <br> проект на Expand North Star <br> в Дубае",
     text: "Команда проекта Unclonix приняла участие в международной выставке технологических стартапов Expand North Star в рамках форума GITEX в Дубае. Разработки представили инвесторам и экспертам отрасли.",
     body: {

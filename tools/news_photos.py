@@ -36,6 +36,15 @@ SRC = ROOT.parent / "Фото"
 SIZES = {"": (1600, 3 / 2), "-popup": (1100, 900 / 990)}
 QUALITY = 80
 FACE_TOP = 0.38   # куда по высоте кадра ставим центр лиц
+HEAD = 0.9        # запас над лицом на макушку, в высотах лица
+
+# Снимки, где каскад ошибается (принял за лицо светильник, блик, складку халата) и кадр
+# приходится задать руками: at это где лицо на исходнике, put это куда его поставить
+# в кадре, обе доли считаются от высоты сверху.
+FRAMES = {
+    "valiev-scholarship": {"at": 0.30, "put": 0.30},   # лицо Марии, сверху был потолок
+    "melchakova-join": {"at": 0.39, "put": 0.50},      # портрет Юлии, срезало макушку
+}
 BLIND_TOP = 0.42  # то же, когда лиц не нашлось: кадр чуть выше середины
 
 
@@ -56,19 +65,30 @@ def faces_of(image):
     if not found:
         return []
     found.sort(key=lambda b: b[2] * b[3], reverse=True)
-    biggest = found[0][2]
+    biggest = found[0]
     kept = []
     for x, y, w, h in found:
-        if w < biggest / 2:
+        if w < biggest[2] / 2:
             continue
         # то же лицо, найденное вторым каскадом, не считаем дважды
         if any(abs(x - kx) < kw / 2 and abs(y - ky) < kh / 2 for kx, ky, kw, kh in kept):
             continue
+        # каскад принимает за лицо светильник на потолке или блик на приборе, и такой
+        # ложный «сосед» уводит кадр. Люди на снимке стоят рядом, поэтому берем только тех,
+        # кто держится возле самого крупного лица
+        far = abs((y + h / 2) - (biggest[1] + biggest[3] / 2)) > 3 * biggest[3] \
+            or abs((x + w / 2) - (biggest[0] + biggest[2] / 2)) > 4 * biggest[2]
+        if far:
+            continue
         kept.append((x, y, w, h))
+    # одинокая мелкая находка это почти всегда не лицо: портрет снимают крупно,
+    # а на групповом снимке лиц много. Тогда лучше кадрировать по центру
+    if len(kept) < 3 and biggest[2] < min(image.size) * 0.05:
+        return []
     return kept
 
 
-def crop_box(size, faces, ratio):
+def crop_box(size, faces, ratio, frame=None):
     """Самый большой кадр нужного соотношения, в который попадают все лица."""
     width, height = size
     if width / height <= ratio:
@@ -76,10 +96,14 @@ def crop_box(size, faces, ratio):
     else:
         crop_w, crop_h = height * ratio, height
 
-    if len(faces):
+    if frame:
+        x = (width - crop_w) / 2
+        y = height * frame["at"] - crop_h * frame["put"]
+    elif len(faces):
         left = min(x for x, y, w, h in faces)
         right = max(x + w for x, y, w, h in faces)
-        top = min(y for x, y, w, h in faces)
+        # каскад отмечает лицо без волос, поэтому сверху оставляем запас на макушку
+        top = min(y - h * HEAD for x, y, w, h in faces)
         bottom = max(y + h for x, y, w, h in faces)
         x = (left + right) / 2 - crop_w / 2
         y = (top + bottom) / 2 - crop_h * FACE_TOP
@@ -101,8 +125,8 @@ def crop_box(size, faces, ratio):
     return (round(x), round(y), round(x + crop_w), round(y + crop_h))
 
 
-def save(image, faces, name, width, ratio, dry):
-    box = crop_box(image.size, faces, ratio)
+def save(image, faces, name, width, ratio, dry, frame=None):
+    box = crop_box(image.size, faces, ratio, frame)
     cut = image.crop(box)
     if cut.width > width:
         cut = cut.resize((width, round(cut.height * width / cut.width)), Image.LANCZOS)
@@ -131,7 +155,8 @@ def one_photo(items, path, news_id, dry):
         return False
     image = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
     faces = faces_of(image)
-    made = [save(image, faces, f"news-{news['id']}{suffix}.webp", width, ratio, dry)
+    frame = FRAMES.get(news["id"])
+    made = [save(image, faces, f"news-{news['id']}{suffix}.webp", width, ratio, dry, frame)
             for suffix, (width, ratio) in SIZES.items()]
     news["image"] = stamp(f"news-{news['id']}.webp")
     news["popupImage"] = stamp(f"news-{news['id']}-popup.webp")
@@ -179,7 +204,8 @@ def main():
         faces = faces_of(image)
         if not len(faces):
             blind.append(path.name)
-        made = [save(image, faces, f"news-{news['id']}{suffix}.webp", width, ratio, args.dry)
+        frame = FRAMES.get(news["id"])
+        made = [save(image, faces, f"news-{news['id']}{suffix}.webp", width, ratio, args.dry, frame)
                 for suffix, (width, ratio) in SIZES.items()]
         news["image"] = stamp(f"news-{news['id']}.webp")
         news["popupImage"] = stamp(f"news-{news['id']}-popup.webp")
