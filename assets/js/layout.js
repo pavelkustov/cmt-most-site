@@ -39,7 +39,7 @@ function renderHeader(active) {
   return `
   <header class="site-header">
     <a class="site-header__logo" href="index.html" aria-label="ЦМТ «Мост», на главную"><img src="assets/img/logo.png" alt="ИТМО, Центр междисциплинарных технологий «Мост»" width="364" height="80"></a>
-    <button class="burger" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Меню">${ICONS.burger}</button>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Меню">${ICONS.burger}${ICONS.close}</button>
     <div class="site-header__right" id="site-menu">
       <nav class="nav" aria-label="Основное меню">
         <div class="nav__bar">
@@ -50,7 +50,7 @@ function renderHeader(active) {
           ${item("news", "news.html", "Новости")}
         </div>
         <div class="nav__dropdown" id="nav-science" hidden>
-          <a class="nav__card" href="index.html#science">Научные<br>направления<span class="square-btn card-arrow">${ICONS.arrowUpRight}</span></a>
+          <a class="nav__card" href="index.html#science">Научные <br>направления<span class="square-btn card-arrow">${ICONS.arrowUpRight}</span></a>
           <a class="nav__card" href="publications.html">Публикации<span class="square-btn card-arrow">${ICONS.arrowUpRight}</span></a>
         </div>
       </nav>
@@ -88,7 +88,7 @@ function renderFooter() {
         <div class="f-col">
           <p class="f-col__title">Документы</p>
           <ul>
-            <li><a href="#">Политика по обработке персональных данных</a></li>
+            <li><a href="#">Политика по обработке<br>персональных данных</a></li>
             <li><a href="#">Информация об организации</a></li>
           </ul>
         </div>
@@ -271,8 +271,40 @@ function initMotion() {
   });
 }
 
+/* ---------- оптическое выравнивание крупных заголовков ----------
+   У буквы в шрифте есть свое пустое поле слева, на крупном кегле оно заметно: «О» в «О направлении»
+   стоит на 2 px правее текста под ней на телефоне и на 4 px на компьютере, «Т» в заголовке первого
+   экрана до 8 px. Меряем первую букву заголовка и сдвигаем его влево ровно на это поле.
+   Сдвиг в em, поэтому он верен на любой ширине окна. Меряем после загрузки шрифта, иначе
+   получим поле запасного шрифта. Заголовки, которые дорисовывает main.js, к этому моменту уже есть. */
+const OPTICAL = ".h2, .hero__title";
+
+function alignOptical() {
+  const ctx = document.createElement("canvas").getContext("2d");
+  document.querySelectorAll(OPTICAL).forEach((el) => {
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    let n = walker.nextNode();
+    while (n && !n.data.trim()) n = walker.nextNode();
+    if (!n) return;
+    const s = getComputedStyle(n.parentElement);
+    const font = `${s.fontStyle} ${s.fontWeight} ${s.fontSize} ${s.fontFamily}`;
+    const ch = n.data.trim()[0];
+    // ждем именно это начертание: общий document.fonts.ready бывает готов раньше, чем курсив заголовка
+    const measure = () => {
+      ctx.font = font;
+      const bearing = -ctx.measureText(ch).actualBoundingBoxLeft;
+      // em у отступа считается от кегля самого заголовка, а первая буква может сидеть в <em> со своим кеглем
+      el.style.marginLeft = bearing > 0.3 ? `${(-bearing / parseFloat(getComputedStyle(el).fontSize)).toFixed(3)}em` : "";
+    };
+    if (document.fonts) document.fonts.load(font, ch).then(measure, measure);
+    else measure();
+  });
+}
+
 function mountLayout() {
   watchTypography();
+  // заголовки, которые дорисовывает main.js, появляются в том же DOMContentLoaded, поэтому через setTimeout
+  setTimeout(alignOptical);
   // страница 404 идет без шапки и подвала, ей нужна только типографика
   if (document.body.dataset.layout === "off") return;
   // карточки и списки дорисовывает main.js в своем обработчике DOMContentLoaded, анимации настраиваем после него

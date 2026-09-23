@@ -25,6 +25,9 @@ function mountNewsModal(fallbackId = "") {
   const modal = document.querySelector(".modal");
   if (!modal) return;
   const body = modal.querySelector(".modal__body");
+  const wrap = modal.querySelector(".modal__scroll");
+  // на широком экране прокручивается колонка текста, на планшете и телефоне вся новость вместе с фото
+  const scroller = () => (wrap && getComputedStyle(wrap).overflowY !== "visible" ? wrap : body);
   let lastFocus = null;
 
   // вступление и заключение приходят абзацами: в анкете их пишут в несколько строк.
@@ -40,15 +43,22 @@ function mountNewsModal(fallbackId = "") {
       return `<p${kind ? ` class="${kind}"` : ""}>${esc(p)}</p>`;
     }).join("");
   // длинный текст прокручивается внутри окна: подсказка внизу гаснет, когда текст дочитан
-  const atEnd = () => modal.querySelector(".modal__dialog").classList
-    .toggle("at-end", body.scrollTop + body.clientHeight >= body.scrollHeight - 4);
+  const atEnd = () => {
+    const s = scroller();
+    modal.querySelector(".modal__dialog").classList.toggle("at-end", s.scrollTop + s.clientHeight >= s.scrollHeight - 4);
+  };
   body.addEventListener("scroll", atEnd);
+  wrap?.addEventListener("scroll", atEnd);
 
   const open = (id) => {
     const n = NEWS.find((x) => x.id === id);
     if (!n) return;
     const b = n.body;
-    modal.querySelector(".modal__img").innerHTML = newsPhoto({ image: n.popupImage || n.image });
+    // у окна на широком экране почти квадратная колонка под фото (свой кадр popupImage),
+    // на планшете и телефоне фото идет во всю ширину над текстом, туда подходит кадр 3:2 с карточки
+    modal.querySelector(".modal__img").innerHTML = n.image
+      ? `<picture>${n.popupImage ? `<source media="(min-width: 1101px)" srcset="${img(n.popupImage)}">` : ""}<img src="${img(n.image)}" alt=""></picture>`
+      : "";
     modal.querySelector(".modal__dialog").classList.toggle("no-image", !n.image);
     modal.querySelector(".modal__meta").innerHTML = `<span class="tag">${esc(n.tag)}</span><time class="news-meta__date" datetime="${n.date}">${formatDate(n.date)}</time>`;
     // в окне колонка другая, поэтому перенос из карточки там скрыт стилями
@@ -63,6 +73,7 @@ function mountNewsModal(fallbackId = "") {
     modal.hidden = false;
     document.body.style.overflow = "hidden";
     body.scrollTop = 0;
+    if (wrap) wrap.scrollTop = 0;
     atEnd();
     modal.querySelector(".modal__close").focus();
     history.replaceState(null, "", `?open=${encodeURIComponent(id)}`);
@@ -292,7 +303,8 @@ function pubHTML(p, index) {
         ${text ? `<div class="pub__desc">
           <button class="pub__desc-btn" type="button" aria-expanded="false" title="Показать абстракт целиком">${ICONS.chevronPoint}</button>
           <div class="pub__desc-text">${text.split(SPLIT).map((part) => `<p>${esc(part)}</p>`).join("")}</div>
-        </div>` : ""}
+        </div>
+        <button class="pub__desc-toggle" type="button" aria-expanded="false"><span class="pub__desc-more">весь абстракт</span><span class="pub__desc-less">свернуть</span>${ICONS.chevronDown}</button>` : ""}
         ${p.tags && p.tags.length ? `<div class="pub__tags">
           <p class="pub__tags-title">Ключевые теги</p>
           ${tagsHTML(p.tags)}
@@ -302,6 +314,10 @@ function pubHTML(p, index) {
         ${image}
         ${link ? `<a class="pub__img-link" href="${esc(link)}" target="_blank" rel="noopener">подробнее ${ICONS.arrowRight}</a>` : ""}
       </div>
+    </div>
+    <!-- на телефоне «Цитировать» стоит внизу карточки, а в строке с датой скрыт -->
+    <div class="pub__foot">
+      <button class="pub__cite" type="button" data-cite="${index}" aria-haspopup="dialog"><span>Цитировать</span>${ICONS.download}</button>
     </div>
   </article>`;
 }
@@ -315,8 +331,10 @@ function mountPubList(root, getItems, { pageSize = Infinity } = {}) {
   let items = [];
 
   // абстракт свернут до высоты карточки, по клику раскрывается целиком
+  // на телефоне под абстрактом отдельная кнопка «весь абстракт», стрелка слева там скрыта
   list.addEventListener("click", (e) => {
-    const desc = e.target.closest(".pub__desc");
+    const toggle = e.target.closest(".pub__desc-toggle");
+    const desc = toggle ? toggle.previousElementSibling : e.target.closest(".pub__desc");
     if (!desc || e.target.closest("a")) return;
     const open = desc.classList.toggle("is-open");
     const btn = desc.querySelector(".pub__desc-btn");
@@ -324,7 +342,11 @@ function mountPubList(root, getItems, { pageSize = Infinity } = {}) {
       btn.setAttribute("aria-expanded", String(open));
       btn.title = open ? "Свернуть абстракт" : "Показать абстракт целиком";
     }
+    desc.nextElementSibling?.matches(".pub__desc-toggle") && desc.nextElementSibling.setAttribute("aria-expanded", String(open));
   });
+  // короткий абстракт виден целиком, кнопка «весь абстракт» ему не нужна
+  const markShort = () => list.querySelectorAll(".pub__desc:not(.is-open)").forEach((d) =>
+    d.classList.toggle("is-short", d.scrollHeight <= d.clientHeight + 2));
 
   let view = "cards";
   try { view = localStorage.getItem("pubView") || "cards"; } catch (e) { /* хранилище недоступно */ }
@@ -350,6 +372,7 @@ function mountPubList(root, getItems, { pageSize = Infinity } = {}) {
     list.innerHTML = visible.length
       ? visible.map(pubHTML).join("")
       : `<p class="empty">Ничего не найдено. Попробуйте изменить фильтры.</p>`;
+    markShort();
     if (more) {
       more.hidden = items.length <= pageSize;
       more.querySelector(".more__count").textContent = `Показано ${visible.length} из ${items.length}`;
@@ -641,7 +664,18 @@ function initDirection() {
     [m.topShare ? m.topShare + "%" : 0, "статей в Q1 и Q2"],
     [m.recent, "статей с " + m.since + " года"],
   ];
-  about.querySelector(".dir-about__text").innerHTML = text;
+  const textBox = about.querySelector(".dir-about__text");
+  textBox.innerHTML = text;
+  // на телефоне виден первый абзац, остальные открываются кнопкой (на компьютере кнопка скрыта)
+  if (textBox.children.length > 1) {
+    textBox.insertAdjacentHTML("afterend",
+      `<button class="dir-about__more" type="button" aria-expanded="false"><span class="dir-about__more-open">читать полностью</span><span class="dir-about__more-close">свернуть</span>${ICONS.chevronDown}</button>`);
+    const more = textBox.nextElementSibling;
+    more.addEventListener("click", () => {
+      const open = textBox.classList.toggle("is-open");
+      more.setAttribute("aria-expanded", String(open));
+    });
+  }
   // тема письма из карточки-приглашения: сразу видно, по какому направлению запрос
   about.querySelector(".dir-cta__btn").dataset.writeSubject = `Совместная работа: ${d.title}`;
   about.querySelector(".dir-stats").innerHTML = statsHTML(stats);
