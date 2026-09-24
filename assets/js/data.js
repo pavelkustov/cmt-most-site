@@ -8,6 +8,10 @@ window.SITE = {
     physics: "https://physics.itmo.ru/",
     itmo: "https://itmo.ru/",
     track: "https://abit.itmo.ru/program/master/nanophotonic",
+    // документы общие с ИТМО: сайт будет жить на домене itmo.ru (решение владельца 24.09.2026).
+    // Английской версии у этих страниц ИТМО нет, английский сайт ведет на них же
+    privacy: "https://itmo.ru/file/pages/79/personal_data_policy.pdf",
+    orgInfo: "https://itmo.ru/ru/page/89/1._osnovnye_svedeniya.htm",
   },
 };
 

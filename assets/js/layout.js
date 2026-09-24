@@ -126,8 +126,8 @@ function renderFooter() {
         <div class="f-col">
           <p class="f-col__title">${t("Документы")}</p>
           <ul>
-            <li><a href="#">${t("Политика по обработке<br>персональных данных")}</a></li>
-            <li><a href="#">${t("Информация об организации")}</a></li>
+            <li><a href="${SITE.links.privacy}" target="_blank" rel="noopener">${t("Политика по обработке<br>персональных данных")}</a></li>
+            <li><a href="${SITE.links.orgInfo}" target="_blank" rel="noopener">${t("Информация об организации")}</a></li>
           </ul>
         </div>
         <div class="f-col">
