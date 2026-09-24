@@ -414,6 +414,42 @@ function mountSlider(track, arrows, itemSel) {
   track.addEventListener("scroll", update, { passive: true });
   window.addEventListener("resize", update);
   update();
+  autoSlide(track, arrows, step);
+}
+
+/* Лента сама листается на карточку раз в SLIDE_EVERY, как будто нажали стрелку, а с конца
+   плавно возвращается к началу. Листает, только когда лента на экране и вкладка открыта.
+   Пока над лентой мышь или в ней фокус, стоит. После касания, прокрутки или стрелки отсчет
+   начинается заново, чтобы лента не уехала из-под руки. При «уменьшить движение» не листает */
+const SLIDE_EVERY = 4000;
+
+function autoSlide(track, arrows, step) {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+  let timer = null, visible = false, held = false;
+  const stop = () => { clearTimeout(timer); timer = null; };
+  const plan = () => {
+    stop();
+    if (visible && !held && !document.hidden && !arrows.hidden) timer = setTimeout(move, SLIDE_EVERY);
+  };
+  const move = () => {
+    const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    if (atEnd) track.scrollTo({ left: 0, behavior: "smooth" });
+    else track.scrollBy({ left: step(), behavior: "smooth" });
+    plan();
+  };
+  const hold = (on) => (e) => {
+    // касание на сенсорном экране тоже шлет «наведение», но без ухода: иначе лента застыла бы
+    if (e.pointerType && e.pointerType !== "mouse") return;
+    held = on; plan();
+  };
+  track.addEventListener("pointerenter", hold(true));
+  track.addEventListener("pointerleave", hold(false));
+  track.addEventListener("focusin", hold(true));
+  track.addEventListener("focusout", hold(false));
+  ["pointerdown", "wheel", "touchstart"].forEach((type) => track.addEventListener(type, plan, { passive: true }));
+  arrows.addEventListener("click", plan);
+  document.addEventListener("visibilitychange", plan);
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; plan(); }, { threshold: 0.3 }).observe(track);
 }
 
 /* Перетаскивание ленты мышью (на телефоне и тачпаде прокрутка и так работает) */
