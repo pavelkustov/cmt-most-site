@@ -880,7 +880,11 @@ select.field {
   .bridge__half { animation: none; }
 }
 
-/* ---------- планшеты и телефоны ---------- */
+/* ---------- планшеты и телефоны ----------
+   Телефонная верстка включается на ширине до 760 px и еще на любом невысоком экране до 1100 px:
+   так телефон в альбомной (iPhone 16, Pixel, Galaxy шириной 830–956 px и высотой 370–440 px)
+   получает телефонную верстку, а не планшетную, рассчитанную на высокий экран.
+   Поправки именно под альбомную стоят отдельным блоком ниже («телефон в альбомной»). */
 @media (max-width: 1228px) {
   .news-card__title br, .featured__title br { display: none; }
   /* базовый размер уперся в минимум, а колонки продолжают сужаться: заголовок мельче
@@ -896,10 +900,14 @@ select.field {
   /* на узком экране перенос, заданный владельцем в подзаголовке, только мешает:
      строка и так короткая, текст переносится сам */
   .hero__subtitle br { display: none; }
+  /* без ручного переноса строки подзаголовка выравниваются по длине: «Мост» не остается один */
+  .hero__subtitle { text-wrap: balance; }
   html { font-size: 6.4px; }
   :root { --gutter: 4rem; --section-gap: 12rem; }
   .site-header__right { gap: 1.6rem; }
   .nav__item { font-size: 2rem; padding: 0 .8rem; }
+  /* РУ/EN тем же кеглем, что пункты меню слева */
+  .lang__btn { font-size: 2rem; }
   .ind-grid { grid-template-columns: 1fr 1fr; }
   .ind-card:nth-child(1) { grid-column: 1; }
   .ind-card:nth-child(2) { grid-column: 2; }
@@ -929,7 +937,7 @@ select.field {
   .modal__body { overflow: visible; }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 760px), (max-width: 1100px) and (max-height: 500px) {
   html { font-size: 6.25px; }
   :root { --gutter: 2.6rem; --section-gap: 9.6rem; --hero-edge: 4rem; }
   body { font-size: 2.56rem; }
@@ -937,24 +945,7 @@ select.field {
   .lead { font-size: 2.72rem; }
   .section-head--row { flex-direction: column; align-items: flex-start; gap: 2.4rem; }
 
-  .site-header { align-items: center; }
   .site-header__logo img { width: 26rem; }
-  .burger {
-    display: grid; place-items: center; width: 6.4rem; height: 6.4rem; border-radius: 1.2rem;
-    background: rgba(242, 253, 251, .25); color: var(--mint);
-  }
-  .burger svg { width: 3.2rem; height: 3.2rem; }
-  .site-header__right {
-    display: none; position: absolute; top: calc(100% + 1.6rem); left: 0; right: 0;
-    flex-direction: column; align-items: stretch; gap: 1.2rem; padding: 1.6rem; border-radius: var(--radius-m);
-    background: rgba(20, 35, 28, .92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  }
-  .site-header.is-open .site-header__right { display: flex; animation: menu-in .22s cubic-bezier(.2, .7, .2, 1); }
-  .nav__bar { flex-direction: column; background: none; padding: 0; backdrop-filter: none; }
-  .nav__item { font-size: 2.56rem; height: 7.2rem; justify-content: space-between; }
-  .nav__dropdown { position: static; flex-direction: column; gap: 1.2rem; margin-top: .8rem; background: none; padding: 0; backdrop-filter: none; }
-  .nav__card { min-height: 9rem; font-size: 2.2rem; }
-  .lang { align-self: flex-start; background: rgba(242, 253, 251, .15); }
 
   .hero, .hero--short { height: auto; min-height: 100svh; }
   .hero__content, .hero--home .hero__content, .hero--short .hero__content { position: relative; left: auto; right: auto; top: auto; bottom: auto; padding: 24rem var(--gutter) var(--hero-edge); min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; }
@@ -1080,8 +1071,28 @@ select.field {
   .oops__foot { font-size: 2rem; }
 }
 
-/* ---------- доводка телефонов в книжной ориентации (23.09.2026, по замечаниям владельца) ---------- */
-@media (max-width: 760px) {
+/* ---------- меню бургером ----------
+   На телефоне и на узком планшете (iPad Mini в книжной, раскрытые складные до 900 px): полная
+   строка меню рядом с логотипом там не помещается и сжимает логотип до 100 px (24.09.2026) */
+@media (max-width: 900px), (max-width: 1100px) and (max-height: 500px) {
+  .site-header { align-items: center; }
+  .burger {
+    display: grid; place-items: center; width: 6.4rem; height: 6.4rem; border-radius: 1.2rem;
+    background: rgba(242, 253, 251, .25); color: var(--mint);
+  }
+  .burger svg { width: 3.2rem; height: 3.2rem; }
+  .site-header__right {
+    display: none; position: absolute; top: calc(100% + 1.6rem); left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 1.2rem; padding: 1.6rem; border-radius: var(--radius-m);
+    background: rgba(20, 35, 28, .92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .site-header.is-open .site-header__right { display: flex; animation: menu-in .22s cubic-bezier(.2, .7, .2, 1); }
+  .nav__bar { flex-direction: column; background: none; padding: 0; backdrop-filter: none; }
+  .nav__item { font-size: 2.56rem; height: 7.2rem; justify-content: space-between; }
+  .nav__dropdown { position: static; flex-direction: column; gap: 1.2rem; margin-top: .8rem; background: none; padding: 0; backdrop-filter: none; }
+  .nav__card { min-height: 9rem; font-size: 2.2rem; }
+  .lang { align-self: flex-start; background: rgba(242, 253, 251, .15); }
+
   /* меню: пункты строками с разделителями, «Наука» раскрывается прямо под собой,
      текущая страница отмечена точкой, а не плашкой */
   .burger { width: 7rem; height: 7rem; }
@@ -1120,7 +1131,10 @@ select.field {
   .lang__btn { padding: 1.4rem 2.4rem; border-radius: 1.2rem; font-size: 2.2rem; background: rgba(242, 253, 251, .12); color: var(--mint); }
   .lang__btn.is-active { background: var(--mint); color: var(--ink); }
   .lang__btn[aria-disabled="true"] { opacity: .5; }
+}
 
+/* ---------- доводка телефонов в книжной ориентации (23.09.2026, по замечаниям владельца) ---------- */
+@media (max-width: 760px), (max-width: 1100px) and (max-height: 500px) {
   /* длинное слово в названии направления («микротехнология») не должно упираться в край экрана */
   [data-page="direction"] .hero__title { font-size: min(7.2rem, 9.6vw); }
 
@@ -1251,9 +1265,246 @@ select.field {
   .pub__desc-toggle[aria-expanded="true"] .pub__desc-less { display: inline; }
   .pub__desc.is-short + .pub__desc-toggle { display: none; }
   .pub__desc.is-short::after { display: none; }
-  /* вид «список»: только дата, журнал, название, авторы и «Цитировать», без картинки, абстракта и тегов */
-  .pub-list.is-list .pub__desc, .pub-list.is-list .pub__desc-toggle, .pub-list.is-list .pub__tags { display: none; }
-  .pub-list.is-list .pub { gap: 2.4rem; }
+}
+
+/* ---------- телефон в альбомной ориентации (23.09.2026, по замечаниям владельца) ----------
+   Экран широкий и низкий: 667–956 px в ширину и 370–440 px в высоту. Поверх телефонной верстки
+   раскладываем блоки в строку и ничего не растягиваем на всю ширину. */
+@media (max-width: 1100px) and (max-height: 500px) and (orientation: landscape) {
+  /* первый экран целиком в окне: шапка, заголовок, подзаголовок и кнопка «написать» */
+  .hero__content, .hero--home .hero__content, .hero--short .hero__content { padding-top: 15rem; }
+  .hero__title { font-size: 6rem; }
+  [data-page="direction"] .hero__title { font-size: 5.6rem; }
+  .hero__back { margin-bottom: 2.4rem; }
+  .hero__bottom, .hero--home .hero__bottom, .hero--short .hero__bottom {
+    flex-direction: row; align-items: flex-end; justify-content: space-between; margin-top: 3.2rem; gap: 4rem;
+  }
+  .hero__subtitle { font-size: 2.56rem; max-width: 88rem; }
+
+  /* цифры центра в одну строку */
+  .metrics { flex-direction: row; gap: 4rem; }
+  .metric__title { font-size: 2.8rem; white-space: nowrap; }
+  .metric__text { font-size: 2.24rem; text-wrap: balance; }
+
+  /* карточки направлений и команды той же ширины, что на телефоне в книжной, без растяжения */
+  .dir-card { flex-basis: 50.4rem; }
+  .dir-card { gap: 2.4rem; padding-top: 2.8rem; }
+  .dir-card__top { gap: 2.4rem; }
+  .dir-card__title { font-size: 3.2rem; }
+  .dir-card__img { height: 24rem; }
+  .person { flex-basis: 43.2rem; height: 46rem; }
+
+  /* этапы как на компьютере: линия с точками и четыре колонки */
+  .timeline__bar { display: none; }
+  .timeline__line { display: block; }
+  .timeline__steps { grid-template-columns: repeat(4, 1fr); margin-top: 2.4rem; gap: 0; border-left: 0; padding-left: 0; }
+  .timeline__steps li { display: block; padding: 0 1.6rem 0 0; border-bottom: 0; font-size: 2.4rem; line-height: 1.25; }
+  .timeline__steps li::before { content: none; }
+  .timeline__steps li br { display: inline; }
+
+  /* новости: фото слева, текст справа, кадр не режет лица */
+  .news__grid, .news-all .news__grid { grid-template-columns: 1fr; }
+  .news-card { flex-direction: row; gap: 0; }
+  .news-card__img { flex: 0 0 42%; height: auto; min-height: 30rem; }
+  .news-card__body { padding: 3.2rem; gap: 2.4rem; }
+  .featured__card { grid-template-columns: 42fr 58fr; }
+  /* фото новости месяца скруглено со всех сторон, как у карточек в списке */
+  .featured__img { height: auto; min-height: 36rem; border-radius: var(--radius-l); overflow: hidden; }
+
+  /* окно новости как на компьютере: фото слева в своем почти квадратном кадре (лица целиком),
+     текст справа прокручивается отдельно; крестик в углу над текстом */
+  .modal__dialog { display: grid; grid-template-columns: 40% 1fr; grid-template-rows: minmax(0, 1fr); height: 92svh; }
+  .modal__scroll { display: contents; overflow: visible; }
+  .modal__img { aspect-ratio: auto; height: auto; }
+  .modal__body { min-height: 0; overflow-y: auto; padding: 3.2rem 3.2rem 4rem; }
+  .modal__dialog::after { left: 40%; }
+  .modal__title { padding-right: 8rem; }
+  .modal__dialog.no-image { grid-template-columns: 1fr; }
+
+  /* карточка публикации: справа колонка с картинкой (или плашкой журнала) постоянной высоты
+     и под ней «Цитировать», слева текст */
+  .pub { display: grid; grid-template-columns: 1fr 38%; grid-template-rows: auto auto 1fr; column-gap: 3.2rem; row-gap: 2.4rem; align-items: start; }
+  .pub__meta { grid-column: 1 / -1; }
+  .pub__main { display: contents; }
+  .pub__body { grid-column: 1; grid-row: 2 / span 2; display: flex; flex-direction: column; min-width: 0; gap: 2.4rem; }
+  .pub__img, .pub__img.is-empty { grid-column: 2; grid-row: 2; height: 26rem; }
+  .pub__foot { grid-column: 2; grid-row: 3; justify-content: flex-end; }
+  /* в виде «список» картинки нет, «Цитировать» стоит под текстом слева */
+  .pub-list.is-list .pub { grid-template-columns: 1fr; }
+  .pub-list.is-list .pub__foot { grid-column: 1; grid-row: auto; justify-content: flex-start; }
+  /* ключевые теги у публикаций в альбомной не показываем (решение владельца 23.09.2026) */
+  .pub__tags { display: none; }
+  .pub__img-placeholder { font-size: 2.56rem; padding: 3.2rem 3.2rem 8rem; }
+  .pub__img-link { left: 3.2rem; bottom: 3.2rem; font-size: 2.24rem; }
+
+  /* стрелки у ленты направлений и команды, как на компьютере */
+  .science__head, .people-head { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+  .slider-arrows { display: flex; gap: 1.2rem; }
+  .slider-arrows[hidden] { display: none; }
+  .square-btn { width: 6.4rem; height: 6.4rem; border-radius: 1.4rem; }
+  .square-btn svg { width: 4.4rem; height: 4.4rem; }
+
+  /* подвал в две колонки: меню и документы, ссылки и контакты */
+  .site-footer__cols { grid-template-columns: 1fr 1fr; column-gap: 4.8rem; row-gap: 6rem; }
+  .site-footer__bottom { flex-direction: row; justify-content: space-between; }
+
+  /* приглашение на странице направления в строку: текст слева, кнопка справа по нижней строке текста */
+  .dir-cta { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 4rem; }
+
+  /* страница 404 в одно окно */
+  .oops__inner { padding-block: 6rem 2rem; }
+  .bridge { width: 16rem; margin-bottom: 2.4rem; }
+  .oops__title { font-size: 4.4rem; }
+  .oops__text { margin-top: 1.6rem; }
+  .oops__actions { flex-direction: row; margin-top: 3.2rem; }
+}
+
+/* меню телефона в альбомной и узкого планшета помещается в экран и не тянется во всю ширину:
+   панель по размеру содержимого у правого края, слева пункты, справа подменю «Науки»
+   (сверху, напротив пункта) и языки (снизу) */
+@media (max-width: 1100px) and (max-height: 500px) and (orientation: landscape), (min-width: 761px) and (max-width: 900px) {
+  .site-header__right.site-header__right {
+    left: auto; right: 0; display: none; grid-template-columns: 30rem auto; column-gap: 4.8rem; align-items: start;
+    max-height: calc(100svh - 13rem); overflow-y: auto;
+  }
+  .site-header.is-open .site-header__right { display: grid; }
+  .nav { display: contents; }
+  .nav__bar > * { grid-column: 1; }
+  .nav__item { height: 6.4rem; }
+  .nav__dropdown { grid-column: 2; grid-row: 1 / span 3; padding: 0; border-bottom: 0; min-width: 34rem; }
+  .lang { grid-column: 2; grid-row: 4 / span 2; align-self: end; justify-self: end; margin: 0 0 .8rem; }
+}
+
+/* ---------- планшет (24.09.2026, по замечаниям владельца) ----------
+   То же, что у телефона в альбомной, под размеры планшета: iPad Mini 768×1024 и 1024×768,
+   раскрытые Pixel 9 Pro Fold и Galaxy Z Fold 6, iPad Pro 13 и Surface Pro 10 в книжной.
+   Цифры в строку, этапы линией, стрелки и подвал в две колонки у планшета и так как на компьютере.
+   Сначала общее для обеих ориентаций, ниже отдельно альбомная и книжная. */
+@media (min-width: 761px) and (max-width: 1100px) and (min-height: 501px) {
+  /* подписи под цифрами центра: строки примерно равной длины, без одинокого слова */
+  .metric__text { text-wrap: balance; }
+
+  /* «Оборудование» уходит в конец, после «Производства микро- и наноструктур» */
+  .ind-photo { order: 1; }
+
+  /* образование: заголовок и трек, под ними фото, дальше текст, факты и кнопка */
+  .education { gap: 4.8rem; }
+  .education__body { display: contents; }
+  .education__photo { order: 1; }
+  .education__text { order: 2; margin-top: 0; }
+  .education .facts { order: 3; margin-top: 0; }
+  .education .btn { order: 4; margin-top: 0; }
+
+  /* новости: у новости месяца фото слева, текст справа, фото скруглено со всех сторон.
+     Так же лежат карточки на главной и последняя карточка в списке, если она одна в ряду.
+     «Читать» слева у всех, как у новости месяца */
+  .featured__card { grid-template-columns: 42fr 58fr; }
+  .featured__img { height: auto; min-height: 40rem; border-radius: var(--radius-l); overflow: hidden; }
+  .featured__body { padding: 4rem 5rem; }
+  .news .news__grid { grid-template-columns: 1fr; gap: 3.2rem; }
+  .news .news-card, .news-all .news-card:last-child:nth-child(odd) { flex-direction: row; gap: 0; }
+  .news-all .news-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .news .news-card__img, .news-all .news-card:last-child:nth-child(odd) .news-card__img { flex: 0 0 42%; height: auto; min-height: 32rem; }
+  .news .news-card__body, .news-all .news-card:last-child:nth-child(odd) .news-card__body { padding: 3.6rem 4rem; gap: 2.4rem; }
+  .news-card .link-arrow { align-self: flex-start; }
+
+  /* крестик в окне новости крупный, в него легко попасть пальцем */
+  .modal__close { width: 7rem; height: 7rem; border-radius: 1.4rem; }
+  .modal__close svg { width: 2.6rem; height: 2.6rem; }
+
+  /* приглашение на странице направления: кнопка справа по нижней строке текста,
+     текст приглашения тем же кеглем, что текст направления над ним */
+  .dir-cta { align-items: flex-end; }
+  .dir-cta__text { font-size: 2.4rem; max-width: 72rem; }
+
+  /* карточка публикации: справа картинка (или плашка журнала) и под ней кнопка «Цитировать»,
+     слева текст; в строке с датой «Цитировать» больше нет */
+  .pub { display: grid; grid-template-columns: 1fr 44rem; grid-template-rows: auto auto 1fr; column-gap: 4.8rem; row-gap: 2.4rem; align-items: start; }
+  .pub__meta { grid-column: 1 / -1; }
+  .pub__main { display: contents; }
+  .pub__body { grid-column: 1; grid-row: 2 / span 2; align-self: stretch; }
+  .pub__img, .pub__img.is-empty { grid-column: 2; grid-row: 2; height: 30rem; }
+  .pub__foot { grid-column: 2; grid-row: 3; display: flex; justify-content: flex-end; }
+  .pub__meta .pub__cite { display: none; }
+  .pub__foot .pub__cite {
+    height: 6.4rem; padding: 0 2.4rem; gap: 1.6rem; border: 2px solid var(--stroke); border-radius: 1.2rem;
+    font-size: 2rem; font-weight: 500; text-transform: uppercase;
+  }
+  .pub__foot .pub__cite svg { padding: 0; margin: 0; background: none; }
+  .pub__img-placeholder { font-size: 2.56rem; padding: 3.2rem 3.2rem 8rem; }
+  .pub__img-link { left: 3.2rem; bottom: 3.2rem; font-size: 2.24rem; }
+  /* в виде «список» картинки нет, «Цитировать» стоит под текстом слева */
+  .pub-list.is-list .pub { grid-template-columns: 1fr; }
+  .pub-list.is-list .pub__body, .pub-list.is-list .pub__foot { grid-column: 1; grid-row: auto; }
+  .pub-list.is-list .pub__foot { justify-content: flex-start; }
+}
+
+/* планшет в альбомной и широкий планшет в книжной (iPad Pro 13, Surface Pro 10): все новости
+   по одной в ряд, фото слева. В две колонки карточка там выходит широкой, а фото узкой полосой */
+@media (min-width: 761px) and (max-width: 1100px) and (min-height: 501px) and (orientation: landscape),
+       (min-width: 901px) and (max-width: 1100px) and (min-height: 501px) {
+  .news-all .news__grid { grid-template-columns: 1fr; gap: 3.2rem; }
+  .news-all .news-card { flex-direction: row; gap: 0; }
+  .news-all .news-card__img { flex: 0 0 42%; height: auto; min-height: 32rem; }
+  .news-all .news-card__body { padding: 3.6rem 4rem; gap: 2.4rem; }
+}
+
+/* планшет в альбомной: окно новости как на компьютере, фото слева в почти квадратном кадре,
+   текст справа прокручивается отдельно */
+@media (min-width: 761px) and (max-width: 1100px) and (min-height: 501px) and (orientation: landscape) {
+  .modal__dialog { display: grid; grid-template-columns: 44% 1fr; grid-template-rows: minmax(0, 1fr); height: calc(100svh - 6rem); }
+  .modal__scroll { display: contents; overflow: visible; }
+  .modal__img { aspect-ratio: auto; height: auto; }
+  .modal__body { min-height: 0; overflow-y: auto; padding: 4rem 4.8rem 5rem; }
+  .modal__dialog::after { left: 44%; }
+  .modal__dialog.no-image { grid-template-columns: 1fr; }
+  .modal__dialog.no-image::after { left: 0; }
+  .modal__title { padding-right: 8rem; }
+  .modal__close { top: 3.2rem; right: 3.2rem; }
+}
+
+/* планшет в книжной */
+@media (min-width: 761px) and (max-width: 1100px) and (orientation: portrait) {
+  /* окно новости: колонка удобной для чтения ширины по центру экрана, фото сверху в кадре 3:2
+     не выше 40% экрана, поэтому заголовок и начало текста видны сразу */
+  .modal__dialog { max-width: 112rem; }
+  .modal__img { flex: none; aspect-ratio: auto; height: min(40svh, calc(min(100vw - 2 * var(--gutter), 112rem) / 1.5)); }
+
+  /* фильтры публикаций: две ровные строки. Поиск на две трети, рядом направления;
+     ниже годы и сортировка, «Сбросить» у правого края */
+  .filters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem; }
+  .field--search { grid-column: span 2; }
+  select.field { min-width: 0; width: 100%; text-overflow: ellipsis; }
+  .field--search input { text-overflow: ellipsis; }
+  .filters__reset { justify-self: end; }
+
+  /* страница направления: колонка текста узкая, поэтому как на телефоне. Сначала цифры сеткой
+     три на два, потом первый абзац и кнопка «читать полностью», облако ключевых слов не показываем */
+  .dir-about__grid { flex-direction: column; margin-top: 8rem; gap: 4rem; }
+  .dir-about__main { max-width: none; gap: 4.8rem; }
+  .dir-about__side { flex: none; order: -1; }
+  .dir-about__tags { display: none; }
+  .dir-stats { grid-template-columns: repeat(3, 1fr); column-gap: 3.2rem; row-gap: 4rem; }
+  .dir-stats .stat__value { min-width: 0; }
+  .dir-about__text:not(.is-open) p + p { display: none; }
+  .dir-about__more {
+    display: inline-flex; align-self: flex-start; align-items: center; gap: 1.2rem; margin-top: -2.4rem; padding-block: 1.2rem;
+    font-size: 2.24rem; font-weight: 500; text-transform: uppercase; color: var(--green);
+  }
+  .dir-about__more svg { width: 1.8rem; height: 1.4rem; transition: transform .2s; }
+  .dir-about__more[aria-expanded="true"] svg { transform: rotate(180deg); }
+  .dir-about__more-close, .dir-about__more[aria-expanded="true"] .dir-about__more-open { display: none; }
+  .dir-about__more[aria-expanded="true"] .dir-about__more-close { display: inline; }
+}
+
+/* узкий планшет (до 900 px): заголовок первого экрана чуть мельче, иначе он занимает всю ширину */
+@media (min-width: 761px) and (max-width: 900px) and (min-height: 501px) {
+  .hero__title { font-size: 10.4rem; }
+
+  /* подписи под цифрами центра чуть мельче и колонки чуть шире: так все девять подписей
+     встают в две-три строки, без одинокого слова в строке (замерено 24.09.2026 на 768 px) */
+  .metrics { gap: 2.4rem; }
+  .metric__text { font-size: 2.24rem; }
 }
 
 /* факты об обучении на телефоне в книжной: короткие подписи в одну строку, без пояснений */

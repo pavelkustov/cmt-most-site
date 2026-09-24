@@ -54,10 +54,10 @@ function mountNewsModal(fallbackId = "") {
     const n = NEWS.find((x) => x.id === id);
     if (!n) return;
     const b = n.body;
-    // у окна на широком экране почти квадратная колонка под фото (свой кадр popupImage),
-    // на планшете и телефоне фото идет во всю ширину над текстом, туда подходит кадр 3:2 с карточки
+    // у окна на широком экране, на планшете и телефоне в альбомной почти квадратная колонка под фото (свой кадр
+    // popupImage), на планшете и телефоне в книжной фото идет во всю ширину над текстом, туда подходит кадр 3:2
     modal.querySelector(".modal__img").innerHTML = n.image
-      ? `<picture>${n.popupImage ? `<source media="(min-width: 1101px)" srcset="${img(n.popupImage)}">` : ""}<img src="${img(n.image)}" alt=""></picture>`
+      ? `<picture>${n.popupImage ? `<source media="(min-width: 1101px), (min-width: 761px) and (orientation: landscape), (max-height: 500px) and (orientation: landscape)" srcset="${img(n.popupImage)}">` : ""}<img src="${img(n.image)}" alt=""></picture>`
       : "";
     modal.querySelector(".modal__dialog").classList.toggle("no-image", !n.image);
     modal.querySelector(".modal__meta").innerHTML = `<span class="tag">${esc(n.tag)}</span><time class="news-meta__date" datetime="${n.date}">${formatDate(n.date)}</time>`;
@@ -500,7 +500,7 @@ function homeMetricSets() {
     ],
     impact: [
       [count(new Date().getFullYear() - START_YEAR, "год", "года", "лет"),
-       "ведется научно-образовательная деятельность центра (с 2015 года)"],
+       "ведется научно-образовательная деятельность центра (с 2015 года)"],
       [count(cited, "цитирование", "цитирования", "цитирований"),
        "собрали работы сотрудников центра у коллег по всему миру"],
       // «одним единственным» связано неразрывным пробелом: так строка ломается после
