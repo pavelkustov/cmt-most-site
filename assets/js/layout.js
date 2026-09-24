@@ -19,46 +19,84 @@ const ICONS = {
   burger: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
 };
 
+/* ---------- язык ----------
+   Английские страницы лежат в en/ и собираются из русских скриптом tools/build_en.py.
+   Язык берем из <html lang>. Строки интерфейса переводит t() по словарю EN.ui, переводы
+   направлений, новостей и людей лежат там же (assets/js/en.js грузится только на английских
+   страницах). Русские данные не подменяем: по ним считаются порядок команды и цифры центра.
+   Английская страница лежит на уровень глубже, поэтому к картинкам из скриптов добавляется ROOT. */
+const LANG = document.documentElement.lang === "en" ? "en" : "ru";
+const ROOT = LANG === "en" ? "../" : "";
+const t = (s) => (LANG === "en" && window.EN?.ui?.[s]) || s;
+// перевод записи данных: поля из EN[kind][key] поверх русских, чего нет в переводе, остается по-русски
+const tr = (kind, key, obj) => (LANG === "en" && window.EN?.[kind]?.[key] ? { ...obj, ...window.EN[kind][key] } : obj);
+
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const formatDate = (iso) => iso.split("-").reverse().join(".");
+const MONTHS_EN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+// по-английски 07.09.2026 читается двояко (7 сентября или 9 июля), поэтому месяц словом.
+// День впереди и без запятой, 7 Sep 2026: так дата короче и ближе к русской (владелец: «даты большие»)
+const formatDate = (iso) => {
+  if (LANG !== "en") return iso.split("-").reverse().join(".");
+  const [y, m, d] = iso.split("-").map(Number);
+  return `${d} ${MONTHS_EN[m - 1]} ${y}`;
+};
 const plural = (n, one, few, many) => {
   const m10 = n % 10, m100 = n % 100;
   if (m10 === 1 && m100 !== 11) return one;
   if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return few;
   return many;
 };
+// число со словом на языке страницы: nWord(5, ["статья", "статьи", "статей"], ["paper", "papers"])
+const nWord = (n, ru, en) => `${n} ${LANG === "en" ? en[n === 1 ? 0 : 1] : plural(n, ...ru)}`;
 
 function writeButton(extraClass = "") {
   // без JS ссылка откроет почту, со скриптом покажет окно с адресом (см. mountLayout)
-  return `<a class="btn btn--light ${extraClass}" href="mailto:${SITE.email}" data-write>написать<span class="btn__icon">${ICONS.chat}</span></a>`;
+  return `<a class="btn btn--light ${extraClass}" href="mailto:${SITE.email}" data-write>${t("написать")}<span class="btn__icon">${ICONS.chat}</span></a>`;
 }
+
+/* Переключатель языка ведет на ту же страницу другого языка: русская лежит в корне, английская в en/.
+   Адрес собираем в момент нажатия: окно новости меняет ?open= в адресе уже после загрузки */
+function otherLangHref() {
+  const file = location.pathname.split("/").pop() || "index.html";
+  return `${LANG === "en" ? "../" : "en/"}${file}${location.search}${location.hash}`;
+}
+
+const LOGO = LANG === "en"
+  ? { src: "logo-en.png", alt: "ITMO, Interdisciplinary Technologies Center «Bridge»", w: 1018, h: 340 }
+  : { src: "logo.png", alt: "ИТМО, Центр междисциплинарных технологий «Мост»", w: 1225, h: 269 };
+const logoImg = (lazy = false) =>
+  `<img src="${ROOT}assets/img/${LOGO.src}" alt="${LOGO.alt}" width="${LOGO.w}" height="${LOGO.h}"${lazy ? ' loading="lazy"' : ""}>`;
 
 function renderHeader(active) {
   const item = (key, href, label) =>
     `<a class="nav__item${active === key ? " is-active" : ""}" href="${href}"${active === key ? ' aria-current="page"' : ""}>${label}</a>`;
   return `
   <header class="site-header">
-    <a class="site-header__logo" href="index.html" aria-label="ЦМТ «Мост», на главную"><img src="assets/img/logo.png" alt="ИТМО, Центр междисциплинарных технологий «Мост»" width="364" height="80"></a>
-    <button class="burger" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Меню">${ICONS.burger}${ICONS.close}</button>
+    <a class="site-header__logo" href="index.html" aria-label="${t("ЦМТ «Мост», на главную")}">${logoImg()}</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="${t("Меню")}">${ICONS.burger}${ICONS.close}</button>
     <div class="site-header__right" id="site-menu">
-      <nav class="nav" aria-label="Основное меню">
+      <nav class="nav" aria-label="${t("Основное меню")}">
         <div class="nav__bar">
-          ${item("home", "index.html", "Главная")}
-          <button class="nav__item${active === "science" ? " is-active" : ""}" type="button" aria-expanded="false" aria-controls="nav-science">наука ${ICONS.chevronDown}</button>
-          ${item("industry", "index.html#industry", "индустрия")}
-          ${item("education", "index.html#education", "образование")}
-          ${item("news", "news.html", "Новости")}
+          ${item("home", "index.html", t("Главная"))}
+          <button class="nav__item${active === "science" ? " is-active" : ""}" type="button" aria-expanded="false" aria-controls="nav-science">${t("наука")} ${ICONS.chevronDown}</button>
+          ${item("industry", "index.html#industry", t("индустрия"))}
+          ${item("education", "index.html#education", t("образование"))}
+          ${item("news", "news.html", t("Новости"))}
         </div>
         <div class="nav__dropdown" id="nav-science" hidden>
-          <a class="nav__card" href="index.html#science">Научные <br>направления<span class="square-btn card-arrow">${ICONS.arrowUpRight}</span></a>
-          <a class="nav__card" href="publications.html">Публикации<span class="square-btn card-arrow">${ICONS.arrowUpRight}</span></a>
+          <a class="nav__card" href="index.html#science">${t("Научные <br>направления")}<span class="square-btn card-arrow">${ICONS.arrowUpRight}</span></a>
+          <a class="nav__card" href="publications.html">${t("Публикации")}<span class="square-btn card-arrow">${ICONS.arrowUpRight}</span></a>
         </div>
       </nav>
       <div class="lang">
         <div class="lang__inner">
-          <span class="lang__btn is-active" aria-current="true">Ру</span>
+          ${LANG === "ru"
+            ? `<span class="lang__btn is-active" aria-current="true">Ру</span>
           <span class="lang__divider" aria-hidden="true"></span>
-          <a class="lang__btn" aria-disabled="true" title="Английская версия готовится">EN</a>
+          <a class="lang__btn" href="${esc(otherLangHref())}" hreflang="en" lang="en" data-lang-switch>EN</a>`
+            : `<a class="lang__btn" href="${esc(otherLangHref())}" hreflang="ru" lang="ru" data-lang-switch>Ру</a>
+          <span class="lang__divider" aria-hidden="true"></span>
+          <span class="lang__btn is-active" aria-current="true">EN</span>`}
         </div>
       </div>
     </div>
@@ -68,37 +106,37 @@ function renderHeader(active) {
 function renderFooter() {
   return `
   <footer class="site-footer" id="contacts">
-    <div class="site-footer__bg" aria-hidden="true"><img src="assets/img/hero-home.webp" alt="" loading="lazy"></div>
+    <div class="site-footer__bg" aria-hidden="true"><img src="${ROOT}assets/img/hero-home.webp" alt="" loading="lazy"></div>
     <div class="site-footer__inner">
       <div class="site-footer__top">
-        <a class="site-footer__logo" href="index.html"><img src="assets/img/logo.png" alt="ИТМО, Центр междисциплинарных технологий «Мост»" width="400" height="88" loading="lazy"></a>
-        <button class="back-top" type="button" aria-label="Наверх">${ICONS.backTop}</button>
+        <a class="site-footer__logo" href="index.html">${logoImg(true)}</a>
+        <button class="back-top" type="button" aria-label="${t("Наверх")}">${ICONS.backTop}</button>
       </div>
       <div class="site-footer__cols">
         <div class="f-col">
-          <p class="f-col__title">Меню</p>
+          <p class="f-col__title">${t("Меню")}</p>
           <ul>
-            <li><a href="index.html#about">О нас</a></li>
-            <li><a href="index.html#science">Наука</a></li>
-            <li><a href="index.html#industry">Индустрия</a></li>
-            <li><a href="index.html#education">Образование</a></li>
-            <li><a href="news.html">Новости</a></li>
+            <li><a href="index.html#about">${t("О нас")}</a></li>
+            <li><a href="index.html#science">${t("Наука")}</a></li>
+            <li><a href="index.html#industry">${t("Индустрия")}</a></li>
+            <li><a href="index.html#education">${t("Образование")}</a></li>
+            <li><a href="news.html">${t("Новости")}</a></li>
           </ul>
         </div>
         <div class="f-col">
-          <p class="f-col__title">Документы</p>
+          <p class="f-col__title">${t("Документы")}</p>
           <ul>
-            <li><a href="#">Политика по обработке<br>персональных данных</a></li>
-            <li><a href="#">Информация об организации</a></li>
+            <li><a href="#">${t("Политика по обработке<br>персональных данных")}</a></li>
+            <li><a href="#">${t("Информация об организации")}</a></li>
           </ul>
         </div>
         <div class="f-col">
-          <a class="f-ext" href="${SITE.links.physics}" target="_blank" rel="noopener">Сайт нового физтеха ${ICONS.arrowUpRightSmall}</a>
-          <a class="f-ext" href="${SITE.links.itmo}" target="_blank" rel="noopener">Сайт ИТМО ${ICONS.arrowUpRightSmall}</a>
+          <a class="f-ext" href="${LANG === "en" ? SITE.links.physicsEn || SITE.links.physics : SITE.links.physics}" target="_blank" rel="noopener">${t("Сайт нового физтеха")} ${ICONS.arrowUpRightSmall}</a>
+          <a class="f-ext" href="${LANG === "en" ? SITE.links.itmoEn || SITE.links.itmo : SITE.links.itmo}" target="_blank" rel="noopener">${t("Сайт ИТМО")} ${ICONS.arrowUpRightSmall}</a>
         </div>
         <div class="f-col f-contacts">
           <div class="f-col">
-            <p class="f-col__title">Контакты</p>
+            <p class="f-col__title">${t("Контакты")}</p>
             <ul>
               <li><a href="tel:${SITE.phone.replace(/\s/g, "")}" style="text-decoration:none">${SITE.phone}</a></li>
               <li><a href="mailto:${SITE.email}">${SITE.email}</a></li>
@@ -108,8 +146,8 @@ function renderFooter() {
         </div>
       </div>
       <div class="site-footer__bottom">
-        <p>© Все права защищены</p>
-        <p>ЦМТ «Мост» · Университет ИТМО</p>
+        <p>${t("© Все права защищены")}</p>
+        <p>${t("ЦМТ «Мост» · Университет ИТМО")}</p>
       </div>
     </div>
   </footer>`;
@@ -140,7 +178,7 @@ function openSheet(title, bodyHTML, extraClass = "") {
     dlg.innerHTML = `
       <div class="sheet__head">
         <h2 class="sheet__title" id="sheet-title"></h2>
-        <button class="sheet__close" type="button" aria-label="Закрыть">${ICONS.close}</button>
+        <button class="sheet__close" type="button" aria-label="${t("Закрыть")}">${ICONS.close}</button>
       </div>
       <div class="sheet__body"></div>`;
     document.body.append(dlg);
@@ -161,14 +199,14 @@ async function copyText(text, button) {
   try {
     await navigator.clipboard.writeText(text);
   } catch (err) {
-    window.prompt("Скопируйте вручную", text);
+    window.prompt(t("Скопируйте вручную"), text);
     return;
   }
   if (!button) return;
   const label = button.querySelector(".copy-label") || button;
   clearTimeout(button._t);
   button._label ??= label.textContent;
-  label.textContent = "Скопировано";
+  label.textContent = t("Скопировано");
   button.classList.add("is-done");
   button._t = setTimeout(() => { label.textContent = button._label; button.classList.remove("is-done"); }, 1800);
 }
@@ -176,20 +214,23 @@ async function copyText(text, button) {
 // subject: тема письма, например «Совместная работа: <направление>» (кнопка с data-write-subject)
 function openWriteSheet(subject = "") {
   const mailto = `mailto:${SITE.email}${subject ? `?subject=${encodeURIComponent(subject)}` : ""}`;
-  const dlg = openSheet("Написать нам", `
-    <p class="write__lead">Мы открыты к сотрудничеству и рады любым вопросам. Расскажите о своей задаче или идее, и мы подскажем, чем можем помочь.</p>
+  const dlg = openSheet(t("Написать нам"), `
+    <p class="write__lead">${t("Мы открыты к сотрудничеству и рады любым вопросам. Расскажите о своей задаче или идее, и мы подскажем, чем можем помочь.")}</p>
     <p class="write__mail"><a href="${esc(mailto)}">${SITE.email}</a></p>
     <div class="write__actions">
-      <a class="btn btn--dark" href="${esc(mailto)}">открыть почту<span class="btn__icon">${ICONS.chat}</span></a>
-      <button class="btn btn--ghost" type="button" data-copy-mail><span class="copy-label">скопировать адрес</span></button>
+      <a class="btn btn--dark" href="${esc(mailto)}">${t("открыть почту")}<span class="btn__icon">${ICONS.chat}</span></a>
+      <button class="btn btn--ghost" type="button" data-copy-mail><span class="copy-label">${t("скопировать адрес")}</span></button>
     </div>`, "sheet--write");
   dlg.querySelector("[data-copy-mail]").addEventListener("click", (e) => copyText(SITE.email, e.currentTarget));
 }
 
-/* ---------- типографика: предлоги и короткие союзы не висят в конце строки ----------
+/* ---------- типографика: предлоги и короткие союзы не висят в конце строки (и в английском тоже) ----------
    Пробел после них заменяем неразрывным, слово уходит на следующую строку вместе с предлогом.
    Работает по всем текстовым узлам страницы, включая то, что дорисовывается скриптами позже. */
-const HANGING = "в|во|без|до|из|изо|к|ко|на|над|надо|о|об|обо|от|ото|по|под|подо|при|про|с|со|у|через|для|за|перед|между|и|а|но|да|или|ни|не";
+const HANGING_RU = "в|во|без|до|из|изо|к|ко|на|над|надо|о|об|обо|от|ото|по|под|подо|при|про|с|со|у|через|для|за|перед|между|и|а|но|да|или|ни|не";
+// в английском так же не оставляют в конце строки артикли, короткие предлоги и союзы
+const HANGING_EN = "a|an|the|of|in|on|at|to|for|by|with|from|as|and|or|but|nor|since|into|onto|via|per|than|its|our|we|is|are|be";
+const HANGING = LANG === "en" ? HANGING_EN : HANGING_RU;
 const HANGING_RE = new RegExp(`(?<![\\p{L}\\p{N}])(${HANGING}) (?=\\S)`, "giu");
 const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "TEXTAREA", "INPUT", "CODE", "PRE"]);
 
@@ -342,6 +383,9 @@ function mountLayout() {
     e.preventDefault();
     openWriteSheet(trigger.dataset.writeSubject);
   });
+
+  // переключатель языка: адрес собираем в момент нажатия (окно новости могло поменять ?open=)
+  header.querySelector("[data-lang-switch]")?.addEventListener("click", (e) => { e.currentTarget.href = otherLangHref(); });
 }
 
 document.addEventListener("DOMContentLoaded", mountLayout);

@@ -120,7 +120,11 @@ svg { display: block; flex-shrink: 0; }
   position: absolute; inset: var(--hero-edge) var(--gutter) auto; z-index: 20;
   display: flex; align-items: flex-start; justify-content: space-between; gap: 3rem;
 }
-.site-header__logo img { width: 36.4rem; height: auto; }
+/* английский логотип выше русского (3:1 против 4.5:1): при той же ширине он вышел бы в полтора раза
+   выше, поэтому все ширины логотипа умножаются на --logo-k, у английских страниц он меньше */
+:root { --logo-k: 1; }
+:root[lang="en"] { --logo-k: .82; }
+.site-header__logo img { width: calc(36.4rem * var(--logo-k)); height: auto; }
 .site-header__right { display: flex; align-items: flex-start; gap: 3.2rem; }
 
 .nav { position: relative; }
@@ -284,7 +288,7 @@ svg { display: block; flex-shrink: 0; }
 @media (min-width: 1101px) {
   :root { --hero-edge: 8rem; }
   .site-header { top: 4rem; }
-  .site-header__logo img { width: 30.5rem; }
+  .site-header__logo img { width: calc(30.5rem * var(--logo-k)); }
   .site-header__right { gap: 2.4rem; }
   .nav__bar { gap: .6rem; padding: .7rem 1.1rem; border-radius: 1.4rem; }
   .nav__item { height: 5.4rem; border-radius: 1.2rem; gap: .7rem; font-size: 2rem; }
@@ -327,6 +331,8 @@ svg { display: block; flex-shrink: 0; }
 .metric__icon img { position: absolute; max-width: none; }
 .metric__title { font-size: 3.6rem; font-weight: 500; line-height: 1; margin-bottom: 2.8rem; }
 .metric__text { font-size: 2.4rem; font-weight: 300; line-height: 1.35; text-transform: lowercase; }
+/* русские подписи выверены по строкам руками, английские выравниваются по длине строк сами */
+:root[lang="en"] .metric__text { text-wrap: balance; }
 
 /* ---------- главная: наука ---------- */
 .science { margin-top: var(--section-gap); padding-block: 10rem; background: var(--bg-soft); }
@@ -410,8 +416,12 @@ svg { display: block; flex-shrink: 0; }
   margin-top: var(--section-gap); padding: 10rem var(--gutter); background: var(--bg-soft);
   display: flex; justify-content: space-between; gap: 7.5rem;
 }
-.education__photo { flex: 0 0 79.3rem; height: 87.5rem; border-radius: var(--radius-l); overflow: hidden; }
+/* низ фото ровно по низу кнопки «подробнее о треке» (владелец 24.09.2026, было на 1rem короче) */
+.education__photo { flex: 0 0 79.3rem; height: 88.5rem; border-radius: var(--radius-l); overflow: hidden; }
 .education__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 38% center; }
+/* английский текст трека короче русского: фото ниже на столько же, низ фото тоже по низу кнопки
+   (замер после загрузки шрифтов 24.09.2026, разница 6.7rem на любой ширине) */
+@media (min-width: 1101px) { :root[lang="en"] .education__photo { height: 81.8rem; } }
 /* вертикальный ритм по макету: заголовок и фото начинаются на одной линии, низ кнопки = низ фото */
 .education__body { flex: 0 1 82.2rem; display: flex; flex-direction: column; }
 .education .section-head { gap: 2.1rem; }
@@ -479,7 +489,7 @@ svg { display: block; flex-shrink: 0; }
 }
 .site-footer__inner { position: relative; padding: 5.2rem var(--gutter) 4.2rem; }
 .site-footer__top { display: flex; justify-content: space-between; align-items: flex-start; }
-.site-footer__logo img { width: 40rem; height: auto; }
+.site-footer__logo img { width: calc(40rem * var(--logo-k)); height: auto; }
 .back-top {
   width: 8.2rem; height: 8.2rem; border-radius: 1.6rem; background: rgba(242, 253, 251, .25);
   display: grid; place-items: center; margin-top: 1.2rem; margin-right: -.05rem; transition: background-color .2s;
@@ -803,6 +813,13 @@ select.field {
 .modal__close svg { width: calc(2 * var(--u)); height: calc(2 * var(--u)); }
 .modal .tag { font-size: calc(1.8 * var(--u)); padding: calc(.8 * var(--u)) calc(1.6 * var(--u)); }
 .modal .news-meta__date { font-size: calc(2 * var(--u)); }
+/* английская дата с месяцем словом (7 Sep 2026) длиннее цифровой и с заглавной буквой,
+   рядом с тегом она казалась крупнее русской, поэтому на английских страницах на 10% мельче */
+@media (min-width: 761px) {   /* на телефоне мельче 12 px нельзя, там размер как у русской */
+  :root[lang="en"] .news-meta__date { font-size: 1.8rem; }
+  :root[lang="en"] .modal .news-meta__date { font-size: calc(1.8 * var(--u)); }
+  :root[lang="en"] .pub__date { font-size: .9em; }
+}
 .modal__title { font-size: calc(4.8 * var(--u)); font-weight: 500; line-height: 1.2; letter-spacing: -0.05rem; padding-right: calc(4 * var(--u)); }
 .modal__text {
   font-family: var(--font-alt); font-size: calc(2.4 * var(--u)); font-weight: 300; line-height: 1.2;
@@ -854,7 +871,7 @@ select.field {
 .oops__inner, .oops__foot { position: relative; z-index: 1; }
 /* логотип стоит там же, где в шапке остальных страниц: левый верхний угол, те же поля */
 .oops__logo { position: absolute; z-index: 2; top: min(4rem, 4vh); left: var(--gutter); }
-.oops__logo img { width: 30.5rem; height: auto; }
+.oops__logo img { width: calc(30.5rem * var(--logo-k)); height: auto; }
 .oops__inner {
   flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; padding-block: min(12rem, 12vh) min(4rem, 4vh);
@@ -953,7 +970,7 @@ select.field {
   .lead { font-size: 2.72rem; }
   .section-head--row { flex-direction: column; align-items: flex-start; gap: 2.4rem; }
 
-  .site-header__logo img { width: 26rem; }
+  .site-header__logo img { width: calc(26rem * var(--logo-k)); }
 
   .hero, .hero--short { height: auto; min-height: 100svh; }
   .hero__content, .hero--home .hero__content, .hero--short .hero__content { position: relative; left: auto; right: auto; top: auto; bottom: auto; padding: 24rem var(--gutter) var(--hero-edge); min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; }
@@ -1020,7 +1037,7 @@ select.field {
   .news-card__title { font-size: 3rem; }
   .news-card__text { font-size: 2.4rem; }
 
-  .site-footer__logo img { width: 30rem; }
+  .site-footer__logo img { width: calc(30rem * var(--logo-k)); }
   .site-footer__cols { grid-template-columns: 1fr; margin-top: 6rem; }
   .f-col { font-size: 2.56rem; }
   .site-footer__bottom { flex-direction: column; font-size: 2rem; margin-top: 6rem; }
@@ -1070,7 +1087,7 @@ select.field {
 
   .oops { padding: 4rem var(--gutter); }
   .oops__logo { top: var(--hero-edge); }
-  .oops__logo img { width: 26rem; }
+  .oops__logo img { width: calc(26rem * var(--logo-k)); }
   .oops__inner { padding-block: 10rem 4rem; }
   .bridge { width: 24rem; margin-bottom: 4.4rem; }
   .oops__title { font-size: 5.6rem; }

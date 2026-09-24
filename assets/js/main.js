@@ -1,6 +1,8 @@
 /* Логика страниц. Какая страница, определяем по <body data-page="..."> */
 
-const img = (file) => `assets/img/${file}`;
+const img = (file) => `${ROOT}assets/img/${file}`;
+// «Показано 6 из 43» под списками с кнопкой «показать еще»
+const shownOf = (a, b) => (LANG === "en" ? `Showing ${a} of ${b}` : `Показано ${a} из ${b}`);
 // незаполненные метрики пропускаем: лучше показать меньше цифр, чем выдуманные
 const statsHTML = (items) => items.filter(([value]) => value).map(([value, label]) =>
   `<div class="stat"><p class="stat__value">${esc(value)}</p><p class="stat__label">${esc(label)}</p></div>`).join("");
@@ -51,8 +53,10 @@ function mountNewsModal(fallbackId = "") {
   wrap?.addEventListener("scroll", atEnd);
 
   const open = (id) => {
-    const n = NEWS.find((x) => x.id === id);
-    if (!n) return;
+    const raw = NEWS.find((x) => x.id === id);
+    if (!raw) return;
+    // тег остается русским: по нему узнается интервью, на экран он идет через словарь
+    const n = tr("news", id, raw);
     const b = n.body;
     // у окна на широком экране, на планшете и телефоне в альбомной почти квадратная колонка под фото (свой кадр
     // popupImage), на планшете и телефоне в книжной фото идет во всю ширину над текстом, туда подходит кадр 3:2
@@ -60,7 +64,7 @@ function mountNewsModal(fallbackId = "") {
       ? `<picture>${n.popupImage ? `<source media="(min-width: 1101px), (min-width: 761px) and (orientation: landscape), (max-height: 500px) and (orientation: landscape)" srcset="${img(n.popupImage)}">` : ""}<img src="${img(n.image)}" alt=""></picture>`
       : "";
     modal.querySelector(".modal__dialog").classList.toggle("no-image", !n.image);
-    modal.querySelector(".modal__meta").innerHTML = `<span class="tag">${esc(n.tag)}</span><time class="news-meta__date" datetime="${n.date}">${formatDate(n.date)}</time>`;
+    modal.querySelector(".modal__meta").innerHTML = `<span class="tag">${esc(t(n.tag))}</span><time class="news-meta__date" datetime="${n.date}">${formatDate(n.date)}</time>`;
     // в окне колонка другая, поэтому перенос из карточки там скрыт стилями
     modal.querySelector(".modal__title").innerHTML = newsTitleHTML(n.title);
     const talk = (n.tag || "").toLowerCase() === "интервью";
@@ -97,17 +101,18 @@ function mountNewsModal(fallbackId = "") {
   if (requested) open(NEWS.some((n) => n.id === requested) ? requested : fallbackId);
 }
 
-function newsCardHTML(n) {
+function newsCardHTML(raw) {
+  const n = tr("news", raw.id, raw);
   return `
   <article class="news-card">
     <div class="news-card__img${n.image ? "" : " is-empty"}">${n.image ? `<img src="${img(n.image)}" alt="" loading="lazy">` : ""}</div>
     <div class="news-card__body">
-      <div class="news-meta"><span class="tag">${esc(n.tag)}</span><time class="news-meta__date" datetime="${n.date}">${formatDate(n.date)}</time></div>
+      <div class="news-meta"><span class="tag">${esc(t(n.tag))}</span><time class="news-meta__date" datetime="${n.date}">${formatDate(n.date)}</time></div>
       <div>
         <h3 class="news-card__title">${newsTitleHTML(n.title)}</h3>
         <p class="news-card__text">${esc(n.text)}</p>
       </div>
-      <a class="link-arrow" href="news.html?open=${encodeURIComponent(n.id)}" data-open-news="${esc(n.id)}">Читать ${ICONS.arrowRight}</a>
+      <a class="link-arrow" href="news.html?open=${encodeURIComponent(n.id)}" data-open-news="${esc(n.id)}">${t("Читать")} ${ICONS.arrowRight}</a>
     </div>
   </article>`;
 }
@@ -218,12 +223,12 @@ function openCiteSheet(p) {
     authors: r.authors.map(([f, g]) => [esc(f), esc(g)]) };
   const rows = Object.entries(CITE_STYLES).map(([name, fmt]) => `
     <div class="cite__row">
-      <p class="cite__style">${name}</p>
+      <p class="cite__style">${t(name)}</p>
       <p class="cite__text">${fmt(safe)}</p>
-      <button class="cite__copy" type="button" data-copy-style="${name}" aria-label="Скопировать ${name}"><span class="copy-label">копировать</span></button>
+      <button class="cite__copy" type="button" data-copy-style="${name}" aria-label="${t("Скопировать")} ${t(name)}"><span class="copy-label">${t("копировать")}</span></button>
     </div>`).join("");
   const exports = Object.keys(CITE_EXPORTS).map((k) => `<button class="cite__export" type="button" data-export="${k}">${k}</button>`).join("");
-  const dlg = openSheet("Цитировать", `<div class="cite__rows">${rows}</div><div class="cite__exports">${exports}</div>`, "sheet--cite");
+  const dlg = openSheet(t("Цитировать"), `<div class="cite__rows">${rows}</div><div class="cite__exports">${exports}</div>`, "sheet--cite");
   dlg.querySelector(".sheet__body").onclick = (e) => {
     const copy = e.target.closest("[data-copy-style]");
     // неразрывные пробелы от типографики сайта в скопированную цитату не нужны
@@ -292,7 +297,7 @@ function pubHTML(p, index) {
         ${p.quartile ? `<span class="tag tag--outline">${esc(p.quartile)}</span>` : ""}
         <span>${esc(p.journal)}</span>
       </div>
-      <button class="pub__cite" type="button" data-cite="${index}" aria-haspopup="dialog"><span>Цитировать</span>${ICONS.download}</button>
+      <button class="pub__cite" type="button" data-cite="${index}" aria-haspopup="dialog"><span>${t("Цитировать")}</span>${ICONS.download}</button>
     </div>
     <div class="pub__main">
       <div class="pub__body">
@@ -301,23 +306,23 @@ function pubHTML(p, index) {
           <p class="pub__authors">${esc(p.authors)}</p>
         </div>
         ${text ? `<div class="pub__desc">
-          <button class="pub__desc-btn" type="button" aria-expanded="false" title="Показать абстракт целиком">${ICONS.chevronPoint}</button>
+          <button class="pub__desc-btn" type="button" aria-expanded="false" title="${t("Показать абстракт целиком")}">${ICONS.chevronPoint}</button>
           <div class="pub__desc-text">${text.split(SPLIT).map((part) => `<p>${esc(part)}</p>`).join("")}</div>
         </div>
-        <button class="pub__desc-toggle" type="button" aria-expanded="false"><span class="pub__desc-more">весь абстракт</span><span class="pub__desc-less">свернуть</span>${ICONS.chevronDown}</button>` : ""}
+        <button class="pub__desc-toggle" type="button" aria-expanded="false"><span class="pub__desc-more">${t("весь абстракт")}</span><span class="pub__desc-less">${t("свернуть")}</span>${ICONS.chevronDown}</button>` : ""}
         ${p.tags && p.tags.length ? `<div class="pub__tags">
-          <p class="pub__tags-title">Ключевые теги</p>
+          <p class="pub__tags-title">${t("Ключевые теги")}</p>
           ${tagsHTML(p.tags)}
         </div>` : ""}
       </div>
       <div class="pub__img${p.image ? "" : " is-empty"}">
         ${image}
-        ${link ? `<a class="pub__img-link" href="${esc(link)}" target="_blank" rel="noopener">подробнее ${ICONS.arrowRight}</a>` : ""}
+        ${link ? `<a class="pub__img-link" href="${esc(link)}" target="_blank" rel="noopener">${t("подробнее")} ${ICONS.arrowRight}</a>` : ""}
       </div>
     </div>
     <!-- на телефоне «Цитировать» стоит внизу карточки, а в строке с датой скрыт -->
     <div class="pub__foot">
-      <button class="pub__cite" type="button" data-cite="${index}" aria-haspopup="dialog"><span>Цитировать</span>${ICONS.download}</button>
+      <button class="pub__cite" type="button" data-cite="${index}" aria-haspopup="dialog"><span>${t("Цитировать")}</span>${ICONS.download}</button>
     </div>
   </article>`;
 }
@@ -340,7 +345,7 @@ function mountPubList(root, getItems, { pageSize = Infinity } = {}) {
     const btn = desc.querySelector(".pub__desc-btn");
     if (btn) {
       btn.setAttribute("aria-expanded", String(open));
-      btn.title = open ? "Свернуть абстракт" : "Показать абстракт целиком";
+      btn.title = open ? t("Свернуть абстракт") : t("Показать абстракт целиком");
     }
     desc.nextElementSibling?.matches(".pub__desc-toggle") && desc.nextElementSibling.setAttribute("aria-expanded", String(open));
   });
@@ -371,11 +376,11 @@ function mountPubList(root, getItems, { pageSize = Infinity } = {}) {
     const visible = items.slice(0, shown);
     list.innerHTML = visible.length
       ? visible.map(pubHTML).join("")
-      : `<p class="empty">Ничего не найдено. Попробуйте изменить фильтры.</p>`;
+      : `<p class="empty">${t("Ничего не найдено. Попробуйте изменить фильтры.")}</p>`;
     markShort();
     if (more) {
       more.hidden = items.length <= pageSize;
-      more.querySelector(".more__count").textContent = `Показано ${visible.length} из ${items.length}`;
+      more.querySelector(".more__count").textContent = shownOf(visible.length, items.length);
       more.querySelector("button").hidden = visible.length >= items.length;
     }
     return items;
@@ -389,9 +394,9 @@ function mountPubList(root, getItems, { pageSize = Infinity } = {}) {
 
 function viewToggleHTML() {
   return `
-  <div class="view-toggle" role="group" aria-label="Вид списка">
-    <button class="view-toggle__btn" type="button" data-view="cards" aria-pressed="true">${ICONS.grid} Карточки</button>
-    <button class="view-toggle__btn" type="button" data-view="list" aria-pressed="false">${ICONS.list} Список</button>
+  <div class="view-toggle" role="group" aria-label="${t("Вид списка")}">
+    <button class="view-toggle__btn" type="button" data-view="cards" aria-pressed="true">${ICONS.grid} ${t("Карточки")}</button>
+    <button class="view-toggle__btn" type="button" data-view="list" aria-pressed="false">${ICONS.list} ${t("Список")}</button>
   </div>`;
 }
 
@@ -530,6 +535,7 @@ function homeMetricSets() {
   const cands = withDegree(/кандидат/);
   const doctors = withDegree(/доктор/);
   const postgrads = withDegree(/аспирант/);
+  if (LANG === "en") return homeMetricSetsEn({ people, cands, doctors, postgrads, top, known, recent, cited, h });
   return {
     people: [
       [count(people.length, "человек", "человека", "человек"),
@@ -556,6 +562,44 @@ function homeMetricSets() {
       // «одним единственным» связано неразрывным пробелом: так строка ломается после
       // «будь он» и обе половины выходят примерно одной длины
       [`индекс Хирша ${h}`, "столько было бы у центра, будь он одним единственным ученым"],
+    ],
+  };
+}
+
+/* Те же девять цифр по-английски. Склонений нет, зато «каждая четвертая» звучит как «one in four»,
+   поэтому подписи написаны заново, а не переведены дословно */
+function everyNthEn(total, part) {
+  const share = total / (part || 1);
+  const nth = Math.round(share);
+  return `${share > nth ? "nearly one in" : "one in"} ${nth}`;
+}
+
+function homeMetricSetsEn({ people, cands, doctors, postgrads, top, known, recent, cited, h }) {
+  const years = new Date().getFullYear() - START_YEAR;
+  return {
+    people: [
+      [nWord(people.length, [], ["person", "people"]),
+       "work on the center’s research, education and technology"],
+      [nWord(cands, [], ["PhD holder", "PhD holders"]),
+       (doctors ? `and ${nWord(doctors, [], ["Doctor of Sciences", "Doctors of Sciences"])} ` : "")
+       + "lead the center’s projects and supervise research"],
+      [nWord(postgrads, [], ["PhD student", "PhD students"]),
+       "do research at the center together with bachelor’s and master’s students"],
+    ],
+    works: [
+      [nWord(PUBLICATIONS.length, [], ["publication", "publications"]),
+       "by the center’s researchers in high-impact journals"],
+      [`${Math.round((top.length / (known.length || 1)) * 100)}% in Q1 and Q2`,
+       "of the papers with a known quartile appeared in top journals"],
+      [nWord(recent, [], ["paper", "papers"]),
+       `published in the last three years, ${everyNthEn(PUBLICATIONS.length, recent)} of all the center’s papers`],
+    ],
+    impact: [
+      [nWord(years, [], ["year", "years"]),
+       `of research and teaching at the center (since ${START_YEAR})`],
+      [nWord(cited, [], ["citation", "citations"]),
+       "of the center’s papers by colleagues around the world"],
+      [`h-index ${h}`, "that is what the center would have as a single researcher"],
     ],
   };
 }
@@ -628,12 +672,12 @@ function initHomeMetrics() {
 function initHome() {
   initHomeMetrics();
   const carousel = document.querySelector(".carousel");
-  carousel.innerHTML = DIRECTIONS.map((d) => `
+  carousel.innerHTML = DIRECTIONS.map((raw) => [raw, tr("directions", raw.id, raw)]).map(([raw, d]) => `
     <a class="dir-card" href="direction.html?id=${d.id}">
       <div class="dir-card__top">
         <h3 class="dir-card__title">${esc(d.title)}</h3>
         <div class="dir-card__row">
-          <div class="dir-card__stats">${statsHTML([[d.team, "человек в команде"], [PUBLICATIONS.filter((p) => pubDirs(p).includes(d.id)).length, "публикаций"]])}</div>
+          <div class="dir-card__stats">${statsHTML([[d.team, t("человек в команде")], [PUBLICATIONS.filter((p) => pubDirs(p).includes(d.id)).length, t("публикаций")]])}</div>
           <span class="square-btn" aria-hidden="true">${ICONS.arrowUpRight}</span>
         </div>
       </div>
@@ -683,14 +727,17 @@ function pubMetrics(pubs) {
 function teamOf(d) {
   return d.people
     .map((name) => ({ name, ...(window.PEOPLE?.[name] || {}) }))
-    .map((p) => ({ ...p, role: [p.degree, p.post].filter(Boolean).join(", ") }))
+    // на экран идут имя и должность на языке страницы, порядок считается по русской степени
+    .map((p) => ({ ...p, show: tr("people", p.name, p) }))
+    .map((p) => ({ ...p, role: [p.show.degree, p.show.post].filter(Boolean).join(", ") }))
     .sort((a, b) => personRank(a.degree) - personRank(b.degree));
 }
 
 function initDirection() {
   const id = new URLSearchParams(location.search).get("id");
-  const d = DIRECTIONS.find((x) => x.id === id) || DIRECTIONS.find((x) => x.id === "puf");
-  document.title = `${d.title} · ЦМТ «Мост»`;
+  const found = DIRECTIONS.find((x) => x.id === id) || DIRECTIONS.find((x) => x.id === "puf");
+  const d = tr("directions", found.id, found);
+  document.title = `${d.title} · ${t("ЦМТ «Мост»")}`;
 
   // фон первого экрана: своя обложка из макета, иначе фото с карточки направления
   // у направлений без своей картинки фоном идет общий первый экран сайта
@@ -698,28 +745,28 @@ function initDirection() {
   document.querySelector(".hero__title").innerHTML = d.heroTitle || esc(d.title);
   // в подзаголовке разрешен только перенос строки: где делить фразу, решает владелец
   document.querySelector(".hero__subtitle").innerHTML =
-    (d.subtitle || "Научное направление ЦМТ «Мост»").split("<br>").map(esc).join("<br>");
+    (d.subtitle || t("Научное направление ЦМТ «Мост»")).split("<br>").map(esc).join("<br>");
 
   const about = document.querySelector(".dir-about");
   const text = d.about
     ? d.about.map((p) => `<p>${esc(p)}</p>`).join("")
-    : `<p>Описание направления готовится. Пока можно написать нам, и мы расскажем о проектах команды.</p>`;
+    : `<p>${t("Описание направления готовится. Пока можно написать нам, и мы расскажем о проектах команды.")}</p>`;
   const dirPubs = PUBLICATIONS.filter((p) => pubDirs(p).includes(d.id)).sort((a, b) => b.date.localeCompare(a.date));
   const m = pubMetrics(dirPubs);
   const stats = [
-    [d.team, plural(d.team, "человек", "человека", "человек") + " в команде"],
-    [dirPubs.length, "публикаций"],
-    [m.cites, "цитирований"],
-    [m.h, "индекс Хирша"],
-    [m.topShare ? m.topShare + "%" : 0, "статей в Q1 и Q2"],
-    [m.recent, "статей с " + m.since + " года"],
+    [d.team, LANG === "en" ? (d.team === 1 ? "person on the team" : "people on the team") : plural(d.team, "человек", "человека", "человек") + " в команде"],
+    [dirPubs.length, t("публикаций")],
+    [m.cites, t("цитирований")],
+    [m.h, t("индекс Хирша")],
+    [m.topShare ? m.topShare + "%" : 0, t("статей в Q1 и Q2")],
+    [m.recent, LANG === "en" ? `papers since ${m.since}` : "статей с " + m.since + " года"],
   ];
   const textBox = about.querySelector(".dir-about__text");
   textBox.innerHTML = text;
   // на телефоне виден первый абзац, остальные открываются кнопкой (на компьютере кнопка скрыта)
   if (textBox.children.length > 1) {
     textBox.insertAdjacentHTML("afterend",
-      `<button class="dir-about__more" type="button" aria-expanded="false"><span class="dir-about__more-open">читать полностью</span><span class="dir-about__more-close">свернуть</span>${ICONS.chevronDown}</button>`);
+      `<button class="dir-about__more" type="button" aria-expanded="false"><span class="dir-about__more-open">${t("читать полностью")}</span><span class="dir-about__more-close">${t("свернуть")}</span>${ICONS.chevronDown}</button>`);
     const more = textBox.nextElementSibling;
     more.addEventListener("click", () => {
       const open = textBox.classList.toggle("is-open");
@@ -727,7 +774,7 @@ function initDirection() {
     });
   }
   // тема письма из карточки-приглашения: сразу видно, по какому направлению запрос
-  about.querySelector(".dir-cta__btn").dataset.writeSubject = `Совместная работа: ${d.title}`;
+  about.querySelector(".dir-cta__btn").dataset.writeSubject = `${t("Совместная работа")}: ${d.title}`;
   about.querySelector(".dir-stats").innerHTML = statsHTML(stats);
   about.querySelector(".dir-about__tags").innerHTML = d.tags ? tagsHTML(d.tags) : "";
 
@@ -736,8 +783,8 @@ function initDirection() {
     // фотография есть не у всех: без нее карточка остается плашкой фирменного цвета
     people.innerHTML = teamOf(d).map((p) => `
       <figure class="person${p.photo ? "" : " person--plain"}">
-        ${p.photo ? `<img src="${img(p.photo)}" alt="${esc(p.name)}" loading="lazy" style="object-position:${p.pos || "center"}">` : ""}
-        <figcaption class="person__text"><p class="person__name">${esc(p.name)}</p>${p.role ? `<p class="person__role">${esc(p.role)}</p>` : ""}</figcaption>
+        ${p.photo ? `<img src="${img(p.photo)}" alt="${esc(p.show.name)}" loading="lazy" style="object-position:${p.pos || "center"}">` : ""}
+        <figcaption class="person__text"><p class="person__name">${esc(p.show.name)}</p>${p.role ? `<p class="person__role">${esc(p.role)}</p>` : ""}</figcaption>
       </figure>`).join("");
     mountSlider(people, document.querySelector(".people-head .slider-arrows"), ".person");
     enableDragScroll(people);
@@ -765,7 +812,7 @@ function initPublications() {
 
   const usedDirs = new Set(PUBLICATIONS.flatMap(pubDirs));
   DIRECTIONS.filter((d) => usedDirs.has(d.id))
-    .forEach((d) => dirSel.insertAdjacentHTML("beforeend", `<option value="${d.id}">${esc(d.title)}</option>`));
+    .forEach((d) => dirSel.insertAdjacentHTML("beforeend", `<option value="${d.id}">${esc(tr("directions", d.id, d).title)}</option>`));
   [...new Set(PUBLICATIONS.map((p) => p.date.slice(0, 4)))].sort().reverse()
     .forEach((y) => yearSel.insertAdjacentHTML("beforeend", `<option value="${y}">${y}</option>`));
 
@@ -784,7 +831,7 @@ function initPublications() {
   const list = mountPubList(section, getItems, { pageSize: 6 });
   const update = () => {
     const n = list.reset().length;
-    found.textContent = `Найдено ${n} ${plural(n, "работа", "работы", "работ")}`;
+    found.textContent = `${t("Найдено")} ${nWord(n, ["работа", "работы", "работ"], ["paper", "papers"])}`;
   };
   form.addEventListener("input", update);
   form.addEventListener("submit", (e) => e.preventDefault());
@@ -795,7 +842,8 @@ function initPublications() {
 /* ---------- новости ---------- */
 
 function initNews() {
-  const featured = NEWS.find((n) => n.featured);
+  const featuredRaw = NEWS.find((n) => n.featured);
+  const featured = featuredRaw && tr("news", featuredRaw.id, featuredRaw);
   const rest = NEWS.filter((n) => !n.featured);
 
   if (featured) {
@@ -803,12 +851,12 @@ function initNews() {
       <button class="featured__card${featured.image ? "" : " no-image"}" type="button" data-open-news="${featured.id}">
         ${featured.image ? `<span class="featured__img">${newsPhoto(featured)}</span>` : ""}
         <span class="featured__body">
-          <span class="news-meta"><span class="tag">${esc(featured.tag)}</span><time class="news-meta__date" datetime="${featured.date}">${formatDate(featured.date)}</time></span>
+          <span class="news-meta"><span class="tag">${esc(t(featured.tag))}</span><time class="news-meta__date" datetime="${featured.date}">${formatDate(featured.date)}</time></span>
           <span class="featured__main">
             <span class="featured__title">${newsTitleHTML(featured.title)}</span>
             <span class="featured__text">${esc(featured.text)}</span>
           </span>
-          <span class="link-arrow">Читать ${ICONS.arrowRight}</span>
+          <span class="link-arrow">${t("Читать")} ${ICONS.arrowRight}</span>
         </span>
       </button>`;
   } else {
@@ -820,11 +868,12 @@ function initNews() {
   const total = document.querySelector(".news-all .pubs__sub");
   const pageSize = 6;
   let shown = pageSize;
-  total.textContent = `Всего ${NEWS.length} ${plural(NEWS.length, "новость", "новости", "новостей")}`;
+  total.textContent = LANG === "en" ? `${nWord(NEWS.length, [], ["story", "stories"])} in total`
+    : `Всего ${NEWS.length} ${plural(NEWS.length, "новость", "новости", "новостей")}`;
   const render = () => {
     grid.innerHTML = rest.slice(0, shown).map(newsCardHTML).join("");
     const visible = Math.min(shown, rest.length) + (featured ? 1 : 0);
-    more.querySelector(".more__count").textContent = `Показано ${visible} из ${NEWS.length}`;
+    more.querySelector(".more__count").textContent = shownOf(visible, NEWS.length);
     more.querySelector("button").hidden = shown >= rest.length;
   };
   more.querySelector("button").addEventListener("click", () => { shown += pageSize; render(); });

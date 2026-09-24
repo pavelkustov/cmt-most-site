@@ -16,7 +16,9 @@ from playwright.sync_api import sync_playwright
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SHOTS = "--shots" in sys.argv
-PAGES = ["index.html", "direction.html?id=puf", "direction.html?id=biosensing", "publications.html", "news.html", "404.html"]
+PAGES = ["index.html", "direction.html?id=puf", "direction.html?id=biosensing", "publications.html", "news.html", "404.html",
+         # английская версия: страницы собирает tools/build_en.py
+         "en/index.html", "en/direction.html?id=puf", "en/publications.html", "en/news.html"]
 WIDTHS = [1920, 1440, 1024, 390]
 
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
@@ -72,10 +74,10 @@ NEWS_PAGE = 6  # столько новостей показывает стран
 import hashlib
 
 stale = []
-for html in ROOT.glob("*.html"):
-    for path, ver in re.findall(r'(?:href|src)="(assets/(?:css|js)/[^"?]+)(?:\?v=([0-9a-f]+))?"', html.read_text(encoding="utf-8")):
-        if ver != hashlib.sha1((ROOT / path).read_bytes()).hexdigest()[:8]:
-            stale.append(f"{html.name}: {path}")
+for html in [*ROOT.glob("*.html"), *ROOT.glob("en/*.html")]:
+    for path, ver in re.findall(r'(?:href|src)="((?:\.\./)?assets/(?:css|js)/[^"?]+)(?:\?v=([0-9a-f]+))?"', html.read_text(encoding="utf-8")):
+        if ver != hashlib.sha1((html.parent / path).read_bytes()).hexdigest()[:8]:
+            stale.append(f"{html.relative_to(ROOT).as_posix()}: {path}")
 
 
 def note(cond, msg):
@@ -198,7 +200,7 @@ with sync_playwright() as p:
 
     # первый экран целиком помещается в широкие невысокие окна (Chrome с панелями, масштаб Windows 125%)
     fits = [(w, h, u) for w, h in [(2000, 930), (1536, 730), (1920, 960), (2560, 1300)]
-            for u in ["index.html", "direction.html?id=puf", "news.html"]]
+            for u in ["index.html", "direction.html?id=puf", "news.html", "en/index.html", "en/direction.html?id=puf", "en/news.html"]]
     for w, h, u in fits:
         pg = browser.new_context(viewport={"width": w, "height": h}).new_page()
         pg.goto(base + u, wait_until=WAIT, timeout=TIMEOUT)
@@ -263,6 +265,25 @@ with sync_playwright() as p:
         if SHOTS:
             pg.screenshot(path=str(ROOT / "tools" / "shots" / f"popup-{w}x{h}.png"))
         pg.close()
+
+    # английская версия: язык страницы, переключатель ведет на ту же страницу другого языка, логотип свой.
+    # Кириллица в тексте страницы пока не ошибка (направления и новости переводятся по этапам), а замечание
+    en = browser.new_context(viewport={"width": 1440, "height": 900}).new_page()
+    for u in ["index.html", "news.html", "publications.html", "direction.html?id=puf"]:
+        en.goto(base + "en/" + u, wait_until=WAIT, timeout=TIMEOUT)
+        check(en.evaluate("document.documentElement.lang") == "en", f"en/{u}: у страницы не английский lang")
+        href = en.locator("[data-lang-switch]").get_attribute("href") or ""
+        check(href.startswith("../") and u.split("?")[0] in href, f"en/{u}: переключатель ведет не на русскую версию: {href}")
+        check("logo-en" in (en.locator(".site-header__logo img").get_attribute("src") or ""), f"en/{u}: в шапке не английский логотип")
+        # русским намеренно остается помеченное lang="ru" (кнопка «Ру», двуязычное название программы)
+    # и список публикаций: названия, абстракты и теги работ на языке статьи
+        ru_left = en.evaluate("""(() => { const c = document.body.cloneNode(true); c.querySelectorAll('[lang=ru], .pub-list').forEach((e) => e.remove());
+            document.body.append(c); c.style.cssText = 'position:absolute;left:-99999px'; const n = (c.innerText.match(/[А-Яа-яЁё]+/g) || []).length; c.remove(); return n; })()""")
+        note(ru_left == 0, f"en/{u}: на странице {ru_left} русских слов, не хватает перевода (docs/EN_VERSION.md)")
+    en.goto(base + "index.html", wait_until=WAIT, timeout=TIMEOUT)
+    href = en.locator("[data-lang-switch]").get_attribute("href") or ""
+    check(href.startswith("en/"), f"главная: переключатель EN ведет не в en/: {href}")
+    en.close()
 
     mob = browser.new_context(viewport={"width": 390, "height": 844}).new_page()
     mob.goto(base + "index.html", wait_until=WAIT, timeout=TIMEOUT)

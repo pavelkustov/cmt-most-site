@@ -11,7 +11,8 @@
 | `direction.html?id=puf` | Страница научного направления (id из `assets/js/data.js`) |
 | `publications.html` | Все публикации с поиском, фильтрами и видом «карточки / список» |
 | `news.html` | Новости, новость месяца и попап (`news.html?open=<id>` открывает новость сразу) |
-| `404.html` | Страница «не найдено», GitHub Pages отдает ее на любой несуществующий адрес |
+| `404.html` | Страница «не найдено», GitHub Pages отдает ее на любой несуществующий адрес (внутри `en/` она сама переходит на английский) |
+| `en/*.html` | Английская версия тех же страниц. Руками не правится, ее собирает `python tools/build_en.py`, подробности в `docs/EN_VERSION.md` |
 
 ## Как посмотреть локально
 
@@ -153,6 +154,8 @@ python tools/fetch_fonts.py
 ## Проверка перед публикацией
 
 ```powershell
+python tools/en_content.py --import   # переводы направлений, людей и новостей из docs/EN_*.md в assets/js/en-content.js
+python tools/build_en.py       # английские страницы en/ из русских (падает, если на них осталась кириллица)
 python tools/bump_assets.py    # метки версий ?v= у CSS/JS, чтобы браузеры не показывали старый кэш
 python tools/smoke.py          # ошибки JS, битые картинки, горизонтальный скролл, фильтры, попап
 python tools/smoke.py --shots  # то же и скриншоты в tools/shots/
@@ -172,11 +175,14 @@ python tools/smoke.py --shots  # то же и скриншоты в tools/shots/
 
 ```
 index.html, direction.html, publications.html, news.html, 404.html
+en/                      английская версия страниц (собирает tools/build_en.py)
 robots.txt, sitemap.xml  для поисковиков
 assets/css/style.css     стили (1rem = 10px на ширине 1920, дальше масштабируется)
 assets/css/fonts.css     подключение шрифтов из assets/fonts (собирает tools/fetch_fonts.py)
 assets/js/data.js        контент
-assets/js/layout.js      шапка, подвал, иконки, типографика (предлоги не висят в конце строки)
+assets/js/layout.js      шапка, подвал, иконки, типографика (предлоги не висят в конце строки), язык страницы
+assets/js/en.js          словарь интерфейса английской версии
+assets/js/en-content.js  переводы направлений, людей и новостей (собирает tools/en_content.py из docs/EN_*.md)
 assets/og                картинки превью ссылок 1200x630 (tools/make_share_images.py рисует их и PNG-иконки)
 assets/icons/favicon.svg иконка сайта: мост из логотипа, перерисован в вектор
 assets/js/main.js        логика страниц

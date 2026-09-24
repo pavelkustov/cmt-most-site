@@ -13,6 +13,8 @@
       var base = document.createElement("base");
       base.href = root;
       document.head.appendChild(base);
+      // адрес внутри en/ (английская версия): страница показывается по-английски, см. скрипт в конце
+      if (location.pathname.slice(root.length - 1).indexOf("/en/") === 0) document.documentElement.lang = "en";
     })();
   </script>
   <title>Страница не найдена · ЦМТ «Мост»</title>
@@ -24,9 +26,9 @@
   <link rel="preload" href="assets/fonts/inter-cyrillic-9f73b2f4.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-f11d729b.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/fonts.css?v=0293d912">
-  <link rel="stylesheet" href="assets/css/style.css?v=49d2bb3b">
+  <link rel="stylesheet" href="assets/css/style.css?v=c6954caf">
   <!-- шапка и подвал этой странице не нужны, от layout.js берем только типографику (data-layout="off") -->
-  <script src="assets/js/layout.js?v=0cf11d31" defer></script>
+  <script src="assets/js/layout.js?v=7f73434b" defer></script>
 </head>
 <body data-page="404" data-layout="off">
 <div class="page oops">
@@ -70,5 +72,25 @@
 
   <p class="oops__foot">ЦМТ «Мост» · Университет ИТМО</p>
 </div>
+<script>
+  /* Английская версия страницы «не найдено»: GitHub Pages отдает этот же файл и на адреса внутри en/.
+     Тексты заменяем здесь, ссылки ведут на английские страницы, логотип английский */
+  if (document.documentElement.lang === "en") {
+    document.title = "Page not found · ITC «Bridge»";
+    var q = function (s) { return document.querySelector(s); };
+    q(".oops__logo").setAttribute("aria-label", "ITC «Bridge», home page");
+    q(".oops__logo").href = "en/index.html";
+    q(".oops__logo img").src = "assets/img/logo-en.png";
+    q(".oops__logo img").alt = "ITMO, Interdisciplinary Technologies Center «Bridge»";
+    q(".oops__title").innerHTML = "This bridge<br>is not finished yet";
+    q(".oops__text").innerHTML = "There is no page at this address.<br>It has moved, or the link has a typo.";
+    var links = document.querySelectorAll(".oops__link");
+    links[0].textContent = "to news"; links[0].href = "en/news.html";
+    links[1].textContent = "to publications"; links[1].href = "en/publications.html";
+    var home = q(".oops__home");
+    home.firstChild.textContent = "home"; home.href = "en/index.html";
+    q(".oops__foot").textContent = "ITC «Bridge» · ITMO University";
+  }
+</script>
 </body>
 </html>
