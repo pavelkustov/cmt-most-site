@@ -408,20 +408,28 @@ function mountSlider(track, arrows, itemSel) {
     arrows.hidden = track.scrollWidth <= track.clientWidth + 4;
     prev.disabled = track.scrollLeft < 4;
     next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    track.classList.toggle("is-end", next.disabled);
+  };
+  // шаг вперед: там, где карточки встают по правой стрелке, до правого края следующей карточки
+  // (из начала этот шаг короче обычного), на телефоне в книжной ровно на карточку
+  const forward = () => {
+    if (!getComputedStyle(track.lastElementChild).scrollSnapAlign.includes("end")) return step();
+    const edge = track.getBoundingClientRect().right - (parseFloat(getComputedStyle(track).scrollPaddingRight) || 0);
+    const card = [...track.querySelectorAll(itemSel)].find((c) => c.getBoundingClientRect().right > edge + 2);
+    return card ? card.getBoundingClientRect().right - edge : step();
   };
   prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
-  next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
+  next.addEventListener("click", () => track.scrollBy({ left: forward(), behavior: "smooth" }));
   track.addEventListener("scroll", update, { passive: true });
   window.addEventListener("resize", update);
   update();
-  autoSlide(track, arrows, step);
+  autoSlide(track, arrows, forward);
 }
 
 /* Лента сама листается на карточку, как будто нажали стрелку «вперед»: первый раз через
    SLIDE_FIRST после того, как лента появилась на экране (иначе кажется, что блок застыл),
-   дальше раз в SLIDE_EVERY. В самый конец не заходит: там после последней карточки пустое
-   поле, и лента стояла бы в нем целый интервал. Как только следующий шаг упер бы ленту
-   в конец, она вместо него плавно уезжает к началу.
+   дальше раз в SLIDE_EVERY. Доходит до конца, где последняя карточка встает правым краем
+   по правой стрелке, и оттуда плавно уезжает к началу.
    Листает, только когда лента на экране и вкладка открыта. Пока над лентой мышь или в ней
    фокус, стоит. После касания, прокрутки или стрелки отсчет начинается заново, чтобы лента
    не уехала из-под руки. При «уменьшить движение» не листает */
@@ -438,9 +446,7 @@ function autoSlide(track, arrows, step) {
   const move = () => {
     const d = step();
     const room = track.scrollWidth - track.clientWidth - track.scrollLeft;
-    if (room > d + 4) track.scrollBy({ left: d, behavior: "smooth" });
-    // лента длиннее экрана меньше чем на две карточки: из начала все-таки показываем остаток
-    else if (track.scrollLeft < 4) track.scrollTo({ left: track.scrollWidth, behavior: "smooth" });
+    if (room > 4) track.scrollBy({ left: Math.min(d, room), behavior: "smooth" });
     else track.scrollTo({ left: 0, behavior: "smooth" });
     plan();
   };

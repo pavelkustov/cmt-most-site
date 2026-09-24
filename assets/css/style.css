@@ -342,10 +342,12 @@ svg { display: block; flex-shrink: 0; }
   display: flex; gap: 1.4rem; overflow-x: auto; scroll-snap-type: x mandatory;
   padding-inline: var(--gutter); scroll-padding-inline: var(--gutter); scrollbar-width: none;
 }
+/* поле справа такое же, как слева: в конце ленты последняя карточка встает правым краем
+   ровно по правой стрелке (владелец 24.09.2026). У ленты команды так же */
 .carousel::-webkit-scrollbar { display: none; }
 
 .dir-card {
-  flex: 0 0 55.4rem; height: 66.8rem; scroll-snap-align: start;
+  flex: 0 0 55.4rem; height: 66.8rem; scroll-snap-align: end;
   display: flex; flex-direction: column; gap: 4rem; padding-top: 4rem;
   background: var(--white); border-radius: var(--radius-l); overflow: hidden;
   isolation: isolate; /* без этого Chrome на время анимации теряет скругление углов у картинки */
@@ -538,9 +540,15 @@ svg { display: block; flex-shrink: 0; }
   -webkit-mask-image: linear-gradient(90deg, #000 70%, rgba(0,0,0,.55));
   mask-image: linear-gradient(90deg, #000 70%, rgba(0,0,0,.55));
 }
+/* затемнение справа подсказывает, что дальше есть еще люди; в конце ленты оно лишнее */
+.people.is-end { -webkit-mask-image: none; mask-image: none; }
 .people::-webkit-scrollbar { display: none; }
 /* margin: 0 — у figure браузерные поля по 40px, из-за них промежуток был 158px вместо 78px из макета */
-.person { margin: 0; position: relative; flex: 0 0 42.8rem; height: 52.7rem; border-radius: var(--radius-m); overflow: hidden; scroll-snap-align: start; color: var(--white); }
+.person { margin: 0; position: relative; flex: 0 0 42.8rem; height: 52.7rem; border-radius: var(--radius-m); overflow: hidden; scroll-snap-align: end; color: var(--white); }
+/* лента встает так, что правый край очередной карточки ровно по правой стрелке (владелец 24.09.2026),
+   а в начале первая карточка стоит у левого поля. На телефоне в книжной стрелок нет, там по левому краю */
+.dir-card:first-child, .person:first-child { scroll-snap-align: start; }
+@media (max-width: 760px) and (orientation: portrait) { .dir-card, .person { scroll-snap-align: start; } }
 .person img { width: 100%; height: 100%; object-fit: cover; }
 .person::after { content: ""; position: absolute; inset: 0; background: linear-gradient(179.85deg, rgba(255,255,255,0) 33.9%, var(--ink) 99%); }
 /* карточка сотрудника без фотографии: плашка фирменного цвета, затемнение снизу не нужно */
