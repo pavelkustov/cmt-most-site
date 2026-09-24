@@ -417,26 +417,34 @@ function mountSlider(track, arrows, itemSel) {
   autoSlide(track, arrows, step);
 }
 
-/* Лента сама листается на карточку раз в SLIDE_EVERY, как будто нажали стрелку, а с конца
-   плавно возвращается к началу. Листает, только когда лента на экране и вкладка открыта.
-   Пока над лентой мышь или в ней фокус, стоит. После касания, прокрутки или стрелки отсчет
-   начинается заново, чтобы лента не уехала из-под руки. При «уменьшить движение» не листает */
-const SLIDE_EVERY = 4000;
+/* Лента сама листается на карточку, как будто нажали стрелку «вперед»: первый раз через
+   SLIDE_FIRST после того, как лента появилась на экране (иначе кажется, что блок застыл),
+   дальше раз в SLIDE_EVERY. В самый конец не заходит: там после последней карточки пустое
+   поле, и лента стояла бы в нем целый интервал. Как только следующий шаг упер бы ленту
+   в конец, она вместо него плавно уезжает к началу.
+   Листает, только когда лента на экране и вкладка открыта. Пока над лентой мышь или в ней
+   фокус, стоит. После касания, прокрутки или стрелки отсчет начинается заново, чтобы лента
+   не уехала из-под руки. При «уменьшить движение» не листает */
+const SLIDE_FIRST = 2200;
+const SLIDE_EVERY = 3000;
 
 function autoSlide(track, arrows, step) {
   if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
   let timer = null, visible = false, held = false;
-  const stop = () => { clearTimeout(timer); timer = null; };
-  const plan = () => {
-    stop();
-    if (visible && !held && !document.hidden && !arrows.hidden) timer = setTimeout(move, SLIDE_EVERY);
+  const plan = (delay = SLIDE_EVERY) => {
+    clearTimeout(timer);
+    if (visible && !held && !document.hidden && !arrows.hidden) timer = setTimeout(move, delay);
   };
   const move = () => {
-    const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
-    if (atEnd) track.scrollTo({ left: 0, behavior: "smooth" });
-    else track.scrollBy({ left: step(), behavior: "smooth" });
+    const d = step();
+    const room = track.scrollWidth - track.clientWidth - track.scrollLeft;
+    if (room > d + 4) track.scrollBy({ left: d, behavior: "smooth" });
+    // лента длиннее экрана меньше чем на две карточки: из начала все-таки показываем остаток
+    else if (track.scrollLeft < 4) track.scrollTo({ left: track.scrollWidth, behavior: "smooth" });
+    else track.scrollTo({ left: 0, behavior: "smooth" });
     plan();
   };
+  const again = () => plan();
   const hold = (on) => (e) => {
     // касание на сенсорном экране тоже шлет «наведение», но без ухода: иначе лента застыла бы
     if (e.pointerType && e.pointerType !== "mouse") return;
@@ -446,10 +454,10 @@ function autoSlide(track, arrows, step) {
   track.addEventListener("pointerleave", hold(false));
   track.addEventListener("focusin", hold(true));
   track.addEventListener("focusout", hold(false));
-  ["pointerdown", "wheel", "touchstart"].forEach((type) => track.addEventListener(type, plan, { passive: true }));
-  arrows.addEventListener("click", plan);
-  document.addEventListener("visibilitychange", plan);
-  new IntersectionObserver(([e]) => { visible = e.isIntersecting; plan(); }, { threshold: 0.3 }).observe(track);
+  ["pointerdown", "wheel", "touchstart"].forEach((type) => track.addEventListener(type, again, { passive: true }));
+  arrows.addEventListener("click", again);
+  document.addEventListener("visibilitychange", () => plan(SLIDE_FIRST));
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; plan(SLIDE_FIRST); }, { threshold: 0.3 }).observe(track);
 }
 
 /* Перетаскивание ленты мышью (на телефоне и тачпаде прокрутка и так работает) */
