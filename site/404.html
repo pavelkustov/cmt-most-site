@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- политика безопасности: скрипты, стили, шрифты и картинки только с этого же сайта,
+       встроенных скриптов и атрибутов style нет. Запрет показа в чужой рамке (frame-ancestors)
+       в meta не работает, его ставит сервер, см. deploy/nginx.conf -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <!-- страница отдается на любой несуществующий адрес, в том числе вложенный: относительные пути
+       к стилям и картинкам считаем от корня сайта. Корень вписывает сборка (tools/build.py) -->
+  <base href="{{SITE_PATH}}">
+  <title>Страница не найдена · ЦМТ «Мост»</title>
+  <meta name="description" content="Такой страницы на сайте ЦМТ «Мост» нет. Перейдите на главную или в другие разделы сайта.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/inter-cyrillic-9f73b2f4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin-f11d729b.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- шапка и подвал этой странице не нужны, от layout.js берем типографику и английский текст (data-layout="off") -->
+  <script src="assets/js/layout.js" defer></script>
+</head>
+<body data-page="404" data-layout="off">
+<div class="page oops">
+  <div class="oops__bg" aria-hidden="true"><img src="assets/img/hero-home.webp" alt="" fetchpriority="high"></div>
+
+  <a class="oops__logo" href="index.html" aria-label="ЦМТ «Мост», на главную">
+    <img src="assets/img/logo.png" alt="ИТМО, Центр междисциплинарных технологий «Мост»" width="364" height="80">
+  </a>
+
+  <main class="oops__inner">
+    <!-- мост из логотипа, разведенный посередине: половины разъезжаются при загрузке
+         и сходятся обратно, когда наводишь на «на главную».
+         Линии те же, что в assets/icons/favicon.svg, только каждая дуга разрезана пополам. -->
+    <!-- поле viewBox с запасом по бокам: половины разъезжаются, и без запаса края обрезались бы -->
+    <svg class="bridge" viewBox="6 32 144 92" fill="none" aria-hidden="true">
+      <g stroke="currentColor" stroke-width="9" stroke-linecap="round">
+        <g class="bridge__half bridge__half--left">
+          <path d="M31 41C36 70 55 85 78 85"/>
+          <path d="M31 41C37 66 38 92 26 111"/>
+          <path d="M26 111C45 92 60 88 78 88"/>
+          <path d="M41 76 54.5 114"/>
+        </g>
+        <g class="bridge__half bridge__half--right">
+          <path d="M78 85C101 85 120 70 125 41"/>
+          <path d="M125 41C119 66 118 92 130 111"/>
+          <path d="M78 88C96 88 111 92 130 111"/>
+          <path d="M116 76 101 114"/>
+        </g>
+      </g>
+    </svg>
+
+    <h1 class="oops__title">Мост в эту сторону<br>не достроен</h1>
+    <p class="oops__text">Страницы по такому адресу нет.<br>Ее перенесли или в ссылке опечатка.</p>
+
+    <div class="oops__actions">
+      <a class="oops__link" href="news.html">в новости</a>
+      <a class="oops__link" href="publications.html">в публикации</a>
+      <a class="btn btn--light oops__home" href="index.html">на главную<span class="btn__icon btn__icon--arrow"><svg viewBox="21 21 40 40" fill="none" aria-hidden="true"><path d="M56.97 24.6H24.6M56.17 26.05 24.82 57.4M57.4 56.96V24.6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></span></a>
+    </div>
+  </main>
+
+  <p class="oops__foot">ЦМТ «Мост» · Университет ИТМО</p>
+</div>
+</body>
+</html>

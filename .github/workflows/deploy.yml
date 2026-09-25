@@ -1,0 +1,51 @@
+# Публикация сайта на GitHub Pages: пуш в main собирает сайт, прогоняет смоук и выкладывает dist/.
+# Если смоук упал, сайт не обновляется. Наружу уходит только dist/: исходники, скрипты и документы
+# по адресу сайта больше не открываются.
+# В настройках репозитория: Settings -> Pages -> Source: GitHub Actions.
+name: Сборка и публикация
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Браузер для смоука
+        run: |
+          python -m pip install --disable-pip-version-check "$(grep '^playwright==' requirements.txt | cut -d' ' -f1)"
+          python -m playwright install --with-deps chromium
+      - name: Сборка и смоук
+        run: python tools/smoke.py
+      - name: Проверка кода скриптов
+        run: |
+          python -m pip install --disable-pip-version-check "$(grep '^pyflakes==' requirements.txt | cut -d' ' -f1)"
+          python -m pyflakes tools
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

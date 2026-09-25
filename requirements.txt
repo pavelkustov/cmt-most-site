@@ -1,0 +1,11 @@
+# Пакеты для скриптов в tools/. Сама сборка сайта (tools/build.py) обходится без них.
+# Установка: python -m pip install -r requirements.txt, затем python -m playwright install chromium
+# Версии закреплены: с ними все проверено, обновлять осознанно и с прогоном смоука.
+
+playwright==1.60.0       # смоук, замер заголовков новостей, картинки превью
+python-docx==1.2.0       # анкета новостей (tools/news/form.py)
+openpyxl==3.1.5          # книга сотрудников (tools/people/book.py, tools/publications/collect.py)
+opencv-python==4.13.0.92 # кадрирование фото новостей по лицам, картинки из Figma
+numpy==2.4.4             # вместе с opencv
+pillow==12.1.1           # фото новостей
+pyflakes==4.0.0          # проверка кода скриптов: python -m pyflakes tools

@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- политика безопасности: скрипты, стили, шрифты и картинки только с этого же сайта,
+       встроенных скриптов и атрибутов style нет. Запрет показа в чужой рамке (frame-ancestors)
+       в meta не работает, его ставит сервер, см. deploy/nginx.conf -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>ЦМТ «Мост» · Университет ИТМО</title>
+  <meta name="description" content="Центр междисциплинарных технологий «Мост» физического факультета Университета ИТМО. Соединяем образование, науку и индустрию.">
+  <link rel="canonical" href="{{SITE_URL}}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ЦМТ «Мост» · Университет ИТМО">
+  <meta property="og:title" content="ЦМТ «Мост» · Университет ИТМО">
+  <meta property="og:description" content="Соединяем образование, науку и индустрию">
+  <meta property="og:url" content="{{SITE_URL}}">
+  <meta property="og:image" content="{{SITE_URL}}assets/og/home.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/inter-cyrillic-9f73b2f4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin-f11d729b.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/layout.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <!-- разметка организации для поисковиков: название, принадлежность к ИТМО, контакты -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ResearchOrganization",
+    "name": "Центр междисциплинарных технологий «Мост»",
+    "alternateName": "ЦМТ «Мост»",
+    "description": "Центр междисциплинарных технологий «Мост» физического факультета Университета ИТМО. Соединяем образование, науку и индустрию.",
+    "url": "{{SITE_URL}}",
+    "logo": "{{SITE_URL}}assets/img/logo.png",
+    "email": "bridge@metalab.ifmo.ru",
+    "telephone": "+79117718421",
+    "parentOrganization": {
+      "@type": "CollegeOrUniversity",
+      "name": "Университет ИТМО",
+      "url": "https://itmo.ru/"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Санкт-Петербург",
+      "addressCountry": "RU"
+    },
+    "sameAs": ["https://physics.itmo.ru/"]
+  }
+  </script>
+</head>
+<body data-page="home" data-nav="home">
+<div class="page">
+
+  <section class="hero hero--home">
+    <div class="hero__bg" aria-hidden="true"><img src="assets/img/hero-home.webp" alt="" fetchpriority="high"></div>
+    <div class="hero__content">
+      <h1 class="hero__title"><em>Соединяем</em><br>образование,<br>науку и индустрию</h1>
+      <div class="hero__bottom">
+        <p class="hero__subtitle">ЦМТ «Мост» — центр междисциплинарных технологий физического факультета Университета ИТМО</p>
+        <a class="btn btn--light" href="mailto:bridge@metalab.ifmo.ru" data-write>написать<span class="btn__icon"><svg viewBox="0 0 30 26.15" fill="none" aria-hidden="true"><path d="M26.47 1A2.53 2.53 0 0 1 29 3.53v13.61a2.53 2.53 0 0 1-2.53 2.53H13.67l-7.6 5.32a.9.9 0 0 1-1.4-.8l.36-4.52h-1.5A2.53 2.53 0 0 1 1 17.14V3.53A2.53 2.53 0 0 1 3.53 1H21.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="10.15" cy="10.65" r="1.17" fill="currentColor"/><circle cx="15.11" cy="10.65" r="1.17" fill="currentColor"/><circle cx="20.07" cy="10.65" r="1.17" fill="currentColor"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="about container" id="about">
+      <div class="section-head about__head">
+        <h2 class="h2">ЦМТ «Мост»</h2>
+        <p class="lead">центр, где научные идеи доводятся до практических<br>R&amp;D-решений и интегрируются в образование</p>
+      </div>
+      <!-- в каждом месте своя тройка цифр, они сменяют друг друга: списки и сами числа
+           считаются в main.js по данным сайта, здесь стоит то, что видно первым -->
+      <div class="metrics">
+        <div class="metric" data-slot="people">
+          <div class="metric__icon" aria-hidden="true">
+            <img class="mi-p1" src="assets/icons/m-people-1.svg" alt="">
+            <img class="mi-p2" src="assets/icons/m-people-2.svg" alt="">
+            <img class="mi-p3" src="assets/icons/m-people-3.svg" alt="">
+            <img class="mi-p4" src="assets/icons/m-people-4.svg" alt="">
+          </div>
+          <div class="metric__body">
+            <p class="metric__title">38 человек</p>
+            <p class="metric__text">работает над наукой, образованием и технологиями центра</p>
+          </div>
+        </div>
+        <div class="metric" data-slot="works">
+          <div class="metric__icon" aria-hidden="true">
+            <img class="mi-d1" src="assets/icons/m-doc-1.svg" alt="">
+            <img class="mi-d2" src="assets/icons/m-doc-2.svg" alt="">
+            <img class="mi-l1" src="assets/icons/m-doc-line.svg" alt="">
+            <img class="mi-l2" src="assets/icons/m-doc-line.svg" alt="">
+            <img class="mi-l3" src="assets/icons/m-doc-line.svg" alt="">
+          </div>
+          <div class="metric__body">
+            <p class="metric__title">478 публикаций</p>
+            <p class="metric__text">опубликовано сотрудниками центра в высокорейтинговых журналах</p>
+          </div>
+        </div>
+        <div class="metric" data-slot="impact">
+          <div class="metric__icon" aria-hidden="true">
+            <img class="mi-t" src="assets/icons/m-time.svg" alt="">
+          </div>
+          <div class="metric__body">
+            <p class="metric__title">11 лет</p>
+            <p class="metric__text">ведется научно&#8209;образовательная деятельность центра (с 2015&nbsp;года)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="science" id="science">
+      <div class="container science__head">
+        <div class="section-head">
+          <h2 class="h2">Наука</h2>
+          <p class="lead">работаем на стыке фундаментальной и прикладной направленности</p>
+        </div>
+        <div class="slider-arrows">
+          <button class="square-btn" type="button" aria-label="Предыдущие направления"><svg viewBox="0 0 82 82" fill="none" aria-hidden="true"><path d="M63.88 40.69 41 17.81M62.3 41.15H17.96M41.31 63.88 64.19 41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+          <button class="square-btn" type="button" aria-label="Следующие направления"><svg viewBox="0 0 82 82" fill="none" aria-hidden="true"><path d="M63.88 40.69 41 17.81M62.3 41.15H17.96M41.31 63.88 64.19 41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        </div>
+      </div>
+      <div class="carousel" aria-label="Научные направления"></div>
+    </section>
+
+    <section class="industry container" id="industry">
+      <div class="section-head">
+        <h2 class="h2">Индустрия</h2>
+        <p class="lead">от технического задания до готового продукта: реверс-инжиниринг, разработка технологий и производство микро- и наноструктур</p>
+      </div>
+
+      <div class="timeline">
+        <img class="timeline__line" src="assets/icons/timeline.svg" alt="" width="1690" height="59">
+        <!-- на телефоне вместо линии: полоса из четырех отрезков, этапы строками под ней -->
+        <div class="timeline__bar" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <ol class="timeline__steps">
+          <li>Проработка <br>технического задания</li>
+          <li>Изготовление <br>макетов</li>
+          <li>Проведение <br>испытаний</li>
+          <li>Финальная упаковка <br>продукта</li>
+        </ol>
+      </div>
+
+      <div class="ind-grid">
+        <article class="ind-card">
+          <h3 class="ind-card__title">Реверс-инжиниринг оптического оборудования</h3>
+          <ul class="bullets">
+            <li>Входное тестирование и деконструирование</li>
+            <li>Анализ материалов и свойств</li>
+            <li>Построение CAD-моделей и цифровых двойников</li>
+            <li>Реверс оптомеханики, электроники и ПО</li>
+          </ul>
+        </article>
+        <article class="ind-card">
+          <h3 class="ind-card__title">Разработка технологий<br>и оборудования</h3>
+          <ul class="bullets">
+            <li>Лазерные технологии и устройства</li>
+            <li>Оптические системы и приборы</li>
+            <li>Тонкопленочные покрытия</li>
+            <li>Малотоннажная химия</li>
+            <li>Микрофлюидные устройства</li>
+          </ul>
+        </article>
+        <a class="ind-photo" href="https://physics.itmo.ru/ru/facilities" target="_blank" rel="noopener">
+          <img src="assets/img/industry-equipment.webp" alt="" loading="lazy">
+          <h3 class="ind-photo__title">Оборудование</h3>
+          <span class="link-arrow">подробнее <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10h10.98M10.5 15.5 15.98 10 10.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <article class="ind-card ind-card--wide">
+          <h3 class="ind-card__title">Производство микро- и наноструктур</h3>
+          <ul class="bullets">
+            <li><div>Наночастицы:
+              <div class="tags">
+                <span class="tag">золото</span><span class="tag">серебро</span><span class="tag">сульфида меди</span>
+                <span class="tag">кремния</span><span class="tag">карбоната кальция</span><span class="tag">полимерные</span>
+              </div>
+            </div></li>
+            <li>Квантовые точки сульфида серебра индия</li>
+            <li>Металлорганические каркасы</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="education" id="education">
+      <div class="education__photo"><img src="assets/img/education.webp" alt="Студентка настраивает оптическую схему в лаборатории" loading="lazy"></div>
+      <div class="education__body">
+        <div class="section-head">
+          <h2 class="h2">Образование</h2>
+          <p class="education__sub">Образовательный трек «Гибридные материалы»</p>
+        </div>
+        <p class="education__text"><b>Программа магистратуры «Современные квантовые и нанофотонные <br class="br-desk">системы / Advanced Quantum and Nanophotonic Systems».</b><br>
+          Главный акцент трека — междисциплинарные исследования, <br class="br-desk">поэтому мы ждем студентов с разным бэкграундом <br class="br-desk">(физиков, химиков, материаловедов, биологов), которые хотят <br class="br-desk">заниматься исследованиями на стыке наук. В рамках этого трека <br class="br-desk">вы познакомитесь с основами численного моделирования, <br class="br-desk">материаловедения, экспериментальной нанофотоники, <br class="br-desk">а также со специальными разделами органической химии <br class="br-desk">и клеточной биологии.</p>
+        <div class="facts">
+          <div class="fact"><p class="fact__label"><span class="fact__full">код направления</span><span class="fact__short">направление</span></p><p class="fact__value">16.04.01</p><p class="fact__note">Техническая физика</p></div>
+          <div class="fact"><p class="fact__label"><span class="fact__full">язык обучения</span><span class="fact__short">язык</span></p><p class="fact__value">Английский</p></div>
+          <div class="fact"><p class="fact__label"><span class="fact__full">Форма · срок</span><span class="fact__short">форма</span></p><p class="fact__value">Очная</p><p class="fact__note">2 года</p></div>
+        </div>
+        <a class="btn btn--outline" href="https://abit.itmo.ru/program/master/nanophotonic" target="_blank" rel="noopener">подробнее о треке<span class="btn__icon btn__icon--arrow"><svg viewBox="21 21 40 40" fill="none" aria-hidden="true"><path d="M56.97 24.6H24.6M56.17 26.05 24.82 57.4M57.4 56.96V24.6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></span></a>
+      </div>
+    </section>
+
+    <section class="news container" id="news">
+      <div class="section-head--row">
+        <h2 class="h2">Новости</h2>
+        <a class="link-arrow link-arrow--up link-arrow--all" href="news.html">Все новости <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M19.07 2.76H2.75M18.67 3.48 2.86 19.29M19.29 19.07V2.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+      </div>
+      <div class="news__grid"></div>
+    </section>
+  </main>
+
+  <!-- новость открывается прямо здесь, как на странице новостей -->
+  <div class="modal" hidden>
+    <div class="modal__backdrop"></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal__close" type="button" aria-label="Закрыть"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m4 4 12 12M16 4 4 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+      <!-- на широком экране обертка не видна (display: contents), картинка и текст стоят в две колонки;
+           на планшете и телефоне в ней прокручивается вся новость целиком, вместе с фото -->
+      <div class="modal__scroll">
+        <div class="modal__img"></div>
+        <div class="modal__body">
+          <div class="news-meta modal__meta"></div>
+          <h2 class="modal__title" id="modal-title"></h2>
+          <div class="modal__text"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -6,10 +6,10 @@
 
 Кто ее читает:
 
-- `python tools/people_from_book.py` переносит имена, степени и должности
+- `python tools/people/book.py` переносит имена, степени и должности
   в `window.PEOPLE` в `assets/js/data.js`. Руками этот список не правим.
-- `python tools/fetch_publications.py` собирает по идентификаторам из книги
-  базу статей `docs/publications_db.json`.
+- `python tools/publications/collect.py` собирает по идентификаторам из книги
+  базу статей `content/collected/publications_db.json`.
 
 Почты, телефоны, даты рождения и идентификаторы на сайт не идут.
 Сам файл в git не уходит (правило в `.gitignore`), он живет только

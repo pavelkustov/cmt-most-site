@@ -5,12 +5,12 @@
 - Макет: https://www.figma.com/design/cTykc0aa3pAAjbvKz7ngiY/Untitled
 - Секции макета: Компоненты, Главная, Направление (пустое и два заполненных, со списком и с карточками),
   Публикации, Новости, наведение на «Наука», попап новости.
-- Рендеры всех страниц лежат в `design/render-*.png`, исходные PNG из Figma в `design/source-img/` (и то и другое только локально, в git не идут).
+- Рендеры всех страниц лежат в `design/render-*.png`, исходные PNG из Figma в `data/figma/source-img/` (и то и другое только локально, в git не идут).
 - Ссылки на ассеты Figma в `design/assets_manifest.txt` живут около 7 дней (с 16.09.2026).
   Файл только локальный, в git не идет (временные ссылки Figma просит не публиковать).
-  Повторная выгрузка: `python design/download_assets.py`, затем `python design/optimize_images.py`.
+  Повторная выгрузка: `python tools/figma/download.py`, затем `python tools/figma/optimize_images.py`.
 - 16.09.2026 оставшиеся картинки выгружены через Figma REST API (лимит MCP на Starter исчерпан):
-  оригиналы лежат в `design/source-img/*-orig.*`, в WebP их переводит `python design/import_originals.py`.
+  оригиналы лежат в `data/figma/source-img/*-orig.*`, в WebP их переводит `python tools/figma/import_originals.py`.
   Для REST API нужен личный токен Figma (Settings → Security → Personal access tokens, scope File content: read),
   его не хранить в репозитории.
 
@@ -59,6 +59,6 @@
 
 ## Решения
 
-- Без фреймворков и сборки: GitHub Pages отдает файлы как есть, контент правится в одном `data.js`.
+- Без фреймворков. Данные в `content/*.json`, сайт собирает `tools/build.py` на чистом Python в `dist/`, публикует GitHub Actions (с 25.09.2026, до этого Pages отдавал репозиторий как есть, а контент лежал в `data.js`).
 - Шрифты Inter и Roboto из макета, подключены с Google Fonts.
 - Картинки публикаций размыты с зеленой подложкой, как в макете, при наведении становятся четкими.

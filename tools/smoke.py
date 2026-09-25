@@ -1,83 +1,67 @@
-"""Смоук-проверка сайта: ошибки JS, битые картинки, горизонтальный скролл, базовые сценарии.
+"""Смоук-проверка сайта: ошибки JS, битые картинки, горизонтальный скролл, нарушения CSP, базовые сценарии.
 
-Запуск из корня проекта:
-    python tools/smoke.py            # поднимет локальный сервер сам
-    python tools/smoke.py --shots    # плюс скриншоты в tools/shots/
+    python tools/smoke.py            соберет сайт (tools/build.py) и проверит dist/ на локальном сервере
+    python tools/smoke.py --shots    плюс скриншоты в tools/shots/
+    python tools/smoke.py --base https://pavelkustov.github.io/cmt-most-site/   проверит опубликованный сайт
 """
-import http.server
+import hashlib
 import re
-import pathlib
-import socketserver
 import sys
 import threading
-from functools import partial
 
 from playwright.sync_api import sync_playwright
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent
+import build
+from lib.browser import launch
+from lib.paths import DIRECTIONS, DIST, NEWS, PUBLICATIONS, ROOT
+from lib.server import make
+from lib.store import load
+
 SHOTS = "--shots" in sys.argv
+LIVE = "--base" in sys.argv
 PAGES = ["index.html", "direction.html?id=puf", "direction.html?id=biosensing", "publications.html", "news.html", "404.html",
-         # английская версия: страницы собирает tools/build_en.py
+         # английская версия: страницы собирает tools/build.py
          "en/index.html", "en/direction.html?id=puf", "en/publications.html", "en/news.html"]
 WIDTHS = [1920, 1440, 1024, 390]
 
-class QuietHandler(http.server.SimpleHTTPRequestHandler):
-    def log_message(self, *args):
-        pass
-
-    def handle_one_request(self):
-        # браузер бросает лишние соединения (предзагрузка шрифтов), на Windows это ошибка в консоли
-        try:
-            super().handle_one_request()
-        except (ConnectionAbortedError, ConnectionResetError):
-            self.close_connection = True
-
-
-# сервер многопоточный: браузер открывает несколько соединений сразу, на одном потоке страница зависала
-class QuietServer(socketserver.ThreadingTCPServer):
-    daemon_threads = True
-    allow_reuse_address = True
-
-
-handler = partial(QuietHandler, directory=str(ROOT))
-httpd = QuietServer(("127.0.0.1", 0), handler)
-port = httpd.server_address[1]
-threading.Thread(target=httpd.serve_forever, daemon=True).start()
-base = f"http://127.0.0.1:{port}/"
-# --base https://pavelkustov.github.io/cmt-most-site/ проверяет опубликованный сайт
-if "--base" in sys.argv:
+if LIVE:
     base = sys.argv[sys.argv.index("--base") + 1].rstrip("/") + "/"
+else:
+    if not build.build(quiet=True):
+        sys.exit("сборка не прошла, смоук не запускаю")
+    httpd, base = make(DIST)
+    threading.Thread(target=httpd.serve_forever, daemon=True).start()
 # живой сайт бывает медленным (GitHub Pages из РФ), там ждем событие load с большим таймаутом
 WAIT = "load"  # networkidle зависает, когда тормозят внешние шрифты
-TIMEOUT = 120_000 if "--base" in sys.argv else 30_000
+TIMEOUT = 120_000 if LIVE else 30_000
 
 problems = []
 notes = []
 checks = 0
 
 # ожидания считаем по данным сайта, а не пишем числом: контент меняется часто
-_data = (ROOT / "assets" / "js" / "data.js").read_text(encoding="utf-8")
-_dirs_block = _data[:_data.index("window.PUBLICATIONS")]
-_pubs_block = _data[_data.index("window.PUBLICATIONS"):_data.index("window.NEWS")]
-_news_block = _data[_data.index("window.NEWS"):]
-N_DIRECTIONS = len(re.findall(r'id: "[^"]+"', _dirs_block))
-N_PUBS_2022 = _pubs_block.count('date: "2022')
+PUBS = load(PUBLICATIONS)
+N_DIRECTIONS = len(load(DIRECTIONS))
+N_PUBS_2022 = sum(1 for p in PUBS if p["date"].startswith("2022"))
 PUB_PAGE = 6  # столько публикаций показывает страница до кнопки «показать еще»
 # поиск на странице публикаций идет по названию, авторам, журналу и тегам
-_pub_blocks = re.findall(r"\n  \{\n    date:.*?\n  \},", _pubs_block, re.S)
-N_NATURE = sum(1 for b in _pub_blocks if "nature" in b.lower())
-NEWS_IDS = re.findall(r'id: "([^"]+)"', _news_block)
+N_NATURE = sum(1 for p in PUBS if "nature" in " ".join([p.get("title", ""), p.get("authors", ""),
+                                                          p.get("journal", ""), *p.get("tags", [])]).lower())
+NEWS_IDS = [n["id"] for n in load(NEWS)]
 N_NEWS = len(NEWS_IDS)
 NEWS_PAGE = 6  # столько новостей показывает страница до кнопки «показать еще», кроме новости месяца
 
 # метки версий CSS/JS в HTML должны совпадать с содержимым файлов, иначе браузеры покажут старый кэш
-import hashlib
-
 stale = []
-for html in [*ROOT.glob("*.html"), *ROOT.glob("en/*.html")]:
-    for path, ver in re.findall(r'(?:href|src)="((?:\.\./)?assets/(?:css|js)/[^"?]+)(?:\?v=([0-9a-f]+))?"', html.read_text(encoding="utf-8")):
-        if ver != hashlib.sha1((html.parent / path).read_bytes()).hexdigest()[:8]:
-            stale.append(f"{html.relative_to(ROOT).as_posix()}: {path}")
+if not LIVE:
+    for html in [*DIST.glob("*.html"), *DIST.glob("en/*.html")]:
+        for path, ver in re.findall(r'(?:href|src)="((?:\.\./)?assets/(?:css|js)/[^"?]+)(?:\?v=([0-9a-f]+))?"', html.read_text(encoding="utf-8")):
+            if ver != hashlib.sha1((html.parent / path).read_bytes()).hexdigest()[:8]:
+                stale.append(f"{html.relative_to(DIST).as_posix()}: {path}")
+
+# нарушения политики безопасности (CSP) страница складывает сюда, их проверяем на каждой странице
+CSP_WATCH = """window.__csp = [];
+document.addEventListener('securitypolicyviolation', (e) => window.__csp.push(e.violatedDirective + ' ' + (e.blockedURI || 'inline')));"""
 
 
 def note(cond, msg):
@@ -97,13 +81,19 @@ def check(cond, msg):
         problems.append(msg)
 
 
-check(not stale, f"устаревшие метки версий, запустите python tools/bump_assets.py: {stale}")
+check(not stale, f"устаревшие метки версий в сборке: {stale}")
 
 
 with sync_playwright() as p:
-    browser = p.chromium.launch()
+    browser = launch(p)
     # раскладку проверяем без анимации появления первого экрана, иначе замеры попадают на середину движения
-    browser.new_context = (lambda orig: lambda **kw: orig(**{"reduced_motion": "reduce", **kw}))(browser.new_context)
+    new_context = browser.new_context
+
+    def quiet_context(**kw):
+        ctx = new_context(**{"reduced_motion": "reduce", **kw})
+        ctx.add_init_script(CSP_WATCH)
+        return ctx
+    browser.new_context = quiet_context
     for width in WIDTHS:
         ctx = browser.new_context(viewport={"width": width, "height": 900})
         for url in PAGES:
@@ -124,6 +114,8 @@ with sync_playwright() as p:
             check(not external, f"{tag}: страница ходит за шрифтами наружу {external}")
             overflow = page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
             check(overflow <= 1, f"{tag}: горизонтальный скролл страницы {overflow}px")
+            csp = page.evaluate("window.__csp || []")
+            check(not csp, f"{tag}: нарушения CSP {csp}")
             broken = page.evaluate("""[...document.images].filter(i => i.complete && i.naturalWidth === 0 && i.loading !== 'lazy').map(i => i.src)""")
             check(not broken, f"{tag}: не загрузились картинки {broken}")
             if url != "404.html":  # страница «не найдено» идет без шапки и подвала
@@ -164,14 +156,14 @@ with sync_playwright() as p:
     page.select_option("[name=year]", "2022")
     want = min(N_PUBS_2022, PUB_PAGE)
     check(page.locator(".pub").count() == want,
-          f"публикации: фильтр по году дал {page.locator('.pub').count()}, ждали {want} (в data.js {N_PUBS_2022})")
+          f"публикации: фильтр по году дал {page.locator('.pub').count()}, ждали {want} (в данных {N_PUBS_2022})")
     page.click(".view-toggle__btn[data-view=list]")
     check(page.locator(".pub-list.is-list").count() == 1, "публикации: не переключился вид «список»")
     check(not page.locator(".pub__img").first.is_visible(), "публикации: в виде «список» видны картинки")
 
     page.goto(base + "news.html", wait_until=WAIT, timeout=TIMEOUT)
     check(str(N_NEWS) in page.locator(".news-all .pubs__sub").inner_text(),
-          f"новости: в подписи нет числа новостей из data.js ({N_NEWS})")
+          f"новости: в подписи нет числа новостей из данных ({N_NEWS})")
     check(page.locator(".news-all .news-card").count() == min(NEWS_PAGE, N_NEWS - 1),
           f"новости: на первой странице {page.locator('.news-all .news-card').count()}, ждали {min(NEWS_PAGE, N_NEWS - 1)}")
     page.click(".news-all .more .btn")
@@ -192,7 +184,7 @@ with sync_playwright() as p:
     check(page.locator(".modal").is_visible(), "новости: попап не открылся")
     page.keyboard.press("Escape")
     check(not page.locator(".modal").is_visible(), "новости: попап не закрылся по Esc")
-    # id берем из data.js: заглушки из макета убраны, а имена новостей меняются вместе с контентом
+    # id берем из данных: заглушки из макета убраны, а имена новостей меняются вместе с контентом
     page.goto(base + f"news.html?open={NEWS_IDS[1]}", wait_until=WAIT, timeout=TIMEOUT)
     check(page.locator(".modal").is_visible(), "новости: попап по ссылке ?open= не открылся")
     check(bool(page.locator(".modal__title").inner_text().strip()),
@@ -238,6 +230,18 @@ with sync_playwright() as p:
         if SHOTS:
             pg.screenshot(path=str(ROOT / "tools" / "shots" / f"404-{w}x{h}.png"))
         pg.close()
+
+    # несуществующий адрес: сервер отдает 404.html, вложенность пути ей не мешает, внутри en/ она английская
+    if not LIVE:
+        for u, lang in [("nope/deep/page.html", "ru"), ("en/nope/page.html", "en")]:
+            pg = browser.new_context(viewport={"width": 1440, "height": 900}).new_page()
+            resp = pg.goto(base + u, wait_until=WAIT, timeout=TIMEOUT)
+            check(resp.status == 404, f"{u}: сервер ответил {resp.status}, а не 404")
+            broken = pg.evaluate("[...document.images].filter(i => i.complete && i.naturalWidth === 0).map(i => i.src)")
+            check(not broken, f"{u}: на странице «не найдено» не загрузились картинки {broken}")
+            check(pg.evaluate("document.documentElement.lang") == lang, f"{u}: страница «не найдено» не на языке {lang}")
+            check(pg.evaluate("document.styleSheets.length") >= 2, f"{u}: у страницы «не найдено» не подгрузились стили")
+            pg.close()
 
     # попап целиком виден в окне, а длинный текст прокручивается внутри него.
     # Раньше проверялось, что текст влезает без прокрутки, и это скрывало обрезку:
@@ -292,7 +296,8 @@ with sync_playwright() as p:
     check(mob.locator(".nav").is_visible(), "мобилка: бургер не открыл меню")
     browser.close()
 
-httpd.shutdown()
+if not LIVE:
+    httpd.shutdown()
 print(f"проверок {checks}, проблем {len(problems)}")
 for n in notes:
     print(" ~ " + n)

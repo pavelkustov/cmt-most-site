@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://pavelkustov.github.io/cmt-most-site/sitemap.xml
